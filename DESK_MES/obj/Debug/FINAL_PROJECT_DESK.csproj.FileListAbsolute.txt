@@ -1,0 +1,17 @@
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.frmMain.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.Properties.Resources.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.csproj.GenerateResource.cache
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.csproj.CoreCompileInputs.cache
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.FormStyle_1.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\bin\Debug\FINAL_PROJECT_DESK.exe.config
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\bin\Debug\FINAL_PROJECT_DESK.exe
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\bin\Debug\FINAL_PROJECT_DESK.pdb
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.exe
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.pdb
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.frmOrder.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.frmProduct.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.frmRelease.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.Button.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.frmPurchaseStatus.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.FormStyle_3.resources
+C:\Users\wsms2\source\repos\FINAL_PROJECT_DESK\FINAL_PROJECT_DESK\obj\Debug\FINAL_PROJECT_DESK.frmSalesStatus.resources
