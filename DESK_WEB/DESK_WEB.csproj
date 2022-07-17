@@ -122,6 +122,13 @@
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Trade\Purchase.cshtml" />
+    <Content Include="Views\Trade\Order.cshtml" />
+    <Content Include="Views\Work\Performance.cshtml" />
+    <Content Include="Views\Work\InoperativeEquipment.cshtml" />
+    <Content Include="Views\Work\InspectHistory.cshtml" />
+    <Content Include="Views\Work\DeffectHistory.cshtml" />
+    <Content Include="Views\Work\MaterialHistory.cshtml" />
+    <Content Include="Views\Work\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -133,7 +140,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Lot\" />
-    <Folder Include="Views\Work\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

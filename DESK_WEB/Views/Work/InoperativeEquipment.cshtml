@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h3>설비 비가동 이력</h3>
+
+                <input type="date" style="width:150px; height:28px" /> ~
+                <input type="date" style="width:150px; height:28px" />
+                <input type="text" placeholder="설비명을 입력하세요." style="width:170px; height:28px" />
+                <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <table class="table text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">설비 번호</th>
+                        <th scope="col">설비명</th>
+                        <th scope="col">비가동 시작 시간</th>
+                        <th scope="col">비가동 종료 시간</th>
+                        <th scope="col">비가동 시간(분)</th>
+                        <th scope="col">비가동 등록자</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>21063</td>
+                        <td>UDPN0001</td>
+                        <td>2022-07-18 09:30:21</td>
+                        <td>2022-07-18 10:11:47</td>
+                        <td>41</td>
+                        <td>김철수</td>
+                    </tr>
+
+                    <tr>
+                        <td>10437</td>
+                        <td>HDTJ0008</td>
+                        <td>2022-07-19 16:30:21</td>
+                        <td>2022-07-19 16:43:47</td>
+                        <td>13</td>
+                        <td>김영희</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->  

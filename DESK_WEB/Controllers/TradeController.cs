@@ -18,5 +18,10 @@ namespace DESK_WEB.Controllers
         {
             return View();
         }
+
+        public ActionResult Order()
+        {
+            return View();
+        }
     }
 }

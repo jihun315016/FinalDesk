@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h3>작업 실적</h3>
+
+                <input type="date" style="width:150px; height:28px" /> ~
+                <input type="date" style="width:150px; height:28px" />
+                <input type="text" placeholder="품명을 입력하세요." style="width:170px; height:28px" />
+                <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <table class="table text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">작업 지시 번호</th>
+                        <th scope="col">품명</th>
+                        <th scope="col">작업 시작 시간</th>
+                        <th scope="col">작업 종료 시간</th>
+                        <th scope="col">작업 설비</th>
+                        <th scope="col">계획 수량</th>
+                        <th scope="col">생산 수량</th>
+                        <th scope="col">불량 수량</th>
+                        <th scope="col">양품률</th>
+                        <th scope="col">불량률</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>10326</td>
+                        <td>구디 책상</td>
+                        <td>2022-07-18 09:30:21</td>
+                        <td>2022-07-18 16:11:47</td>
+                        <td>GSIU01</td>
+                        <td>500</td>
+                        <td>497</td>
+                        <td>3</td>
+                        <td>99.4</td>
+                        <td>0.6</td>
+                    </tr>
+
+                    <tr>
+                        <td>10326</td>
+                        <td>ABC 책상</td>
+                        <td>2022-07-19 13:21:21</td>
+                        <td>2022-07-20 11:05:16</td>
+                        <td>GSIU02</td>
+                        <td>500</td>
+                        <td>499</td>
+                        <td>1</td>
+                        <td>99.8</td>
+                        <td>0.2</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->  

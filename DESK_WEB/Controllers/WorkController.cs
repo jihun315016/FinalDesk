@@ -13,5 +13,30 @@ namespace DESK_WEB.Controllers
         {
             return View();
         }
+
+        public ActionResult Performance()
+        {
+            return View();
+        }
+
+        public ActionResult InoperativeEquipment()
+        {
+            return View();
+        }
+
+        public ActionResult InspectHistory()
+        {
+            return View();
+        }
+
+        public ActionResult DeffectHistory()
+        {
+            return View();
+        }
+
+        public ActionResult MaterialHistory()
+        {
+            return View();
+        }
     }
 }
