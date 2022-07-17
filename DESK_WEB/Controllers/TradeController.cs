@@ -6,10 +6,15 @@ using System.Web.Mvc;
 
 namespace DESK_WEB.Controllers
 {
-    public class ProductController : Controller
+    public class TradeController : Controller
     {
-        // GET: Product
+        // GET: Trade
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Purchase()
         {
             return View();
         }

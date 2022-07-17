@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h3>매입 현황</h3>
+
+                <select class="col-sm-3" style="width: 150px; height: 28px">
+                    <option value="항목">유형 선택</option>
+                </select>
+                <select class="col-sm-3" style="width: 150px; height: 28px">
+                    <option class="col-sm-3" value="항목">품목 선택</option>
+                </select>
+                <input type="text" placeholder="품명을 입력하세요." style="width:170px; height:28px" />
+                <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">발주 번호</th>
+                        <th scope="col">발주 일자</th>
+                        <th scope="col">출하 일자</th>
+                        <th scope="col">거래처</th>
+                        <th scope="col">품번</th>
+                        <th scope="col">품명</th>
+                        <th scope="col">구매 수량</th>
+                        <th scope="col">가격</th>
+                        <th scope="col">총 금액</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>10016</td>
+                        <td>2022-07-17</td>
+                        <td>2022-07-18</td>
+                        <td>(주)삼성전자</td>
+                        <td>ABC0001</td>
+                        <td>비싼 책상</td>
+                        <td>10</td>
+                        <td>400,000</td>
+                        <td>4,000,000</td>
+                    </tr>
+
+                    <tr>
+                        <td>10017</td>
+                        <td>2022-07-17</td>
+                        <td>2022-07-18</td>
+                        <td>(주)LG전자</td>
+                        <td>ABD0005</td>
+                        <td>가성비 책상</td>
+                        <td>5</td>
+                        <td>120,000</td>
+                        <td>600,000</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->  
