@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DESK_MES", "DESK_MES\DESK_MES.csproj", "{E672A2B1-8542-456C-A893-93D014FF498D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DESK_POP", "DESK_POP\DESK_POP.csproj", "{899635FD-D136-433B-B81F-286E1E3244F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E672A2B1-8542-456C-A893-93D014FF498D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E672A2B1-8542-456C-A893-93D014FF498D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E672A2B1-8542-456C-A893-93D014FF498D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899635FD-D136-433B-B81F-286E1E3244F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899635FD-D136-433B-B81F-286E1E3244F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899635FD-D136-433B-B81F-286E1E3244F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899635FD-D136-433B-B81F-286E1E3244F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -97,3 +97,4 @@ C:\Users\admin\Desktop\최종 프로젝트\FinalDesk\DESK_MES\obj\Debug\DESK_MES
 C:\Users\admin\Desktop\최종 프로젝트\FinalDesk\DESK_MES\obj\Debug\DESK_MES.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\최종 프로젝트\FinalDesk\DESK_MES\obj\Debug\DESK_MES.exe
 C:\Users\admin\Desktop\최종 프로젝트\FinalDesk\DESK_MES\obj\Debug\DESK_MES.pdb
+C:\Users\admin\Desktop\최종 프로젝트\FinalDesk\DESK_MES\obj\Debug\DESK_MES.csproj.AssemblyReference.cache
