@@ -58,11 +58,11 @@
     <Compile Include="BaseForm\FormStyle_1.Designer.cs">
       <DependentUpon>FormStyle_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Button.cs">
+    <Compile Include="BaseForm\PopStyle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Button.Designer.cs">
-      <DependentUpon>Button.cs</DependentUpon>
+    <Compile Include="BaseForm\PopStyle.Designer.cs">
+      <DependentUpon>PopStyle.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseForm\FormStyle_3.cs">
       <SubType>Form</SubType>
@@ -70,137 +70,317 @@
     <Compile Include="BaseForm\FormStyle_3.Designer.cs">
       <DependentUpon>FormStyle_3.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBOM.cs">
+    <Compile Include="Forms\frmBOM\frmBOM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBOM.Designer.cs">
+    <Compile Include="Forms\frmBOM\frmBOM.Designer.cs">
       <DependentUpon>frmBOM.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmClient.cs">
+    <Compile Include="Forms\frmBOM\PopBOMDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClient.Designer.cs">
+    <Compile Include="Forms\frmBOM\PopBOMDelete.Designer.cs">
+      <DependentUpon>PopBOMDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBOM\PopBOMRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBOM\PopBOMRegister.Designer.cs">
+      <DependentUpon>PopBOMRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmClient\frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmClient\frmClient.Designer.cs">
       <DependentUpon>frmClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDefectList.cs">
+    <Compile Include="Forms\frmDefectList\frmDefectList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDefectList.Designer.cs">
+    <Compile Include="Forms\frmDefectList\frmDefectList.Designer.cs">
       <DependentUpon>frmDefectList.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipment.cs">
+    <Compile Include="Forms\frmEquipment\frmEquipment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEquipment.Designer.cs">
+    <Compile Include="Forms\frmEquipment\frmEquipment.Designer.cs">
       <DependentUpon>frmEquipment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipmentAndProcess.cs">
+    <Compile Include="Forms\frmEquipmentAndProcess\frmEquipmentAndProcess.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEquipmentAndProcess.Designer.cs">
+    <Compile Include="Forms\frmEquipmentAndProcess\frmEquipmentAndProcess.Designer.cs">
       <DependentUpon>frmEquipmentAndProcess.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipmentStop.cs">
+    <Compile Include="Forms\frmEquipmentStop\frmEquipmentStop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEquipmentStop.Designer.cs">
+    <Compile Include="Forms\frmEquipmentStop\frmEquipmentStop.Designer.cs">
       <DependentUpon>frmEquipmentStop.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInspectItem.cs">
+    <Compile Include="Forms\frmInspectItem\frmInspectItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInspectItem.Designer.cs">
+    <Compile Include="Forms\frmInspectItem\frmInspectItem.Designer.cs">
       <DependentUpon>frmInspectItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInspectItemList.cs">
+    <Compile Include="Forms\frmInsectItemList\frmInspectItemList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInspectItemList.Designer.cs">
+    <Compile Include="Forms\frmInsectItemList\frmInspectItemList.Designer.cs">
       <DependentUpon>frmInspectItemList.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLOT.cs">
+    <Compile Include="Forms\frmLOT\frmLOT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLOT.Designer.cs">
+    <Compile Include="Forms\frmLOT\frmLOT.Designer.cs">
       <DependentUpon>frmLOT.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManufacture.cs">
+    <Compile Include="Forms\frmManufacture\frmManufacture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManufacture.Designer.cs">
+    <Compile Include="Forms\frmManufacture\frmManufacture.Designer.cs">
       <DependentUpon>frmManufacture.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProcess.cs">
+    <Compile Include="Forms\frmProcess\frmProcess.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProcess.Designer.cs">
+    <Compile Include="Forms\frmProcess\frmProcess.Designer.cs">
       <DependentUpon>frmProcess.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOrder.cs">
+    <Compile Include="Forms\frmOrder\frmOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOrder.Designer.cs">
+    <Compile Include="Forms\frmOrder\frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProducts.cs">
+    <Compile Include="Forms\frmProducts\frmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProducts.Designer.cs">
+    <Compile Include="Forms\frmProducts\frmProducts.Designer.cs">
       <DependentUpon>frmProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPurchase.cs">
+    <Compile Include="Forms\frmPurchase\frmPurchase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPurchase.Designer.cs">
+    <Compile Include="Forms\frmPurchase\frmPurchase.Designer.cs">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPurchaseStatus.cs">
+    <Compile Include="Forms\frmPurchaseStatus\frmPurchaseStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPurchaseStatus.Designer.cs">
+    <Compile Include="Forms\frmPurchaseStatus\frmPurchaseStatus.Designer.cs">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRelease.cs">
+    <Compile Include="Forms\frmRelease\frmRelease.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRelease.Designer.cs">
+    <Compile Include="Forms\frmRelease\frmRelease.Designer.cs">
       <DependentUpon>frmRelease.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSalesStatus.cs">
+    <Compile Include="Forms\frmSalesStatus\frmSalesStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSalesStatus.Designer.cs">
+    <Compile Include="Forms\frmSalesStatus\frmSalesStatus.Designer.cs">
       <DependentUpon>frmSalesStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUser.cs">
+    <Compile Include="Forms\frmUser\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUser.Designer.cs">
+    <Compile Include="Forms\frmUser\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUserGroup.cs">
+    <Compile Include="Forms\frmUserGroup\frmUserGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUserGroup.Designer.cs">
+    <Compile Include="Forms\frmUserGroup\frmUserGroup.Designer.cs">
       <DependentUpon>frmUserGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWarehouse.cs">
+    <Compile Include="Forms\frmWarehouse\frmWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmWarehouse.Designer.cs">
+    <Compile Include="Forms\frmWarehouse\frmWarehouse.Designer.cs">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWorkOrder.cs">
+    <Compile Include="Forms\frmWorkOrder\frmWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmWorkOrder.Designer.cs">
+    <Compile Include="Forms\frmWorkOrder\frmWorkOrder.Designer.cs">
       <DependentUpon>frmWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOrder\PopOrderModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOrder\PopOrderModify.Designer.cs">
+      <DependentUpon>PopOrderModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOrder\PopOrderRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOrder\PopOrderRegister.Designer.cs">
+      <DependentUpon>PopOrderRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRelease\PopReleaseProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRelease\PopReleaseProduct.Designer.cs">
+      <DependentUpon>PopReleaseProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUser\PopUserModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUser\PopUserModify.Designer.cs">
+      <DependentUpon>PopUserModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUser\PopUserResister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUser\PopUserResister.Designer.cs">
+      <DependentUpon>PopUserResister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUserGroup\PopUserGroupModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUserGroup\PopUserGroupModify.Designer.cs">
+      <DependentUpon>PopUserGroupModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUserGroup\PopUserGroupRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUserGroup\PopUserGroupRegister.Designer.cs">
+      <DependentUpon>PopUserGroupRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmClient\PopClientModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmClient\PopClientModify.Designer.cs">
+      <DependentUpon>PopClientModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmClient\PopClientRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmClient\PopClientRegister.Designer.cs">
+      <DependentUpon>PopClientRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPurchase\PopPurchaseModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPurchase\PopPurchaseModify.Designer.cs">
+      <DependentUpon>PopPurchaseModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPurchase\PopPurchaseRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPurchase\PopPurchaseRegister.Designer.cs">
+      <DependentUpon>PopPurchaseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmManufacture\PopManufactureModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmManufacture\PopManufactureModify.Designer.cs">
+      <DependentUpon>PopManufactureModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmManufacture\PopManufactureRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmManufacture\PopManufactureRegister.Designer.cs">
+      <DependentUpon>PopManufactureRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWarehouse\PopWarehouseModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWarehouse\PopWarehouseModify.Designer.cs">
+      <DependentUpon>PopWarehouseModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWarehouse\PopWarehouseRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWarehouse\PopWarehouseRegister.Designer.cs">
+      <DependentUpon>PopWarehouseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProcess\PopProcessModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProcess\PopProcessModify.Designer.cs">
+      <DependentUpon>PopProcessModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProcess\PopProcessRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProcess\PopProcessRegister.Designer.cs">
+      <DependentUpon>PopProcessRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProducts\PopProductsRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProducts\PopProductsRegister.Designer.cs">
+      <DependentUpon>PopProductsRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProducts\PopProductsModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProducts\PopProductsModify.Designer.cs">
+      <DependentUpon>PopProductsModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEquipment\PopEquipmentModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEquipment\PopEquipmentModify.Designer.cs">
+      <DependentUpon>PopEquipmentModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEquipment\PopEquipmentRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEquipment\PopEquipmentRegister.Designer.cs">
+      <DependentUpon>PopEquipmentRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmInspectItem\PopInspectItemModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInspectItem\PopInspectItemModify.Designer.cs">
+      <DependentUpon>PopInspectItemModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmInspectItem\PopInspectItemRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInspectItem\PopInspectItemRegister.Designer.cs">
+      <DependentUpon>PopInspectItemRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessModify.Designer.cs">
+      <DependentUpon>PopEquipmentAndProcessModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegister.Designer.cs">
+      <DependentUpon>PopEquipmentAndProcessRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEquipmentStop\PopEquipmentStopRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEquipmentStop\PopEquipmentStopRegister.Designer.cs">
+      <DependentUpon>PopEquipmentStopRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWorkOrder\PopWorkOrderModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWorkOrder\PopWorkOrderModify.Designer.cs">
+      <DependentUpon>PopWorkOrderModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWorkOrder\PopWorkOrderRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWorkOrder\PopWorkOrderRegister.Designer.cs">
+      <DependentUpon>PopWorkOrderRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -210,77 +390,167 @@
     <EmbeddedResource Include="BaseForm\FormStyle_2.resx">
       <DependentUpon>FormStyle_2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Button.resx">
-      <DependentUpon>Button.cs</DependentUpon>
+    <EmbeddedResource Include="BaseForm\PopStyle.resx">
+      <DependentUpon>PopStyle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForm\FormStyle_3.resx">
       <DependentUpon>FormStyle_3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBOM.resx">
+    <EmbeddedResource Include="Forms\frmBOM\frmBOM.resx">
       <DependentUpon>frmBOM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClient.resx">
+    <EmbeddedResource Include="Forms\frmBOM\PopBOMDelete.resx">
+      <DependentUpon>PopBOMDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBOM\PopBOMRegister.resx">
+      <DependentUpon>PopBOMRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmClient\frmClient.resx">
       <DependentUpon>frmClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDefectList.resx">
+    <EmbeddedResource Include="Forms\frmDefectList\frmDefectList.resx">
       <DependentUpon>frmDefectList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEquipment.resx">
+    <EmbeddedResource Include="Forms\frmEquipment\frmEquipment.resx">
       <DependentUpon>frmEquipment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEquipmentAndProcess.resx">
+    <EmbeddedResource Include="Forms\frmEquipmentAndProcess\frmEquipmentAndProcess.resx">
       <DependentUpon>frmEquipmentAndProcess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEquipmentStop.resx">
+    <EmbeddedResource Include="Forms\frmEquipmentStop\frmEquipmentStop.resx">
       <DependentUpon>frmEquipmentStop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInspectItem.resx">
+    <EmbeddedResource Include="Forms\frmInspectItem\frmInspectItem.resx">
       <DependentUpon>frmInspectItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInspectItemList.resx">
+    <EmbeddedResource Include="Forms\frmInsectItemList\frmInspectItemList.resx">
       <DependentUpon>frmInspectItemList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLOT.resx">
+    <EmbeddedResource Include="Forms\frmLOT\frmLOT.resx">
       <DependentUpon>frmLOT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManufacture.resx">
+    <EmbeddedResource Include="Forms\frmManufacture\frmManufacture.resx">
       <DependentUpon>frmManufacture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProcess.resx">
+    <EmbeddedResource Include="Forms\frmProcess\frmProcess.resx">
       <DependentUpon>frmProcess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOrder.resx">
+    <EmbeddedResource Include="Forms\frmOrder\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProducts.resx">
+    <EmbeddedResource Include="Forms\frmProducts\frmProducts.resx">
       <DependentUpon>frmProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPurchase.resx">
+    <EmbeddedResource Include="Forms\frmPurchase\frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPurchaseStatus.resx">
+    <EmbeddedResource Include="Forms\frmPurchaseStatus\frmPurchaseStatus.resx">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRelease.resx">
+    <EmbeddedResource Include="Forms\frmRelease\frmRelease.resx">
       <DependentUpon>frmRelease.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSalesStatus.resx">
+    <EmbeddedResource Include="Forms\frmSalesStatus\frmSalesStatus.resx">
       <DependentUpon>frmSalesStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUser.resx">
+    <EmbeddedResource Include="Forms\frmUser\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUserGroup.resx">
+    <EmbeddedResource Include="Forms\frmUserGroup\frmUserGroup.resx">
       <DependentUpon>frmUserGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWarehouse.resx">
+    <EmbeddedResource Include="Forms\frmWarehouse\frmWarehouse.resx">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWorkOrder.resx">
+    <EmbeddedResource Include="Forms\frmWorkOrder\frmWorkOrder.resx">
       <DependentUpon>frmWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOrder\PopOrderModify.resx">
+      <DependentUpon>PopOrderModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOrder\PopOrderRegister.resx">
+      <DependentUpon>PopOrderRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRelease\PopReleaseProduct.resx">
+      <DependentUpon>PopReleaseProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUser\PopUserModify.resx">
+      <DependentUpon>PopUserModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUser\PopUserResister.resx">
+      <DependentUpon>PopUserResister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUserGroup\PopUserGroupModify.resx">
+      <DependentUpon>PopUserGroupModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUserGroup\PopUserGroupRegister.resx">
+      <DependentUpon>PopUserGroupRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmClient\PopClientModify.resx">
+      <DependentUpon>PopClientModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmClient\PopClientRegister.resx">
+      <DependentUpon>PopClientRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPurchase\PopPurchaseModify.resx">
+      <DependentUpon>PopPurchaseModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPurchase\PopPurchaseRegister.resx">
+      <DependentUpon>PopPurchaseRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmManufacture\PopManufactureModify.resx">
+      <DependentUpon>PopManufactureModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmManufacture\PopManufactureRegister.resx">
+      <DependentUpon>PopManufactureRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWarehouse\PopWarehouseModify.resx">
+      <DependentUpon>PopWarehouseModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWarehouse\PopWarehouseRegister.resx">
+      <DependentUpon>PopWarehouseRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProcess\PopProcessModify.resx">
+      <DependentUpon>PopProcessModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProcess\PopProcessRegister.resx">
+      <DependentUpon>PopProcessRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProducts\PopProductsModify.resx">
+      <DependentUpon>PopProductsModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProducts\PopProductsRegister.resx">
+      <DependentUpon>PopProductsRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEquipment\PopEquipmentModify.resx">
+      <DependentUpon>PopEquipmentModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEquipment\PopEquipmentRegister.resx">
+      <DependentUpon>PopEquipmentRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInspectItem\PopInspectItemModify.resx">
+      <DependentUpon>PopInspectItemModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInspectItem\PopInspectItemRegister.resx">
+      <DependentUpon>PopInspectItemRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessModify.resx">
+      <DependentUpon>PopEquipmentAndProcessModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegister.resx">
+      <DependentUpon>PopEquipmentAndProcessRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEquipmentStop\PopEquipmentStopRegister.resx">
+      <DependentUpon>PopEquipmentStopRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWorkOrder\PopWorkOrderModify.resx">
+      <DependentUpon>PopWorkOrderModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWorkOrder\PopWorkOrderRegister.resx">
+      <DependentUpon>PopWorkOrderRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -305,5 +575,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
