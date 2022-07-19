@@ -19,7 +19,8 @@ namespace DESK_MES
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmWorkOrder frm = new frmWorkOrder();
+            //frmWorkOrder frm = new frmWorkOrder();
+            frmProducts frm = new frmProducts();
             frm.MdiParent = this;
             frm.Show();
         }

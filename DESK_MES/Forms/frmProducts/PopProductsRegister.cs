@@ -16,5 +16,10 @@ namespace DESK_MES
         {
             InitializeComponent();
         }
+
+        private void PopProductsRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
