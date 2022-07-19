@@ -23,5 +23,16 @@ namespace DESK_MES
             frm.MdiParent = this;
             frm.Show();
         }
+
+        /// <summary>
+        /// Author : 정우성
+        /// menuTree, menuList 초기화
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
