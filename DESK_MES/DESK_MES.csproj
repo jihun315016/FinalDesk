@@ -70,6 +70,12 @@
     <Compile Include="BaseForm\FormStyle_3.Designer.cs">
       <DependentUpon>FormStyle_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ccTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ccTextBox.Designer.cs">
+      <DependentUpon>ccTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmBOM\frmBOM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForm\FormStyle_3.resx">
       <DependentUpon>FormStyle_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ccTextBox.resx">
+      <DependentUpon>ccTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmBOM\frmBOM.resx">
       <DependentUpon>frmBOM.cs</DependentUpon>

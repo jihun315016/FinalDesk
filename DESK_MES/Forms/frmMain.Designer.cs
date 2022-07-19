@@ -29,56 +29,57 @@ namespace DESK_MES
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("주문 관리");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("출고 관리");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("매입 현황");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("매출 현황");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("영업 관리", new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode28,
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("사용자 관리");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("사용자 그룹 설정");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("거래처 관리");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("품목 관리");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("BOM 관리");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("설비 관리");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("공정 관리");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("창고 관리");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("품질검사항목 설정");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("기준정보 관리", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33,
-            treeNode34,
-            treeNode35,
-            treeNode36,
-            treeNode37,
-            treeNode38,
-            treeNode39,
-            treeNode40});
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("발주 관리");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("생산 계획 관리");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("작업지시 관리");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("LOT 상태 및 이력 조회");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("생산 관리", new System.Windows.Forms.TreeNode[] {
-            treeNode42,
-            treeNode43,
-            treeNode44,
-            treeNode45});
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("설비-공정관계 설정");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("설비 비가동 관리");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("설비 관리", new System.Windows.Forms.TreeNode[] {
-            treeNode47,
-            treeNode48});
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("검사데이터 관리");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("불량 관리");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("품질 관리", new System.Windows.Forms.TreeNode[] {
-            treeNode50,
-            treeNode51});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("주문 관리");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("출고 관리");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("매입 현황");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("매출 현황");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("영업 관리", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("사용자 관리");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("사용자 그룹 설정");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("거래처 관리");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("품목 관리");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("BOM 관리");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("설비 관리");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("공정 관리");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("창고 관리");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("품질검사항목 설정");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("기준정보 관리", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("발주 관리");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("생산 계획 관리");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("작업지시 관리");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("LOT 상태 및 이력 조회");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("생산 관리", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17,
+            treeNode18,
+            treeNode19});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("설비-공정관계 설정");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("설비 비가동 관리");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("설비 관리", new System.Windows.Forms.TreeNode[] {
+            treeNode21,
+            treeNode22});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("검사데이터 관리");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("불량 관리");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("품질 관리", new System.Windows.Forms.TreeNode[] {
+            treeNode24,
+            treeNode25});
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -90,12 +91,11 @@ namespace DESK_MES
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -118,6 +118,16 @@ namespace DESK_MES
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(241, 150);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(10, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(219, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -142,64 +152,64 @@ namespace DESK_MES
             this.treeView1.ForeColor = System.Drawing.SystemColors.Menu;
             this.treeView1.Location = new System.Drawing.Point(3, 215);
             this.treeView1.Name = "treeView1";
-            treeNode27.Name = "노드1";
-            treeNode27.Text = "주문 관리";
-            treeNode28.Name = "노드2";
-            treeNode28.Text = "출고 관리";
-            treeNode29.Name = "노드3";
-            treeNode29.Text = "매입 현황";
-            treeNode30.Name = "노드6";
-            treeNode30.Text = "매출 현황";
-            treeNode31.Name = "노드0";
-            treeNode31.Text = "영업 관리";
-            treeNode32.Name = "노드1";
-            treeNode32.Text = "사용자 관리";
-            treeNode33.Name = "노드2";
-            treeNode33.Text = "사용자 그룹 설정";
-            treeNode34.Name = "노드8";
-            treeNode34.Text = "거래처 관리";
-            treeNode35.Name = "노드3";
-            treeNode35.Text = "품목 관리";
-            treeNode36.Name = "노드4";
-            treeNode36.Text = "BOM 관리";
-            treeNode37.Name = "노드5";
-            treeNode37.Text = "설비 관리";
-            treeNode38.Name = "노드6";
-            treeNode38.Text = "공정 관리";
-            treeNode39.Name = "노드7";
-            treeNode39.Text = "창고 관리";
-            treeNode40.Name = "노드9";
-            treeNode40.Text = "품질검사항목 설정";
-            treeNode41.Name = "노드0";
-            treeNode41.Text = "기준정보 관리";
-            treeNode42.Name = "노드4";
-            treeNode42.Text = "발주 관리";
-            treeNode43.Name = "노드7";
-            treeNode43.Text = "생산 계획 관리";
-            treeNode44.Name = "노드13";
-            treeNode44.Text = "작업지시 관리";
-            treeNode45.Name = "노드14";
-            treeNode45.Text = "LOT 상태 및 이력 조회";
-            treeNode46.Name = "노드5";
-            treeNode46.Text = "생산 관리";
-            treeNode47.Name = "노드16";
-            treeNode47.Text = "설비-공정관계 설정";
-            treeNode48.Name = "노드17";
-            treeNode48.Text = "설비 비가동 관리";
-            treeNode49.Name = "노드6";
-            treeNode49.Text = "설비 관리";
-            treeNode50.Name = "노드9";
-            treeNode50.Text = "검사데이터 관리";
-            treeNode51.Name = "노드19";
-            treeNode51.Text = "불량 관리";
-            treeNode52.Name = "노드7";
-            treeNode52.Text = "품질 관리";
+            treeNode1.Name = "노드1";
+            treeNode1.Text = "주문 관리";
+            treeNode2.Name = "노드2";
+            treeNode2.Text = "출고 관리";
+            treeNode3.Name = "노드3";
+            treeNode3.Text = "매입 현황";
+            treeNode4.Name = "노드6";
+            treeNode4.Text = "매출 현황";
+            treeNode5.Name = "노드0";
+            treeNode5.Text = "영업 관리";
+            treeNode6.Name = "노드1";
+            treeNode6.Text = "사용자 관리";
+            treeNode7.Name = "노드2";
+            treeNode7.Text = "사용자 그룹 설정";
+            treeNode8.Name = "노드8";
+            treeNode8.Text = "거래처 관리";
+            treeNode9.Name = "노드3";
+            treeNode9.Text = "품목 관리";
+            treeNode10.Name = "노드4";
+            treeNode10.Text = "BOM 관리";
+            treeNode11.Name = "노드5";
+            treeNode11.Text = "설비 관리";
+            treeNode12.Name = "노드6";
+            treeNode12.Text = "공정 관리";
+            treeNode13.Name = "노드7";
+            treeNode13.Text = "창고 관리";
+            treeNode14.Name = "노드9";
+            treeNode14.Text = "품질검사항목 설정";
+            treeNode15.Name = "노드0";
+            treeNode15.Text = "기준정보 관리";
+            treeNode16.Name = "노드4";
+            treeNode16.Text = "발주 관리";
+            treeNode17.Name = "노드7";
+            treeNode17.Text = "생산 계획 관리";
+            treeNode18.Name = "노드13";
+            treeNode18.Text = "작업지시 관리";
+            treeNode19.Name = "노드14";
+            treeNode19.Text = "LOT 상태 및 이력 조회";
+            treeNode20.Name = "노드5";
+            treeNode20.Text = "생산 관리";
+            treeNode21.Name = "노드16";
+            treeNode21.Text = "설비-공정관계 설정";
+            treeNode22.Name = "노드17";
+            treeNode22.Text = "설비 비가동 관리";
+            treeNode23.Name = "노드6";
+            treeNode23.Text = "설비 관리";
+            treeNode24.Name = "노드9";
+            treeNode24.Text = "검사데이터 관리";
+            treeNode25.Name = "노드19";
+            treeNode25.Text = "불량 관리";
+            treeNode26.Name = "노드7";
+            treeNode26.Text = "품질 관리";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode31,
-            treeNode41,
-            treeNode46,
-            treeNode49,
-            treeNode52});
+            treeNode5,
+            treeNode15,
+            treeNode20,
+            treeNode23,
+            treeNode26});
             this.treeView1.Size = new System.Drawing.Size(241, 650);
             this.treeView1.TabIndex = 11;
             // 
@@ -281,7 +291,7 @@ namespace DESK_MES
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 0);
+            this.tabPage2.Size = new System.Drawing.Size(926, 0);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -294,16 +304,6 @@ namespace DESK_MES
             this.statusStrip1.Size = new System.Drawing.Size(934, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // frmMain
             // 
@@ -321,10 +321,10 @@ namespace DESK_MES
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

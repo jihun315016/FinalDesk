@@ -41,6 +41,7 @@ namespace testPOP
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@ namespace testPOP
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button6 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -200,6 +200,15 @@ namespace testPOP
             this.label5.Size = new System.Drawing.Size(159, 32);
             this.label5.TabIndex = 2;
             this.label5.Text = "작업지시현황";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(743, 166);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "으악";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -431,15 +440,6 @@ namespace testPOP
             this.button2.TabIndex = 0;
             this.button2.Text = "진행하기";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(743, 166);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "으악";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
