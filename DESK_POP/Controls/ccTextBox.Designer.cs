@@ -1,4 +1,4 @@
-﻿namespace DESK_MES
+﻿namespace DESK_POP
 {
     partial class ccTextBox
     {

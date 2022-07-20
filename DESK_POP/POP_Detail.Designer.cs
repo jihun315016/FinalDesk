@@ -1,5 +1,5 @@
 ﻿
-namespace testPOP
+namespace DESK_POP
 {
     partial class POP_Detail
     {

@@ -139,7 +139,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\api\" />
-    <Folder Include="Models\" />
+    <Folder Include="Models\DAC\" />
+    <Folder Include="Models\DTO\" />
     <Folder Include="Views\Lot\" />
   </ItemGroup>
   <PropertyGroup>

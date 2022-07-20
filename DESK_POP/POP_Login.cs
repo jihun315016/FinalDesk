@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace testPOP
+namespace DESK_POP
 {
     public partial class POP_Login : Form
     {
