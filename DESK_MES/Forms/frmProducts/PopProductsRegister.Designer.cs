@@ -298,6 +298,7 @@ namespace DESK_MES
             this.txtUnit.PlaceHolder = null;
             this.txtUnit.Size = new System.Drawing.Size(200, 25);
             this.txtUnit.TabIndex = 48;
+            this.txtUnit.Tag = "단위";
             // 
             // txtPrice
             // 
@@ -308,6 +309,7 @@ namespace DESK_MES
             this.txtPrice.PlaceHolder = null;
             this.txtPrice.Size = new System.Drawing.Size(200, 25);
             this.txtPrice.TabIndex = 47;
+            this.txtPrice.Tag = "가격";
             // 
             // txtName
             // 
@@ -318,6 +320,7 @@ namespace DESK_MES
             this.txtName.PlaceHolder = null;
             this.txtName.Size = new System.Drawing.Size(200, 25);
             this.txtName.TabIndex = 46;
+            this.txtName.Tag = "품목";
             // 
             // cboType
             // 

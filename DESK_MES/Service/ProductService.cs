@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DESK_DTO;
+using DESK_MES.DAC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,12 @@ namespace DESK_MES.Service
 {
     class ProductService
     {
-        public void GetProductCategory()
+        public List<CodeCountVO> GetProductType()
         {
-
+            ProductDAC dac = new ProductDAC();
+            List<CodeCountVO> list = dac.GetProductType();
+            dac.Dispose();
+            return list;
         }
     }
 }
