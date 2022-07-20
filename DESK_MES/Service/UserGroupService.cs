@@ -16,7 +16,13 @@ namespace DESK_MES
             List < UserGroupVO > list = dac.SelectUserGroupList();
             dac.Dispose();
             return list;
-
+        }
+        public List<UserGroupVO> SelectAuthList()
+        {
+            UserGroupDAC dac = new UserGroupDAC();
+            List<UserGroupVO> list = dac.SelectAuthList();
+            dac.Dispose();
+            return list;
         }
     }
 }

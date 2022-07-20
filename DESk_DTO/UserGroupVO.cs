@@ -19,5 +19,13 @@ namespace DESK_DTO
         public int Update_User_No { get; set; }
         public string Update_User_Name { get; set; }
 
+        //권한
+        public int Auth_ID { get; set; }
+        public string Auth_Name { get; set; }
+        public int Auth_Desc { get; set; }
+
+        //마지막 유저 번호
+        public int LastUser_No { get; set; }
+
     }
 }
