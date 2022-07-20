@@ -47,9 +47,9 @@ namespace DESK_MES.DAC
             return list;
         }
 
-        public bool SaveProduct(ProductVO prd)
-        {
-            return true;
-        }
+        //public bool SaveProduct(ProductVO prd)
+        //{
+        //    return true;
+        //}
     }
 }
