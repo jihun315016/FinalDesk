@@ -11,7 +11,7 @@ namespace DESK_DTO
         // Function_No, Function_Name, Child_Function_No, frmName
         public int Function_No { get; set; }
         public string Function_Name { get; set; }
-        public int Child_Function_No { get; set; }
+        public int Parent_Function_No { get; set; }
         public string frmName { get; set; }
 
     }

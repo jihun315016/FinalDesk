@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace DESK_MES
 {
-    class MenuService
+    public class MenuService
     {
         public List<MenuVO> GetMenuList(int no)
         {
