@@ -76,6 +76,7 @@
     <Compile Include="Controls\ccTextBox.Designer.cs">
       <DependentUpon>ccTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAC\User_GroupDAC.cs" />
     <Compile Include="Forms\frmBOM\frmBOM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -589,7 +590,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAC\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
