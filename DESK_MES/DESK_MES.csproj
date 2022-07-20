@@ -391,7 +391,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility\Class1.cs" />
     <Compile Include="Utility\DataGridUtil.cs" />
     <Compile Include="Utility\ExcelUtil.cs" />
     <Compile Include="Utility\DBHelper.cs" />
