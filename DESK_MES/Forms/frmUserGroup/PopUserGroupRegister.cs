@@ -16,5 +16,10 @@ namespace DESK_MES
         {
             InitializeComponent();
         }
+
+        private void PopUserGroupRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
