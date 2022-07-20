@@ -44,13 +44,27 @@ namespace DESK_MES
                 return;
             }
 
+            ProductVO prd = new ProductVO()
+            {
+                Product_Name = txtName.Text,
+                Product_Type = cboType.Text,
+                Price = Convert.ToInt32(txtPrice.Text),
+                Unit = Convert.ToInt32(txtUnit.Text),
+                Is_Delete = "N"
+            };
+
             if (ptbProduct.Image == null)
             {
+                prd.Is_Image = 0;                
                 MessageBox.Show("이미지 없음");
             }
             else
             {
-                MessageBox.Show("이미지 있음");
+                prd.Is_Image = 1;
+                ptbProduct.Image.Dispose();
+                ptbProduct.Image = null;
+                bool result = productSrv.SaveProductImage(ptbProduct.Tag.ToString());
+                Debug.WriteLine(result);
             }
         }
 
@@ -63,6 +77,7 @@ namespace DESK_MES
             if (result == DialogResult.OK)
             {
                 ptbProduct.Image = Image.FromFile(dlg.FileName);
+                ptbProduct.Tag = dlg.FileName;
             }
         }
     }
