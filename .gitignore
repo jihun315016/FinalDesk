@@ -3,6 +3,16 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+.vs/
+DESK_WEB/bin/
+DESK_WEB/obj/
+DESK_POP/bin/
+DESK_POP/obj/
+DESK_MES/bin/
+DESK_MES/obj/
+DESk_DTO/bin/
+DESk_DTO/obj/
+
 # User-specific files
 *.rsuser
 *.suo

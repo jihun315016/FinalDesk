@@ -25,18 +25,29 @@ namespace DESK_MES.Service
             return list;
         }
 
-        public bool SaveProductImage(string path)
+        public string SaveProduct(string code, int userNo, ProductVO prd)
+        {
+            ProductDAC dac = new ProductDAC();            
+            string savePrdMsg = dac.SaveProduct(code, userNo, prd);
+            dac.Dispose();
+            return savePrdMsg;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 등록 시 이미지가 존재하는 경우 이미지 등록
+        /// </summary>
+        /// <param name="path">등록할 이미지 경로</param>
+        /// <param name="fileName">등록할 이미지 이름 -> 제품 코드</param>
+        /// <returns></returns>
+        public bool SaveProductImage(string path, string fileName)
         {
             FileStream fs = File.Open(path, FileMode.Open);
-            string[] temp = path.Split('\\');
-            string fileName = temp[temp.Length - 1];
-
-            Debug.WriteLine($"{path} | {fileName}");
             
             MultipartFormDataContent content = new MultipartFormDataContent();
-
+            Debug.WriteLine($"{fileName}{new FileInfo(path).Extension}");
             // Web API에 f1이라는 이름으로 넘어가고, Hello.png라는 이름으로 저장된다.
-            content.Add(new StreamContent(fs), "f1", "Hello.png");
+            content.Add(new StreamContent(fs), "f1", $"{fileName}{new FileInfo(path).Extension}");
 
             string url = $"{baseUrl}api/ImageUpload";
 

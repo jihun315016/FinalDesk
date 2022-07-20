@@ -107,7 +107,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\api\ClientController.cs" />
+    <Compile Include="Controllers\api\ImageUploadController.cs" />
     <Compile Include="Controllers\LotController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\TradeController.cs" />
@@ -141,7 +142,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\api\" />
     <Folder Include="Models\DAC\" />
     <Folder Include="Models\DTO\" />
     <Folder Include="Views\Lot\" />

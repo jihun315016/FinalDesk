@@ -47,9 +47,44 @@ namespace DESK_MES.DAC
             return list;
         }
 
-        //public bool SaveProduct(ProductVO prd)
-        //{
-        //    return true;
-        //}
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 등록 기능
+        /// 제품 유형에 따라 다른 코드로 저장된다.
+        /// </summary>
+        /// <param name="code">저장된 제품 코드</param>
+        /// <param name="userNo">등록 사용자 번호</param>
+        /// <param name="prd">제품 정보</param>
+        /// <returns></returns>
+        public string SaveProduct(string code, int userNo, ProductVO prd)
+        {
+            SqlCommand cmd = new SqlCommand("SP_SaveProduct", conn);
+
+            try
+            {
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@code", code);
+                cmd.Parameters.AddWithValue("@Product_Name", prd.Product_Name);
+                cmd.Parameters.AddWithValue("@Product_Type", prd.Product_Type);
+                cmd.Parameters.AddWithValue("@Is_Image", prd.Is_Image);
+                cmd.Parameters.AddWithValue("@Price", prd.Price);
+                cmd.Parameters.AddWithValue("@Unit", prd.Unit);
+                cmd.Parameters.AddWithValue("@Is_Delete", prd.Is_Delete);
+                cmd.Parameters.AddWithValue("@Create_User_No", userNo);
+                cmd.Parameters.Add("@prd_code", System.Data.SqlDbType.NVarChar, 20);
+                cmd.Parameters["@prd_code"].Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add("@err_msg", System.Data.SqlDbType.NVarChar, 1000);
+                cmd.Parameters["@err_msg"].Direction = System.Data.ParameterDirection.Output;
+
+                return (cmd.ExecuteNonQuery() > 0) ? cmd.Parameters["@prd_code"].Value.ToString() : String.Empty;                    
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.Message);
+                Console.WriteLine($"{Environment.NewLine}DB error : {cmd.Parameters["@err_msg"].Value}");
+                return String.Empty;
+            }
+
+        }
     }
 }

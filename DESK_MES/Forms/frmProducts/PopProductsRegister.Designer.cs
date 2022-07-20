@@ -39,7 +39,7 @@ namespace DESK_MES
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -49,14 +49,14 @@ namespace DESK_MES
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ptbProduct = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtUnit = new DESK_MES.ccTextBox();
+            this.txtPrice = new DESK_MES.ccTextBox();
+            this.txtName = new DESK_MES.ccTextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtUnit = new DESK_MES.ccTextBox();
-            this.txtPrice = new DESK_MES.ccTextBox();
-            this.txtName = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -156,7 +156,7 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -165,20 +165,21 @@ namespace DESK_MES
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
-            // button3
+            // btnClose
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.ImageIndex = 3;
-            this.button3.ImageList = this.imageList2;
-            this.button3.Location = new System.Drawing.Point(693, 18);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(76, 27);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "   닫기";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.ImageIndex = 3;
+            this.btnClose.ImageList = this.imageList2;
+            this.btnClose.Location = new System.Drawing.Point(693, 18);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnClose.Size = new System.Drawing.Size(76, 27);
+            this.btnClose.TabIndex = 27;
+            this.btnClose.Text = "   닫기";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAdd
             // 
@@ -291,6 +292,39 @@ namespace DESK_MES
             this.panel8.Size = new System.Drawing.Size(380, 295);
             this.panel8.TabIndex = 1;
             // 
+            // txtUnit
+            // 
+            this.txtUnit.isNumeric = true;
+            this.txtUnit.isRequired = true;
+            this.txtUnit.Location = new System.Drawing.Point(132, 207);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.PlaceHolder = null;
+            this.txtUnit.Size = new System.Drawing.Size(200, 25);
+            this.txtUnit.TabIndex = 48;
+            this.txtUnit.Tag = "단위";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.isNumeric = true;
+            this.txtPrice.isRequired = true;
+            this.txtPrice.Location = new System.Drawing.Point(132, 147);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.PlaceHolder = null;
+            this.txtPrice.Size = new System.Drawing.Size(200, 25);
+            this.txtPrice.TabIndex = 47;
+            this.txtPrice.Tag = "가격";
+            // 
+            // txtName
+            // 
+            this.txtName.isNumeric = false;
+            this.txtName.isRequired = true;
+            this.txtName.Location = new System.Drawing.Point(132, 39);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceHolder = null;
+            this.txtName.Size = new System.Drawing.Size(200, 25);
+            this.txtName.TabIndex = 46;
+            this.txtName.Tag = "품목";
+            // 
             // cboType
             // 
             this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -348,39 +382,6 @@ namespace DESK_MES
             this.label11.TabIndex = 29;
             this.label11.Text = "품명";
             // 
-            // txtUnit
-            // 
-            this.txtUnit.isNumeric = true;
-            this.txtUnit.isRequired = true;
-            this.txtUnit.Location = new System.Drawing.Point(132, 207);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.PlaceHolder = null;
-            this.txtUnit.Size = new System.Drawing.Size(200, 25);
-            this.txtUnit.TabIndex = 48;
-            this.txtUnit.Tag = "단위";
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.isNumeric = true;
-            this.txtPrice.isRequired = true;
-            this.txtPrice.Location = new System.Drawing.Point(132, 147);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.PlaceHolder = null;
-            this.txtPrice.Size = new System.Drawing.Size(200, 25);
-            this.txtPrice.TabIndex = 47;
-            this.txtPrice.Tag = "가격";
-            // 
-            // txtName
-            // 
-            this.txtName.isNumeric = false;
-            this.txtName.isRequired = true;
-            this.txtName.Location = new System.Drawing.Point(132, 39);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceHolder = null;
-            this.txtName.Size = new System.Drawing.Size(200, 25);
-            this.txtName.TabIndex = 46;
-            this.txtName.Tag = "품목";
-            // 
             // PopProductsRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -423,7 +424,7 @@ namespace DESK_MES
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;
