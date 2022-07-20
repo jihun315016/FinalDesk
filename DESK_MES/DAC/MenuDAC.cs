@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DESK_DTO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DESK_MES
 {
@@ -15,7 +16,9 @@ namespace DESK_MES
 
         public MenuDAC()
         {
-            //string connstr = 
+            string connstr = ConfigurationManager.ConnectionStrings["prjDB"].ConnectionString;
+            conn = new SqlConnection(connstr);
+            conn.Open();
         }
 
         public void Dispose()
@@ -25,5 +28,31 @@ namespace DESK_MES
                 conn.Close();
             }
         }
+
+        public List<MenuVO> GetMenuList(int no)
+        {
+            string sql = @"WITH TB_FUNCTION_CTE AS
+                           (
+                           	SELECT Function_No, Function_Name, Child_Function_No, frmName
+                           	FROM TB_FUNCTION
+                           	WHERE Function_No IN (SELECT Function_No FROM TB_USER_GROUP_FUNCTION_RELATION WHERE User_Group_No = @User_Group_No)
+                           
+                           	UNION ALL
+                           
+                           	SELECT P.Function_No, P.Function_Name, P.Child_Function_No, P.frmName
+                           	FROM TB_FUNCTION_CTE C
+                           	JOIN TB_FUNCTION P ON C.Child_Function_No = P.Function_No
+                           )
+                           SELECT DISTINCT Function_No, Function_Name, Child_Function_No, frmName
+                           FROM TB_FUNCTION_CTE
+                           ORDER BY Child_Function_No, Function_No";
+
+            SqlCommand cmd = new SqlCommand(sql,conn);
+            cmd.Parameters.AddWithValue("@User_Group_No", no);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return null;
+
+        }
+
     }
 }

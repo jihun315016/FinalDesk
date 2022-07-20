@@ -16,7 +16,8 @@ namespace DESK_MES
         {
             MenuDAC dac = new MenuDAC();
             List<MenuVO> list = dac.GetMenuList(no);
-            dac
+            dac.Dispose();
+            return list;
         }
     }
 }
