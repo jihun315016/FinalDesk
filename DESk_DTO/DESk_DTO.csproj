@@ -45,6 +45,7 @@
     <Compile Include="CodeCountVO.cs" />
     <Compile Include="MenuVO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResMessage.cs" />
     <Compile Include="User_GroupVO.cs" />
     <Compile Include="WarehouseVO.cs" />
   </ItemGroup>
