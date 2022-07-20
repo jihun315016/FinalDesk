@@ -88,13 +88,120 @@ namespace DESK_MES
         {
             try
             {
-
+                OpenCreateForm(((string[])e.Node.Tag)[0], ((string[])e.Node.Tag)[1]);
             }
             catch
             {
-                MessageBox.Show("준비 중 입니다.");
+                MessageBox.Show("빈 페이지");
+            }
+        }
+        private void OpenCreateForm(string formName, string formKorName)
+        {
+            string appName = Assembly.GetEntryAssembly().GetName().Name;
+            Type frmType = Type.GetType($"{appName}.{formName}");
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == frmType)
+                {
+                    form.Activate();
+                    return;
+                }
             }
 
+            Form frm = (Form)Activator.CreateInstance(frmType);
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+            /// <summary>
+            /// 폼 생성 감지, 생성에 따른 탭 생성, 삭제, 앞에 띄워주기
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+        private void Form1_MdiChildActivate(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild == null)
+            {
+                tabControl1.Visible = false;
+            }
+            else
+            {
+                this.ActiveMdiChild.WindowState = FormWindowState.Maximized;
+
+                if (this.ActiveMdiChild.Tag == null)
+                {
+                    //텝페이지 생성
+                    TabPage tp = new TabPage(this.ActiveMdiChild.Text + "       ");
+                    tp.Parent = tabControl1;
+                    tp.Tag = this.ActiveMdiChild; //?
+
+                    tabControl1.SelectedTab = tp;
+
+                    //자식폼 종료시 종료
+                    this.ActiveMdiChild.FormClosed += ActiveMdiChild_FormClosed;
+                    //테그에 이름 넣기
+                    this.ActiveMdiChild.Tag = tp;
+                }
+                else //기존에 추가된
+                {
+                    tabControl1.SelectedTab = (TabPage)this.ActiveMdiChild.Tag;
+                }
+
+                if (!tabControl1.Visible)
+                {
+                    tabControl1.Visible = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 폼 종료
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ActiveMdiChild_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //종료
+            Form frm = (Form)sender;
+            ((TabPage)frm.Tag).Dispose();
+        }
+
+        /// <summary>
+        /// 탭창 변경에 따른 화면 변경
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab != null)
+            {
+                Form frm = (Form)tabControl1.SelectedTab.Tag;
+                frm.Select();
+            }
+        }
+
+        /// <summary>
+        /// tab 마우스 클릭에 따른 창 닫기
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < tabControl1.TabPages.Count; i++)
+            {
+                var r = tabControl1.GetTabRect(i);
+                var closeImage = Properties.Resources.close_grey;
+                var closeRect = new Rectangle((r.Right - closeImage.Width), r.Top + (r.Height - closeImage.Height) / 2,
+                    closeImage.Width, closeImage.Height);
+
+                if (closeRect.Contains(e.Location))
+                {
+                    this.ActiveMdiChild.Close();
+                    break;
+                }
+            }
         }
     }
 }
