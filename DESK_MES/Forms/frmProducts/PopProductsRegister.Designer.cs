@@ -45,18 +45,18 @@ namespace DESK_MES
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnImgUpload = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbProduct = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txtUnit = new DESK_MES.ccTextBox();
-            this.txtPrice = new DESK_MES.ccTextBox();
-            this.txtName = new DESK_MES.ccTextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtUnit = new DESK_MES.ccTextBox();
+            this.txtPrice = new DESK_MES.ccTextBox();
+            this.txtName = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -68,7 +68,7 @@ namespace DESK_MES
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProduct)).BeginInit();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -233,7 +233,7 @@ namespace DESK_MES
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.button1);
+            this.panel9.Controls.Add(this.btnImgUpload);
             this.panel9.Controls.Add(this.groupBox5);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(389, 3);
@@ -241,37 +241,39 @@ namespace DESK_MES
             this.panel9.Size = new System.Drawing.Size(380, 295);
             this.panel9.TabIndex = 2;
             // 
-            // button1
+            // btnImgUpload
             // 
-            this.button1.Location = new System.Drawing.Point(301, 266);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = " 추가";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnImgUpload.Location = new System.Drawing.Point(301, 266);
+            this.btnImgUpload.Name = "btnImgUpload";
+            this.btnImgUpload.Size = new System.Drawing.Size(61, 23);
+            this.btnImgUpload.TabIndex = 28;
+            this.btnImgUpload.Text = " 추가";
+            this.btnImgUpload.UseVisualStyleBackColor = true;
+            this.btnImgUpload.Click += new System.EventHandler(this.btnImgUpload_Click);
             // 
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.pictureBox1);
+            this.groupBox5.Controls.Add(this.ptbProduct);
             this.groupBox5.Location = new System.Drawing.Point(22, 7);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(338, 253);
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             // 
-            // pictureBox1
+            // ptbProduct
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ptbProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(326, 232);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ptbProduct.Location = new System.Drawing.Point(6, 15);
+            this.ptbProduct.Name = "ptbProduct";
+            this.ptbProduct.Size = new System.Drawing.Size(326, 232);
+            this.ptbProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbProduct.TabIndex = 0;
+            this.ptbProduct.TabStop = false;
             // 
             // panel8
             // 
@@ -288,39 +290,6 @@ namespace DESK_MES
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(380, 295);
             this.panel8.TabIndex = 1;
-            // 
-            // txtUnit
-            // 
-            this.txtUnit.isNumeric = true;
-            this.txtUnit.isRequired = true;
-            this.txtUnit.Location = new System.Drawing.Point(132, 207);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.PlaceHolder = null;
-            this.txtUnit.Size = new System.Drawing.Size(200, 25);
-            this.txtUnit.TabIndex = 48;
-            this.txtUnit.Tag = "단위";
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.isNumeric = true;
-            this.txtPrice.isRequired = true;
-            this.txtPrice.Location = new System.Drawing.Point(132, 147);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.PlaceHolder = null;
-            this.txtPrice.Size = new System.Drawing.Size(200, 25);
-            this.txtPrice.TabIndex = 47;
-            this.txtPrice.Tag = "가격";
-            // 
-            // txtName
-            // 
-            this.txtName.isNumeric = false;
-            this.txtName.isRequired = true;
-            this.txtName.Location = new System.Drawing.Point(132, 39);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceHolder = null;
-            this.txtName.Size = new System.Drawing.Size(200, 25);
-            this.txtName.TabIndex = 46;
-            this.txtName.Tag = "품목";
             // 
             // cboType
             // 
@@ -379,6 +348,39 @@ namespace DESK_MES
             this.label11.TabIndex = 29;
             this.label11.Text = "품명";
             // 
+            // txtUnit
+            // 
+            this.txtUnit.isNumeric = true;
+            this.txtUnit.isRequired = true;
+            this.txtUnit.Location = new System.Drawing.Point(132, 207);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.PlaceHolder = null;
+            this.txtUnit.Size = new System.Drawing.Size(200, 25);
+            this.txtUnit.TabIndex = 48;
+            this.txtUnit.Tag = "단위";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.isNumeric = true;
+            this.txtPrice.isRequired = true;
+            this.txtPrice.Location = new System.Drawing.Point(132, 147);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.PlaceHolder = null;
+            this.txtPrice.Size = new System.Drawing.Size(200, 25);
+            this.txtPrice.TabIndex = 47;
+            this.txtPrice.Tag = "가격";
+            // 
+            // txtName
+            // 
+            this.txtName.isNumeric = false;
+            this.txtName.isRequired = true;
+            this.txtName.Location = new System.Drawing.Point(132, 39);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceHolder = null;
+            this.txtName.Size = new System.Drawing.Size(200, 25);
+            this.txtName.TabIndex = 46;
+            this.txtName.Tag = "품목";
+            // 
             // PopProductsRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -404,7 +406,7 @@ namespace DESK_MES
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProduct)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.ResumeLayout(false);
@@ -432,9 +434,9 @@ namespace DESK_MES
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImgUpload;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbProduct;
         private System.Windows.Forms.ComboBox cboType;
         private ccTextBox txtUnit;
         private ccTextBox txtPrice;

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace DESK_MES
         {            
             cboType.ValueMember = "Code";
             cboType.DisplayMember = "Category";
-            cboType.DataSource = productSrv.GetProductType();
+            cboType.DataSource = productSrv.GetProductType();            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -41,6 +42,27 @@ namespace DESK_MES
             {
                 MessageBox.Show(isRequiredMsg);
                 return;
+            }
+
+            if (ptbProduct.Image == null)
+            {
+                MessageBox.Show("이미지 없음");
+            }
+            else
+            {
+                MessageBox.Show("이미지 있음");
+            }
+        }
+
+        private void btnImgUpload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image File|*.jpg;*.jpeg;*.png;*.bmp";
+
+            DialogResult result = dlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ptbProduct.Image = Image.FromFile(dlg.FileName);
             }
         }
     }
