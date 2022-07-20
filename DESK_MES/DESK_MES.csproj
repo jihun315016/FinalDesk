@@ -71,6 +71,10 @@
     <Compile Include="BaseForm\FormStyle_3.Designer.cs">
       <DependentUpon>FormStyle_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ccTabControl.cs" />
+    <Compile Include="Controls\ccTabControl.designer.cs">
+      <DependentUpon>ccTabControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ccTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -628,6 +632,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
