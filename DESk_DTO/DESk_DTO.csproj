@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientVO.cs" />
+    <Compile Include="KimJunMou.cs" />
+    <Compile Include="MenuVO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User_GroupVO.cs" />
     <Compile Include="WarehouseVO.cs" />
