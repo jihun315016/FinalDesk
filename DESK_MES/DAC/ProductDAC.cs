@@ -29,6 +29,11 @@ namespace DESK_MES.DAC
             }
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 유형 조회
+        /// </summary>
+        /// <returns></returns>
         public List<CodeCountVO> GetProductType()
         {
             string sql = @"SELECT Code, Category 
@@ -40,6 +45,11 @@ namespace DESK_MES.DAC
             List<CodeCountVO> list = DBHelpler.DataReaderMapToList<CodeCountVO>(reader);
             reader.Close();
             return list;
+        }
+
+        public bool SaveProduct(ProductVO prd)
+        {
+            return true;
         }
     }
 }
