@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DESK_DTO
 {
-    class ProductVO
+    public class ProductVO
     {
         public string Product_Code { get; set; }
         public string Product_Name { get; set; }

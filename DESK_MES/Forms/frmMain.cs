@@ -88,13 +88,13 @@ namespace DESK_MES
         {
             try
             {
-                
+
             }
             catch
             {
                 MessageBox.Show("준비 중 입니다.");
+            }
+
         }
-
-
     }
 }
