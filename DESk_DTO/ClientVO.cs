@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DESk_DTO
+namespace DESK_DTO
 {
     public class ClientVO
     {

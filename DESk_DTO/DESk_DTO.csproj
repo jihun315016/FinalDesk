@@ -7,8 +7,8 @@
     <ProjectGuid>{2F2A607A-EEAF-4BC2-B56E-16C6A818E2BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DESk_DTO</RootNamespace>
-    <AssemblyName>DESk_DTO</AssemblyName>
+    <RootNamespace>DESK_DTO</RootNamespace>
+    <AssemblyName>DESK_DTO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
