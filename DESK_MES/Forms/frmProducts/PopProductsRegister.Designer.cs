@@ -49,14 +49,14 @@ namespace DESK_MES
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtUnit = new DESK_MES.ccTextBox();
+            this.txtPrice = new DESK_MES.ccTextBox();
+            this.txtName = new DESK_MES.ccTextBox();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtName = new DESK_MES.ccTextBox();
-            this.txtPrice = new DESK_MES.ccTextBox();
-            this.txtUnit = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -288,6 +288,36 @@ namespace DESK_MES
             this.panel8.Size = new System.Drawing.Size(380, 295);
             this.panel8.TabIndex = 1;
             // 
+            // txtUnit
+            // 
+            this.txtUnit.isNumeric = true;
+            this.txtUnit.isRequired = true;
+            this.txtUnit.Location = new System.Drawing.Point(132, 207);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.PlaceHolder = null;
+            this.txtUnit.Size = new System.Drawing.Size(200, 25);
+            this.txtUnit.TabIndex = 48;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.isNumeric = true;
+            this.txtPrice.isRequired = true;
+            this.txtPrice.Location = new System.Drawing.Point(132, 147);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.PlaceHolder = null;
+            this.txtPrice.Size = new System.Drawing.Size(200, 25);
+            this.txtPrice.TabIndex = 47;
+            // 
+            // txtName
+            // 
+            this.txtName.isNumeric = false;
+            this.txtName.isRequired = true;
+            this.txtName.Location = new System.Drawing.Point(132, 39);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceHolder = null;
+            this.txtName.Size = new System.Drawing.Size(200, 25);
+            this.txtName.TabIndex = 46;
+            // 
             // cboType
             // 
             this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -315,7 +345,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(30, 149);
+            this.label12.Location = new System.Drawing.Point(30, 150);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 17);
             this.label12.TabIndex = 31;
@@ -344,36 +374,6 @@ namespace DESK_MES
             this.label11.Size = new System.Drawing.Size(34, 17);
             this.label11.TabIndex = 29;
             this.label11.Text = "품명";
-            // 
-            // txtName
-            // 
-            this.txtName.isNumeric = false;
-            this.txtName.isRequired = true;
-            this.txtName.Location = new System.Drawing.Point(132, 39);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceHolder = null;
-            this.txtName.Size = new System.Drawing.Size(200, 25);
-            this.txtName.TabIndex = 46;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.isNumeric = true;
-            this.txtPrice.isRequired = true;
-            this.txtPrice.Location = new System.Drawing.Point(132, 146);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.PlaceHolder = null;
-            this.txtPrice.Size = new System.Drawing.Size(200, 25);
-            this.txtPrice.TabIndex = 47;
-            // 
-            // txtUnit
-            // 
-            this.txtUnit.isNumeric = true;
-            this.txtUnit.isRequired = true;
-            this.txtUnit.Location = new System.Drawing.Point(132, 207);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.PlaceHolder = null;
-            this.txtUnit.Size = new System.Drawing.Size(200, 25);
-            this.txtUnit.TabIndex = 48;
             // 
             // PopProductsRegister
             // 
