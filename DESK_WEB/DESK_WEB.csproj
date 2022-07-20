@@ -116,6 +116,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientDAC.cs" />
+    <Compile Include="Models\Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +145,12 @@
     <Folder Include="Models\DAC\" />
     <Folder Include="Models\DTO\" />
     <Folder Include="Views\Lot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DESk_DTO\DESK_DTO.csproj">
+      <Project>{2f2a607a-eeaf-4bc2-b56e-16c6a818e2bc}</Project>
+      <Name>DESK_DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
