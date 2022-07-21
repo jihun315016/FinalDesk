@@ -32,15 +32,17 @@ namespace DESK_MES
         {
             label1.Text = "품목 관리";
 
+            comboBox1.Items.AddRange(new string[] { "검색 조건", "품번", "품명" });
+            comboBox1.SelectedIndex = 0;
+
             List<CodeCountVO> list = productSrv.GetProductType();
             list.Insert(0, new CodeCountVO()
             {
                 Code = string.Empty,
                 Category = "유형 선택"
             });
-            comboBox1.ValueMember = "Code";
-            comboBox1.DisplayMember = "Category";
-            comboBox1.DataSource = list;
+
+            ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboTypeDetail, list, "Category", "Code");
 
             //품번, 품명, 유형, 가격, 단위, 생성 시간, 생성 사용자
             DataGridUtil.SetInitGridView(dgvList);
@@ -61,8 +63,18 @@ namespace DESK_MES
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string type = comboBox1.SelectedValue == string.Empty ? string.Empty : comboBox1.SelectedValue.ToString().Split('_')[1];
-            dgvList.DataSource = productSrv.GetProductList(type);
+            // 상세 검색으로 필터링
+            if (panel5.Visible)
+            {
+
+            }
+            // 일반 검색으로 필터링
+            else
+            {
+
+            }
+
+            dgvList.DataSource = productSrv.GetAllProductList();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -75,6 +87,18 @@ namespace DESK_MES
         {
             PopProductsModify pop = new PopProductsModify();
             pop.ShowDialog();
+        }
+
+        private void btnOpenDetail_Click(object sender, EventArgs e)
+        {
+            if (panel5.Visible)
+            {
+                comboBox1.Enabled = textBox1.Enabled = false;
+            }
+            else
+            {
+                comboBox1.Enabled = textBox1.Enabled = true;
+            }
         }
     }
 }

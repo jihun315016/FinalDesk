@@ -29,7 +29,7 @@ namespace DESK_MES.DAC
             }
         }
 
-        public List<ProductVO> GetProductList()
+        public List<ProductVO> GetAllProductList()
         {
             string sql = @"SELECT 
                             Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, p.Create_Time, p.Create_User_No, 

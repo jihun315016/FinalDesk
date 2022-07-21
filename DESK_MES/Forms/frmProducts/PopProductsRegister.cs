@@ -24,10 +24,8 @@ namespace DESK_MES
         }
 
         private void PopProductsRegister_Load(object sender, EventArgs e)
-        {            
-            cboType.ValueMember = "Code";
-            cboType.DisplayMember = "Category";
-            cboType.DataSource = productSrv.GetProductType();            
+        {
+            ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboType, productSrv.GetProductType(), "Category", "Code");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
