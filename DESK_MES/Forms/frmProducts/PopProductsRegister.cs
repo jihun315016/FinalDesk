@@ -26,6 +26,7 @@ namespace DESK_MES
         private void PopProductsRegister_Load(object sender, EventArgs e)
         {
             ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboType, productSrv.GetProductType(), "Category", "Code");
+            cboClient.Enabled = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -97,6 +98,14 @@ namespace DESK_MES
                 ptbProduct.Image = Image.FromFile(dlg.FileName);
                 ptbProduct.Tag = dlg.FileName;
             }
+        }
+
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboType.SelectedIndex < 2)
+                cboClient.Enabled = false;
+            else
+                cboClient.Enabled = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

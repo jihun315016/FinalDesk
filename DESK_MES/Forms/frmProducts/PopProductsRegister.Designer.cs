@@ -49,6 +49,8 @@ namespace DESK_MES
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ptbProduct = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.cboClient = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtUnit = new DESK_MES.ccTextBox();
             this.txtPrice = new DESK_MES.ccTextBox();
             this.txtName = new DESK_MES.ccTextBox();
@@ -278,6 +280,8 @@ namespace DESK_MES
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.cboClient);
+            this.panel8.Controls.Add(this.label2);
             this.panel8.Controls.Add(this.txtUnit);
             this.panel8.Controls.Add(this.txtPrice);
             this.panel8.Controls.Add(this.txtName);
@@ -292,11 +296,32 @@ namespace DESK_MES
             this.panel8.Size = new System.Drawing.Size(380, 295);
             this.panel8.TabIndex = 1;
             // 
+            // cboClient
+            // 
+            this.cboClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboClient.FormattingEnabled = true;
+            this.cboClient.Location = new System.Drawing.Point(132, 229);
+            this.cboClient.Name = "cboClient";
+            this.cboClient.Size = new System.Drawing.Size(200, 25);
+            this.cboClient.TabIndex = 50;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(30, 232);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 17);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "거래처";
+            // 
             // txtUnit
             // 
             this.txtUnit.isNumeric = true;
             this.txtUnit.isRequired = true;
-            this.txtUnit.Location = new System.Drawing.Point(132, 207);
+            this.txtUnit.Location = new System.Drawing.Point(132, 181);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.PlaceHolder = null;
             this.txtUnit.Size = new System.Drawing.Size(200, 25);
@@ -307,7 +332,7 @@ namespace DESK_MES
             // 
             this.txtPrice.isNumeric = true;
             this.txtPrice.isRequired = true;
-            this.txtPrice.Location = new System.Drawing.Point(132, 147);
+            this.txtPrice.Location = new System.Drawing.Point(132, 131);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PlaceHolder = null;
             this.txtPrice.Size = new System.Drawing.Size(200, 25);
@@ -329,10 +354,11 @@ namespace DESK_MES
             // 
             this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboType.FormattingEnabled = true;
-            this.cboType.Location = new System.Drawing.Point(132, 92);
+            this.cboType.Location = new System.Drawing.Point(132, 85);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(200, 25);
             this.cboType.TabIndex = 42;
+            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -340,7 +366,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 210);
+            this.label13.Location = new System.Drawing.Point(30, 184);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 17);
             this.label13.TabIndex = 32;
@@ -352,7 +378,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(30, 150);
+            this.label12.Location = new System.Drawing.Point(30, 134);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 17);
             this.label12.TabIndex = 31;
@@ -364,7 +390,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(30, 95);
+            this.label10.Location = new System.Drawing.Point(30, 88);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 17);
             this.label10.TabIndex = 30;
@@ -442,5 +468,7 @@ namespace DESK_MES
         private ccTextBox txtUnit;
         private ccTextBox txtPrice;
         private ccTextBox txtName;
+        private System.Windows.Forms.ComboBox cboClient;
+        private System.Windows.Forms.Label label2;
     }
 }

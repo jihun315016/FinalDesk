@@ -12,6 +12,11 @@ namespace DESK_WEB.Controllers.api
 {
     public class ImageUploadController : ApiController
     {
+        /// <summary>
+        /// Author : 강지훈
+        /// 품목 이미지 파일 업로드
+        /// </summary>
+        /// <returns></returns>
         public IHttpActionResult Post()
         {
             try

@@ -17,10 +17,10 @@ namespace DESK_MES.Service
     {
         string baseUrl = ConfigurationManager.AppSettings["apiURL"];
 
-        public List<ProductVO> GetAllProductList()
+        public List<ProductVO> GetProductList(string code = "")
         {
             ProductDAC dac = new ProductDAC();
-            List<ProductVO> list = dac.GetAllProductList();
+            List<ProductVO> list = dac.GetProductList(code);
             dac.Dispose();
             return list;
         }

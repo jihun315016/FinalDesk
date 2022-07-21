@@ -22,5 +22,7 @@ namespace DESK_DTO
 
         public string Create_User_Name { get; set; }
         public string Update_User_Name { get; set; }
+        public string Client_Code { get; set; }
+        public string Client_Name { get; set; }
     }
 }

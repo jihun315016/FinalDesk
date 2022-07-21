@@ -29,21 +29,35 @@ namespace DESK_MES.DAC
             }
         }
 
-        public List<ProductVO> GetAllProductList()
+        /// <summary>
+        /// Author : 강지훈
+        /// 모든 제품, 재공품, 원자재 리스트 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductVO> GetProductList(string code)
         {
-            string sql = @"SELECT 
-                            Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, p.Create_Time, p.Create_User_No
-                            , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name, p.Is_Delete 
-                            FROM TB_PRODUCT p
-                            LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
-                            LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No ";
+            StringBuilder sb = new StringBuilder();
 
+            sb.Append(@"SELECT 
+                        Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, c.Client_Code, Client_Name, p.Create_Time, p.Create_User_No
+                        , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name, p.Is_Delete 
+                        FROM TB_PRODUCT p
+                        LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
+                        LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No 
+                        LEFT JOIN TB_Client c ON p.Client_Code = c.Client_Code ");
+
+            if (!string.IsNullOrWhiteSpace(code))
+                sb.Append(" WHERE Product_Code=@code");
+
+            string sql = sb.ToString();            
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@code", code);
             SqlDataReader reader = cmd.ExecuteReader();
             List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
             reader.Close();
             return list;
         }
+
 
         /// <summary>
         /// Author : 강지훈

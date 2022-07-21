@@ -72,6 +72,29 @@ namespace DESK_WEB.Models
             }
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 유형에 따른 거래처 리스트 조회
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public List<ClientVO> GetClientListByType(string type)
+        {
+            string sql = @"SELECT Client_Code, Client_Name
+                            FROM TB_Client
+                            WHERE Client_Type=@type ";
+
+            SqlCommand cmd = new SqlCommand(sql, new SqlConnection(strConn));
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.Connection.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<ClientVO> list = Helper.DataReaderMapToList<ClientVO>(reader);
+            reader.Close();
+            cmd.Connection.Close();
+
+            return list;
+        }
+
         public bool SaveClient(ClientVO client)
         {
             using (SqlCommand cmd = new SqlCommand())            
