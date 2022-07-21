@@ -31,8 +31,11 @@ namespace DESK_MES
 
         private void button5_Click(object sender, EventArgs e)
         {
-            PopUserGroupModify pop = new PopUserGroupModify();
-            pop.ShowDialog();
+            if (selectUser != 0)
+            {
+                PopUserGroupModify pop = new PopUserGroupModify(selectUser);
+                pop.ShowDialog();
+            }
         }
 
         private void frmUserGroup_Load(object sender, EventArgs e)
