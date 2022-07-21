@@ -22,6 +22,14 @@ namespace DESK_MES
             selectUserG = select;
             userName= user;
         }
+        private void ComboBinding(ComboBox cbo, List<UserGroupVO> list)
+        {
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbo.DisplayMember = "Auth_Name";
+            cbo.ValueMember = "Auth_ID";
+
+            cbo.DataSource = list; ;
+        }
 
         private void PopUserGroupModify_Load(object sender, EventArgs e)
         {
@@ -39,6 +47,8 @@ namespace DESK_MES
             dtpUpdate.Enabled = false;
             txtUpdateName.Enabled = false;
 
+            List<UserGroupVO> auth= srv.SelectAuthList();
+            ComboBinding(cboType, auth);
             cboType.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //데이터
@@ -70,8 +80,12 @@ namespace DESK_MES
                 Update_User_Name = txtUpdateName.Text
             };
             if (srv.UpdateUserGroup(user))
-            {
-                MessageBox.Show("수정 성공");
+            {               
+                if (MessageBox.Show("수정 성공", "수정", MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
             else
             {
@@ -84,8 +98,12 @@ namespace DESK_MES
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (srv.DeleteUserGroup(Convert.ToInt32(txtID.Text)))
-            {
-                MessageBox.Show("삭제 성공");
+            {                
+                if (MessageBox.Show("삭제 성공", "삭제", MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
             else
             {
