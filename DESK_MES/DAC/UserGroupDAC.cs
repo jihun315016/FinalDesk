@@ -76,5 +76,43 @@ from TB_User_Group ug left join [dbo].[TB_USER] u on ug.Update_User_No = u.User_
                 throw err;
             }
         }
+
+        /// <summary>
+        /// 김준모/유저 그룹 등록
+        /// </summary>
+        /// <param name="UserG"></param>
+        /// <returns></returns>
+        public bool InsertUserGroup(UserGroupVO UserG)
+        {
+
+            
+            int iRowAffect;
+            string sql = @"insert [dbo].[TB_USER_GROUP]
+(User_Group_Name,User_Group_Type, Create_User_No)
+values
+(@User_Group_Name,@User_Group_Type, @Create_User_No)";
+
+            using (SqlTransaction tran = conn.BeginTransaction())
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Transaction = tran;
+                        cmd.Parameters.AddWithValue("@User_Group_Name", UserG.User_Group_Name);
+                        cmd.Parameters.AddWithValue("@User_Group_Type", UserG.User_Group_Type);
+                        cmd.Parameters.AddWithValue("@Create_User_No", UserG.Create_User_No);
+                        iRowAffect = cmd.ExecuteNonQuery();
+                    }
+                    tran.Commit();
+                    return iRowAffect > 0;
+                }
+                catch (Exception err)
+                {
+                    tran.Rollback();
+                    throw err;
+                }
+            }
+        }
     }
 }

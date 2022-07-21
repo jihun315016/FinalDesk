@@ -186,6 +186,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 26;
             this.btnAdd.Text = "   등록";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel4
             // 
