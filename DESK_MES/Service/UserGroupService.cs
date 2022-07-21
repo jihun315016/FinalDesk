@@ -52,5 +52,12 @@ namespace DESK_MES
             dac.Dispose();
             return result;
         }
+        public List<UserGroupVO> SelectGroupNameList()
+        {
+            UserGroupDAC dac = new UserGroupDAC();
+            List<UserGroupVO> list = dac.SelectGroupNameList();
+            dac.Dispose();
+            return list;
+        }
     }
 }

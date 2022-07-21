@@ -56,7 +56,7 @@ namespace DESK_MES
             cbo.DisplayMember = dis;
             cbo.ValueMember = val;
 
-            cbo.DataSource = list; ;
+            cbo.DataSource = list; 
         }
         private void frmUserGroup_Load(object sender, EventArgs e)
         {

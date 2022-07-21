@@ -82,6 +82,35 @@ from TB_User_Group ug left join [dbo].[TB_USER] u on ug.Update_User_No = u.User_
         }
 
         /// <summary>
+        /// 김준모/GroupName 가져오기(콤보박스용)
+        /// </summary>
+        /// <returns></returns>
+        public List<UserGroupVO> SelectGroupNameList()
+        {
+            string sql = @"with groupp as
+                            (
+                            select [User_Group_No],[User_Group_Name]
+                            from [dbo].[TB_USER_GROUP]
+                            )
+                            select [User_Group_No],User_Group_Name 
+                            from groupp
+                            group by User_Group_Name,[User_Group_No]";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    List<UserGroupVO> list = DBHelpler.DataReaderMapToList<UserGroupVO>(cmd.ExecuteReader());
+
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+        }
+
+        /// <summary>
         /// 김준모/유저 그룹 등록
         /// </summary>
         /// <param name="UserG"></param>
