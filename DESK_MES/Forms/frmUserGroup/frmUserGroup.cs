@@ -33,8 +33,8 @@ namespace DESK_MES
         {
             if (selectUser != 0)
             {
-                PopUserGroupModify pop = new PopUserGroupModify(selectUser);
-                pop.ShowDialog();
+                //PopUserGroupModify pop = new PopUserGroupModify(selectUser);
+                //pop.ShowDialog();
             }
         }
 

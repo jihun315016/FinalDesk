@@ -24,6 +24,11 @@ namespace DESK_MES
         private void frmClient_Load(object sender, EventArgs e)
         {
             LoadData();
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
         }
 
         private void LoadData()

@@ -65,12 +65,12 @@ namespace DESK_WEB.Controllers
         //POST : https://localhost:44393/api/Client/SaveClient
         [HttpPost]
         [Route("SaveClient")]
-        public IHttpActionResult SaveClient(ClientVO user)
+        public IHttpActionResult SaveClient(ClientVO client)
         {
             try
             {
                 ClientDAC db = new ClientDAC();
-                bool flag = db.SaveClient(user);
+                bool flag = db.SaveClient(client);
 
                 ResMessage result = new ResMessage()
                 {
