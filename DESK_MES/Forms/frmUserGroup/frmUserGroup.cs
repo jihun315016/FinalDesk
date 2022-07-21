@@ -17,6 +17,7 @@ namespace DESK_MES
         List<UserGroupVO> allList;
         int selectUser=0;
         string user;
+        string saveFileName;
 
         public frmUserGroup()
         {
@@ -66,6 +67,10 @@ namespace DESK_MES
 
             List<UserGroupVO> cbo= srv.SelectAuthList();
             ComboBinding(cboGroupType, cbo, "Auth_Name", "Auth_ID", blank: true) ;
+            comboBox1.Items.Add("전체");
+            comboBox1.Items.Add("사용자 그룹ID");
+            comboBox1.Items.Add("사용자 그룹명");
+            comboBox1.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹번호", "User_Group_No");
@@ -155,6 +160,49 @@ namespace DESK_MES
             //txtCreateUser.Text = "";
             //dtpUpdate.Value = DateTime.Now;
             //txtUpdateUser.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+            
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                saveFileName = dlg.FileName;
+            }
+
+            List<UserGroupVO> list = dataGridView1.DataSource as List<UserGroupVO>;
+
+            ExcelUtil excel = new ExcelUtil();
+            List<UserGroupVO> orders = list;//dgvMain.DataSource as List<PurcaseOrderVO>;
+
+            //사용자 그룹번호", "User_Group_No");
+            //사용자 그룹명", "User_Group_Name");
+            //사용자 그룹유형", "User_Group_TypeName")
+            //생성시간", "Create_Time");
+            //생성사용자", "Create_User_Name");
+            //변경시간", "Update_Time");
+            //변경사용자", "Update_User_Name");
+
+            string[] columnImport = { "User_Group_No", "User_Group_Name", "User_Group_TypeName", "Create_Time", "Create_User_Name", "Update_Time", "Update_User_Name" };
+            string[] columnName = { "사용자 그룹번호", "사용자 그룹명", "사용자 그룹유형", "생성시간", "생성사용자", "변경시간", "변경사용자" };
+
+            if (excel.ExportList(orders, saveFileName, columnImport, columnName))
+            {
+                MessageBox.Show("엑셀 다운로드 완료");
+            }
+            else
+            {
+                MessageBox.Show("엑셀 다운 실패");
+            }
         }
     }
 }

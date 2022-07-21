@@ -32,13 +32,11 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducts));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtPrdNameDetail = new System.Windows.Forms.TextBox();
+            this.cboTypeDetail = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtPrdCodeDetail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -66,7 +64,7 @@ namespace DESK_MES
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvList = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -86,7 +84,7 @@ namespace DESK_MES
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -125,6 +123,10 @@ namespace DESK_MES
             // 
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnOpenDetail
+            // 
+            this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -137,13 +139,11 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.txtPrdNameDetail);
+            this.groupBox2.Controls.Add(this.cboTypeDetail);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.txtPrdCodeDetail);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -152,33 +152,21 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox4
+            // txtPrdNameDetail
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(599, 29);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(100, 25);
-            this.comboBox4.TabIndex = 30;
+            this.txtPrdNameDetail.Location = new System.Drawing.Point(218, 29);
+            this.txtPrdNameDetail.Name = "txtPrdNameDetail";
+            this.txtPrdNameDetail.Size = new System.Drawing.Size(100, 25);
+            this.txtPrdNameDetail.TabIndex = 31;
             // 
-            // label8
+            // cboTypeDetail
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(517, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 17);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "||  업체코드";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(411, 29);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 25);
-            this.comboBox2.TabIndex = 28;
+            this.cboTypeDetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTypeDetail.FormattingEnabled = true;
+            this.cboTypeDetail.Location = new System.Drawing.Point(380, 29);
+            this.cboTypeDetail.Name = "cboTypeDetail";
+            this.cboTypeDetail.Size = new System.Drawing.Size(100, 25);
+            this.cboTypeDetail.TabIndex = 28;
             // 
             // label6
             // 
@@ -186,19 +174,11 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(355, 33);
+            this.label6.Location = new System.Drawing.Point(324, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 17);
             this.label6.TabIndex = 27;
             this.label6.Text = "||  유형";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(249, 29);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 25);
-            this.comboBox3.TabIndex = 26;
             // 
             // label7
             // 
@@ -208,16 +188,16 @@ namespace DESK_MES
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(162, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 17);
+            this.label7.Size = new System.Drawing.Size(50, 17);
             this.label7.TabIndex = 25;
-            this.label7.Text = "||  고객코드";
+            this.label7.Text = "||  품명";
             // 
-            // textBox9
+            // txtPrdCodeDetail
             // 
-            this.textBox9.Location = new System.Drawing.Point(56, 29);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 25);
-            this.textBox9.TabIndex = 24;
+            this.txtPrdCodeDetail.Location = new System.Drawing.Point(56, 29);
+            this.txtPrdCodeDetail.Name = "txtPrdCodeDetail";
+            this.txtPrdCodeDetail.Size = new System.Drawing.Size(100, 25);
+            this.txtPrdCodeDetail.TabIndex = 24;
             // 
             // label5
             // 
@@ -548,7 +528,7 @@ namespace DESK_MES
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dgvList);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
@@ -557,15 +537,15 @@ namespace DESK_MES
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "품목 현황";
             // 
-            // dataGridView1
+            // dgvList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(809, 589);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvList.Location = new System.Drawing.Point(3, 21);
+            this.dgvList.Name = "dgvList";
+            this.dgvList.RowTemplate.Height = 23;
+            this.dgvList.Size = new System.Drawing.Size(809, 589);
+            this.dgvList.TabIndex = 0;
             // 
             // button3
             // 
@@ -652,7 +632,7 @@ namespace DESK_MES
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -660,18 +640,15 @@ namespace DESK_MES
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtPrdCodeDetail;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboTypeDetail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button btnUpdate;
@@ -699,5 +676,6 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.TextBox txtPrdNameDetail;
     }
 }

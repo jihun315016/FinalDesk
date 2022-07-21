@@ -409,6 +409,7 @@
     <Compile Include="Service\MenuService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Service\UserGroupService.cs" />
+    <Compile Include="Utility\ComboBoxUtil.cs" />
     <Compile Include="Utility\DataGridUtil.cs" />
     <Compile Include="Utility\ExcelUtil.cs" />
     <Compile Include="Utility\DBHelper.cs" />
