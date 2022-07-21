@@ -18,17 +18,28 @@ namespace DESK_MES
     {
         ServiceHelper service = null;
 
-        public PopClientModify()
+        public PopClientModify(string clientCode)
         {
             InitializeComponent();
             service = new ServiceHelper("api/Client");
 
+            ResMessage<ClientVO> resResult = service.GetAsyncT<ResMessage<ClientVO>>(clientCode);
+
+            if (resResult.ErrCode == 0)
+            {
+                textBox1.Text = resResult.Data.Client_Code.ToString();
+                textBox2.Text = resResult.Data.Client_Name.ToString();
+                comboBox1.Text = resResult.Data.Client_Type.ToString();
+                textBox5.Text = resResult.Data.Client_Number.ToString();
+                textBox6.Text = resResult.Data.Client_Phone.ToString();
+            }
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
             ClientVO client = new ClientVO
             {
+                Client_Code = textBox1.Text,
                 Client_Name = textBox2.Text,
                 Client_Type = comboBox1.Text,
                 Client_Phone = textBox6.Text
@@ -52,7 +63,7 @@ namespace DESK_MES
         {
             string clientNO = textBox1.Text;
 
-            ResMessage resResult = service.GetAsyncNon($"DelUser/{clientNO}");
+            ResMessage resResult = service.GetAsyncNon($"DelClient/{clientNO}");
 
             if (resResult.ErrCode == 0)
             {

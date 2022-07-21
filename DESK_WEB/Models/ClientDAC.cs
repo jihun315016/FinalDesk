@@ -101,8 +101,8 @@ namespace DESK_WEB.Models
             {
                 cmd.Connection = new SqlConnection(strConn);
                 cmd.CommandText = @"UPDATE TB_Client SET Client_Name = @Client_Name,
-                                                         Client_Type= @Client_Type
-                                                         Client_Phone=@Client_Phone
+                                                         Client_Type = @Client_Type,
+                                                         Client_Phone = @Client_Phone
                                     WHERE Client_Code= @Client_Code";
 
                 cmd.Parameters.AddWithValue("@Client_Code", client.Client_Code);
@@ -118,7 +118,7 @@ namespace DESK_WEB.Models
             }
         }
 
-        public bool DeleteClient(int clientNO)
+        public bool DeleteClient(string clientNO)
         {
             using (SqlCommand cmd = new SqlCommand())
             {

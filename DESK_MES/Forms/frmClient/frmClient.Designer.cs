@@ -288,9 +288,9 @@ namespace DESK_MES
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(22, 119);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 17);
+            this.label8.Size = new System.Drawing.Size(73, 17);
             this.label8.TabIndex = 30;
-            this.label8.Text = "거래처 유형";
+            this.label8.Text = "거래처유형";
             // 
             // txtCode
             // 

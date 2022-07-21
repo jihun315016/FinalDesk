@@ -126,7 +126,7 @@ namespace DESK_WEB.Controllers
         //GET: https://localhost:44393/api/Client/DelClient/{no}
         [HttpGet]
         [Route("DelClient/{no}")]
-        public IHttpActionResult DeleteUser(int no)
+        public IHttpActionResult DeleteUser(string no)
         {
             try
             {

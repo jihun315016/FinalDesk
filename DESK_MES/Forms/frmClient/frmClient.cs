@@ -14,6 +14,7 @@ namespace DESK_MES
     public partial class frmClient : FormStyle_2
     {
         ServiceHelper service;
+        string clientCode = null;
 
         public frmClient()
         {
@@ -57,10 +58,17 @@ namespace DESK_MES
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            PopClientModify pop = new PopClientModify();
-            if(pop.ShowDialog() == DialogResult.OK)
+            if (clientCode != null)
             {
-                LoadData();
+                PopClientModify pop = new PopClientModify(clientCode);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -71,7 +79,7 @@ namespace DESK_MES
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string clientCode = dataGridView1[0, e.RowIndex].Value.ToString();
+            clientCode = dataGridView1[0, e.RowIndex].Value.ToString();
 
             ResMessage<ClientVO> resResult = service.GetAsyncT<ResMessage<ClientVO>>(clientCode);
 

@@ -44,6 +44,7 @@ namespace DESK_MES
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@ namespace DESK_MES
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -251,6 +251,14 @@ namespace DESK_MES
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(195, 109);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(190, 25);
+            this.comboBox1.TabIndex = 61;
+            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(195, 179);
@@ -260,6 +268,7 @@ namespace DESK_MES
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(195, 144);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(190, 25);
@@ -398,14 +407,6 @@ namespace DESK_MES
             this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 40;
             this.label9.Text = "거래처명";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(195, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(190, 25);
-            this.comboBox1.TabIndex = 61;
             // 
             // PopClientModify
             // 
