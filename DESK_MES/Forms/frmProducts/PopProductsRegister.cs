@@ -30,10 +30,7 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ccTextBox[] txts = new ccTextBox[]
-            {
-                txtName, txtPrice, txtUnit
-            };
+            ccTextBox[] txts = new ccTextBox[] { txtName };
 
             string isRequiredMsg = TextBoxUtil.IsRequiredCheck(txts);
             if (isRequiredMsg.Length > 0)
@@ -46,8 +43,8 @@ namespace DESK_MES
             {
                 Product_Name = txtName.Text,
                 Product_Type = cboType.SelectedValue.ToString().Split('_')[1], // FERT ...
-                Price = Convert.ToInt32(txtPrice.Text),
-                Unit = Convert.ToInt32(txtUnit.Text),
+                Price = txtPrice.Text == string.Empty ? -1 : Convert.ToInt32(txtPrice.Text),
+                Unit = txtUnit.Text == string.Empty ? -1 : Convert.ToInt32(txtUnit.Text),
                 Is_Delete = "N"
             };
 
