@@ -105,6 +105,10 @@ namespace DESK_MES.DAC
                     cmd.Parameters.AddWithValue("@Unit", DBNull.Value);
                 else
                     cmd.Parameters.AddWithValue("@Unit", prd.Unit);
+                if (prd.Client_Code == null)
+                    cmd.Parameters.AddWithValue("@Client_Code", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Client_Code", prd.Client_Code);
                 cmd.Parameters.AddWithValue("@Is_Delete", prd.Is_Delete);
                 cmd.Parameters.AddWithValue("@Create_User_No", userNo);
                 cmd.Parameters.Add("@prd_code", System.Data.SqlDbType.NVarChar, 20);

@@ -45,17 +45,17 @@ namespace DESK_MES.Service
         /// Author : 강지훈
         /// 제품 등록 시 이미지가 존재하는 경우 이미지 등록
         /// </summary>
-        /// <param name="path">등록할 이미지 경로</param>
-        /// <param name="fileName">등록할 이미지 이름 -> 제품 코드</param>
+        /// <param name="uploadName">등록할 이미지 경로</param>
+        /// <param name="uploadName">등록할 이미지 이름 -> 제품 코드</param>
         /// <returns></returns>
-        public bool SaveProductImage(string path, string fileName)
+        public bool SaveProductImage(string uploadName, string file)
         {
-            FileStream fs = File.Open(path, FileMode.Open);
+            FileStream fs = File.Open(file, FileMode.Open);
             
             MultipartFormDataContent content = new MultipartFormDataContent();
-            Debug.WriteLine($"{fileName}{new FileInfo(path).Extension}");
-            // Web API에 f1이라는 이름으로 넘어가고, Hello.png라는 이름으로 저장된다.
-            content.Add(new StreamContent(fs), "f1", $"{fileName}{new FileInfo(path).Extension}");
+            Debug.WriteLine($"{uploadName}{new FileInfo(file).Extension}");
+            
+            content.Add(new StreamContent(fs), "f1", $"{uploadName}{new FileInfo(uploadName).Extension}");
 
             string url = $"{baseUrl}api/ImageUpload";
 

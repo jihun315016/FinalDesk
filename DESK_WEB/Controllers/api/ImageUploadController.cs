@@ -31,7 +31,7 @@ namespace DESK_WEB.Controllers.api
                             Directory.CreateDirectory(path);
 
                         var f = HttpContext.Current.Request.Files[file];
-                        f.SaveAs($"{path}{f.FileName}");
+                        f.SaveAs($"{path}{f.FileName}.png");
                     }
 
                     ResMessage res = new ResMessage()
