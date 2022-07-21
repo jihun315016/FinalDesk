@@ -71,10 +71,10 @@ namespace DESK_MES
             if (panel5.Visible)
             {
                 if (!string.IsNullOrWhiteSpace(txtPrdCodeDetail.Text.Trim()))                
-                    list = list.Where(p => p.Product_Code.Contains(txtPrdCodeDetail.Text)).ToList();
+                    list = list.Where(p => p.Product_Code.ToLower().Contains(txtPrdCodeDetail.Text.ToLower())).ToList();
 
                 if (!string.IsNullOrWhiteSpace(txtPrdNameDetail.Text.Trim()))
-                    list = list.Where(p => p.Product_Name.Contains(txtPrdNameDetail.Text)).ToList();
+                    list = list.Where(p => p.Product_Name.ToLower().Contains(txtPrdNameDetail.Text.ToLower())).ToList();
 
                 if (cboTypeDetail.SelectedIndex > 0)
                     list = list.Where(p => p.Product_Type == cboTypeDetail.SelectedValue.ToString().Split('_')[1]).ToList();
@@ -87,13 +87,17 @@ namespace DESK_MES
 
             }
 
-            dgvList.DataSource = prdList;
+            dgvList.DataSource = list;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopProductsRegister pop = new PopProductsRegister();
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                prdList = productSrv.GetAllProductList();
+                dgvList.DataSource = null;
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

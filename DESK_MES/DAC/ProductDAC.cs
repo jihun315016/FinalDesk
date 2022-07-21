@@ -32,10 +32,10 @@ namespace DESK_MES.DAC
         public List<ProductVO> GetAllProductList()
         {
             string sql = @"SELECT 
-                            Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, p.Create_Time, p.Create_User_No, 
-                            u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name, p.Is_Delete 
+                            Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, p.Create_Time, p.Create_User_No
+                            , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name, p.Is_Delete 
                             FROM TB_PRODUCT p
-                            JOIN TB_USER u ON p.Create_User_No = u.User_No
+                            LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
                             LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
@@ -83,8 +83,14 @@ namespace DESK_MES.DAC
                 cmd.Parameters.AddWithValue("@Product_Name", prd.Product_Name);
                 cmd.Parameters.AddWithValue("@Product_Type", prd.Product_Type);
                 cmd.Parameters.AddWithValue("@Is_Image", prd.Is_Image);
-                cmd.Parameters.AddWithValue("@Price", prd.Price);
-                cmd.Parameters.AddWithValue("@Unit", prd.Unit);
+                if (prd.Price == -1)
+                    cmd.Parameters.AddWithValue("@Price", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Price", prd.Price);
+                if (prd.Unit == -1)
+                    cmd.Parameters.AddWithValue("@Unit", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Unit", prd.Unit);
                 cmd.Parameters.AddWithValue("@Is_Delete", prd.Is_Delete);
                 cmd.Parameters.AddWithValue("@Create_User_No", userNo);
                 cmd.Parameters.Add("@prd_code", System.Data.SqlDbType.NVarChar, 20);
