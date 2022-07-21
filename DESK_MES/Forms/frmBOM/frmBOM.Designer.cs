@@ -156,7 +156,7 @@ namespace DESK_MES
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(838, 23);
+            this.comboBox2.Location = new System.Drawing.Point(812, 24);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(108, 25);
             this.comboBox2.TabIndex = 34;
@@ -164,11 +164,11 @@ namespace DESK_MES
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(756, 27);
+            this.label3.Location = new System.Drawing.Point(743, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 17);
+            this.label3.Size = new System.Drawing.Size(63, 17);
             this.label3.TabIndex = 33;
-            this.label3.Text = "||  업체코드";
+            this.label3.Text = "||  업체명";
             // 
             // textBox10
             // 
@@ -196,7 +196,7 @@ namespace DESK_MES
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(642, 23);
+            this.comboBox4.Location = new System.Drawing.Point(629, 23);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(108, 25);
             this.comboBox4.TabIndex = 29;
@@ -206,9 +206,9 @@ namespace DESK_MES
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(560, 27);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 17);
+            this.label8.Size = new System.Drawing.Size(63, 17);
             this.label8.TabIndex = 28;
-            this.label8.Text = "||  고객코드";
+            this.label8.Text = "||  고객명";
             // 
             // comboBox3
             // 
@@ -543,9 +543,9 @@ namespace DESK_MES
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(25, 181);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 17);
+            this.label13.Size = new System.Drawing.Size(47, 17);
             this.label13.TabIndex = 14;
-            this.label13.Text = "업체코드";
+            this.label13.Text = "업체명";
             // 
             // label12
             // 
@@ -555,9 +555,9 @@ namespace DESK_MES
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(25, 147);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 17);
+            this.label12.Size = new System.Drawing.Size(47, 17);
             this.label12.TabIndex = 12;
-            this.label12.Text = "고객코드";
+            this.label12.Text = "고객명";
             // 
             // label10
             // 

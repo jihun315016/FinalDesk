@@ -35,7 +35,6 @@ namespace DESK_MES
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -86,6 +85,7 @@ namespace DESK_MES
             this.label17 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -143,10 +143,10 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.comboBox5);
             this.groupBox2.Controls.Add(this.comboBox4);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.label7);
@@ -185,14 +185,6 @@ namespace DESK_MES
             this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 29;
             this.label8.Text = "||  LOT ID";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(380, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 25);
-            this.comboBox2.TabIndex = 28;
             // 
             // label6
             // 
@@ -761,7 +753,7 @@ namespace DESK_MES
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 17);
             this.label11.TabIndex = 10;
-            this.label11.Text = "품번";
+            this.label11.Text = "품명";
             // 
             // label16
             // 
@@ -823,6 +815,13 @@ namespace DESK_MES
             this.imageList2.Images.SetKeyName(2, "삭제.png");
             this.imageList2.Images.SetKeyName(3, "엑셀.png");
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(380, 30);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 25);
+            this.textBox2.TabIndex = 32;
+            // 
             // frmLOT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -860,7 +859,6 @@ namespace DESK_MES
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label7;
@@ -911,5 +909,6 @@ namespace DESK_MES
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

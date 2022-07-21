@@ -52,7 +52,6 @@ namespace DESK_MES
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@ namespace DESK_MES
             this.button2 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -136,7 +136,7 @@ namespace DESK_MES
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(52, 23);
+            this.textBox10.Location = new System.Drawing.Point(78, 24);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 25);
             this.textBox10.TabIndex = 32;
@@ -144,15 +144,15 @@ namespace DESK_MES
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 27);
+            this.label5.Location = new System.Drawing.Point(12, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 17);
+            this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 31;
-            this.label5.Text = "공정";
+            this.label5.Text = "공정코드";
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(245, 23);
+            this.textBox9.Location = new System.Drawing.Point(271, 24);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 25);
             this.textBox9.TabIndex = 30;
@@ -160,7 +160,7 @@ namespace DESK_MES
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(678, 24);
+            this.comboBox4.Location = new System.Drawing.Point(704, 24);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(108, 25);
             this.comboBox4.TabIndex = 29;
@@ -168,7 +168,7 @@ namespace DESK_MES
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(565, 27);
+            this.label8.Location = new System.Drawing.Point(591, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(107, 17);
             this.label8.TabIndex = 28;
@@ -177,7 +177,7 @@ namespace DESK_MES
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(451, 23);
+            this.comboBox3.Location = new System.Drawing.Point(477, 24);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(108, 25);
             this.comboBox3.TabIndex = 27;
@@ -185,7 +185,7 @@ namespace DESK_MES
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(351, 27);
+            this.label7.Location = new System.Drawing.Point(377, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 17);
             this.label7.TabIndex = 26;
@@ -194,7 +194,7 @@ namespace DESK_MES
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(158, 27);
+            this.label6.Location = new System.Drawing.Point(184, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 17);
             this.label6.TabIndex = 24;
@@ -218,6 +218,7 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.comboBox2);
             this.groupBox4.Controls.Add(this.textBox8);
             this.groupBox4.Controls.Add(this.textBox2);
             this.groupBox4.Controls.Add(this.label4);
@@ -228,7 +229,6 @@ namespace DESK_MES
             this.groupBox4.Controls.Add(this.textBox7);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label11);
@@ -360,18 +360,6 @@ namespace DESK_MES
             this.textBox5.Size = new System.Drawing.Size(190, 25);
             this.textBox5.TabIndex = 16;
             // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(127, 110);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(190, 25);
-            this.textBox4.TabIndex = 15;
-            // 
             // label12
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -404,9 +392,9 @@ namespace DESK_MES
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(25, 45);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 17);
+            this.label11.Size = new System.Drawing.Size(60, 17);
             this.label11.TabIndex = 8;
-            this.label11.Text = "공정";
+            this.label11.Text = "공정코드";
             // 
             // textBox3
             // 
@@ -525,6 +513,17 @@ namespace DESK_MES
             this.button1.Text = "   확정";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(127, 108);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(190, 25);
+            this.comboBox2.TabIndex = 27;
+            // 
             // frmProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -575,7 +574,6 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -588,5 +586,6 @@ namespace DESK_MES
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

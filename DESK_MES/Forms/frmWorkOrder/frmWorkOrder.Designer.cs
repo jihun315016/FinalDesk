@@ -34,7 +34,6 @@ namespace DESK_MES
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -83,6 +82,7 @@ namespace DESK_MES
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox18 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -142,9 +142,9 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox18);
             this.groupBox2.Controls.Add(this.comboBox4);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label6);
@@ -178,14 +178,6 @@ namespace DESK_MES
             this.label8.TabIndex = 10;
             this.label8.Text = "||  상태";
             // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(248, 61);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(108, 25);
-            this.comboBox3.TabIndex = 9;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -193,7 +185,7 @@ namespace DESK_MES
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 17);
             this.label7.TabIndex = 8;
-            this.label7.Text = "||  품번";
+            this.label7.Text = "||  품명";
             // 
             // comboBox2
             // 
@@ -628,7 +620,7 @@ namespace DESK_MES
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 17);
             this.label12.TabIndex = 12;
-            this.label12.Text = "품번";
+            this.label12.Text = "품명";
             // 
             // label11
             // 
@@ -772,6 +764,13 @@ namespace DESK_MES
             this.button2.Text = "   마감";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(248, 62);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(108, 25);
+            this.textBox18.TabIndex = 12;
+            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -804,7 +803,6 @@ namespace DESK_MES
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
@@ -853,5 +851,6 @@ namespace DESK_MES
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox18;
     }
 }

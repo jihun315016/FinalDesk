@@ -508,18 +508,18 @@ namespace DESK_MES
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(31, 26);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 17);
+            this.label11.Size = new System.Drawing.Size(73, 17);
             this.label11.TabIndex = 8;
-            this.label11.Text = "품번";
+            this.label11.Text = "완제품번호";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(31, 64);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(34, 17);
+            this.label16.Size = new System.Drawing.Size(60, 17);
             this.label16.TabIndex = 6;
-            this.label16.Text = "품명";
+            this.label16.Text = "완제품명";
             // 
             // PopBOMRegister
             // 
