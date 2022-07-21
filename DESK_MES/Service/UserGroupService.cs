@@ -24,5 +24,12 @@ namespace DESK_MES
             dac.Dispose();
             return list;
         }
+        public bool SelectAuthList(UserGroupVO UserG)
+        {
+            UserGroupDAC dac = new UserGroupDAC();
+            bool result = dac.InsertUserGroup(UserG);
+            dac.Dispose();
+            return result;
+        }
     }
 }
