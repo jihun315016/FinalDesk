@@ -98,6 +98,10 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.button5, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
             // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);

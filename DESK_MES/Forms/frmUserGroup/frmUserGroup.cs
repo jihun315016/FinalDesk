@@ -33,7 +33,7 @@ namespace DESK_MES
             dataGridView1.DataSource = allList;
         }
         /// <summary>
-        /// 김준모/콤보박스 바인딩 메서드
+        /// 김준모/콤보박스 바인딩 메서드(UserGfoup전용)
         /// </summary>
         /// <param name="cbo"></param>
         /// <param name="list"></param>
@@ -41,8 +41,12 @@ namespace DESK_MES
         /// <param name="val"></param>
         private void ComboBinding(ComboBox cbo, List<UserGroupVO> list, string dis, string val, bool blank = false)
         {
-            if(blank)
-
+            if (blank)
+            {
+                list.Insert(0, new UserGroupVO
+                { Auth_Name = "전체" }
+                );
+            }
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo.DisplayMember = dis;
             cbo.ValueMember = val;
@@ -61,7 +65,7 @@ namespace DESK_MES
             dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             List<UserGroupVO> cbo= srv.SelectAuthList();
-            ComboBinding(cboGroupType, cbo, "Auth_Name", "Auth_ID");
+            ComboBinding(cboGroupType, cbo, "Auth_Name", "Auth_ID", blank: true) ;
 
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹번호", "User_Group_No");
@@ -78,8 +82,7 @@ namespace DESK_MES
             //데이터
             BindingGdv();
             List<UserGroupVO> auth = srv.SelectAuthList();
-
-            //cboGroupType.SelectedValue = 
+            
         }
 
         //등록
@@ -135,6 +138,23 @@ namespace DESK_MES
                 txtUpdateUser.Text = dataGridView1[6, e.RowIndex].Value.ToString();
             }
             
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            //BindingGdv();
+            //textBox1.Text = "";
+            //comboBox1.SelectedIndex = 0;
+            //selectUser = 0;
+            //cboGroupType.SelectedIndex = 0;
+            //cboUserName.SelectedIndex = 0;
+            //txtID.Text = "";
+            //txtName.Text = "";
+            //txtType.Text = "";
+            //dtpCreate.Value = DateTime.Now;
+            //txtCreateUser.Text = "";
+            //dtpUpdate.Value = DateTime.Now;
+            //txtUpdateUser.Text = "";
         }
     }
 }
