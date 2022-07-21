@@ -32,10 +32,9 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserGroup));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboDate = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboGroupType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -109,6 +108,14 @@ namespace DESK_MES
             // 
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // btnOpenDetail
+            // 
+            this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -121,10 +128,9 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTimePicker3);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cboDate);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cboGroupType);
             this.groupBox2.Controls.Add(this.label8);
@@ -135,18 +141,10 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(1096, 28);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(90, 25);
-            this.dateTimePicker3.TabIndex = 34;
-            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(581, 31);
+            this.dateTimePicker2.Location = new System.Drawing.Point(520, 33);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker2.TabIndex = 34;
@@ -154,23 +152,23 @@ namespace DESK_MES
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(463, 31);
+            this.dateTimePicker1.Location = new System.Drawing.Point(402, 33);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker1.TabIndex = 34;
             // 
-            // comboBox2
+            // cboDate
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(338, 31);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(108, 25);
-            this.comboBox2.TabIndex = 33;
+            this.cboDate.FormattingEnabled = true;
+            this.cboDate.Location = new System.Drawing.Point(277, 33);
+            this.cboDate.Name = "cboDate";
+            this.cboDate.Size = new System.Drawing.Size(108, 25);
+            this.cboDate.TabIndex = 33;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(558, 34);
+            this.label3.Location = new System.Drawing.Point(497, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 17);
             this.label3.TabIndex = 32;
@@ -539,10 +537,9 @@ namespace DESK_MES
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboDate;
         private System.Windows.Forms.Label label3;
     }
 }
