@@ -24,7 +24,7 @@ namespace DESK_MES
             dac.Dispose();
             return list;
         }
-        public bool SelectAuthList(UserGroupVO UserG)
+        public bool InsertUserGroup(UserGroupVO UserG)
         {
             UserGroupDAC dac = new UserGroupDAC();
             bool result = dac.InsertUserGroup(UserG);

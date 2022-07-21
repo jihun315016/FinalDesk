@@ -14,6 +14,7 @@ namespace DESK_MES
     public partial class PopUserGroupRegister : Form
     {
         UserGroupService srv;
+        int UserNo;
         public PopUserGroupRegister()
         {
             InitializeComponent();
@@ -53,7 +54,25 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-        }
+            if (string.IsNullOrWhiteSpace(txtName.Text) & txtName.Text.Length < 40)
+            {
+                
+                UserGroupVO userG = new UserGroupVO
+                {
+                    User_Group_Name = txtName.Text.Trim(),
+                    User_Group_Type = Convert.ToInt32(comboBox1.SelectedValue),
+                    Create_User_No = UserNo
+                };
+                bool flag= srv.InsertUserGroup(userG);
+                if (flag)
+                {
+                    MessageBox.Show("입력 성공");
+                }
+                else
+                {
+                    MessageBox.Show("입력실패");
+                }
+            }
+        }        
     }
 }
