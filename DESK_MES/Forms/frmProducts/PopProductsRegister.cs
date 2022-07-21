@@ -16,17 +16,24 @@ namespace DESK_MES
     public partial class PopProductsRegister : Form
     {
         ProductService productSrv;
+        ServiceHelper service;
 
         public PopProductsRegister()
         {
             InitializeComponent();
-            productSrv = new ProductService();
         }
 
         private void PopProductsRegister_Load(object sender, EventArgs e)
         {
+            service = new ServiceHelper("api/Client");
+            productSrv = new ProductService();
+
             ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboType, productSrv.GetProductType(), "Category", "Code");
             cboClient.Enabled = false;
+            ResMessage<List<ClientVO>> resResult = service.GetAsyncT<ResMessage<List<ClientVO>>>("ClientByType/ven");
+            List<ClientVO> list = resResult.Data;
+            list.Insert(0, new ClientVO() { Client_Code = "", Client_Name = "입고처" });
+            ComboBoxUtil.SetComboBoxByList(cboClient, list, "Client_Name", "Client_Code");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -45,9 +52,15 @@ namespace DESK_MES
                 Product_Name = txtName.Text,
                 Product_Type = cboType.SelectedValue.ToString().Split('_')[1], // FERT ...
                 Price = txtPrice.Text == string.Empty ? -1 : Convert.ToInt32(txtPrice.Text),
-                Unit = txtUnit.Text == string.Empty ? -1 : Convert.ToInt32(txtUnit.Text),
+                Unit = txtUnit.Text == string.Empty ? -1 : Convert.ToInt32(txtUnit.Text),                
                 Is_Delete = "N"
             };
+
+            if (cboClient.SelectedIndex > 0)
+            {
+                prd.Client_Code = cboClient.SelectedValue.ToString();
+                prd.Client_Name = cboClient.Text;
+            }
 
             if (ptbProduct.Image == null)
             {
@@ -69,6 +82,8 @@ namespace DESK_MES
                 // 제품 등록 성공 후 이미지 존재
                 if (prd.Is_Image == 1)
                 {
+                    int lastIndex = ptbProduct.Tag.ToString().LastIndexOf('\\');
+                    string path = ptbProduct.Tag.ToString().Substring(0, lastIndex );
                     bool isSaveImg = productSrv.SaveProductImage(SaveProductCode, ptbProduct.Tag.ToString());
                     if (!isSaveImg)
                     {
