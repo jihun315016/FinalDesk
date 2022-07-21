@@ -43,7 +43,7 @@ namespace DESK_WEB.Models
             }
         }
 
-        public ClientVO GetClientInfo(int no)
+        public ClientVO GetClientInfo(string id)
         {
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -56,11 +56,10 @@ namespace DESK_WEB.Models
                                            CONVERT(VARCHAR(20), Create_Time, 20) Create_Time,
                                            Create_User_No,
                                            CONVERT(VARCHAR(20), Update_Time, 20) Update_Time,
-                                           Update_User_No,
-                                           Is_Delete
+                                           Update_User_No
                                     from TB_Client
-                                    where Is_Delete='N' and Client_Code=@Client_Code";
-                cmd.Parameters.AddWithValue("@Client_Code", no);
+                                    where Client_Code=@Client_Code";
+                cmd.Parameters.AddWithValue("@Client_Code", id);
 
                 cmd.Connection.Open();
                 List<ClientVO> list = Helper.DataReaderMapToList<ClientVO>(cmd.ExecuteReader());

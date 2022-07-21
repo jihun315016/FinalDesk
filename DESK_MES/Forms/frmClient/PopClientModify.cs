@@ -17,10 +17,12 @@ namespace DESK_MES
     public partial class PopClientModify : Form
     {
         ServiceHelper service = null;
+
         public PopClientModify()
         {
             InitializeComponent();
             service = new ServiceHelper("api/Client");
+
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace DESK_MES
                 Client_Phone = textBox6.Text
             };
 
-            ResMessage<List<ClientVO>> result = service.PostAsync<ClientVO, List<ClientVO>>("SaveClient", client);
+            ResMessage<List<ClientVO>> result = service.PostAsync<ClientVO, List<ClientVO>>("UpdateClient", client);
 
             if (result.ErrCode == 0)
             {
@@ -66,7 +68,5 @@ namespace DESK_MES
         {
             this.Close();
         }
-
-
     }
 }

@@ -12,7 +12,7 @@ namespace DESK_WEB.Controllers
     [RoutePrefix("api/Client")]
     public class ClientController : ApiController
     {
-        //https://localhost:44393/api/Client/GetAllClients
+        //https://localhost:44393/api/Client/Clients
         [Route("Client")]
         public IHttpActionResult GetAllClients()
         {
@@ -47,10 +47,10 @@ namespace DESK_WEB.Controllers
         //https://localhost:44393/api/Client/{id}
         [HttpGet]
         [Route("{id}")]
-        public IHttpActionResult ClientsInfo(int no)
+        public IHttpActionResult ClientsInfo(string id)
         {
             ClientDAC db = new ClientDAC();
-            ClientVO user = db.GetClientInfo(no);
+            ClientVO user = db.GetClientInfo(id);
 
             ResMessage<ClientVO> result = new ResMessage<ClientVO>()
             {
@@ -91,6 +91,37 @@ namespace DESK_WEB.Controllers
                 });
             }
         }
+
+        //POST : https://localhost:44393/api/Client/UpdateClient
+        [HttpPost]
+        [Route("UpdateClient")]
+        public IHttpActionResult UpdateClient(ClientVO client)
+        {
+            try
+            {
+                ClientDAC db = new ClientDAC();
+                bool flag = db.UpdateClient(client);
+
+                ResMessage result = new ResMessage()
+                {
+                    ErrCode = (!flag) ? -9 : 0,
+                    ErrMsg = (!flag) ? "저장중 오류발생" : "S"
+                };
+
+                return Ok(result);
+            }
+            catch (Exception err)
+            {
+                System.Diagnostics.Debug.WriteLine(err.Message);
+
+                return Ok(new ResMessage()
+                {
+                    ErrCode = -9,
+                    ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
+                });
+            }
+        }
+
 
         //GET: https://localhost:44393/api/Client/DelClient/{no}
         [HttpGet]

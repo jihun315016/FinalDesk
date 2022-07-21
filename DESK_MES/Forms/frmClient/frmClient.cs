@@ -23,17 +23,19 @@ namespace DESK_MES
         }
         private void frmClient_Load(object sender, EventArgs e)
         {
-            LoadData();
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            service = new ServiceHelper("api/Client");
+
+            LoadData();
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+
+            dtpModifyTime.Format = DateTimePickerFormat.Custom;
+            dtpModifyTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
         }
 
         private void LoadData()
         {
-            service = new ServiceHelper("api/Client");
             ResMessage<List<ClientVO>> result = service.GetAsync<List<ClientVO>>("Client");
             if (result != null)
             {
@@ -65,6 +67,22 @@ namespace DESK_MES
         private void btnExcel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string clientCode = dataGridView1[0, e.RowIndex].Value.ToString();
+
+            ResMessage<ClientVO> resResult = service.GetAsyncT<ResMessage<ClientVO>>(clientCode);
+
+            if (resResult.ErrCode == 0)
+            {
+                txtCode.Text = resResult.Data.Client_Code.ToString();
+                txtName.Text = resResult.Data.Client_Name.ToString();
+                txtType.Text = resResult.Data.Client_Type.ToString();
+                txtNumber.Text = resResult.Data.Client_Number.ToString();
+                txtPhone.Text = resResult.Data.Client_Phone.ToString();                
+            }
         }
     }
 }
