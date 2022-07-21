@@ -16,6 +16,7 @@ namespace DESK_MES
     public partial class frmProducts : FormStyle_2
     {
         ProductService productSrv;
+        List<ProductVO> prdList;
 
         public frmProducts()
         {
@@ -25,6 +26,7 @@ namespace DESK_MES
         private void frmProducts_Load(object sender, EventArgs e)
         {
             productSrv = new ProductService();
+            prdList = new List<ProductVO>();
             InitControls();
         }
 
@@ -59,14 +61,25 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 여부", "Is_Image", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "삭제 여부", "Is_Delete", isVisible: false);
+            prdList = productSrv.GetAllProductList();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
+        {            
+            List<ProductVO> list = prdList.Where(p => 1 == 1).ToList();
             // 상세 검색으로 필터링
             if (panel5.Visible)
             {
+                if (!string.IsNullOrWhiteSpace(txtPrdCodeDetail.Text.Trim()))                
+                    list = list.Where(p => p.Product_Code.Contains(txtPrdCodeDetail.Text)).ToList();
 
+                if (!string.IsNullOrWhiteSpace(txtPrdNameDetail.Text.Trim()))
+                    list = list.Where(p => p.Product_Name.Contains(txtPrdNameDetail.Text)).ToList();
+
+                if (cboTypeDetail.SelectedIndex > 0)
+                    list = list.Where(p => p.Product_Type == cboTypeDetail.SelectedValue.ToString().Split('_')[1]).ToList();
+
+                dgvList.DataSource = list;
             }
             // 일반 검색으로 필터링
             else
@@ -74,7 +87,7 @@ namespace DESK_MES
 
             }
 
-            dgvList.DataSource = productSrv.GetAllProductList();
+            dgvList.DataSource = prdList;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
