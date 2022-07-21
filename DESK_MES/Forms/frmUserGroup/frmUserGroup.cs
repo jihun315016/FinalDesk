@@ -66,6 +66,10 @@ namespace DESK_MES
 
             List<UserGroupVO> cbo= srv.SelectAuthList();
             ComboBinding(cboGroupType, cbo, "Auth_Name", "Auth_ID", blank: true) ;
+            comboBox1.Items.Add("전체");
+            comboBox1.Items.Add("사용자 그룹ID");
+            comboBox1.Items.Add("사용자 그룹명");
+            comboBox1.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹번호", "User_Group_No");
@@ -155,6 +159,11 @@ namespace DESK_MES
             //txtCreateUser.Text = "";
             //dtpUpdate.Value = DateTime.Now;
             //txtUpdateUser.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
