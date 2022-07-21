@@ -77,14 +77,18 @@ namespace DESK_MES
                     list = list.Where(p => p.Product_Name.ToLower().Contains(txtPrdNameDetail.Text.ToLower())).ToList();
 
                 if (cboTypeDetail.SelectedIndex > 0)
-                    list = list.Where(p => p.Product_Type == cboTypeDetail.SelectedValue.ToString().Split('_')[1]).ToList();
-
-                dgvList.DataSource = list;
+                    list = list.Where(p => p.Product_Type == cboTypeDetail.SelectedValue.ToString().Split('_')[1]).ToList();                
             }
             // 일반 검색으로 필터링
             else
             {
-
+                // 품번 검색
+                if (comboBox1.SelectedIndex == 1)                
+                    list = list.Where(p => p.Product_Code.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                
+                // 품명 검색
+                else if (comboBox1.SelectedIndex == 2)                
+                    list = list.Where(p => p.Product_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();                
             }
 
             dgvList.DataSource = list;
