@@ -50,6 +50,7 @@ namespace DESK_MES
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+           
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -66,7 +67,11 @@ namespace DESK_MES
                 bool flag= srv.InsertUserGroup(userG);
                 if (flag)
                 {
-                    MessageBox.Show("입력 성공");
+                    if (MessageBox.Show("입력 성공", "등록", MessageBoxButtons.OK) == DialogResult.OK)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
                 else
                 {
