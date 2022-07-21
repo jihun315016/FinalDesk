@@ -73,6 +73,10 @@ namespace DESK_MES
                     MessageBox.Show("입력실패");
                 }
             }
+            else
+            {
+                MessageBox.Show("그룹명은 공란이 없고 글자수가 40자 이하여야 합니다.");
+            }
         }        
     }
 }

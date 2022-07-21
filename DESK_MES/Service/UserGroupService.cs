@@ -31,5 +31,26 @@ namespace DESK_MES
             dac.Dispose();
             return result;
         }
+        public UserGroupVO SelectUserGroupCell(int selectU)
+        {
+            UserGroupDAC dac = new UserGroupDAC();
+            UserGroupVO list = dac.SelectUserGroupCell(selectU);
+            dac.Dispose();
+            return list;
+        }
+        public bool UpdateUserGroup(UserGroupVO UserG)
+        {
+            UserGroupDAC dac = new UserGroupDAC();
+            bool result = dac.UpdateUserGroup(UserG);
+            dac.Dispose();
+            return result;
+        }
+        public bool DeleteUserGroup(int User_Group_No)
+        {
+            UserGroupDAC dac = new UserGroupDAC();
+            bool result = dac.DeleteUserGroup(User_Group_No);
+            dac.Dispose();
+            return result;
+        }
     }
 }

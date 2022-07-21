@@ -54,6 +54,10 @@ from TB_User_Group ug left join [dbo].[TB_USER] u on ug.Update_User_No = u.User_
                 throw err;
             }
         }
+        /// <summary>
+        /// 김준모/권한 리스트불러오기(콤보박스용도)
+        /// </summary>
+        /// <returns></returns>
         public List<UserGroupVO> SelectAuthList()
         {
             string sql = @"select Auth_ID, Auth_Name, Auth_Desc,
@@ -84,8 +88,6 @@ from TB_User_Group ug left join [dbo].[TB_USER] u on ug.Update_User_No = u.User_
         /// <returns></returns>
         public bool InsertUserGroup(UserGroupVO UserG)
         {
-
-            
             int iRowAffect;
             string sql = @"insert [dbo].[TB_USER_GROUP]
 (User_Group_Name,User_Group_Type, Create_User_No)
@@ -102,6 +104,98 @@ values
                         cmd.Parameters.AddWithValue("@User_Group_Name", UserG.User_Group_Name);
                         cmd.Parameters.AddWithValue("@User_Group_Type", UserG.User_Group_Type);
                         cmd.Parameters.AddWithValue("@Create_User_No", UserG.Create_User_No);
+                        iRowAffect = cmd.ExecuteNonQuery();
+                    }
+                    tran.Commit();
+                    return iRowAffect > 0;
+                }
+                catch (Exception err)
+                {
+                    tran.Rollback();
+                    throw err;
+                }
+            }
+        }
+        /// <summary>
+        /// 김준모/유저그룹 번호로 유저그룹 셀렉
+        /// </summary>
+        /// <param name="User_Group_No"></param>
+        /// <returns></returns>
+        public UserGroupVO SelectUserGroupCell(int User_Group_No)
+        {
+            string sql = @"select ug.User_Group_No,[User_Group_Name], User_Group_Type,[Auth_Name] as User_Group_TypeName, CONVERT(nvarchar(30),
+ug.Create_Time,20) Create_Time, ug.Create_User_No,up.[User_Name] as Create_User_Name , CONVERT(nvarchar(30),ug.Update_Time,20) as Update_Time, ug.Update_User_No, u.[User_Name] as Update_User_Name
+from TB_User_Group ug left join [dbo].[TB_USER] u on ug.Update_User_No = u.User_No
+					left join [dbo].[TB_USER] up on ug.Create_User_No = up.User_No
+					left join [dbo].[TB_AUTHORTY] a on ug.User_Group_Type = a.Auth_ID
+where ug.User_Group_No = @User_Group_No";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@User_Group_No", User_Group_No);
+                    List<UserGroupVO> list = DBHelpler.DataReaderMapToList<UserGroupVO>(cmd.ExecuteReader());
+
+                    return list[0];
+                }
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+        }
+
+        /// <summary>
+        /// 김준모/유저그룹 업데이트(수정)
+        /// </summary>
+        /// <param name="UserG"></param>
+        /// <returns></returns>
+        public bool UpdateUserGroup(UserGroupVO UserG)
+        {
+            int iRowAffect;
+            string sql = @"update [dbo].[TB_USER_GROUP]
+set
+User_Group_Name=@User_Group_Name, User_Group_Type=@User_Group_Type, Update_Time =(CONVERT(char,getdate(),(20))), Update_User_No =@Update_User_No
+where User_Group_No =@User_Group_No";
+
+            using (SqlTransaction tran = conn.BeginTransaction())
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Transaction = tran;
+                        cmd.Parameters.AddWithValue("@User_Group_Name", UserG.User_Group_Name);
+                        cmd.Parameters.AddWithValue("@User_Group_Type", UserG.User_Group_Type);
+                        cmd.Parameters.AddWithValue("@Update_User_No", UserG.Update_User_No);
+                        cmd.Parameters.AddWithValue("@User_Group_No", UserG.User_Group_No);
+                        iRowAffect = cmd.ExecuteNonQuery();
+                    }
+                    tran.Commit();
+                    return iRowAffect > 0;
+                }
+                catch (Exception err)
+                {
+                    tran.Rollback();
+                    throw err;
+                }
+            }
+        }
+        public bool DeleteUserGroup(int User_Group_No)
+        {
+            int iRowAffect;
+            string sql = @"delete from[dbo].[TB_USER_GROUP]
+where User_Group_No =@User_Group_No";
+
+            using (SqlTransaction tran = conn.BeginTransaction())
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Transaction = tran;
+                        
+                        cmd.Parameters.AddWithValue("@User_Group_No", User_Group_No);
                         iRowAffect = cmd.ExecuteNonQuery();
                     }
                     tran.Commit();

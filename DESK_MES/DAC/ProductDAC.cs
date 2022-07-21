@@ -29,6 +29,21 @@ namespace DESK_MES.DAC
             }
         }
 
+        public List<ProductVO> GetProductList()
+        {
+            // 칼럼에 알리아스 주는 것 필요
+            string sql = @"SELECT Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, p.Create_Time, p.Create_User_No, u.User_Name, p.Update_Time, p.Update_User_No, uu.User_Name, p.Is_Delete 
+                            FROM TB_PRODUCT p
+                            JOIN TB_USER u ON p.Create_User_No = u.User_No
+                            LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
+            reader.Close();
+            return list;
+        }
+
         /// <summary>
         /// Author : 강지훈
         /// 제품 유형 조회
@@ -84,7 +99,6 @@ namespace DESK_MES.DAC
                 Console.WriteLine($"{Environment.NewLine}DB error : {cmd.Parameters["@err_msg"].Value}");
                 return String.Empty;
             }
-
         }
     }
 }
