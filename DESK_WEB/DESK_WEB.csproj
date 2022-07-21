@@ -112,12 +112,14 @@
     <Compile Include="Controllers\LotController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\TradeController.cs" />
+    <Compile Include="Controllers\api\WarehouseController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientDAC.cs" />
     <Compile Include="Models\Helper.cs" />
+    <Compile Include="Models\WarehouseDAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +147,7 @@
     <Folder Include="Models\DAC\" />
     <Folder Include="Models\DTO\" />
     <Folder Include="Views\Lot\" />
+    <Folder Include="Views\Warehouse\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DESk_DTO\DESK_DTO.csproj">

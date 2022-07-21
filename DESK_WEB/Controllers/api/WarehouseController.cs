@@ -4,24 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http;
 using DESK_WEB.Models;
 using DESK_DTO;
 
 namespace DESK_WEB.Controllers
 {
-    [RoutePrefix("api/Client")]
-    public class ClientController : ApiController
+    [RoutePrefix("api/Warehouse")]
+    public class WarehouseController : ApiController
     {
-        //https://localhost:44393/api/Client/Clients
-        [Route("Client")]
-        public IHttpActionResult GetAllClients()
+        //https://localhost:44393/api/Warehouse/Warehouse
+        [Route("Warehouse")]
+        public IHttpActionResult GetAllWarehouse()
         {
             try
             {
-                ClientDAC db = new ClientDAC();
-                List<ClientVO> list = db.GetAllClients();
+                WarehouseDAC db = new WarehouseDAC();
+                List<WarehouseVO> list = db.GetAllWarehouse();
 
-                ResMessage<List<ClientVO>> result = new ResMessage<List<ClientVO>>()
+                ResMessage<List<WarehouseVO>> result = new ResMessage<List<WarehouseVO>>()
                 {
                     ErrCode = (list == null) ? -9 : 0,
                     ErrMsg = (list == null) ? "조회중 오류발생" : "S",
@@ -42,16 +43,15 @@ namespace DESK_WEB.Controllers
             }
         }
 
-
-        //https://localhost:44393/api/Client/{id}
+        //https://localhost:44393/api/Warehouse/{id}
         [HttpGet]
         [Route("{id}")]
-        public IHttpActionResult ClientsInfo(string id)
+        public IHttpActionResult WarehouseInfo(string id)
         {
-            ClientDAC db = new ClientDAC();
-            ClientVO user = db.GetClientInfo(id);
+            WarehouseDAC db = new WarehouseDAC();
+            WarehouseVO user = db.GetWarehouseInfo(id);
 
-            ResMessage<ClientVO> result = new ResMessage<ClientVO>()
+            ResMessage<WarehouseVO> result = new ResMessage<WarehouseVO>()
             {
                 ErrCode = (user == null) ? -9 : 0,
                 ErrMsg = (user == null) ? "해당하는 정보가 없습니다." : "S",
@@ -61,15 +61,15 @@ namespace DESK_WEB.Controllers
             return Ok(result);
         }
 
-        //POST : https://localhost:44393/api/Client/SaveClient
+        //POST : https://localhost:44393/api/Warehouse/SaveWarehouse
         [HttpPost]
-        [Route("SaveClient")]
-        public IHttpActionResult SaveClient(ClientVO client)
+        [Route("SaveWarehouse")]
+        public IHttpActionResult SaveWarehouse(WarehouseVO warehouse)
         {
             try
             {
-                ClientDAC db = new ClientDAC();
-                bool flag = db.SaveClient(client);
+                WarehouseDAC db = new WarehouseDAC();
+                bool flag = db.SaveWarehouse(warehouse);
 
                 ResMessage result = new ResMessage()
                 {
@@ -91,51 +91,20 @@ namespace DESK_WEB.Controllers
             }
         }
 
-        //POST : https://localhost:44393/api/Client/UpdateClient
+        //POST : https://localhost:44393/api/Client/UpdateWarehouse
         [HttpPost]
-        [Route("UpdateClient")]
-        public IHttpActionResult UpdateClient(ClientVO client)
+        [Route("UpdateWarehouse")]
+        public IHttpActionResult UpdateWarehouse(WarehouseVO client)
         {
             try
             {
-                ClientDAC db = new ClientDAC();
-                bool flag = db.UpdateClient(client);
+                WarehouseDAC db = new WarehouseDAC();
+                bool flag = db.UpdateWarehouse(client);
 
                 ResMessage result = new ResMessage()
                 {
                     ErrCode = (!flag) ? -9 : 0,
                     ErrMsg = (!flag) ? "저장중 오류발생" : "S"
-                };
-
-                return Ok(result);
-            }
-            catch (Exception err)
-            {
-                System.Diagnostics.Debug.WriteLine(err.Message);
-
-                return Ok(new ResMessage()
-                {
-                    ErrCode = -9,
-                    ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
-                });
-            }
-        }
-
-
-        //GET: https://localhost:44393/api/Client/DelClient/{no}
-        [HttpGet]
-        [Route("DelClient/{no}")]
-        public IHttpActionResult DeleteUser(string no)
-        {
-            try
-            {
-                ClientDAC db = new ClientDAC();
-                bool flag = db.DeleteClient(no);
-
-                ResMessage result = new ResMessage()
-                {
-                    ErrCode = (!flag) ? -9 : 0,
-                    ErrMsg = (!flag) ? "삭제중 오류발생" : "S"
                 };
 
                 return Ok(result);

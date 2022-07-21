@@ -46,7 +46,7 @@ namespace DESK_MES
             else
             {
                 MessageBox.Show(result.ErrMsg);
-            }                
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
