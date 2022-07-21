@@ -85,8 +85,15 @@ namespace DESK_MES
                     list = list.Where(p => p.Product_Code.ToLower().Contains(textBox1.Text.ToLower())).ToList();
                 
                 // 품명 검색
-                else if (comboBox1.SelectedIndex == 2)                
-                    list = list.Where(p => p.Product_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();                
+                else if (comboBox1.SelectedIndex == 2)
+                    list = list.Where(p => p.Product_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+
+                // 삭제 여부 검색
+                else if (comboBox1.SelectedIndex == 3)
+                    list = list.Where(p => p.Is_Delete == "Y").ToList();
+
+                else if (comboBox1.SelectedIndex == 3)
+                    list = list.Where(p => p.Is_Delete == "N").ToList();
             }
 
             dgvList.DataSource = list;
@@ -125,6 +132,19 @@ namespace DESK_MES
             }
             
             txtUpdateUserDetail.Text = prd.Update_User_Name;
+
+            if (prd.Is_Image == 1)
+            {
+                try
+                {
+                    ptbProductImage.ImageLocation = $"https://localhost:44393/files/{prd.Product_Code}.png";
+                }
+                catch { }
+            }
+            else
+            {
+                ptbProductImage.Image = null;
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -136,13 +156,9 @@ namespace DESK_MES
         private void btnOpenDetail_Click(object sender, EventArgs e)
         {
             if (panel5.Visible)
-            {
                 comboBox1.Enabled = textBox1.Enabled = false;
-            }
             else
-            {
                 comboBox1.Enabled = textBox1.Enabled = true;
-            }
         }
     }
 }
