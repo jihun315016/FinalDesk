@@ -121,6 +121,17 @@ namespace DESK_MES
                 cboClient.Enabled = false;
             else
                 cboClient.Enabled = true;
+
+            if (cboType.SelectedIndex == 1)
+            {
+                txtPrice.Enabled = false;
+                txtUnit.Enabled = false;
+            }
+            else
+            {
+                txtPrice.Enabled = true;
+                txtUnit.Enabled = true;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
