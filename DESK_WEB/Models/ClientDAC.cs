@@ -24,12 +24,16 @@ namespace DESK_WEB.Models
                 cmd.Connection = new SqlConnection(strConn);
                 cmd.CommandText = @"select Client_Code, 
                                            Client_Name, 
-                                           Client_Type,                                           
+                                           Client_Type,
+                                           Client_Number,
+                                           Client_Phone,
                                            CONVERT(VARCHAR(20), Create_Time, 20) Create_Time,
                                            Create_User_No,
                                            CONVERT(VARCHAR(20), Update_Time, 20) Update_Time,
-                                           Update_User_No 
-                                    from TB_Client";
+                                           Update_User_No,
+                                           Is_Delete
+                                    from TB_Client
+                                    where Is_Delete='N'";
 
                 cmd.Connection.Open();
                 List<ClientVO> list = Helper.DataReaderMapToList<ClientVO>(cmd.ExecuteReader());
@@ -46,13 +50,16 @@ namespace DESK_WEB.Models
                 cmd.Connection = new SqlConnection(strConn);
                 cmd.CommandText = @"select Client_Code, 
                                            Client_Name, 
-                                           Client_Type,                                           
+                                           Client_Type,
+                                           Client_Number,
+                                           Client_Phone,
                                            CONVERT(VARCHAR(20), Create_Time, 20) Create_Time,
                                            Create_User_No,
                                            CONVERT(VARCHAR(20), Update_Time, 20) Update_Time,
-                                           Update_User_No 
+                                           Update_User_No,
+                                           Is_Delete
                                     from TB_Client
-                                    where Client_Code=@Client_Code";
+                                    where Is_Delete='N' and Client_Code=@Client_Code";
                 cmd.Parameters.AddWithValue("@Client_Code", no);
 
                 cmd.Connection.Open();
@@ -71,12 +78,14 @@ namespace DESK_WEB.Models
             using (SqlCommand cmd = new SqlCommand())            
             {
                 cmd.Connection = new SqlConnection(strConn);
-                cmd.CommandText = @"INSERT INTO TB_Client (Client_Code, Client_Name, Client_Type, Create_Time)
-                                    VALUES (@Client_Code, @Client_Name, @Client_Type, @Create_Time)";
+                cmd.CommandText = @"INSERT INTO TB_Client (Client_Code, Client_Name, Client_Type, Client_Number, Client_Phone, Create_Time)
+                                    VALUES (@Client_Code, @Client_Name, @Client_Type, @Client_Number, @Client_Phone, @Create_Time)";
 
                 cmd.Parameters.AddWithValue("@Client_Code", client.Client_Code);
                 cmd.Parameters.AddWithValue("@Client_Name", client.Client_Name);
                 cmd.Parameters.AddWithValue("@Client_Type", client.Client_Type);
+                cmd.Parameters.AddWithValue("@Client_Number", client.Client_Number);
+                cmd.Parameters.AddWithValue("@Client_Phone", client.Client_Phone);
                 cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
 
                 cmd.Connection.Open();
@@ -94,11 +103,13 @@ namespace DESK_WEB.Models
                 cmd.Connection = new SqlConnection(strConn);
                 cmd.CommandText = @"UPDATE TB_Client SET Client_Name = @Client_Name,
                                                          Client_Type= @Client_Type
+                                                         Client_Phone=@Client_Phone
                                     WHERE Client_Code= @Client_Code";
 
                 cmd.Parameters.AddWithValue("@Client_Code", client.Client_Code);
                 cmd.Parameters.AddWithValue("@Client_Name", client.Client_Name);
                 cmd.Parameters.AddWithValue("@Client_Type", client.Client_Type);
+                cmd.Parameters.AddWithValue("@Client_Phone", client.Client_Phone);
 
                 cmd.Connection.Open();
                 int iRowAffect = cmd.ExecuteNonQuery();

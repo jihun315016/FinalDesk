@@ -23,6 +23,11 @@ namespace DESK_MES
         }
         private void frmClient_Load(object sender, EventArgs e)
         {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             service = new ServiceHelper("api/Client");
             ResMessage<List<ClientVO>> result = service.GetAsync<List<ClientVO>>("Client");
             if (result != null)
@@ -37,15 +42,24 @@ namespace DESK_MES
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopClientRegister pop = new PopClientRegister();
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnModify_Click(object sender, EventArgs e)
         {
             PopClientModify pop = new PopClientModify();
-            pop.Show();
+            if(pop.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

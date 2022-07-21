@@ -19,6 +19,8 @@ namespace DESK_DTO
         public string Client_Code { get; set; }
         public string Client_Name { get; set; }
         public string Client_Type { get; set; }
+        public string Client_Number { get; set; }
+        public string Client_Phone { get; set; }
         public string Create_Time { get; set; }
         public int Create_User_No { get; set; }
         public string Update_Time { get; set; }
