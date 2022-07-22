@@ -35,7 +35,7 @@ namespace DESK_MES
             ComboBoxUtil.SetComboBoxByList(cboClient, list, "Client_Name", "Client_Code");
 
             cboType.SelectedValue = prd.Product_Type;
-            //cboClient.SelectedValue = prd.Client_Code;
+            ////cboClient.SelectedValue = prd.Client_Code;
         }
 
         private void PopProductsModify_Load(object sender, EventArgs e)
