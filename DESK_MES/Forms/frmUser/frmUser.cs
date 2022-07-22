@@ -102,6 +102,8 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자ID", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경사용자ID", "Update_User_No", isVisible: false);
             BindingGdv();
+
+            flag = false;
         }
         private void dgvMain_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -110,13 +112,13 @@ namespace DESK_MES
             selectUser = Convert.ToInt32(dgvMain[0, e.RowIndex].Value);
             txtUserNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
             txtName.Text = dgvMain[1, e.RowIndex].Value.ToString();
-            if (dgvMain[2, e.RowIndex].Value!=null)
-            txtUserG.Text = dgvMain[2, e.RowIndex].Value.ToString();
 
-            txtPwd.Text = dgvMain[3, e.RowIndex].Value.ToString();
+            if (dgvMain[2, e.RowIndex].Value != null) { txtUserG.Text = dgvMain[2, e.RowIndex].Value.ToString(); }
 
-            if(dgvMain[4, e.RowIndex].Value!=null)
-            txtAuth.Text = dgvMain[4, e.RowIndex].Value.ToString();
+            if (dgvMain[3, e.RowIndex].Value != null) { txtAuth.Text = dgvMain[3, e.RowIndex].Value.ToString(); }
+
+            txtPwd.Text = dgvMain[4, e.RowIndex].Value.ToString();
+            
             dtpCreate.Value = Convert.ToDateTime(dgvMain[5, e.RowIndex].Value);
             txtCreateUser.Text = dgvMain[6, e.RowIndex].Value.ToString();
             if (dgvMain[7, e.RowIndex].Value != null)
