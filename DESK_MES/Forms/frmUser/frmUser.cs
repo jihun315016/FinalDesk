@@ -18,6 +18,7 @@ namespace DESK_MES
         List<UserVO> saveList;
         string user;
         string saveFileName;
+        int selectUser;
         bool flag = false;
         public frmUser()
         {
@@ -75,7 +76,7 @@ namespace DESK_MES
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
             List<UserGroupVO> cbo2 = srvG.SelectGroupNameList();
-            ComboBinding(cboUserG, cbo2, "User_Group_Name", "User_Group_No", blank: true);
+            ComboBinding(cboGroupType, cbo2, "User_Group_Name", "User_Group_No", blank: true);
 
             cboDate.Items.Add("전체");
             cboDate.Items.Add("생성시간");
@@ -84,17 +85,63 @@ namespace DESK_MES
             cboDate.DropDownStyle = ComboBoxStyle.DropDownList;
 
             DataGridUtil.SetInitGridView(dgvMain);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사번", "User_No");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자명", "User_Name");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자그룹", "User_Group_Name");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자", "Create_User_Name");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경시간", "Update_Time");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경사용자", "Update_User_Name");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사번", "User_No"); //0
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자명", "User_Name"); //1
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹", "User_Group_Name"); //2
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "비밀번호", "User_Pwd"); //3
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "권한", "Auth_Name"); //4
+
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time"); //5
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자", "Create_User_Name"); //6
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경시간", "Update_Time"); //7
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경사용자", "Update_User_Name"); //8
+
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "퇴사여부", "Is_Delete"); //9
+
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹유형코드", "User_Group_Type", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자ID", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경사용자ID", "Update_User_No", isVisible: false);
             BindingGdv();
+
+            flag = false;
+        }
+        private void dgvMain_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            selectUser = Convert.ToInt32(dgvMain[0, e.RowIndex].Value);
+            txtUserNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
+            txtName.Text = dgvMain[1, e.RowIndex].Value.ToString();
+
+            if (dgvMain[2, e.RowIndex].Value != null) { txtUserG.Text = dgvMain[2, e.RowIndex].Value.ToString(); }
+
+            if (dgvMain[3, e.RowIndex].Value != null) { txtAuth.Text = dgvMain[3, e.RowIndex].Value.ToString(); }
+
+            txtPwd.Text = dgvMain[4, e.RowIndex].Value.ToString();
+            
+            dtpCreate.Value = Convert.ToDateTime(dgvMain[5, e.RowIndex].Value);
+            txtCreateUser.Text = dgvMain[6, e.RowIndex].Value.ToString();
+            if (dgvMain[7, e.RowIndex].Value != null)
+            {
+                dtpUpdate.Value = Convert.ToDateTime(dgvMain[7, e.RowIndex].Value);
+                dtpUpdate.Visible = true;
+                txtUpdateUser.Visible = true;
+                lblTime.Visible = true;
+                lblUser.Visible = true;
+            }
+            else
+            {
+                dtpUpdate.Visible = false;
+                txtUpdateUser.Visible = false;
+                lblTime.Visible = false;
+                lblUser.Visible = false;
+            }
+            if (dgvMain[7, e.RowIndex].Value != null)
+            {
+                txtUpdateUser.Text = dgvMain[8, e.RowIndex].Value.ToString();
+            }
+
+            txtDelete.Text = dgvMain[9, e.RowIndex].Value.ToString();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -108,6 +155,24 @@ namespace DESK_MES
             pop.ShowDialog();
         }
 
-        
+        private void btnOpenDetail_Click(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                flag = false;
+                //일반검색
+                textBox1.Enabled = true;
+                cboGroupType.SelectedIndex = 0;
+                cboAuth.SelectedIndex = 0;
+                cboDate.SelectedIndex = 0;
+            }
+            else
+            {
+                flag = true;
+                //상세검색
+                textBox1.Enabled = false;
+                comboBox1.SelectedIndex = 0;
+            }
+        }
     }
 }
