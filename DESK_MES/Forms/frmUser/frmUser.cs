@@ -115,9 +115,9 @@ namespace DESK_MES
 
             if (dgvMain[2, e.RowIndex].Value != null) { txtUserG.Text = dgvMain[2, e.RowIndex].Value.ToString(); }
 
-            if (dgvMain[3, e.RowIndex].Value != null) { txtAuth.Text = dgvMain[3, e.RowIndex].Value.ToString(); }
+            if (dgvMain[4, e.RowIndex].Value != null) { txtAuth.Text = dgvMain[4, e.RowIndex].Value.ToString(); }
 
-            txtPwd.Text = dgvMain[4, e.RowIndex].Value.ToString();
+            txtPwd.Text = dgvMain[3, e.RowIndex].Value.ToString();
             
             dtpCreate.Value = Convert.ToDateTime(dgvMain[5, e.RowIndex].Value);
             txtCreateUser.Text = dgvMain[6, e.RowIndex].Value.ToString();
