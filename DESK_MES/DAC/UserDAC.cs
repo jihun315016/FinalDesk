@@ -45,7 +45,7 @@ from userr u left join [dbo].[TB_USER] us on u.Create_User_No = us.User_No
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    List<UserVO> list = DBHelpler.DataReaderMapToList<UserVO>(cmd.ExecuteReader());
+                   List<UserVO> list = DBHelpler.DataReaderMapToList<UserVO>(cmd.ExecuteReader());
 
                     return list;
                 }
