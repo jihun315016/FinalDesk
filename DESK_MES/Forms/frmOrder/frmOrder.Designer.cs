@@ -279,9 +279,9 @@ namespace DESK_MES
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 0;
-            this.label3.Text = "주문서코드";
+            this.label3.Text = "주문번호";
             // 
             // panel10
             // 
