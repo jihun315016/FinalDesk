@@ -47,7 +47,16 @@ namespace DESK_MES.Service
             bool result = dac.UpdateProduct(prd);
             dac.Dispose();
             return result;
-        }    
+        }
+        
+        public bool DeleteProduct(string code)
+        {
+            ProductDAC dac = new ProductDAC();
+            bool result = dac.DeleteProduct(code);
+            dac.Dispose();
+            return result;
+
+        }
 
         /// <summary>
         /// Author : 강지훈
@@ -84,6 +93,12 @@ namespace DESK_MES.Service
             }
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 이미지가 등록된 Web API에 url을 가져온다.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public string GetImageUrl(string code)
         {
             return $"{baseUrl}files/{code}.png";

@@ -41,11 +41,12 @@ namespace DESK_MES
             this.btnUpdate = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button3 = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnImgDelete = new System.Windows.Forms.Button();
             this.btnImgUpload = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ptbProduct = new System.Windows.Forms.PictureBox();
@@ -62,7 +63,6 @@ namespace DESK_MES
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnImgDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -155,7 +155,7 @@ namespace DESK_MES
             // 
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -202,21 +202,23 @@ namespace DESK_MES
             this.button3.TabIndex = 38;
             this.button3.Text = "   닫기";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnAdd
+            // btnDelete
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.ImageIndex = 0;
-            this.btnAdd.ImageList = this.imageList2;
-            this.btnAdd.Location = new System.Drawing.Point(611, 18);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnAdd.Size = new System.Drawing.Size(76, 27);
-            this.btnAdd.TabIndex = 37;
-            this.btnAdd.Text = "   삭제";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.ImageIndex = 0;
+            this.btnDelete.ImageList = this.imageList2;
+            this.btnDelete.Location = new System.Drawing.Point(611, 18);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnDelete.Size = new System.Drawing.Size(76, 27);
+            this.btnDelete.TabIndex = 37;
+            this.btnDelete.Text = "   삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // panel4
             // 
@@ -263,6 +265,16 @@ namespace DESK_MES
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(380, 345);
             this.panel9.TabIndex = 2;
+            // 
+            // btnImgDelete
+            // 
+            this.btnImgDelete.Location = new System.Drawing.Point(234, 300);
+            this.btnImgDelete.Name = "btnImgDelete";
+            this.btnImgDelete.Size = new System.Drawing.Size(61, 23);
+            this.btnImgDelete.TabIndex = 29;
+            this.btnImgDelete.Text = "제거";
+            this.btnImgDelete.UseVisualStyleBackColor = true;
+            this.btnImgDelete.Click += new System.EventHandler(this.btnImgDelete_Click);
             // 
             // btnImgUpload
             // 
@@ -453,16 +465,6 @@ namespace DESK_MES
             this.label11.TabIndex = 51;
             this.label11.Text = "품명";
             // 
-            // btnImgDelete
-            // 
-            this.btnImgDelete.Location = new System.Drawing.Point(234, 300);
-            this.btnImgDelete.Name = "btnImgDelete";
-            this.btnImgDelete.Size = new System.Drawing.Size(61, 23);
-            this.btnImgDelete.TabIndex = 29;
-            this.btnImgDelete.Text = "제거";
-            this.btnImgDelete.UseVisualStyleBackColor = true;
-            this.btnImgDelete.Click += new System.EventHandler(this.btnImgDelete_Click);
-            // 
             // PopProductsModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -515,7 +517,7 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
         private ccTextBox txtCode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboClient;

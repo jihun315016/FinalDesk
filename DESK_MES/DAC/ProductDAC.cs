@@ -161,5 +161,28 @@ namespace DESK_MES.DAC
                 return false;
             }
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 삭제 기능
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public bool DeleteProduct(string code)
+        {
+            string sql = "DELETE FROM TB_PRODUCT WHERE Product_Code=@Product_Code ";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Product_Code", code);
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -143,7 +143,6 @@ namespace DESK_MES
                     }
                 }
                 resultMessage.Append("수정이 완료되었습니다.");
-                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -154,5 +153,26 @@ namespace DESK_MES
             MessageBox.Show(resultMessage.ToString());
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = productSrv.DeleteProduct(txtCode.Text);
+                if (result)
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

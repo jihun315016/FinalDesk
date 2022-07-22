@@ -155,5 +155,38 @@ namespace DESK_MES
             else
                 comboBox1.Enabled = textBox1.Enabled = true;
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            prdList = productSrv.GetProductList();
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                List<ProductVO> list = dgvList.DataSource as List<ProductVO>;
+                ExcelUtil excel = new ExcelUtil();
+                List<ProductVO> orders = list;
+
+                string[] columnImport = { "Product_Code", "Product_Name", "Product_Type", "Price", "Unit", "Create_Time", "Create_User_Name" };
+                string[] columnName = { "품번", "품명", "유형", "가격", "단위", "등록 시간", "등록 사용자" };
+
+                if (excel.ExportList(orders, dlg.FileName, columnImport, columnName))
+                {
+                    MessageBox.Show("엑셀 다운로드 완료");
+                }
+                else
+                {
+                    MessageBox.Show("엑셀 다운 실패");
+                }
+            }
+        }
     }
 }
