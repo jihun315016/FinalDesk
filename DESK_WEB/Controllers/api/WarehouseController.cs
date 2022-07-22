@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http;
 using DESK_WEB.Models;
-using DESK_DTO;
 
 namespace DESK_WEB.Controllers
 {
