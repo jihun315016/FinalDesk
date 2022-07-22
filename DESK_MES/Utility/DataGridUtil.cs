@@ -44,5 +44,18 @@ namespace DESK_MES
 
             dgv.Columns.Add(col);
         }
+
+        void SetDataGridViewColumn_Button(DataGridView dgv, string header, string text, int width = 60, int paddingLeftRIght = 8, int paddingTopBottom = 1)
+        {
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+
+            btn.Width = width;
+            btn.DefaultCellStyle.Padding = new Padding(paddingLeftRIght, paddingTopBottom, paddingLeftRIght, paddingTopBottom);
+            btn.Name = header;
+            btn.Text = text;
+            btn.UseColumnTextForButtonValue = true;
+
+            dgv.Columns.Add(btn);
+        }
     }
 }
