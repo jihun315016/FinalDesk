@@ -2041,6 +2041,9 @@
     </Compile>
     <Compile Include="Models\DAC\ClientDAC.cs" />
     <Compile Include="Models\DAC\WarehouseDAC.cs" />
+    <Compile Include="Models\DTO\ClientVO.cs" />
+    <Compile Include="Models\DTO\ResMessage.cs" />
+    <Compile Include="Models\DTO\WarehouseVO.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2199,7 +2202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\DTO\" />
     <Folder Include="Views\Lot\" />
     <Folder Include="Views\Warehouse\" />
   </ItemGroup>
