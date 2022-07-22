@@ -40,7 +40,7 @@ namespace DESK_MES.DAC
 
             sb.Append(@"SELECT 
                         Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, c.Client_Code, Client_Name, p.Create_Time, p.Create_User_No
-                        , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name, p.Is_Delete 
+                        , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name
                         FROM TB_PRODUCT p
                         LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
                         LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No 
@@ -109,7 +109,6 @@ namespace DESK_MES.DAC
                     cmd.Parameters.AddWithValue("@Client_Code", DBNull.Value);
                 else
                     cmd.Parameters.AddWithValue("@Client_Code", prd.Client_Code);
-                cmd.Parameters.AddWithValue("@Is_Delete", prd.Is_Delete);
                 cmd.Parameters.AddWithValue("@Create_User_No", userNo);
                 cmd.Parameters.Add("@prd_code", System.Data.SqlDbType.NVarChar, 20);
                 cmd.Parameters["@prd_code"].Direction = System.Data.ParameterDirection.Output;

@@ -42,7 +42,7 @@ namespace DESK_WEB.Controllers
             }
         }
 
-        //https://localhost:44393/api/Client/ClientByType/{type}
+        //http://localhost/api/Client/ClientByType/{type}
         [Route("ClientByType/{type}")]
         public IHttpActionResult GetClientListByType(string type)
         {

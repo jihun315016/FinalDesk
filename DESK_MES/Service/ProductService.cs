@@ -75,5 +75,10 @@ namespace DESK_MES.Service
                 return false;
             }
         }
+
+        public string GetImageUrl(string code)
+        {
+            return $"{ConfigurationManager.AppSettings["apiURL"]}files/{code}.png";
+        }
     }
 }

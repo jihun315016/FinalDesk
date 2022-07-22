@@ -16,7 +16,7 @@ namespace DESK_MES
     public partial class PopProductsRegister : Form
     {
         ProductService productSrv;
-        ServiceHelper service;
+        ServiceHelper srvHelper;
 
         public PopProductsRegister()
         {
@@ -25,12 +25,12 @@ namespace DESK_MES
 
         private void PopProductsRegister_Load(object sender, EventArgs e)
         {
-            service = new ServiceHelper("api/Client");
+            srvHelper = new ServiceHelper("api/Client");
             productSrv = new ProductService();
 
             ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboType, productSrv.GetProductType(), "Category", "Code");
             cboClient.Enabled = false;
-            ResMessage<List<ClientVO>> resResult = service.GetAsyncT<ResMessage<List<ClientVO>>>("ClientByType/ven");
+            ResMessage<List<ClientVO>> resResult = srvHelper.GetAsyncT<ResMessage<List<ClientVO>>>("ClientByType/ven");
             List<ClientVO> list = resResult.Data;
             list.Insert(0, new ClientVO() { Client_Code = "", Client_Name = "입고처" });
             ComboBoxUtil.SetComboBoxByList(cboClient, list, "Client_Name", "Client_Code");

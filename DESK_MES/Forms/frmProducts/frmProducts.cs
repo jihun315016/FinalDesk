@@ -58,7 +58,6 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자 번호", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 여부", "Is_Image", isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "삭제 여부", "Is_Delete", isVisible: false);
             prdList = productSrv.GetProductList();
         }
 
@@ -87,13 +86,6 @@ namespace DESK_MES
                 // 품명 검색
                 else if (comboBox1.SelectedIndex == 2)
                     list = list.Where(p => p.Product_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
-
-                // 삭제 여부 검색
-                else if (comboBox1.SelectedIndex == 3)
-                    list = list.Where(p => p.Is_Delete == "Y").ToList();
-
-                else if (comboBox1.SelectedIndex == 3)
-                    list = list.Where(p => p.Is_Delete == "N").ToList();
             }
 
             dgvList.DataSource = list;
@@ -137,7 +129,7 @@ namespace DESK_MES
             {
                 try
                 {
-                    ptbProductImage.ImageLocation = $"https://localhost:44393/files/{prd.Product_Code}.png";
+                    ptbProductImage.ImageLocation = productSrv.GetImageUrl(prd.Product_Code);
                 }
                 catch { }
             }
@@ -149,7 +141,10 @@ namespace DESK_MES
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            PopProductsModify pop = new PopProductsModify();
+            List<ProductVO> temp = productSrv.GetProductList(txtCodeDetail.Text);
+            ProductVO prd = temp.FirstOrDefault();
+
+            PopProductsModify pop = new PopProductsModify(prd);
             pop.ShowDialog();
         }
 
