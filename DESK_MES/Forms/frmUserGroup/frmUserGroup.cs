@@ -151,8 +151,7 @@ namespace DESK_MES
             if (dataGridView1[6, e.RowIndex].Value != null)
             {
                 txtUpdateUser.Text = dataGridView1[6, e.RowIndex].Value.ToString();
-            }
-            
+            }            
         }
 
         private void btnReset_Click(object sender, EventArgs e)

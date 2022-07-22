@@ -38,20 +38,20 @@ namespace DESK_MES
             this.label5 = new System.Windows.Forms.Label();
             this.cboAuth = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cboUserG = new System.Windows.Forms.ComboBox();
+            this.cboGroupType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtDelete = new System.Windows.Forms.TextBox();
             this.lblDelect = new System.Windows.Forms.Label();
             this.txtUserNo = new System.Windows.Forms.TextBox();
-            this.txtUpdate = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtUpdateUser = new System.Windows.Forms.TextBox();
+            this.lblUser = new System.Windows.Forms.Label();
             this.dtpUpdate = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.dtpCreate = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtCreate = new System.Windows.Forms.TextBox();
+            this.txtCreateUser = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtAuth = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
@@ -108,6 +108,10 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.button5, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
             // 
+            // btnOpenDetail
+            // 
+            this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -126,7 +130,7 @@ namespace DESK_MES
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.cboAuth);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.cboUserG);
+            this.groupBox2.Controls.Add(this.cboGroupType);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -138,7 +142,7 @@ namespace DESK_MES
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(721, 24);
+            this.dateTimePicker2.Location = new System.Drawing.Point(734, 24);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker2.TabIndex = 37;
@@ -146,7 +150,7 @@ namespace DESK_MES
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(603, 24);
+            this.dateTimePicker1.Location = new System.Drawing.Point(616, 24);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker1.TabIndex = 38;
@@ -154,7 +158,7 @@ namespace DESK_MES
             // cboDate
             // 
             this.cboDate.FormattingEnabled = true;
-            this.cboDate.Location = new System.Drawing.Point(478, 24);
+            this.cboDate.Location = new System.Drawing.Point(497, 24);
             this.cboDate.Name = "cboDate";
             this.cboDate.Size = new System.Drawing.Size(108, 25);
             this.cboDate.TabIndex = 36;
@@ -162,7 +166,7 @@ namespace DESK_MES
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(698, 27);
+            this.label5.Location = new System.Drawing.Point(711, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 17);
             this.label5.TabIndex = 35;
@@ -171,7 +175,7 @@ namespace DESK_MES
             // cboAuth
             // 
             this.cboAuth.FormattingEnabled = true;
-            this.cboAuth.Location = new System.Drawing.Point(299, 24);
+            this.cboAuth.Location = new System.Drawing.Point(303, 24);
             this.cboAuth.Name = "cboAuth";
             this.cboAuth.Size = new System.Drawing.Size(108, 25);
             this.cboAuth.TabIndex = 29;
@@ -179,19 +183,19 @@ namespace DESK_MES
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(234, 28);
+            this.label8.Location = new System.Drawing.Point(238, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 17);
             this.label8.TabIndex = 28;
             this.label8.Text = "||  권한";
             // 
-            // cboUserG
+            // cboGroupType
             // 
-            this.cboUserG.FormattingEnabled = true;
-            this.cboUserG.Location = new System.Drawing.Point(120, 24);
-            this.cboUserG.Name = "cboUserG";
-            this.cboUserG.Size = new System.Drawing.Size(108, 25);
-            this.cboUserG.TabIndex = 27;
+            this.cboGroupType.FormattingEnabled = true;
+            this.cboGroupType.Location = new System.Drawing.Point(120, 24);
+            this.cboGroupType.Name = "cboGroupType";
+            this.cboGroupType.Size = new System.Drawing.Size(108, 25);
+            this.cboGroupType.TabIndex = 27;
             // 
             // label7
             // 
@@ -220,16 +224,16 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox11);
+            this.groupBox4.Controls.Add(this.txtDelete);
             this.groupBox4.Controls.Add(this.lblDelect);
             this.groupBox4.Controls.Add(this.txtUserNo);
-            this.groupBox4.Controls.Add(this.txtUpdate);
-            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.txtUpdateUser);
+            this.groupBox4.Controls.Add(this.lblUser);
             this.groupBox4.Controls.Add(this.dtpUpdate);
-            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.lblTime);
             this.groupBox4.Controls.Add(this.dtpCreate);
             this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.txtCreate);
+            this.groupBox4.Controls.Add(this.txtCreateUser);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.txtAuth);
             this.groupBox4.Controls.Add(this.txtPwd);
@@ -248,17 +252,17 @@ namespace DESK_MES
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
             // 
-            // textBox11
+            // txtDelete
             // 
-            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(127, 212);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(190, 25);
-            this.textBox11.TabIndex = 28;
+            this.txtDelete.Enabled = false;
+            this.txtDelete.Location = new System.Drawing.Point(127, 212);
+            this.txtDelete.Name = "txtDelete";
+            this.txtDelete.ReadOnly = true;
+            this.txtDelete.Size = new System.Drawing.Size(190, 25);
+            this.txtDelete.TabIndex = 28;
             // 
             // lblDelect
             // 
@@ -284,29 +288,29 @@ namespace DESK_MES
             this.txtUserNo.Size = new System.Drawing.Size(190, 25);
             this.txtUserNo.TabIndex = 26;
             // 
-            // txtUpdate
+            // txtUpdateUser
             // 
-            this.txtUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtUpdateUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUpdate.Enabled = false;
-            this.txtUpdate.Location = new System.Drawing.Point(127, 348);
-            this.txtUpdate.Name = "txtUpdate";
-            this.txtUpdate.ReadOnly = true;
-            this.txtUpdate.Size = new System.Drawing.Size(190, 25);
-            this.txtUpdate.TabIndex = 25;
+            this.txtUpdateUser.Enabled = false;
+            this.txtUpdateUser.Location = new System.Drawing.Point(127, 348);
+            this.txtUpdateUser.Name = "txtUpdateUser";
+            this.txtUpdateUser.ReadOnly = true;
+            this.txtUpdateUser.Size = new System.Drawing.Size(190, 25);
+            this.txtUpdateUser.TabIndex = 25;
             // 
-            // label4
+            // lblUser
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 351);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 17);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "변경사용자";
+            this.lblUser.AutoSize = true;
+            this.lblUser.Location = new System.Drawing.Point(25, 351);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(73, 17);
+            this.lblUser.TabIndex = 24;
+            this.lblUser.Text = "변경사용자";
             // 
             // dtpUpdate
             // 
@@ -319,17 +323,17 @@ namespace DESK_MES
             this.dtpUpdate.Size = new System.Drawing.Size(190, 25);
             this.dtpUpdate.TabIndex = 23;
             // 
-            // label3
+            // lblTime
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 317);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "변경시간";
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(25, 317);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(60, 17);
+            this.lblTime.TabIndex = 22;
+            this.lblTime.Text = "변경시간";
             // 
             // dtpCreate
             // 
@@ -354,17 +358,17 @@ namespace DESK_MES
             this.label15.TabIndex = 20;
             this.label15.Text = "생성시간";
             // 
-            // txtCreate
+            // txtCreateUser
             // 
-            this.txtCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtCreateUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCreate.Enabled = false;
-            this.txtCreate.Location = new System.Drawing.Point(127, 280);
-            this.txtCreate.Name = "txtCreate";
-            this.txtCreate.ReadOnly = true;
-            this.txtCreate.Size = new System.Drawing.Size(190, 25);
-            this.txtCreate.TabIndex = 19;
+            this.txtCreateUser.Enabled = false;
+            this.txtCreateUser.Location = new System.Drawing.Point(127, 280);
+            this.txtCreateUser.Name = "txtCreateUser";
+            this.txtCreateUser.ReadOnly = true;
+            this.txtCreateUser.Size = new System.Drawing.Size(190, 25);
+            this.txtCreateUser.TabIndex = 19;
             // 
             // label14
             // 
@@ -507,6 +511,7 @@ namespace DESK_MES
             this.dgvMain.RowTemplate.Height = 23;
             this.dgvMain.Size = new System.Drawing.Size(809, 389);
             this.dgvMain.TabIndex = 0;
+            this.dgvMain.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMain_CellMouseDoubleClick);
             // 
             // button3
             // 
@@ -598,17 +603,17 @@ namespace DESK_MES
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cboAuth;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cboUserG;
+        private System.Windows.Forms.ComboBox cboGroupType;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtUserNo;
-        private System.Windows.Forms.TextBox txtUpdate;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtUpdateUser;
+        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.DateTimePicker dtpUpdate;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.DateTimePicker dtpCreate;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtCreate;
+        private System.Windows.Forms.TextBox txtCreateUser;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtAuth;
         private System.Windows.Forms.TextBox txtPwd;
@@ -625,7 +630,7 @@ namespace DESK_MES
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtDelete;
         private System.Windows.Forms.Label lblDelect;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
