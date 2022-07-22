@@ -348,6 +348,7 @@ namespace DESK_MES
             this.txtAdress.ReadOnly = true;
             this.txtAdress.Size = new System.Drawing.Size(177, 25);
             this.txtAdress.TabIndex = 15;
+            this.txtAdress.Text = "API";
             // 
             // label10
             // 
@@ -520,7 +521,7 @@ namespace DESK_MES
             this.button4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.button4.Size = new System.Drawing.Size(104, 27);
             this.button4.TabIndex = 42;
-            this.button4.Text = "   안전재고";
+            this.button4.Text = "   품목관리";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // frmWarehouse
