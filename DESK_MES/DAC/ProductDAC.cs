@@ -115,13 +115,50 @@ namespace DESK_MES.DAC
                 cmd.Parameters.Add("@err_msg", System.Data.SqlDbType.NVarChar, 1000);
                 cmd.Parameters["@err_msg"].Direction = System.Data.ParameterDirection.Output;
 
-                return (cmd.ExecuteNonQuery() > 0) ? cmd.Parameters["@prd_code"].Value.ToString() : String.Empty;                    
+                return (cmd.ExecuteNonQuery() > 0) ? cmd.Parameters["@prd_code"].Value.ToString() : String.Empty;
             }
             catch (Exception err)
             {
                 Console.WriteLine(err.Message);
                 Console.WriteLine($"{Environment.NewLine}DB error : {cmd.Parameters["@err_msg"].Value}");
                 return String.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 수정 기능
+        /// </summary>
+        /// <param name="prd">수정될 제품 정보</param>
+        /// <returns></returns>
+        public bool UpdateProduct(ProductVO prd)
+        {
+            string sql = @"UPDATE TB_PRODUCT 
+                            SET 
+	                            Product_Name = @Product_Name, Product_Type = @Product_Type, Is_Image = @Is_Image, 
+	                            Price = @Price, Unit = @Unit, Client_Code = @Client_Code,
+	                            Update_Time = CONVERT(CHAR(19), GETDATE(), 20), Update_User_No = @Update_User_No
+                            WHERE
+	                            Product_Code = @Product_Code ";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Product_Name", prd.Product_Name);
+                cmd.Parameters.AddWithValue("@Product_Type", prd.Product_Type);
+                cmd.Parameters.AddWithValue("@Is_Image", prd.Is_Image);
+                cmd.Parameters.AddWithValue("@Price", prd.Price);
+                cmd.Parameters.AddWithValue("@Unit", prd.Unit);
+                cmd.Parameters.AddWithValue("@Client_Code", prd.Client_Code);
+                cmd.Parameters.AddWithValue("@Update_User_No", prd.Update_User_No);
+                cmd.Parameters.AddWithValue("@Product_Code", prd.Product_Code);
+
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
             }
         }
     }

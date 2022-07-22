@@ -38,7 +38,7 @@ namespace DESK_MES
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -46,10 +46,12 @@ namespace DESK_MES
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnImgUpload = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbProduct = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtCode = new DESK_MES.ccTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cboClient = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUnit = new DESK_MES.ccTextBox();
@@ -60,8 +62,7 @@ namespace DESK_MES
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCode = new DESK_MES.ccTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnImgDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,7 +74,7 @@ namespace DESK_MES
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProduct)).BeginInit();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,7 +153,7 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -162,20 +163,21 @@ namespace DESK_MES
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.ImageIndex = 3;
-            this.button2.ImageList = this.imageList2;
-            this.button2.Location = new System.Drawing.Point(529, 18);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(76, 27);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "   수정";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.ImageIndex = 3;
+            this.btnUpdate.ImageList = this.imageList2;
+            this.btnUpdate.Location = new System.Drawing.Point(529, 18);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnUpdate.Size = new System.Drawing.Size(76, 27);
+            this.btnUpdate.TabIndex = 39;
+            this.btnUpdate.Text = "   수정";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // imageList2
             // 
@@ -253,7 +255,8 @@ namespace DESK_MES
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.button1);
+            this.panel9.Controls.Add(this.btnImgDelete);
+            this.panel9.Controls.Add(this.btnImgUpload);
             this.panel9.Controls.Add(this.groupBox5);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(389, 3);
@@ -261,37 +264,39 @@ namespace DESK_MES
             this.panel9.Size = new System.Drawing.Size(380, 345);
             this.panel9.TabIndex = 2;
             // 
-            // button1
+            // btnImgUpload
             // 
-            this.button1.Location = new System.Drawing.Point(301, 300);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = " 추가";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnImgUpload.Location = new System.Drawing.Point(301, 300);
+            this.btnImgUpload.Name = "btnImgUpload";
+            this.btnImgUpload.Size = new System.Drawing.Size(61, 23);
+            this.btnImgUpload.TabIndex = 28;
+            this.btnImgUpload.Text = " 추가";
+            this.btnImgUpload.UseVisualStyleBackColor = true;
+            this.btnImgUpload.Click += new System.EventHandler(this.btnImgUpload_Click);
             // 
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.pictureBox1);
+            this.groupBox5.Controls.Add(this.ptbProduct);
             this.groupBox5.Location = new System.Drawing.Point(24, 13);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(338, 281);
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             // 
-            // pictureBox1
+            // ptbProduct
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ptbProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(326, 260);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ptbProduct.Location = new System.Drawing.Point(6, 15);
+            this.ptbProduct.Name = "ptbProduct";
+            this.ptbProduct.Size = new System.Drawing.Size(326, 260);
+            this.ptbProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbProduct.TabIndex = 0;
+            this.ptbProduct.TabStop = false;
             // 
             // panel8
             // 
@@ -312,6 +317,30 @@ namespace DESK_MES
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(380, 345);
             this.panel8.TabIndex = 1;
+            // 
+            // txtCode
+            // 
+            this.txtCode.isNumeric = false;
+            this.txtCode.isRequired = true;
+            this.txtCode.Location = new System.Drawing.Point(141, 28);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.PlaceHolder = null;
+            this.txtCode.ReadOnly = true;
+            this.txtCode.Size = new System.Drawing.Size(200, 25);
+            this.txtCode.TabIndex = 62;
+            this.txtCode.Tag = "품목";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 17);
+            this.label3.TabIndex = 61;
+            this.label3.Text = "품번";
             // 
             // cboClient
             // 
@@ -424,28 +453,15 @@ namespace DESK_MES
             this.label11.TabIndex = 51;
             this.label11.Text = "품명";
             // 
-            // txtCode
+            // btnImgDelete
             // 
-            this.txtCode.isNumeric = false;
-            this.txtCode.isRequired = true;
-            this.txtCode.Location = new System.Drawing.Point(141, 28);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.PlaceHolder = null;
-            this.txtCode.Size = new System.Drawing.Size(200, 25);
-            this.txtCode.TabIndex = 62;
-            this.txtCode.Tag = "품목";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 17);
-            this.label3.TabIndex = 61;
-            this.label3.Text = "품번";
+            this.btnImgDelete.Location = new System.Drawing.Point(234, 300);
+            this.btnImgDelete.Name = "btnImgDelete";
+            this.btnImgDelete.Size = new System.Drawing.Size(61, 23);
+            this.btnImgDelete.TabIndex = 29;
+            this.btnImgDelete.Text = "제거";
+            this.btnImgDelete.UseVisualStyleBackColor = true;
+            this.btnImgDelete.Click += new System.EventHandler(this.btnImgDelete_Click);
             // 
             // PopProductsModify
             // 
@@ -472,7 +488,7 @@ namespace DESK_MES
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProduct)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.ResumeLayout(false);
@@ -492,11 +508,11 @@ namespace DESK_MES
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImgUpload;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbProduct;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAdd;
@@ -512,5 +528,6 @@ namespace DESK_MES
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnImgDelete;
     }
 }

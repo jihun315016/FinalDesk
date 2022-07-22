@@ -51,8 +51,8 @@ namespace DESK_MES
             {
                 Product_Name = txtName.Text,
                 Product_Type = cboType.SelectedValue.ToString().Split('_')[1], // FERT ...
-                Price = txtPrice.Text == string.Empty ? -1 : Convert.ToInt32(txtPrice.Text),
-                Unit = txtUnit.Text == string.Empty ? -1 : Convert.ToInt32(txtUnit.Text),                
+                Price = txtPrice.Text == string.Empty ? 0 : Convert.ToInt32(txtPrice.Text),
+                Unit = txtUnit.Text == string.Empty ? 0 : Convert.ToInt32(txtUnit.Text),                
                 Is_Delete = "N"
             };
 
@@ -68,13 +68,12 @@ namespace DESK_MES
             }
             else
             {                
-                ptbProduct.Image.Dispose();
                 ptbProduct.Image = null;                
                 prd.Is_Image = 1;
             }
 
             StringBuilder resultMessage = new StringBuilder();
-            string SaveProductCode = productSrv.SaveProduct(cboType.SelectedValue.ToString(), 10001, prd);            
+            string SaveProductCode = productSrv.SaveProduct(cboType.SelectedValue.ToString(), 10001, prd);
 
             // 제품 등록 성공
             if (!string.IsNullOrWhiteSpace(SaveProductCode))

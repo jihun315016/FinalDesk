@@ -41,6 +41,14 @@ namespace DESK_MES.Service
             return savePrdMsg;
         }
 
+        public bool UpdateProduct(ProductVO prd)
+        {
+            ProductDAC dac = new ProductDAC();            
+            bool result = dac.UpdateProduct(prd);
+            dac.Dispose();
+            return result;
+        }    
+
         /// <summary>
         /// Author : 강지훈
         /// 제품 등록 시 이미지가 존재하는 경우 이미지 등록
@@ -50,7 +58,7 @@ namespace DESK_MES.Service
         /// <returns></returns>
         public bool SaveProductImage(string uploadName, string file)
         {
-            FileStream fs = File.Open(file, FileMode.Open);
+            FileStream fs = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             
             MultipartFormDataContent content = new MultipartFormDataContent();
             Debug.WriteLine($"{uploadName}{new FileInfo(file).Extension}");
@@ -78,7 +86,7 @@ namespace DESK_MES.Service
 
         public string GetImageUrl(string code)
         {
-            return $"{ConfigurationManager.AppSettings["apiURL"]}files/{code}.png";
+            return $"{baseUrl}files/{code}.png";
         }
     }
 }
