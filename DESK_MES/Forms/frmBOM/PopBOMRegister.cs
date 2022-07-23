@@ -15,12 +15,15 @@ namespace DESK_MES
     public partial class PopBOMRegister : Form
     {
         ProductService productSrv;
-        List<ProductVO> prdList;
+        List<ProductVO> prdNoneBomList;
+        List<ProductVO> prdAllList;
         List<BomVO> selectedList;
+        UserVO user;
 
-        public PopBOMRegister()
+        public PopBOMRegister(UserVO user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void PopBOMRegister_Load(object sender, EventArgs e)
@@ -41,9 +44,9 @@ namespace DESK_MES
 
             ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboType, typeList.GetRange(0, typeList.Count - 1), "Category", "Code");
             cboType.SelectedIndex = 0;
-
-            // TODO : BOM 등록되지 않은 제품 필터링 필요
-            prdList = productSrv.GetProductList();
+            
+            prdNoneBomList = productSrv.GetProductList(isBom: true);
+            prdAllList = productSrv.GetProductList();
 
             cboIsCopy.Items.AddRange(new string[] { "예", "아니오" });
             cboIsCopy.SelectedIndex = 1;
@@ -71,7 +74,7 @@ namespace DESK_MES
             }
             else
             {
-                List<ProductVO> list = prdList.Where(p => p.Product_Type == cboType.SelectedValue.ToString().Split('_')[1]).ToList();
+                List<ProductVO> list = prdNoneBomList.Where(p => p.Product_Type == cboType.SelectedValue.ToString().Split('_')[1]).ToList();
                 ComboBoxUtil.SetComboBoxByList<ProductVO>(cboName, list, "Product_Name", "Product_Code");
 
                 List<string> typeList = new List<string>() { "ROH" };
@@ -79,7 +82,7 @@ namespace DESK_MES
                     typeList.Add("HALB");
 
                 dgvLowList.DataSource = null;
-                dgvLowList.DataSource = prdList.Where(p => typeList.Contains(p.Product_Type)).ToList();
+                dgvLowList.DataSource = prdAllList.Where(p => typeList.Contains(p.Product_Type)).ToList();
             }
         }
 
@@ -125,7 +128,7 @@ namespace DESK_MES
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvLowList.DataSource = null;
-            dgvLowList.DataSource = prdList.Where(p => p.Product_Name.Contains(txtName.Text.Trim())).ToList();
+            dgvLowList.DataSource = prdAllList.Where(p => p.Product_Name.Contains(txtName.Text.Trim())).ToList();
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
@@ -138,7 +141,7 @@ namespace DESK_MES
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool result = productSrv.SaveBom(selectedList, 10002);
+            bool result = productSrv.SaveBom(selectedList, user.User_No);
             if (result)
             {
                 MessageBox.Show("BOM 등록에 성공하셨습니다.");

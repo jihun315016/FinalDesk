@@ -34,7 +34,7 @@ namespace DESK_MES.DAC
         /// 모든 제품, 재공품, 원자재 리스트 조회
         /// </summary>
         /// <returns></returns>
-        public List<ProductVO> GetProductList(string code)
+        public List<ProductVO> GetProductList(string code, bool isBom)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -47,7 +47,10 @@ namespace DESK_MES.DAC
                         LEFT JOIN TB_Client c ON p.Client_Code = c.Client_Code ");
 
             if (!string.IsNullOrWhiteSpace(code))
-                sb.Append(" WHERE Product_Code=@code");
+                sb.Append(" WHERE Product_Code=@code ");
+
+            if (isBom)
+                sb.Append(" WHERE Product_Code NOT IN (SELECT Parent_Product_Code FROM TB_BOM) ");
 
             string sql = sb.ToString();            
             SqlCommand cmd = new SqlCommand(sql, conn);

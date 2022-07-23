@@ -15,10 +15,11 @@ namespace DESK_MES
 {
     public partial class PopProductsModify : Form
     {
+        UserVO user;
         ProductService productSrv;
         ServiceHelper srvHelper;
 
-        public PopProductsModify(ProductVO prd)
+        public PopProductsModify(ProductVO prd, UserVO user)
         {
             InitializeComponent();
             InitControl(prd);
@@ -115,7 +116,7 @@ namespace DESK_MES
                 Price = Convert.ToInt32(txtPrice.Text),
                 Unit = Convert.ToInt32(txtUnit.Text),
                 Client_Code = cboClient.SelectedValue.ToString(),
-                Update_User_No = 10002
+                Update_User_No = user.User_No
             };
 
             if (ptbProduct.Image == null)
