@@ -68,7 +68,8 @@ namespace DESK_MES
             }
             else
             {
-                return;
+                MessageBox.Show("변경하실 항목을 선택해주세요");
+                return;                
             }
         }
 

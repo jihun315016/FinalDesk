@@ -64,10 +64,18 @@ namespace DESK_MES
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            PopWarehouseModify pop = new PopWarehouseModify();
-            if (pop.ShowDialog() == DialogResult.OK)
+            if (warehouseCode != null)
             {
-                LoadData();
+                PopWarehouseModify pop = new PopWarehouseModify(warehouseCode);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("변경하실 항목을 선택해주세요");
+                return;
             }
         }
     }

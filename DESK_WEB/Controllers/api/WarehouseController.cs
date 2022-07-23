@@ -90,20 +90,50 @@ namespace DESK_WEB.Controllers
             }
         }
 
-        //POST : https://localhost:44393/api/Client/UpdateWarehouse
+        //POST : https://localhost:44393/api/Warehouse/UpdateWarehouse
         [HttpPost]
         [Route("UpdateWarehouse")]
-        public IHttpActionResult UpdateWarehouse(WarehouseVO client)
+        public IHttpActionResult UpdateWarehouse(WarehouseVO warehouse)
         {
             try
             {
                 WarehouseDAC db = new WarehouseDAC();
-                bool flag = db.UpdateWarehouse(client);
+                bool flag = db.UpdateWarehouse(warehouse);
 
                 ResMessage result = new ResMessage()
                 {
                     ErrCode = (!flag) ? -9 : 0,
                     ErrMsg = (!flag) ? "저장중 오류발생" : "S"
+                };
+
+                return Ok(result);
+            }
+            catch (Exception err)
+            {
+                System.Diagnostics.Debug.WriteLine(err.Message);
+
+                return Ok(new ResMessage()
+                {
+                    ErrCode = -9,
+                    ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
+                });
+            }
+        }
+
+        //GET: https://localhost:44393/api/Warehouse/DelWarehouse/{no}
+        [HttpGet]
+        [Route("DelWarehouse/{no}")]
+        public IHttpActionResult DeleteWarehouse(string no)
+        {
+            try
+            {
+                WarehouseDAC db = new WarehouseDAC();
+                bool flag = db.DeleteWarehouse(no);
+
+                ResMessage result = new ResMessage()
+                {
+                    ErrCode = (!flag) ? -9 : 0,
+                    ErrMsg = (!flag) ? "삭제중 오류발생" : "S"
                 };
 
                 return Ok(result);

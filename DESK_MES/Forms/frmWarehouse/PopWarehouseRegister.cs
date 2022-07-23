@@ -19,7 +19,7 @@ namespace DESK_MES
         {
             InitializeComponent();
 
-            service = new ServiceHelper("api/Client");
+            service = new ServiceHelper("api/Warehouse");
 
             string[] type = new string[] { "자재", "제품" };
             comboBox2.Items.AddRange(type);
