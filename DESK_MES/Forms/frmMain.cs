@@ -18,19 +18,13 @@ namespace DESK_MES
         MenuService srv = new MenuService();
         List<MenuVO> menuList;
         TreeView menuTree;
+
+        public UserVO userInfo { get; set; }
+
         public frmMain()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //frmWorkOrder frm = new frmWorkOrder();
-            frmProducts frm = new frmProducts();
-            frm.MdiParent = this;
-            frm.Show();
-        }
-
         /// <summary>
         /// Author : 정우성
         /// menuTree, menuList 초기화
@@ -39,7 +33,21 @@ namespace DESK_MES
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            menuList = srv.GetMenuList(1001);
+            this.Hide();
+            frmLogin pop = new frmLogin();
+            if (pop.ShowDialog() != DialogResult.OK)
+            {
+                this.Close();
+                return;
+            }
+            else
+            {
+                this.Show();
+                this.userInfo = pop.userVO;
+                toolStripLabel1.Text = $"[{pop.userVO.User_Group_Name}] {pop.userVO.User_Name}";
+                srv = new MenuService();
+                menuList = srv.GetMenuList(Convert.ToInt32(pop.userVO.User_Group_No));
+            }
 
             //최상위 메뉴 버튼 초기화
             var list = menuList.FindAll(m => m.Parent_Function_No == 0);
