@@ -14,7 +14,10 @@ namespace DESK_MES
     public partial class frmWarehouse : FormStyle_2
     {
         ServiceHelper service;
+        WarehouseService srv;
         string warehouseCode = null;
+        List<WarehouseProductVO> warehouseDetailList;
+
 
         public frmWarehouse()
         {
@@ -24,6 +27,7 @@ namespace DESK_MES
         private void frmWarehouse_Load(object sender, EventArgs e)
         {
             service = new ServiceHelper("api/Warehouse");
+            srv = new WarehouseService();
             LoadData();
         }
         private void LoadData()
@@ -39,12 +43,13 @@ namespace DESK_MES
             }
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
             warehouseCode = dataGridView1[0, e.RowIndex].Value.ToString();
 
             ResMessage<WarehouseVO> resResult = service.GetAsyncT<ResMessage<WarehouseVO>>(warehouseCode);
-
             if (resResult.ErrCode == 0)
             {
                 txtCode.Text = resResult.Data.Warehouse_Code.ToString();
@@ -52,7 +57,11 @@ namespace DESK_MES
                 txtType.Text = resResult.Data.Warehouse_Type.ToString();
                 txtAdress.Text = resResult.Data.Warehouse_Address.ToString();
             }
+
+            warehouseDetailList = srv.GetWarehouseDetailList(warehouseCode);
+            dataGridView2.DataSource = warehouseDetailList;
         }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopWarehouseRegister pop = new PopWarehouseRegister();
@@ -75,6 +84,23 @@ namespace DESK_MES
             else
             {
                 MessageBox.Show("변경하실 항목을 선택해주세요");
+                return;
+            }
+        }
+
+        private void btnWarehouseProduct_Click(object sender, EventArgs e)
+        {
+            if (warehouseCode != null)
+            {
+                PopWarehouseProduct pop = new PopWarehouseProduct(warehouseCode);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("창고를 선택해주세요");
                 return;
             }
         }
