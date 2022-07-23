@@ -356,6 +356,7 @@ namespace DESK_MES
             this.dgvLowList.RowTemplate.Height = 23;
             this.dgvLowList.Size = new System.Drawing.Size(392, 419);
             this.dgvLowList.TabIndex = 0;
+            this.dgvLowList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLowList_CellDoubleClick);
             // 
             // panel6
             // 
