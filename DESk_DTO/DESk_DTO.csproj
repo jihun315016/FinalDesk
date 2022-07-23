@@ -49,6 +49,7 @@
     <Compile Include="ResMessage.cs" />
     <Compile Include="UserGroupVO.cs" />
     <Compile Include="UserVO.cs" />
+    <Compile Include="WarehouseProductVO.cs" />
     <Compile Include="WarehouseVO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
