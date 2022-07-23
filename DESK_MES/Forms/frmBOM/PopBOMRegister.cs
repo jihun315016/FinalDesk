@@ -16,7 +16,7 @@ namespace DESK_MES
     {
         ProductService productSrv;
         List<ProductVO> prdList;
-        List<ProductVO> selectedList;
+        List<BomVO> selectedList;
 
         public PopBOMRegister()
         {
@@ -26,7 +26,7 @@ namespace DESK_MES
         private void PopBOMRegister_Load(object sender, EventArgs e)
         {
             productSrv = new ProductService();
-            selectedList = new List<ProductVO>();
+            selectedList = new List<BomVO>();
             InitControl();
         }
 
@@ -51,9 +51,11 @@ namespace DESK_MES
             cboCopyName.Visible = false;
 
             DataGridUtil.SetInitGridView(dgvLowList);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvLowList, "품번", "Product_Code", colWidth: 150);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvLowList, "품명", "Product_Name", colWidth: 300);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvLowList, "유형", "Product_Type");            
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvLowList, "품번", "Product_Code");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvLowList, "품명", "Product_Name", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvLowList, "유형", "Product_Type");
+
+            DataGridUtil.SetInitGridView(dgvChildList);
         }
 
         private void cboType_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,7 +88,33 @@ namespace DESK_MES
 
         private void dgvLowList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            PopSelectBomQty pop = new PopSelectBomQty();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                BomVO newPrd = new BomVO()
+                {
+                    Parent_Product_Code = cboName.SelectedValue.ToString(),
+                    Child_Product_Code = dgvLowList["Product_Code", e.RowIndex].Value.ToString(),
+                    Child_Name = dgvLowList["Product_Name", e.RowIndex].Value.ToString(),
+                    Child_Type = dgvLowList["Product_Type", e.RowIndex].Value.ToString(),
+                    Qty = pop.Qty
+                };
+
+                BomVO item = selectedList.FirstOrDefault(s => s.Child_Product_Code == newPrd.Child_Product_Code);
+
+                // 하위 항목 새로 등록
+                if (item == null)
+                {
+                    selectedList.Add(newPrd);
+                }
+                // 이미 등록된 항목인 경우 (수량 추가)
+                else
+                {
+                    item.Qty = item.Qty + pop.Qty;
+                }
+
+                dgvChildList.DataSource = selectedList;
+            }
         }
     }
 }
