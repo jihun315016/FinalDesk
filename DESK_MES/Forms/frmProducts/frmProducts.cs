@@ -32,6 +32,11 @@ namespace DESK_MES
 
         void InitControls()
         {
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+            dtpUpdateTime.CustomFormat = " ";
+
             label1.Text = "품목 관리";
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "품번", "품명" });
