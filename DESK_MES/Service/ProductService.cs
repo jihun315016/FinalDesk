@@ -103,5 +103,13 @@ namespace DESK_MES.Service
         {
             return $"{baseUrl}files/{code}.png";
         }
+
+        public bool SaveBom(List<BomVO> list, int userNo)
+        {
+            ProductDAC dac = new ProductDAC();
+            bool result = dac.SaveBom(list, userNo);
+            dac.Dispose();
+            return result;
+        }
     }
 }

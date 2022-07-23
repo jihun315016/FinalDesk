@@ -138,7 +138,16 @@ namespace DESK_MES
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // TODO : 설정한 BOM 등록
+            bool result = productSrv.SaveBom(selectedList, 10002);
+            if (result)
+            {
+                MessageBox.Show("BOM 등록에 성공하셨습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("BOM 등록에 실패하셨습니다.");
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -184,5 +184,45 @@ namespace DESK_MES.DAC
                 return false;
             }
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// BOM 등록 기능
+        /// </summary>
+        public bool SaveBom(List<BomVO> list, int userNo)
+        {
+            string sql = @"INSERT INTO TB_BOM
+                            (Parent_Product_Code, Child_Product_Code, Qty, Create_Time, Create_User_No)
+                            VALUES
+                            (@Parent_Product_Code, @Child_Product_Code, @Qty, CONVERT([char](19),getdate(),(20)), @Create_User_No) ";
+
+            SqlTransaction tran = conn.BeginTransaction();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@Parent_Product_Code", System.Data.SqlDbType.VarChar);
+                cmd.Parameters.Add("@Child_Product_Code", System.Data.SqlDbType.VarChar);
+                cmd.Parameters.Add("@Qty", System.Data.SqlDbType.VarChar);                
+                cmd.Parameters.AddWithValue("@Create_User_No", userNo);
+
+                cmd.Transaction = tran;
+
+                foreach (BomVO item in list)
+                {
+                    cmd.Parameters["@Parent_Product_Code"].Value = item.Parent_Product_Code;
+                    cmd.Parameters["@Child_Product_Code"].Value = item.Child_Product_Code;
+                    cmd.Parameters["@Qty"].Value = item.Qty;
+                    cmd.ExecuteNonQuery();
+                }
+
+                tran.Commit();
+                return true;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();   
+                return false;
+            }
+        }
     }
 }
