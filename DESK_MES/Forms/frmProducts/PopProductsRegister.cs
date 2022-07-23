@@ -15,11 +15,13 @@ namespace DESK_MES
 {
     public partial class PopProductsRegister : Form
     {
+        UserVO user;
         ProductService productSrv;
         ServiceHelper srvHelper;
 
-        public PopProductsRegister()
+        public PopProductsRegister(UserVO user)
         {
+            this.user = user;
             InitializeComponent();
         }
 
@@ -73,7 +75,7 @@ namespace DESK_MES
             }
 
             StringBuilder resultMessage = new StringBuilder();
-            string SaveProductCode = productSrv.SaveProduct(cboType.SelectedValue.ToString(), 10001, prd);
+            string SaveProductCode = productSrv.SaveProduct(cboType.SelectedValue.ToString(), user.User_No, prd);
 
             // 제품 등록 성공
             if (!string.IsNullOrWhiteSpace(SaveProductCode))

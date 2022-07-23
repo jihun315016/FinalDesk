@@ -112,6 +112,12 @@
     <Compile Include="Forms\frmBOM\PopBOMRegister.Designer.cs">
       <DependentUpon>PopBOMRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmBOM\PopSelectBomQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBOM\PopSelectBomQty.Designer.cs">
+      <DependentUpon>PopSelectBomQty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmClient\frmClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -456,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmBOM\PopBOMRegister.resx">
       <DependentUpon>PopBOMRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBOM\PopSelectBomQty.resx">
+      <DependentUpon>PopSelectBomQty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmClient\frmClient.resx">
       <DependentUpon>frmClient.cs</DependentUpon>

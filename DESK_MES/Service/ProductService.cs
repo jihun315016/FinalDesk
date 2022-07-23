@@ -17,10 +17,10 @@ namespace DESK_MES.Service
     {
         string baseUrl = ConfigurationManager.AppSettings["apiURL"];
 
-        public List<ProductVO> GetProductList(string code = "")
+        public List<ProductVO> GetProductList(string code = "", bool isBom = false)
         {
             ProductDAC dac = new ProductDAC();
-            List<ProductVO> list = dac.GetProductList(code);
+            List<ProductVO> list = dac.GetProductList(code, isBom);
             dac.Dispose();
             return list;
         }
@@ -102,6 +102,14 @@ namespace DESK_MES.Service
         public string GetImageUrl(string code)
         {
             return $"{baseUrl}files/{code}.png";
+        }
+
+        public bool SaveBom(List<BomVO> list, int userNo)
+        {
+            ProductDAC dac = new ProductDAC();
+            bool result = dac.SaveBom(list, userNo);
+            dac.Dispose();
+            return result;
         }
     }
 }

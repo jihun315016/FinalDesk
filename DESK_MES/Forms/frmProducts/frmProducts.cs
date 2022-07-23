@@ -15,6 +15,7 @@ namespace DESK_MES
 {
     public partial class frmProducts : FormStyle_2
     {
+        UserVO user;
         ProductService productSrv;
         List<ProductVO> prdList;
 
@@ -25,8 +26,11 @@ namespace DESK_MES
 
         private void frmProducts_Load(object sender, EventArgs e)
         {
+
+            this.user = ((frmMain)(this.MdiParent)).userInfo;
             productSrv = new ProductService();
             prdList = new List<ProductVO>();
+            
             InitControls();
         }
 
@@ -98,7 +102,7 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopProductsRegister pop = new PopProductsRegister();
+            PopProductsRegister pop = new PopProductsRegister(user);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 prdList = productSrv.GetProductList();
@@ -108,6 +112,9 @@ namespace DESK_MES
 
         private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+
             List<ProductVO> temp = productSrv.GetProductList(dgvList["Product_Code", e.RowIndex].Value.ToString());
             ProductVO prd = temp.FirstOrDefault();
             txtCodeDetail.Text = prd.Product_Code;
@@ -149,7 +156,7 @@ namespace DESK_MES
             List<ProductVO> temp = productSrv.GetProductList(txtCodeDetail.Text);
             ProductVO prd = temp.FirstOrDefault();
 
-            PopProductsModify pop = new PopProductsModify(prd);
+            PopProductsModify pop = new PopProductsModify(prd, user);
             pop.ShowDialog();
         }
 
