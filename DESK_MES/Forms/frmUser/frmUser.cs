@@ -166,6 +166,8 @@ namespace DESK_MES
 
             txtDelete.Text = dgvMain[9, e.RowIndex].Value.ToString();
         }
+
+        //등록
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopUserResister pop = new PopUserResister(userNO, userName);
@@ -204,26 +206,8 @@ namespace DESK_MES
             }
         }
 
-        private void btnOpenDetail_Click(object sender, EventArgs e)
-        {
-            if (flag)
-            {
-                flag = false;
-                //일반검색
-                textBox1.Enabled = true;
-                cboGroupType.SelectedIndex = 0;
-                cboAuth.SelectedIndex = 0;
-                cboDate.SelectedIndex = 0;
-            }
-            else
-            {
-                flag = true;
-                //상세검색
-                textBox1.Enabled = false;
-                comboBox1.SelectedIndex = 0;
-            }
-        }
 
+        //엑셀
         private void button3_Click(object sender, EventArgs e)
         {
             SaveFileDialog dlg = new SaveFileDialog();
@@ -250,6 +234,216 @@ namespace DESK_MES
             else
             {
                 MessageBox.Show("엑셀 다운 실패");
+            }
+        }
+
+        private void btnOpenDetail_Click(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                flag = false;
+                //일반검색
+                textBox1.Enabled = true;
+                cboGroupType.SelectedIndex = 0;
+                cboAuth.SelectedIndex = 0;
+                cboDate.SelectedIndex = 0;
+            }
+            else
+            {
+                flag = true;
+                //상세검색
+                textBox1.Enabled = false;
+                comboBox1.SelectedIndex = 0;
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            //상위
+            BindingGdv();
+            textBox1.Text = "";
+            comboBox1.SelectedIndex = 0;
+            selectUser = 0;
+            cboGroupType.SelectedIndex = 0;
+            cboAuth.SelectedIndex = 0;
+            cboDate.SelectedIndex = 0;
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
+
+            // 상세정보
+            txtUserNo.Text = "";
+            txtName.Text = "";
+            txtUserG.Text = "";
+            txtPwd.Text = "";
+            txtAuth.Text = "";
+            txtDelete.Text = "";
+            dtpCreate.Value = DateTime.Now;
+            txtCreateUser.Text = "";
+            dtpUpdate.Value = DateTime.Now;
+            txtUpdateUser.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                #region
+                //string groupType = null;
+                //string dateStr = null;
+                //string auth = null;
+                //if (cboGroupType.SelectedIndex != 0)
+                //{
+                //    groupType = cboGroupType.Text;
+                //}
+                //if (cboAuth.SelectedIndex != 0)
+                //{
+                //    auth = cboAuth.Text;
+                //}
+
+                //if (cboDate.SelectedIndex == 1) //날짜 콤보 구분
+                //{
+                //    dateStr = "C";
+                //}
+                //else if (cboDate.SelectedIndex == 2)
+                //{
+                //    dateStr = "U";
+                //}
+
+                ////검색
+                //if (groupType == null && dateStr == null&& auth==null)
+                //{
+                //    BindingGdv();
+                //    return;
+                //}
+                //else if (groupType == null && dateStr!=null) //날짜만
+                //{
+                //    if (dateTimePicker1.Value > dateTimePicker2.Value)
+                //    {
+                //        MessageBox.Show("날짜 범위를 재설정 해주세요");
+                //        return;
+                //    }
+
+                //    if (dateStr == "C")
+                //    {
+                //        dgvMain.DataSource = null;
+                //        dgvMain.DataSource = saveList = allList.FindAll((f) => Convert.ToDateTime(f.Create_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Create_Time) <= dateTimePicker2.Value);
+                //    }
+                //    else if (dateStr == "U")
+                //    {
+                //        dgvMain.DataSource = null;
+                //        dgvMain.DataSource = saveList = allList.FindAll((f) => Convert.ToDateTime(f.Update_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Update_Time) <= dateTimePicker2.Value);
+                //    }
+                //}
+                //else if (dateStr == null&& groupType != null) //유형만
+                //{
+                //    if (cboGroupType.SelectedIndex != 0)
+                //    {
+                //        dgvMain.DataSource = null;
+                //        dgvMain.DataSource = saveList = allList.FindAll((f) => f.User_Group_Name == groupType);
+                //    }
+                //}
+                //else if (dateStr == null && groupType != null)
+                //else //세부 전체 검색
+                //{
+                //    if (dateTimePicker1.Value > dateTimePicker2.Value)
+                //    {
+                //        MessageBox.Show("날짜 범위를 재설정 해주세요");
+                //        return;
+                //    }
+                //    if (dateStr == "C")
+                //    {
+                //        saveList = allList.FindAll((f) => Convert.ToDateTime(f.Create_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Create_Time) <= dateTimePicker2.Value);
+                //    }
+                //    else if (dateStr == "U")
+                //    {
+                //        saveList = allList.FindAll((f) => Convert.ToDateTime(f.Update_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Update_Time) <= dateTimePicker2.Value);
+                //    }
+                //    dgvMain.DataSource = null;
+                //    dgvMain.DataSource = saveList.FindAll((f) => f.User_Group_Name == groupType);
+                //}
+                #endregion
+                StringBuilder sb = new StringBuilder();
+                saveList = allList;
+                ComboBox[] cbo = new ComboBox[] { cboGroupType, cboAuth, cboDate };
+                foreach (ComboBox item in cbo)
+                {
+                    if (item.SelectedIndex != 0)
+                    {
+                        if (item.Name == "cboGroupType")
+                        {                            
+                            saveList = saveList.FindAll((f) => f.User_Group_Name == item.Text);
+                        }
+                        else if (item.Name == "cboAuth")
+                        {
+                            saveList = saveList.FindAll((f) => f.Auth_Name == item.Text);
+                        }
+                        else //데이타
+                        {
+                            if (dateTimePicker1.Value > dateTimePicker2.Value)
+                            {
+                                sb.Append("[날짜 범위를 재설정 해주세요]");
+                            }
+
+                            else if (item.SelectedIndex == 1)
+                            {
+                                 saveList = saveList.FindAll((f) => Convert.ToDateTime(f.Create_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Create_Time) <= dateTimePicker2.Value);
+                            }
+                            else
+                            {
+                                saveList = saveList.FindAll((f) => Convert.ToDateTime(f.Update_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Update_Time) <= dateTimePicker2.Value);
+                            }
+                        }
+                    }
+                }
+                if (sb.Length > 0)
+                {
+                    MessageBox.Show(sb.ToString());
+                    return;
+                }
+                dgvMain.DataSource = null;
+                dgvMain.DataSource = saveList;
+            }
+            //기본검색
+            else
+            {
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    //사용자 그룹ID
+                    if (string.IsNullOrWhiteSpace(textBox1.Text))
+                    {
+                        BindingGdv();
+                    }
+                    else
+                    {
+                        int num;
+                        if (!int.TryParse(textBox1.Text, out num))
+                        {
+                            textBox1.Text = "";
+                            return;
+                        }
+                        dgvMain.DataSource = allList.FindAll((f) => f.User_No == num);
+                    }
+                }
+                else if (comboBox1.SelectedIndex == 1)
+                {
+                    //사용자 그룹명
+                    if (string.IsNullOrWhiteSpace(textBox1.Text))
+                    {
+                        BindingGdv();
+                    }
+                    else
+                    {
+                        dgvMain.DataSource = allList.FindAll((f) => f.User_Name.Contains(textBox1.Text));
+                    }
+                }
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnSearch_Click(this, null);
             }
         }
     }

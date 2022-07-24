@@ -108,9 +108,21 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.button5, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // btnOpenDetail
             // 
             this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // comboBox1
             // 

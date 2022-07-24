@@ -239,7 +239,6 @@ namespace DESK_MES
                     dataGridView1.DataSource = null;
                     dataGridView1.DataSource = saveList.FindAll((f) => f.User_Group_TypeName == groupType);
                 }
-
             }
             //기본검색
             else
