@@ -16,7 +16,7 @@ namespace DESK_MES
     {
         UserVO user;
         ProductService productSrv;
-        List<ProductVO> bomList;
+        List<ProductVO> isBomProductList;
 
         public frmBOM()
         {
@@ -28,7 +28,7 @@ namespace DESK_MES
         {
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             productSrv = new ProductService();
-            bomList = new List<ProductVO>();
+            isBomProductList = new List<ProductVO>();
 
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
             dtpCreateTime.CustomFormat = " ";
@@ -40,10 +40,26 @@ namespace DESK_MES
 
         void initControl()
         {
+            label1.Text = "BOM";
+
+            comboBox1.Items.AddRange(new string[] { "검색 조건", "품번", "품명" });
+            comboBox1.SelectedIndex = 0;
+
+            List<CodeCountVO> list = productSrv.GetProductType();
+            list.Insert(0, new CodeCountVO()
+            {
+                Code = string.Empty,
+                Category = "유형 선택"
+            });
+
+            ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboTypeDetailSearch, list, "Category", "Code");
+
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
             dtpCreateTime.CustomFormat = " ";
             dtpUpdateTime.Format = DateTimePickerFormat.Custom;
             dtpUpdateTime.CustomFormat = " ";
+
+            isBomProductList = productSrv.GetBomList();
 
             DataGridUtil.SetInitGridView(dgvProductList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품번", "Product_Code", colWidth: 130);
@@ -57,13 +73,50 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 사용자", "Update_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 사용자 번호", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 사용자 번호", "Update_User_No", isVisible: false);
+
+            DataGridUtil.SetInitGridView(dgvChild);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "품번", "Product_Code");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "품명", "Product_Name", colWidth: 230);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "유형", "Product_Type");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "수량", "Qty", colWidth: 80);
+
+            DataGridUtil.SetInitGridView(dgvParent);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "품번", "Product_Code");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "품명", "Product_Name", colWidth: 230);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "유형", "Product_Type");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "수량", "Qty", colWidth: 80);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
-            bomList = productSrv.GetBomList();
-            dgvProductList.DataSource = bomList;
+            List<ProductVO> list = isBomProductList.Where(p => 1 == 1).ToList();
+            // 상세 검색으로 필터링
+            if (panel5.Visible)
+            {
+                if (!string.IsNullOrWhiteSpace(txtPrdCodeDetailSearch.Text.Trim()))
+                    list = list.Where(p => p.Product_Code.ToLower().Contains(txtPrdCodeDetailSearch.Text.ToLower())).ToList();
+
+                if (!string.IsNullOrWhiteSpace(txtPrdNameDetailSearch.Text.Trim()))
+                    list = list.Where(p => p.Product_Name.ToLower().Contains(txtPrdNameDetailSearch.Text.ToLower())).ToList();
+
+                if (cboTypeDetailSearch.SelectedIndex > 0)
+                    list = list.Where(p => p.Product_Type == cboTypeDetailSearch.SelectedValue.ToString().Split('_')[1]).ToList();
+            }
+            // 일반 검색으로 필터링
+            else
+            {
+                // 품번 검색
+                if (comboBox1.SelectedIndex == 1)
+                    list = list.Where(p => p.Product_Code.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+
+                // 품명 검색
+                else if (comboBox1.SelectedIndex == 2)
+                    list = list.Where(p => p.Product_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+            }
+
+            //dgvList.DataSource = list;
+
+            dgvProductList.DataSource = list;
         }
 
         private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -88,6 +141,55 @@ namespace DESK_MES
             {
                 dtpUpdateTime.Format = dtpCreateTime.Format;
                 dtpUpdateTime.Value = prd.Update_Time;
+            }
+
+            List<ProductVO> bomList = productSrv.GetChildParentProductList(dgvProductList["Product_Code", e.RowIndex].Value.ToString());
+            dgvChild.DataSource = bomList.Where(b => b.Bom_Type == "자품목").ToList();
+            dgvParent.DataSource = bomList.Where(b => b.Bom_Type == "모품목").ToList();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            isBomProductList = productSrv.GetBomList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            dgvProductList.DataSource = null;
+        }
+
+        private void btnOpenDetail_Click(object sender, EventArgs e)
+        {
+            if (panel5.Visible)
+                comboBox1.Enabled = textBox1.Enabled = false;
+            else
+                comboBox1.Enabled = textBox1.Enabled = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtTypeDetail.Text == "ROH")
+            {
+                MessageBox.Show("부품은 삭제할 수 없습니다.");
+                return;
+            }
+
+            List<ProductVO> list = dgvChild.DataSource as List<ProductVO>;
+            if (list.Count == 0)
+            {
+                MessageBox.Show("자품목이 존재하지 않습니다.");
+                return;
+            }
+
+            if (MessageBox.Show("삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = productSrv.DeleteBom(txtCodeDetail.Text);
+                if (result)
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
             }
         }
 

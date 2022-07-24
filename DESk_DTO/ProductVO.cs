@@ -24,5 +24,7 @@ namespace DESK_DTO
         public string Update_User_Name { get; set; }
         public string Client_Code { get; set; }
         public string Client_Name { get; set; }
+        public string Bom_Type { get; set; }
+        public int Qty { get; set; }
     }
 }

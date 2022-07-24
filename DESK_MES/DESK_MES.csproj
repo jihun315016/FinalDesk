@@ -90,7 +90,9 @@
       <DependentUpon>ccTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DAC\MenuDAC.cs" />
+    <Compile Include="DAC\OrderDAC.cs" />
     <Compile Include="DAC\ProductDAC.cs" />
+    <Compile Include="DAC\ReleaseDAC.cs" />
     <Compile Include="DAC\UserDAC.cs" />
     <Compile Include="DAC\UserGroupDAC.cs" />
     <Compile Include="DAC\WarehouseDAC.cs" />
@@ -429,7 +431,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MenuService.cs" />
+    <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\ReleaseService.cs" />
     <Compile Include="Service\UserGroupService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\WarehouseService.cs" />
