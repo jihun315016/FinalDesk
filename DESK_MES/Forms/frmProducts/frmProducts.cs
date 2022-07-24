@@ -170,9 +170,10 @@ namespace DESK_MES
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            prdList = productSrv.GetProductList();
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
-            prdList = productSrv.GetProductList();
+            prdList = null;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

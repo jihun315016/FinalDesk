@@ -40,10 +40,26 @@ namespace DESK_MES
 
         void initControl()
         {
+            label1.Text = "BOM";
+
+            comboBox1.Items.AddRange(new string[] { "검색 조건", "품번", "품명" });
+            comboBox1.SelectedIndex = 0;
+
+            List<CodeCountVO> list = productSrv.GetProductType();
+            list.Insert(0, new CodeCountVO()
+            {
+                Code = string.Empty,
+                Category = "유형 선택"
+            });
+
+            ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboTypeDetailSearch, list, "Category", "Code");
+
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
             dtpCreateTime.CustomFormat = " ";
             dtpUpdateTime.Format = DateTimePickerFormat.Custom;
             dtpUpdateTime.CustomFormat = " ";
+
+            isBomProductList = productSrv.GetBomList();
 
             DataGridUtil.SetInitGridView(dgvProductList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품번", "Product_Code", colWidth: 130);
@@ -73,9 +89,34 @@ namespace DESK_MES
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
-            isBomProductList = productSrv.GetBomList();
-            dgvProductList.DataSource = isBomProductList;
+            List<ProductVO> list = isBomProductList.Where(p => 1 == 1).ToList();
+            // 상세 검색으로 필터링
+            if (panel5.Visible)
+            {
+                if (!string.IsNullOrWhiteSpace(txtPrdCodeDetailSearch.Text.Trim()))
+                    list = list.Where(p => p.Product_Code.ToLower().Contains(txtPrdCodeDetailSearch.Text.ToLower())).ToList();
+
+                if (!string.IsNullOrWhiteSpace(txtPrdNameDetailSearch.Text.Trim()))
+                    list = list.Where(p => p.Product_Name.ToLower().Contains(txtPrdNameDetailSearch.Text.ToLower())).ToList();
+
+                if (cboTypeDetailSearch.SelectedIndex > 0)
+                    list = list.Where(p => p.Product_Type == cboTypeDetailSearch.SelectedValue.ToString().Split('_')[1]).ToList();
+            }
+            // 일반 검색으로 필터링
+            else
+            {
+                // 품번 검색
+                if (comboBox1.SelectedIndex == 1)
+                    list = list.Where(p => p.Product_Code.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+
+                // 품명 검색
+                else if (comboBox1.SelectedIndex == 2)
+                    list = list.Where(p => p.Product_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+            }
+
+            //dgvList.DataSource = list;
+
+            dgvProductList.DataSource = list;
         }
 
         private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -105,6 +146,22 @@ namespace DESK_MES
             List<ProductVO> bomList = productSrv.GetChildParentProductList(dgvProductList["Product_Code", e.RowIndex].Value.ToString());
             dgvChild.DataSource = bomList.Where(b => b.Bom_Type == "자품목").ToList();
             dgvParent.DataSource = bomList.Where(b => b.Bom_Type == "모품목").ToList();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            isBomProductList = productSrv.GetBomList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            dgvProductList.DataSource = null;
+        }
+
+        private void btnOpenDetail_Click(object sender, EventArgs e)
+        {
+            if (panel5.Visible)
+                comboBox1.Enabled = textBox1.Enabled = false;
+            else
+                comboBox1.Enabled = textBox1.Enabled = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -32,14 +32,10 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBOM));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtPrdCodeDetailSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.txtPrdNameDetailSearch = new System.Windows.Forms.TextBox();
+            this.cboTypeDetailSearch = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -124,6 +120,14 @@ namespace DESK_MES
             // 
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnOpenDetail
+            // 
+            this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -136,14 +140,10 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.txtPrdCodeDetailSearch);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.txtPrdNameDetailSearch);
+            this.groupBox2.Controls.Add(this.cboTypeDetailSearch);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -153,29 +153,12 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox2
+            // txtPrdCodeDetailSearch
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(812, 24);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(108, 25);
-            this.comboBox2.TabIndex = 34;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(743, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 17);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "||  업체명";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(52, 23);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 25);
-            this.textBox10.TabIndex = 32;
+            this.txtPrdCodeDetailSearch.Location = new System.Drawing.Point(52, 23);
+            this.txtPrdCodeDetailSearch.Name = "txtPrdCodeDetailSearch";
+            this.txtPrdCodeDetailSearch.Size = new System.Drawing.Size(100, 25);
+            this.txtPrdCodeDetailSearch.TabIndex = 32;
             // 
             // label5
             // 
@@ -186,46 +169,30 @@ namespace DESK_MES
             this.label5.TabIndex = 31;
             this.label5.Text = "품번";
             // 
-            // textBox9
+            // txtPrdNameDetailSearch
             // 
-            this.textBox9.Location = new System.Drawing.Point(240, 23);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 25);
-            this.textBox9.TabIndex = 30;
+            this.txtPrdNameDetailSearch.Location = new System.Drawing.Point(240, 23);
+            this.txtPrdNameDetailSearch.Name = "txtPrdNameDetailSearch";
+            this.txtPrdNameDetailSearch.Size = new System.Drawing.Size(100, 25);
+            this.txtPrdNameDetailSearch.TabIndex = 30;
             // 
-            // comboBox4
+            // cboTypeDetailSearch
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(629, 23);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(108, 25);
-            this.comboBox4.TabIndex = 29;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(560, 27);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 17);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "||  고객명";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(446, 23);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(108, 25);
-            this.comboBox3.TabIndex = 27;
+            this.cboTypeDetailSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTypeDetailSearch.FormattingEnabled = true;
+            this.cboTypeDetailSearch.Location = new System.Drawing.Point(397, 23);
+            this.cboTypeDetailSearch.Name = "cboTypeDetailSearch";
+            this.cboTypeDetailSearch.Size = new System.Drawing.Size(108, 25);
+            this.cboTypeDetailSearch.TabIndex = 27;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(346, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.Size = new System.Drawing.Size(45, 17);
             this.label7.TabIndex = 26;
-            this.label7.Text = "||  품번 유형";
+            this.label7.Text = "|| 유형";
             // 
             // label6
             // 
@@ -650,20 +617,10 @@ namespace DESK_MES
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvProductList;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button1;
@@ -690,5 +647,11 @@ namespace DESK_MES
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNameDetail;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtPrdCodeDetailSearch;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtPrdNameDetailSearch;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboTypeDetailSearch;
     }
 }
