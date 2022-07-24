@@ -16,7 +16,7 @@ namespace DESK_MES
         UserService srv;
         List<UserVO> allList;
         List<UserVO> saveList;
-        string userNO;
+        int userNO;
         string userName;
         string saveFileName;
         int selectUser;
@@ -57,7 +57,24 @@ namespace DESK_MES
 
             cbo.DataSource = list;
         }
+        /// <summary>
+        /// 김준모/상세 정보란 초기화
+        /// </summary>
+        private void ResetDetail()
+        {
+            txtUserNo.Text = "";
+            txtName.Text = "";
+            txtUserG.Text = "";
+            txtPwd.Text = "";
+            txtAuth.Text = "";
+            txtDelete.Text = "";
+            dtpCreate.Value = DateTime.Now;
+            txtCreateUser.Text = "";
+            dtpUpdate.Value = DateTime.Now;
+            txtUpdateUser.Text = "";
 
+
+        }
         private void frmUser_Load(object sender, EventArgs e)
         {
             if (srv == null)
@@ -88,7 +105,7 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dgvMain);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사번", "User_No"); //0
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자명", "User_Name"); //1
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹", "User_Group_Name"); //2
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹명", "User_Group_Name"); //2
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "비밀번호", "User_Pwd"); //3
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "권한", "Auth_Name"); //4
 
@@ -109,6 +126,7 @@ namespace DESK_MES
         private void dgvMain_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            ResetDetail();
 
             selectUser = Convert.ToInt32(dgvMain[0, e.RowIndex].Value);
             txtUserNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
@@ -163,13 +181,14 @@ namespace DESK_MES
             if (! string.IsNullOrWhiteSpace(txtUserNo.Text))
             {
                 int gNo=0;
-               // allList.FindAll((f) => f.User_Group_Name.Equals(txtUserG.Text)).ForEach((f) => gNo = f.User_Group_No);//미완성
+                allList.FindAll((f) => f.User_No.Equals(Convert.ToInt32( txtUserNo.Text))).ForEach((f) => gNo = f.User_Group_No);//미완성
                 UserVO userV = new UserVO
                 {
                     User_No = Convert.ToInt32(txtUserNo.Text),
                     User_Name = txtName.Text,
                     User_Group_Name = txtUserG.Text,
                     User_Group_No = gNo,
+                    User_Pwd = txtPwd.Text,
                     Is_Delete = txtDelete.Text,
                     Create_Time = dtpCreate.Value.ToString(),
                     Create_User_Name = txtCreateUser.Text,
@@ -202,6 +221,35 @@ namespace DESK_MES
                 //상세검색
                 textBox1.Enabled = false;
                 comboBox1.SelectedIndex = 0;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                saveFileName = dlg.FileName;
+            }
+
+            List<UserGroupVO> list = dgvMain.DataSource as List<UserGroupVO>;
+
+            ExcelUtil excel = new ExcelUtil();
+            List<UserGroupVO> orders = list;
+
+            string[] columnImport = { "User_No", "User_Name", "User_Group_Name", "User_Pwd", "Auth_Name", "Create_Time", "Create_User_Name", "Update_Time", "Update_User_Name", "Is_Delete" };
+            string[] columnName = { "사번", "사용자명", "사용자 그룹유형", "사용자 그룹명", "비밀번호", "권한", "생성시간", "생성사용자", "변경시간", "변경사용자", "퇴사여부" };
+
+            if (excel.ExportList(orders, saveFileName, columnImport, columnName))
+            {
+                MessageBox.Show("엑셀 다운로드 완료");
+            }
+            else
+            {
+                MessageBox.Show("엑셀 다운 실패");
             }
         }
     }

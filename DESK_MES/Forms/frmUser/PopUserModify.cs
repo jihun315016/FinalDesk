@@ -14,14 +14,14 @@ namespace DESK_MES
     public partial class PopUserModify : Form
     {
         UserGroupService srvG;
+        UserService srv;
         List<UserGroupVO> gList;
-        string userNo;
-        string userName;
-        UserVO userlist;
+        int userNo; //접속자 번호
+        string userName; // 접속자 이름
+        UserVO userlist; //유저 리스트
 
-        public PopUserModify(string userno, string username, UserVO userV)
+        public PopUserModify(int userno, string username, UserVO userV)
         {
-
             userNo = userno;
             userName = username;
             userlist = userV;
@@ -58,6 +58,8 @@ namespace DESK_MES
 
         private void PopUserModify_Load(object sender, EventArgs e)
         {
+            srvG = new UserGroupService();
+            srv = new UserService();
             //기본설정
             txtNo.Text = userlist.User_No.ToString();
             txtNo.Enabled = false;
@@ -68,20 +70,81 @@ namespace DESK_MES
             txtUpdateUser.Text = userlist.Update_User_Name;
             txtUpdateUser.Enabled = false;
 
-            List<UserGroupVO> uList = srvG.SelectAuthList();
+            List<UserGroupVO> uList = srvG.SelectAuthList(); 
             gList = srvG.SelectGroupList();
 
-            var list = gList.GroupBy((f) => f.Auth_Name) as List<UserGroupVO>;
-            ComboBinding<UserGroupVO>(cboUG, list, "User_Group_Name", "User_Group_No");
+            List<UserVO> del = new List<UserVO>();
+            del.Add(new UserVO { Is_Delete = "N" });
+            del.Add(new UserVO { Is_Delete = "Y" });
 
+            ComboBinding<UserVO>(cboDelete, del, "Is_Delete", "Is_Delete");
+            ComboBinding<UserGroupVO>(cboUG, gList, "User_Group_Name", "User_Group_No",blank:true,blankText:"없음");
 
+            cboUG.SelectedValue = userlist.User_Group_No;
+            cboDelete.SelectedValue = userlist.Is_Delete;
         }
 
-        private void cboAuth_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboUG_SelectedIndexChanged(object sender, EventArgs e)
         {
             int gID = Convert.ToInt32(cboUG.SelectedValue);
             List<UserGroupVO> cboList = gList.FindAll((f) => f.User_Group_No.Equals(gID)).ToList();
             ComboBinding<UserGroupVO>(cboAuth, cboList, "Auth_Name", "Auth_ID");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ccTextBox[] ctx = new ccTextBox[] { txtName, txtPwd };
+            StringBuilder sb = new StringBuilder();
+            string isRequiredMsg = TextBoxUtil.IsRequiredCheck(ctx);
+            if (isRequiredMsg.Length > 0)
+            {
+                sb.Append(isRequiredMsg);
+
+                if (txtName.Text.Length > 30)
+                {
+                    sb.Append($"\n[{txtName.Tag}]의 글자수는 30개 이하만 가능합니다");
+                }
+                if (txtPwd.Text.Length > 30)
+                {
+                    sb.Append($"\n[{txtPwd.Tag}]의 글자수는 12개 이하만 가능합니다");
+                }
+                MessageBox.Show(sb.ToString());
+                return;
+            }
+
+            //vo
+            UserVO uservo = new UserVO
+            {
+                User_No = Convert.ToInt32(txtNo.Text),
+                User_Name = txtName.Text,
+                User_Group_No = Convert.ToInt32(cboUG.SelectedValue),
+                User_Pwd = txtPwd.Text,
+                Auth_ID = Convert.ToInt32(cboAuth.SelectedValue),
+                Is_Delete = cboDelete.Text,
+                Update_User_No =  userNo
+            };            
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("삭제하시겠니까?", "삭제", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                UserVO userV = new UserVO
+                {
+                    User_No = Convert.ToInt32(txtNo.Text),
+                    Is_Delete = "Y"
+                };
+               if (srv.DeleteUser(userV))
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

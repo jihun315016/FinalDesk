@@ -16,9 +16,9 @@ namespace DESK_MES
         UserGroupService srvG;
         UserService srv;
         List<UserGroupVO> gList; //그룹 리스트
-        string userNo; //유저
+        int userNo; //유저
         string userName;
-        public PopUserResister(string userno, string username)
+        public PopUserResister(int userno, string username)
         {
             userNo = userno;
             userName = username;
@@ -102,22 +102,24 @@ namespace DESK_MES
             if (isRequiredMsg.Length > 0)
             {
                 sb.Append(isRequiredMsg);
+
+                if (txtName.Text.Length > 30)
+                {
+                    sb.Append($"\n[{txtName.Tag}]의 글자수는 30개 이하만 가능합니다");
+                }
+                if (txtPwd.Text.Length > 30)
+                {
+                    sb.Append($"\n[{txtPwd.Tag}]의 글자수는 12개 이하만 가능합니다");
+                }
+                MessageBox.Show(sb.ToString());
+                return;
             }
-            if (txtName.Text.Length > 30)
-            {
-                sb.Append($"\n[{txtName.Tag}]의 글자수는 30개 이하만 가능합니다");
-            }
-            if (txtPwd.Text.Length > 30)
-            {
-                sb.Append($"\n[{txtPwd.Tag}]의 글자수는 12개 이하만 가능합니다");
-            }
-            MessageBox.Show(sb.ToString());
             //vo화
             UserVO uservo = new UserVO
             {
                 User_Pwd = txtPwd.Text,
                 Auth_ID = Convert.ToInt32( cboAuth.SelectedValue),
-                Create_User_No = Convert.ToInt32(txtCreate.Text),
+                Create_User_No = userNo,
                 User_Group_No = Convert.ToInt32(cboGroup.SelectedValue)
             };
             //DB

@@ -24,5 +24,19 @@ namespace DESK_MES
             db.Dispose();
             return result;
         }
+        public bool UpdateUser(UserVO UserG)
+        {
+            UserDAC db = new UserDAC();
+            bool result = db.UpdateUser(UserG);
+            db.Dispose();
+            return result;
+        }
+        public bool DeleteUser(UserVO UserG)
+        {
+            UserDAC db = new UserDAC();
+            bool result = db.DeleteUser(UserG);
+            db.Dispose();
+            return result;
+        }
     }
 }

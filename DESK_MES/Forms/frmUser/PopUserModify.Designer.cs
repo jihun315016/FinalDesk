@@ -44,6 +44,11 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtUpdateUser = new DESK_MES.ccTextBox();
+            this.txtCreate = new DESK_MES.ccTextBox();
+            this.txtPwd = new DESK_MES.ccTextBox();
+            this.txtName = new DESK_MES.ccTextBox();
+            this.txtNo = new DESK_MES.ccTextBox();
             this.cboDelete = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpUpdate = new System.Windows.Forms.DateTimePicker();
@@ -59,11 +64,6 @@ namespace DESK_MES
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtUpdateUser = new DESK_MES.ccTextBox();
-            this.txtCreate = new DESK_MES.ccTextBox();
-            this.txtPwd = new DESK_MES.ccTextBox();
-            this.txtName = new DESK_MES.ccTextBox();
-            this.txtNo = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -173,6 +173,7 @@ namespace DESK_MES
             this.button1.TabIndex = 33;
             this.button1.Text = "   수정";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // imageList2
             // 
@@ -197,6 +198,7 @@ namespace DESK_MES
             this.button3.TabIndex = 32;
             this.button3.Text = "   닫기";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnAdd
             // 
@@ -212,6 +214,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 31;
             this.btnAdd.Text = "   삭제";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel4
             // 
@@ -251,6 +254,58 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
+            // 
+            // txtUpdateUser
+            // 
+            this.txtUpdateUser.isNumeric = false;
+            this.txtUpdateUser.isRequired = false;
+            this.txtUpdateUser.Location = new System.Drawing.Point(166, 372);
+            this.txtUpdateUser.Name = "txtUpdateUser";
+            this.txtUpdateUser.PlaceHolder = null;
+            this.txtUpdateUser.Size = new System.Drawing.Size(190, 25);
+            this.txtUpdateUser.TabIndex = 55;
+            // 
+            // txtCreate
+            // 
+            this.txtCreate.isNumeric = false;
+            this.txtCreate.isRequired = false;
+            this.txtCreate.Location = new System.Drawing.Point(166, 264);
+            this.txtCreate.Name = "txtCreate";
+            this.txtCreate.PlaceHolder = null;
+            this.txtCreate.Size = new System.Drawing.Size(190, 25);
+            this.txtCreate.TabIndex = 55;
+            // 
+            // txtPwd
+            // 
+            this.txtPwd.isNumeric = false;
+            this.txtPwd.isRequired = true;
+            this.txtPwd.Location = new System.Drawing.Point(166, 156);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.PlaceHolder = null;
+            this.txtPwd.Size = new System.Drawing.Size(190, 25);
+            this.txtPwd.TabIndex = 55;
+            this.txtPwd.Tag = "비밀번호";
+            // 
+            // txtName
+            // 
+            this.txtName.isNumeric = false;
+            this.txtName.isRequired = true;
+            this.txtName.Location = new System.Drawing.Point(166, 84);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceHolder = null;
+            this.txtName.Size = new System.Drawing.Size(190, 25);
+            this.txtName.TabIndex = 55;
+            this.txtName.Tag = "사용자명";
+            // 
+            // txtNo
+            // 
+            this.txtNo.isNumeric = false;
+            this.txtNo.isRequired = false;
+            this.txtNo.Location = new System.Drawing.Point(166, 48);
+            this.txtNo.Name = "txtNo";
+            this.txtNo.PlaceHolder = null;
+            this.txtNo.Size = new System.Drawing.Size(190, 25);
+            this.txtNo.TabIndex = 55;
             // 
             // cboDelete
             // 
@@ -314,7 +369,6 @@ namespace DESK_MES
             this.cboAuth.Name = "cboAuth";
             this.cboAuth.Size = new System.Drawing.Size(190, 25);
             this.cboAuth.TabIndex = 42;
-            this.cboAuth.SelectedIndexChanged += new System.EventHandler(this.cboAuth_SelectedIndexChanged);
             // 
             // cboUG
             // 
@@ -323,6 +377,7 @@ namespace DESK_MES
             this.cboUG.Name = "cboUG";
             this.cboUG.Size = new System.Drawing.Size(190, 25);
             this.cboUG.TabIndex = 41;
+            this.cboUG.SelectedIndexChanged += new System.EventHandler(this.cboUG_SelectedIndexChanged);
             // 
             // dtpCreate
             // 
@@ -415,58 +470,6 @@ namespace DESK_MES
             this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 27;
             this.label9.Text = "사용자명";
-            // 
-            // txtUpdateUser
-            // 
-            this.txtUpdateUser.isNumeric = false;
-            this.txtUpdateUser.isRequired = false;
-            this.txtUpdateUser.Location = new System.Drawing.Point(166, 372);
-            this.txtUpdateUser.Name = "txtUpdateUser";
-            this.txtUpdateUser.PlaceHolder = null;
-            this.txtUpdateUser.Size = new System.Drawing.Size(190, 25);
-            this.txtUpdateUser.TabIndex = 55;
-            // 
-            // txtCreate
-            // 
-            this.txtCreate.isNumeric = false;
-            this.txtCreate.isRequired = false;
-            this.txtCreate.Location = new System.Drawing.Point(166, 264);
-            this.txtCreate.Name = "txtCreate";
-            this.txtCreate.PlaceHolder = null;
-            this.txtCreate.Size = new System.Drawing.Size(190, 25);
-            this.txtCreate.TabIndex = 55;
-            // 
-            // txtPwd
-            // 
-            this.txtPwd.isNumeric = false;
-            this.txtPwd.isRequired = true;
-            this.txtPwd.Location = new System.Drawing.Point(166, 156);
-            this.txtPwd.Name = "txtPwd";
-            this.txtPwd.PlaceHolder = null;
-            this.txtPwd.Size = new System.Drawing.Size(190, 25);
-            this.txtPwd.TabIndex = 55;
-            this.txtPwd.Tag = "비밀번호";
-            // 
-            // txtName
-            // 
-            this.txtName.isNumeric = false;
-            this.txtName.isRequired = true;
-            this.txtName.Location = new System.Drawing.Point(166, 84);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceHolder = null;
-            this.txtName.Size = new System.Drawing.Size(190, 25);
-            this.txtName.TabIndex = 55;
-            this.txtName.Tag = "사용자명";
-            // 
-            // txtNo
-            // 
-            this.txtNo.isNumeric = false;
-            this.txtNo.isRequired = false;
-            this.txtNo.Location = new System.Drawing.Point(166, 48);
-            this.txtNo.Name = "txtNo";
-            this.txtNo.PlaceHolder = null;
-            this.txtNo.Size = new System.Drawing.Size(190, 25);
-            this.txtNo.TabIndex = 55;
             // 
             // PopUserModify
             // 
