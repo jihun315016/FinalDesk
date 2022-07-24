@@ -17,7 +17,6 @@ namespace DESK_MES
         ServiceHelper service = null;
         WarehouseService srv = null;
         List<ProductVO> allList; // 전체 품목 리스트
-        List<WarehouseProductVO> insertList; // 보관 품목 리스트
 
         public PopWarehouseProduct(string warehouseCode)
         {
