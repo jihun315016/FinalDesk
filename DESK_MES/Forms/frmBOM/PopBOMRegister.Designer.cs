@@ -435,6 +435,7 @@ namespace DESK_MES
             this.cboCopyName.Name = "cboCopyName";
             this.cboCopyName.Size = new System.Drawing.Size(225, 25);
             this.cboCopyName.TabIndex = 28;
+            this.cboCopyName.SelectedIndexChanged += new System.EventHandler(this.cboCopyName_SelectedIndexChanged);
             // 
             // label3
             // 

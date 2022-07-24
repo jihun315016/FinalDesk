@@ -88,12 +88,11 @@ namespace DESK_MES.DAC
         public List<ProductVO> GetBomList()
         {
             string sql = @"SELECT 
-                            Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, c.Client_Code, Client_Name, p.Create_Time, p.Create_User_No
+                            Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, p.Create_Time, p.Create_User_No
                             , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name
                             FROM TB_PRODUCT p
                             LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
                             LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No 
-                            LEFT JOIN TB_Client c ON p.Client_Code = c.Client_Code 
                             WHERE Product_Code IN (
 					                            SELECT * FROM
 					                            (
@@ -140,6 +139,28 @@ namespace DESK_MES.DAC
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
+            reader.Close();
+            return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 정전개가 존재하는 BOM 리스트 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductVO> GetBomParentList()
+        {
+            string sql = @"SELECT 
+                            Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, p.Create_Time, p.Create_User_No
+                            , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name
+                            FROM TB_PRODUCT p
+                            LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
+                            LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No 
+                            WHERE Product_Code IN (SELECT Parent_Product_Code Product_Code FROM TB_BOM ) ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
             List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
             reader.Close();

@@ -49,6 +49,14 @@ namespace DESK_MES.Service
             return list;
         }
 
+        public List<ProductVO> GetBomParentList()
+        {
+            ProductDAC dac = new ProductDAC();
+            List<ProductVO> list = dac.GetBomParentList();
+            dac.Dispose();
+            return list;
+        }
+
         public bool DeleteBom(string code)
         {
             ProductDAC dac = new ProductDAC();

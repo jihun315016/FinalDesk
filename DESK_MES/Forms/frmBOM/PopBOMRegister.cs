@@ -44,7 +44,12 @@ namespace DESK_MES
 
             ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboType, typeList.GetRange(0, typeList.Count - 1), "Category", "Code");
             cboType.SelectedIndex = 0;
-            
+
+            List<ProductVO> list = new List<ProductVO>()
+            {
+                new ProductVO(){ Product_Code = "", Product_Name = "품명" }
+            };
+            ComboBoxUtil.SetComboBoxByList<ProductVO>(cboName, list, "Product_Name", "Product_Code");
             prdNoneBomList = productSrv.GetProductList(isBom: true);
             prdAllList = productSrv.GetProductList();
 
@@ -52,6 +57,14 @@ namespace DESK_MES
             cboIsCopy.SelectedIndex = 1;
 
             cboCopyName.Visible = false;
+            List<ProductVO> copyList = productSrv.GetBomParentList();
+            copyList.Insert(0, new ProductVO()
+            {
+                Product_Code = "",
+                Product_Name = "복사 품명"
+            });
+            ComboBoxUtil.SetComboBoxByList<ProductVO>(cboCopyName, copyList, "Product_Name", "Product_Code");
+            cboCopyName.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvLowList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvLowList, "품번", "Product_Code", colWidth: 220);
@@ -75,6 +88,11 @@ namespace DESK_MES
             else
             {
                 List<ProductVO> list = prdNoneBomList.Where(p => p.Product_Type == cboType.SelectedValue.ToString().Split('_')[1]).ToList();
+                list.Insert(0, new ProductVO()
+                {
+                    Product_Code = "",
+                    Product_Name = "품명"
+                });
                 ComboBoxUtil.SetComboBoxByList<ProductVO>(cboName, list, "Product_Name", "Product_Code");
 
                 List<string> typeList = new List<string>() { "ROH" };
@@ -91,6 +109,33 @@ namespace DESK_MES
             if (cboIsCopy.SelectedIndex == 0)
             {
                 cboCopyName.Visible = true;
+            }
+            else
+            {
+                cboCopyName.Visible = false;
+            }
+        }
+
+        private void cboCopyName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCopyName.SelectedIndex > 0)
+            {
+                List<ProductVO> list = productSrv.GetChildParentProductList(cboCopyName.SelectedValue.ToString()).Where(p => p.Bom_Type == "자품목").ToList();
+                selectedList = new List<BomVO>();
+
+                foreach (ProductVO p in list)
+                {
+                    selectedList.Add(new BomVO()
+                    {
+                        Parent_Product_Code = cboName.SelectedValue.ToString(),
+                        Child_Product_Code = p.Product_Code,
+                        Child_Name = p.Product_Name,
+                        Child_Type = p.Product_Type,
+                        Qty = p.Qty
+                    });
+                }
+
+                dgvChildList.DataSource = selectedList;
             }
         }
 
