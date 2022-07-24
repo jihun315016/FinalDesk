@@ -17,11 +17,16 @@ namespace DESK_MES
         UserService srv;
         List<UserGroupVO> gList; //그룹 리스트
         string userNo; //유저
-        public PopUserResister(string userName)
+        string userName;
+        public PopUserResister(string userno, string username)
         {
-            userNo = userName;
+            userNo = userno;
+            userName = username;
             InitializeComponent();
         }
+        /// <summary>
+        /// 초기설정(텍스트, 콤보)
+        /// </summary>
         public void StartSetting()
         {
             List<UserGroupVO> uList = srvG.SelectAuthList();
@@ -33,7 +38,10 @@ namespace DESK_MES
             txtNo.Enabled = false;
             txtName.Text = "";
             ComboBinding<UserGroupVO>(cboGroup, gList, "User_Group_Name", "User_Group_No");
-            //cboGroup_SelectedIndexChanged(this,null);
+            dtpCreate.Value = DateTime.Now;
+            txtCreate.Text = userName;
+            txtCreate.Enabled = false;
+
         }
 
         /// <summary>
@@ -71,7 +79,6 @@ namespace DESK_MES
             srv = new UserService();
             //초기 설정
             StartSetting();
-
         }
 
         private void cboGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,6 +87,50 @@ namespace DESK_MES
             List<UserGroupVO> cboList = gList.FindAll((f) => f.User_Group_No.Equals(gID)).ToList();
             ComboBinding<UserGroupVO>(cboAuth, cboList, "Auth_Name", "Auth_ID");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //유효성
+            ccTextBox[] ctx = new ccTextBox[] { txtName, txtPwd };
+            StringBuilder sb = new StringBuilder();
+            string isRequiredMsg = TextBoxUtil.IsRequiredCheck(ctx);
+            if (isRequiredMsg.Length > 0)
+            {
+                sb.Append(isRequiredMsg);
+            }
+            if (txtName.Text.Length > 30)
+            {
+                sb.Append($"\n[{txtName.Tag}]의 글자수는 30개 이하만 가능합니다");
+            }
+            if (txtPwd.Text.Length > 30)
+            {
+                sb.Append($"\n[{txtPwd.Tag}]의 글자수는 12개 이하만 가능합니다");
+            }
+            MessageBox.Show(sb.ToString());
+            //vo화
+            UserVO uservo = new UserVO
+            {
+                User_Pwd = txtPwd.Text,
+                Auth_ID = Convert.ToInt32( cboAuth.SelectedValue),
+                Create_User_No = Convert.ToInt32(txtCreate.Text),
+                User_Group_No = Convert.ToInt32(cboGroup.SelectedValue)
+            };
+            //DB
+            if (srv.InsertUser(uservo))
+            {
+                if (MessageBox.Show("등록 성공", "사용자 등록", MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+        }
+
     }
 }
 

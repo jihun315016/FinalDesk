@@ -19,7 +19,7 @@ namespace DESK_MES
             conn = new SqlConnection(connStr);
             conn.Open();
         }
-    
+
         public void Dispose()
         {
             if (conn != null && conn.State == System.Data.ConnectionState.Open)
@@ -45,7 +45,7 @@ from userr u left join [dbo].[TB_USER] us on u.Create_User_No = us.User_No
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                   List<UserVO> list = DBHelpler.DataReaderMapToList<UserVO>(cmd.ExecuteReader());
+                    List<UserVO> list = DBHelpler.DataReaderMapToList<UserVO>(cmd.ExecuteReader());
 
                     return list;
                 }
@@ -53,6 +53,35 @@ from userr u left join [dbo].[TB_USER] us on u.Create_User_No = us.User_No
             catch (Exception err)
             {
                 throw err;
+            }
+        }
+        public bool InsertUser(UserVO user)
+        {
+            int iRowAffect;
+            string sql = @"USP_InsertUser";
+
+            using (SqlTransaction tran = conn.BeginTransaction())
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Transaction = tran;
+                        cmd.Parameters.AddWithValue("@User_Name", user.User_Name);
+                        cmd.Parameters.AddWithValue("@User_Pwd", user.User_Pwd);
+                        cmd.Parameters.AddWithValue("@Create_User_No", user.Create_User_No);
+                        cmd.Parameters.AddWithValue("@User_Group_No", user.User_Group_No);
+                        iRowAffect = cmd.ExecuteNonQuery();
+                    }
+                    tran.Commit();
+                    return iRowAffect > 0;
+                }
+                catch (Exception err)
+                {
+                    tran.Rollback();
+                    throw err;
+                }
             }
         }
     }

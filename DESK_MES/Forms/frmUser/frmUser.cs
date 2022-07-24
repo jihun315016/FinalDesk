@@ -16,7 +16,8 @@ namespace DESK_MES
         UserService srv;
         List<UserVO> allList;
         List<UserVO> saveList;
-        string user;
+        string userNO;
+        string userName;
         string saveFileName;
         int selectUser;
         bool flag = false;
@@ -145,7 +146,7 @@ namespace DESK_MES
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopUserResister pop = new PopUserResister(user);
+            PopUserResister pop = new PopUserResister(userNO, userName);
             pop.ShowDialog();
         }
 
