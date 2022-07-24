@@ -18,5 +18,24 @@ namespace DESK_MES
 
             return result;
         }
+
+        public List<ProductVO> GetProductListForWarehouse()
+        {
+            WarehouseDAC dac = new WarehouseDAC();
+            List<ProductVO> result = dac.GetProductListForWarehouse();
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool SaveProductInWarehouse(string warehouseNo, List<WarehouseProductVO> saveList)
+        {
+            WarehouseDAC dac = new WarehouseDAC();
+            bool result = dac.SaveProductInWarehouse(warehouseNo, saveList);
+
+            return result;
+        }
+
+        
     }
 }
