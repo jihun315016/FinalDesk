@@ -32,12 +32,12 @@ namespace DESK_MES
             List<UserGroupVO> uList = srvG.SelectAuthList();
             gList = srvG.SelectGroupList();
 
-            gList.GroupBy((f) => f.Auth_Name);
+            var list =gList.GroupBy((f) => f.Auth_Name) as List<UserGroupVO>;
 
             txtNo.Text = "";
             txtNo.Enabled = false;
             txtName.Text = "";
-            ComboBinding<UserGroupVO>(cboGroup, gList, "User_Group_Name", "User_Group_No");
+            ComboBinding<UserGroupVO>(cboGroup, list, "User_Group_Name", "User_Group_No");
             dtpCreate.Value = DateTime.Now;
             txtCreate.Text = userName;
             txtCreate.Enabled = false;
