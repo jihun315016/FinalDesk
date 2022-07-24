@@ -16,7 +16,8 @@ namespace DESK_MES
         UserService srv;
         List<UserVO> allList;
         List<UserVO> saveList;
-        string user;
+        string userNO;
+        string userName;
         string saveFileName;
         int selectUser;
         bool flag = false;
@@ -47,7 +48,7 @@ namespace DESK_MES
             if (blank)
             {
                 list.Insert(0, new UserGroupVO
-                { Auth_Name = "전체",User_Group_Name = "전체" }
+                { Auth_Name = "전체", User_Group_Name = "전체" }
                 );
             }
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -61,7 +62,7 @@ namespace DESK_MES
         {
             if (srv == null)
                 srv = new UserService();
-           UserGroupService srvG = new UserGroupService();
+            UserGroupService srvG = new UserGroupService();
 
             dtpCreate.Format = DateTimePickerFormat.Custom;
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
@@ -98,7 +99,7 @@ namespace DESK_MES
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "퇴사여부", "Is_Delete"); //9
 
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹유형코드", "User_Group_Type", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹유형코드", "User_Group_Type", isVisible: false); //10
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자ID", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경사용자ID", "Update_User_No", isVisible: false);
             BindingGdv();
@@ -113,12 +114,16 @@ namespace DESK_MES
             txtUserNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
             txtName.Text = dgvMain[1, e.RowIndex].Value.ToString();
 
-            if (dgvMain[2, e.RowIndex].Value != null) { txtUserG.Text = dgvMain[2, e.RowIndex].Value.ToString(); }
+            if (dgvMain[2, e.RowIndex].Value != null) 
+            {
+                txtUserG.Text = dgvMain[2, e.RowIndex].Value.ToString();
+                //txtUserG.Tag = dgvMain[10, e.RowIndex].Value.ToString();
+            }
 
             if (dgvMain[4, e.RowIndex].Value != null) { txtAuth.Text = dgvMain[4, e.RowIndex].Value.ToString(); }
 
             txtPwd.Text = dgvMain[3, e.RowIndex].Value.ToString();
-            
+
             dtpCreate.Value = Convert.ToDateTime(dgvMain[5, e.RowIndex].Value);
             txtCreateUser.Text = dgvMain[6, e.RowIndex].Value.ToString();
             if (dgvMain[7, e.RowIndex].Value != null)
@@ -145,14 +150,39 @@ namespace DESK_MES
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopUserResister pop = new PopUserResister();
-            pop.ShowDialog();
+            PopUserResister pop = new PopUserResister(userNO, userName);
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                BindingGdv();
+            }
         }
 
+        //변경
         private void button5_Click(object sender, EventArgs e)
         {
-            PopUserModify pop = new PopUserModify();
-            pop.ShowDialog();
+            if (! string.IsNullOrWhiteSpace(txtUserNo.Text))
+            {
+                int gNo=0;
+               // allList.FindAll((f) => f.User_Group_Name.Equals(txtUserG.Text)).ForEach((f) => gNo = f.User_Group_No);//미완성
+                UserVO userV = new UserVO
+                {
+                    User_No = Convert.ToInt32(txtUserNo.Text),
+                    User_Name = txtName.Text,
+                    User_Group_Name = txtUserG.Text,
+                    User_Group_No = gNo,
+                    Is_Delete = txtDelete.Text,
+                    Create_Time = dtpCreate.Value.ToString(),
+                    Create_User_Name = txtCreateUser.Text,
+                    Update_Time = dtpUpdate.Value.ToString(),
+                    Update_User_Name = txtUpdateUser.Text
+                };
+
+                PopUserModify pop = new PopUserModify(userNO, userName, userV);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    BindingGdv();
+                }
+            }
         }
 
         private void btnOpenDetail_Click(object sender, EventArgs e)
@@ -176,3 +206,4 @@ namespace DESK_MES
         }
     }
 }
+

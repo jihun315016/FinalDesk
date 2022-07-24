@@ -20,7 +20,7 @@ namespace DESK_DTO
 
         //쿼리로 추가한것
         public string User_Group_Name { get; set; }
-        public string Auth_ID { get; set; }
+        public int Auth_ID { get; set; }
         public string Auth_Name { get; set; }
         public string Create_User_Name { get; set; }
         public string Update_User_Name { get; set; }      

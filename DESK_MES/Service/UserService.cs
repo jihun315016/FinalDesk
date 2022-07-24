@@ -17,5 +17,12 @@ namespace DESK_MES
             db.Dispose();
             return list;
         }
+        public bool InsertUser(UserVO user)
+        {
+            UserDAC db = new UserDAC();
+            bool result = db.InsertUser(user);
+            db.Dispose();
+            return result;
+        }
     }
 }

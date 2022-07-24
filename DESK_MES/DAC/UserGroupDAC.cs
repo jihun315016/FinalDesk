@@ -80,6 +80,25 @@ from TB_User_Group ug left join [dbo].[TB_USER] u on ug.Update_User_No = u.User_
                 throw err;
             }
         }
+        public List<UserGroupVO> SelectGroupList()
+        {
+            string sql = @"select User_Group_No, User_Group_Name, User_Group_Type,[Auth_Name]
+from [dbo].[TB_USER_GROUP] u left join [dbo].[TB_AUTHORTY] a on u.User_Group_Type=a.Auth_ID
+order by User_Group_Name";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    List<UserGroupVO> list = DBHelpler.DataReaderMapToList<UserGroupVO>(cmd.ExecuteReader());
+
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+        }
 
         /// <summary>
         /// 김준모/GroupName 가져오기(콤보박스용)
@@ -223,7 +242,7 @@ where User_Group_No =@User_Group_No";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Transaction = tran;
-                        
+
                         cmd.Parameters.AddWithValue("@User_Group_No", User_Group_No);
                         iRowAffect = cmd.ExecuteNonQuery();
                     }
@@ -237,5 +256,6 @@ where User_Group_No =@User_Group_No";
                 }
             }
         }
+
     }
 }

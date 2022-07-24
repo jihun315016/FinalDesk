@@ -133,9 +133,9 @@ namespace DESK_MES
             {
                 dtpUpdateTime.Format = dtpCreateTime.Format;
                 dtpUpdateTime.Value = prd.Update_Time;
+                txtUpdateUserDetail.Text = prd.Update_User_Name;
             }
             
-            txtUpdateUserDetail.Text = prd.Update_User_Name;
 
             if (prd.Is_Image == 1)
             {
@@ -170,9 +170,10 @@ namespace DESK_MES
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            prdList = productSrv.GetProductList();
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
-            prdList = productSrv.GetProductList();
+            prdList = null;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
