@@ -133,9 +133,9 @@ namespace DESK_MES
             {
                 dtpUpdateTime.Format = dtpCreateTime.Format;
                 dtpUpdateTime.Value = prd.Update_Time;
+                txtUpdateUserDetail.Text = prd.Update_User_Name;
             }
             
-            txtUpdateUserDetail.Text = prd.Update_User_Name;
 
             if (prd.Is_Image == 1)
             {

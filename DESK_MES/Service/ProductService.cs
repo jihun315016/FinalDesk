@@ -33,6 +33,14 @@ namespace DESK_MES.Service
             return list;
         }
 
+        public List<ProductVO> GetBomList()
+        {
+            ProductDAC dac = new ProductDAC();
+            List<ProductVO> list = dac.GetBomList();
+            dac.Dispose();
+            return list;
+        }
+
         public string SaveProduct(string code, int userNo, ProductVO prd)
         {
             ProductDAC dac = new ProductDAC();            
