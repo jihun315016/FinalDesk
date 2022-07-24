@@ -16,7 +16,7 @@ namespace DESK_MES
     {
         UserVO user;
         ProductService productSrv;
-        List<ProductVO> bomList;
+        List<ProductVO> isBomProductList;
 
         public frmBOM()
         {
@@ -28,7 +28,7 @@ namespace DESK_MES
         {
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             productSrv = new ProductService();
-            bomList = new List<ProductVO>();
+            isBomProductList = new List<ProductVO>();
 
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
             dtpCreateTime.CustomFormat = " ";
@@ -57,13 +57,25 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 사용자", "Update_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 사용자 번호", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 사용자 번호", "Update_User_No", isVisible: false);
+
+            DataGridUtil.SetInitGridView(dgvChild);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "품번", "Product_Code");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "품명", "Product_Name", colWidth: 230);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "유형", "Product_Type");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "수량", "Qty", colWidth: 80);
+
+            DataGridUtil.SetInitGridView(dgvParent);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "품번", "Product_Code");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "품명", "Product_Name", colWidth: 230);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "유형", "Product_Type");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "수량", "Qty", colWidth: 80);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             
-            bomList = productSrv.GetBomList();
-            dgvProductList.DataSource = bomList;
+            isBomProductList = productSrv.GetBomList();
+            dgvProductList.DataSource = isBomProductList;
         }
 
         private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,6 +101,10 @@ namespace DESK_MES
                 dtpUpdateTime.Format = dtpCreateTime.Format;
                 dtpUpdateTime.Value = prd.Update_Time;
             }
+
+            List<ProductVO> bomList = productSrv.GetChildParentProductList(dgvProductList["Product_Code", e.RowIndex].Value.ToString());
+            dgvChild.DataSource = bomList.Where(b => b.Bom_Type == "자품목").ToList();
+            dgvParent.DataSource = bomList.Where(b => b.Bom_Type == "모품목").ToList();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

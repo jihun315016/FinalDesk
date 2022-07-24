@@ -41,6 +41,14 @@ namespace DESK_MES.Service
             return list;
         }
 
+        public List<ProductVO> GetChildParentProductList(string code)
+        {
+            ProductDAC dac = new ProductDAC();
+            List<ProductVO> list = dac.GetChildParentProductList(code);
+            dac.Dispose();
+            return list;
+        }
+
         public string SaveProduct(string code, int userNo, ProductVO prd)
         {
             ProductDAC dac = new ProductDAC();            

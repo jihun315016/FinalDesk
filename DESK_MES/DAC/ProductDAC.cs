@@ -94,9 +94,52 @@ namespace DESK_MES.DAC
                             LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
                             LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No 
                             LEFT JOIN TB_Client c ON p.Client_Code = c.Client_Code 
-                            WHERE Product_Code IN (SELECT Parent_Product_Code FROM TB_BOM GROUP BY Parent_Product_Code) ";
+                            WHERE Product_Code IN (
+					                            SELECT * FROM
+					                            (
+						                            SELECT Parent_Product_Code Product_Code FROM TB_BOM 
+						                            UNION
+						                            SELECT Child_Product_Code Product_Code FROM TB_BOM 
+					                            ) P
+					                            GROUP BY Product_Code
+				                            ) ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
+            reader.Close();
+            return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// BOM 정전개와 역전개 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductVO> GetChildParentProductList(string code)
+        {
+            string sql = @"WITH Child_Products AS
+                            (
+	                            SELECT Child_Product_Code Product_Code, '자품목' Bom_Type, Qty
+	                            FROM TB_BOM 
+	                            WHERE Parent_Product_Code = @code
+                            ),
+                            Parent_Products AS
+                            (
+	                            SELECT Parent_Product_Code Product_Code, '모품목' Bom_Type, Qty
+	                            FROM TB_BOM 
+	                            WHERE Child_Product_Code = @code
+                            )
+                            SELECT c.Product_Code, Product_Name, c.Bom_Type, pd.Product_Type, Qty
+                            FROM Child_Products c
+                            JOIN TB_PRODUCT pd ON c.Product_Code = pd.Product_Code
+                            UNION
+                            SELECT p.Product_Code, Product_Name, p.Bom_Type, pd.Product_Type, Qty
+                            FROM Parent_Products p
+                            JOIN TB_PRODUCT pd ON p.Product_Code = pd.Product_Code ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@code", code);
             SqlDataReader reader = cmd.ExecuteReader();
             List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
             reader.Close();
