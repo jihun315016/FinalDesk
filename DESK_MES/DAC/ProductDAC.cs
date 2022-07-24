@@ -148,6 +148,28 @@ namespace DESK_MES.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// BOM 삭제
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public bool DeleteBom(string code)
+        {
+            string sql = "DELETE FROM TB_BOM WHERE Parent_Product_Code = @code ";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                cmd.Parameters.AddWithValue("@code", code);
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 등록 기능
         /// 제품 유형에 따라 다른 코드로 저장된다.
         /// </summary>

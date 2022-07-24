@@ -164,6 +164,35 @@ namespace DESK_MES
                 comboBox1.Enabled = textBox1.Enabled = true;
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtTypeDetail.Text == "ROH")
+            {
+                MessageBox.Show("부품은 삭제할 수 없습니다.");
+                return;
+            }
+
+            List<ProductVO> list = dgvChild.DataSource as List<ProductVO>;
+            if (list.Count == 0)
+            {
+                MessageBox.Show("자품목이 존재하지 않습니다.");
+                return;
+            }
+
+            if (MessageBox.Show("삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = productSrv.DeleteBom(txtCodeDetail.Text);
+                if (result)
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopBOMRegister pop = new PopBOMRegister(user);
