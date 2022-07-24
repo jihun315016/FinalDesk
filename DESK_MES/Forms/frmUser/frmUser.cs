@@ -47,7 +47,7 @@ namespace DESK_MES
             if (blank)
             {
                 list.Insert(0, new UserGroupVO
-                { Auth_Name = "전체",User_Group_Name = "전체" }
+                { Auth_Name = "전체", User_Group_Name = "전체" }
                 );
             }
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -61,7 +61,7 @@ namespace DESK_MES
         {
             if (srv == null)
                 srv = new UserService();
-           UserGroupService srvG = new UserGroupService();
+            UserGroupService srvG = new UserGroupService();
 
             dtpCreate.Format = DateTimePickerFormat.Custom;
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
@@ -118,7 +118,7 @@ namespace DESK_MES
             if (dgvMain[4, e.RowIndex].Value != null) { txtAuth.Text = dgvMain[4, e.RowIndex].Value.ToString(); }
 
             txtPwd.Text = dgvMain[3, e.RowIndex].Value.ToString();
-            
+
             dtpCreate.Value = Convert.ToDateTime(dgvMain[5, e.RowIndex].Value);
             txtCreateUser.Text = dgvMain[6, e.RowIndex].Value.ToString();
             if (dgvMain[7, e.RowIndex].Value != null)
@@ -145,7 +145,7 @@ namespace DESK_MES
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopUserResister pop = new PopUserResister();
+            PopUserResister pop = new PopUserResister(user);
             pop.ShowDialog();
         }
 
@@ -176,3 +176,4 @@ namespace DESK_MES
         }
     }
 }
+
