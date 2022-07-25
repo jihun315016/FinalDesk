@@ -49,10 +49,20 @@ namespace DESK_MES
                 Operation_Name = txtName.Text,
                 Is_Check_Deffect = cboDeffect.Text == "예" ? "Y" : "N",
                 Is_Check_Inspect = cboInspect.Text == "예" ? "Y" : "N",
-                Is_Check_Marerial = cboMaterial.Text == "예" ? "Y" : "N"
+                Is_Check_Marerial = cboMaterial.Text == "예" ? "Y" : "N",
+                Create_User_No = user.User_No
             };
 
-            //processSrv.SaveProcess
+            bool result = processSrv.SaveOperation(oper);
+            if (result)
+            {
+                MessageBox.Show("공정이 등록되었습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("등록에 실패했습니다.");
+            }
         }
     }
 }

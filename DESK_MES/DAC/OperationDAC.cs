@@ -17,6 +17,7 @@ namespace DESK_MES.DAC
         {
             string connStr = ConfigurationManager.ConnectionStrings["prjDB"].ConnectionString;
             conn = new SqlConnection(connStr);
+            conn.Open();
         }
 
         public void Dispose()
@@ -27,7 +28,23 @@ namespace DESK_MES.DAC
             }
         }
 
-        public bool SaveProcess(OperationVO oper)
+        public List<OperationVO> GetOperationList()
+        {
+            string sql = @"select 
+	                            Operation_No, Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, 
+	                            o.Create_Time, o.Create_User_No, u.User_Name Create_User, o.Update_Time, o.Update_User_No, uu.User_Name Update_User, o.Is_Delete 
+                            from TB_OPERATION o
+                            LEFT JOIN TB_USER u ON o.Create_User_No = u.User_No
+                            LEFT JOIN TB_USER uu ON o.Update_User_No = uu.User_No ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<OperationVO> list = DBHelpler.DataReaderMapToList<OperationVO>(reader);
+            reader.Close();
+            return list;
+        }
+
+        public bool SaveOperation(OperationVO oper)
         {
             string sql = @"INSERT INTO TB_OPERATION
                             (Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, Create_Time, Create_User_No, Is_Delete)
