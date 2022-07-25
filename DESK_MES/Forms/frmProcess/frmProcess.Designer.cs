@@ -32,12 +32,12 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProcess));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtOperNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtOperName = new System.Windows.Forms.TextBox();
+            this.cboIsInspect = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboIsDeffect = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,6 +65,8 @@ namespace DESK_MES
             this.button2 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cboMaterial = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -111,6 +113,10 @@ namespace DESK_MES
             // 
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnOpenDetail
+            // 
+            this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -123,12 +129,14 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.cboMaterial);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtOperNo);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.txtOperName);
+            this.groupBox2.Controls.Add(this.cboIsInspect);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.cboIsDeffect);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -138,71 +146,73 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // textBox10
+            // txtOperNo
             // 
-            this.textBox10.Location = new System.Drawing.Point(78, 24);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 25);
-            this.textBox10.TabIndex = 32;
+            this.txtOperNo.Location = new System.Drawing.Point(78, 24);
+            this.txtOperNo.Name = "txtOperNo";
+            this.txtOperNo.Size = new System.Drawing.Size(100, 25);
+            this.txtOperNo.TabIndex = 32;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.Size = new System.Drawing.Size(65, 17);
             this.label5.TabIndex = 31;
-            this.label5.Text = "공정코드";
+            this.label5.Text = "공정 번호";
             // 
-            // textBox9
+            // txtOperName
             // 
-            this.textBox9.Location = new System.Drawing.Point(271, 24);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 25);
-            this.textBox9.TabIndex = 30;
+            this.txtOperName.Location = new System.Drawing.Point(253, 24);
+            this.txtOperName.Name = "txtOperName";
+            this.txtOperName.Size = new System.Drawing.Size(100, 25);
+            this.txtOperName.TabIndex = 30;
             // 
-            // comboBox4
+            // cboIsInspect
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(704, 24);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(108, 25);
-            this.comboBox4.TabIndex = 29;
+            this.cboIsInspect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIsInspect.FormattingEnabled = true;
+            this.cboIsInspect.Location = new System.Drawing.Point(674, 24);
+            this.cboIsInspect.Name = "cboIsInspect";
+            this.cboIsInspect.Size = new System.Drawing.Size(91, 25);
+            this.cboIsInspect.TabIndex = 29;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(591, 28);
+            this.label8.Location = new System.Drawing.Point(543, 28);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 17);
+            this.label8.Size = new System.Drawing.Size(125, 17);
             this.label8.TabIndex = 28;
-            this.label8.Text = "||  자재사용 체크";
+            this.label8.Text = "||  검사 데이터 체크";
             // 
-            // comboBox3
+            // cboIsDeffect
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(477, 24);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(108, 25);
-            this.comboBox3.TabIndex = 27;
+            this.cboIsDeffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIsDeffect.FormattingEnabled = true;
+            this.cboIsDeffect.Location = new System.Drawing.Point(446, 24);
+            this.cboIsDeffect.Name = "cboIsDeffect";
+            this.cboIsDeffect.Size = new System.Drawing.Size(91, 25);
+            this.cboIsDeffect.TabIndex = 27;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(377, 28);
+            this.label7.Location = new System.Drawing.Point(359, 28);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 17);
+            this.label7.Size = new System.Drawing.Size(81, 17);
             this.label7.TabIndex = 26;
-            this.label7.Text = "||  데이터 체크";
+            this.label7.Text = "||  불량 체크";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(184, 28);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 17);
+            this.label6.Size = new System.Drawing.Size(63, 17);
             this.label6.TabIndex = 24;
-            this.label6.Text = "||  불량 체크";
+            this.label6.Text = "||  공정명";
             // 
             // tableLayoutPanel1
             // 
@@ -527,6 +537,24 @@ namespace DESK_MES
             this.button1.Text = "   확정";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // cboMaterial
+            // 
+            this.cboMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMaterial.FormattingEnabled = true;
+            this.cboMaterial.Location = new System.Drawing.Point(858, 24);
+            this.cboMaterial.Name = "cboMaterial";
+            this.cboMaterial.Size = new System.Drawing.Size(91, 25);
+            this.cboMaterial.TabIndex = 34;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(771, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 17);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "||  자재 사용";
+            // 
             // frmProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -558,12 +586,12 @@ namespace DESK_MES
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtOperNo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox txtOperName;
+        private System.Windows.Forms.ComboBox cboIsInspect;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboIsDeffect;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -591,5 +619,7 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboMaterial;
+        private System.Windows.Forms.Label label13;
     }
 }

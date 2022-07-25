@@ -32,7 +32,7 @@ namespace DESK_MES.DAC
         {
             string sql = @"select 
 	                            Operation_No, Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, 
-	                            o.Create_Time, o.Create_User_No, u.User_Name Create_User, o.Update_Time, o.Update_User_No, uu.User_Name Update_User, o.Is_Delete 
+	                            o.Create_Time, o.Create_User_No, u.User_Name Create_User, o.Update_Time, o.Update_User_No, uu.User_Name Update_User 
                             from TB_OPERATION o
                             LEFT JOIN TB_USER u ON o.Create_User_No = u.User_No
                             LEFT JOIN TB_USER uu ON o.Update_User_No = uu.User_No ";
@@ -47,9 +47,9 @@ namespace DESK_MES.DAC
         public bool SaveOperation(OperationVO oper)
         {
             string sql = @"INSERT INTO TB_OPERATION
-                            (Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, Create_Time, Create_User_No, Is_Delete)
+                            (Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, Create_Time, Create_User_No)
                             VALUES
-                            (@Operation_Name, @Is_Check_Deffect, @Is_Check_Inspect, @Is_Check_Marerial, CONVERT([char](19),getdate(),(20)), @Create_User_No, 'N') ";
+                            (@Operation_Name, @Is_Check_Deffect, @Is_Check_Inspect, @Is_Check_Marerial, CONVERT([char](19),getdate(),(20)), @Create_User_No) ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             try
