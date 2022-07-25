@@ -51,7 +51,7 @@ namespace DESK_MES
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.virtualServerModeSource1 = new DevExpress.Data.VirtualServerModeSource(this.components);
+
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -60,7 +60,6 @@ namespace DESK_MES
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.virtualServerModeSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList2
@@ -323,7 +322,6 @@ namespace DESK_MES
             this.panel4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.virtualServerModeSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,6 +348,5 @@ namespace DESK_MES
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private ccTextBox txtName;
-        private DevExpress.Data.VirtualServerModeSource virtualServerModeSource1;
     }
 }
