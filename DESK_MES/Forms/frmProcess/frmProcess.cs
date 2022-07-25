@@ -22,12 +22,6 @@ namespace DESK_MES
         {
             PopProcessRegister pop = new PopProcessRegister();
             pop.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            PopProcessModify pop = new PopProcessModify();
-            pop.ShowDialog();
-        }
+        }        
     }
 }

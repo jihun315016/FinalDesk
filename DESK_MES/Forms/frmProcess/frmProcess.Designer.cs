@@ -480,7 +480,6 @@ namespace DESK_MES
             this.button2.TabIndex = 34;
             this.button2.Text = "   변경";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAdd
             // 
