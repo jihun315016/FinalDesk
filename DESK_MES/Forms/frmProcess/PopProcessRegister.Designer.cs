@@ -39,10 +39,11 @@ namespace DESK_MES
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtName = new DESK_MES.ccTextBox();
             this.cboMaterial = new System.Windows.Forms.ComboBox();
             this.cboInspect = new System.Windows.Forms.ComboBox();
             this.cboDeffect = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@ namespace DESK_MES
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.virtualServerModeSource1 = new DevExpress.Data.VirtualServerModeSource(this.components);
-            this.txtName = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -147,7 +147,7 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -156,20 +156,20 @@ namespace DESK_MES
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
-            // button3
+            // btnClose
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.ImageIndex = 3;
-            this.button3.ImageList = this.imageList2;
-            this.button3.Location = new System.Drawing.Point(312, 18);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(76, 27);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "   닫기";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.ImageIndex = 3;
+            this.btnClose.ImageList = this.imageList2;
+            this.btnClose.Location = new System.Drawing.Point(312, 18);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnClose.Size = new System.Drawing.Size(76, 27);
+            this.btnClose.TabIndex = 27;
+            this.btnClose.Text = "   닫기";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
@@ -185,6 +185,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 26;
             this.btnAdd.Text = "   등록";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel4
             // 
@@ -213,13 +214,24 @@ namespace DESK_MES
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
             // 
+            // txtName
+            // 
+            this.txtName.isNumeric = false;
+            this.txtName.isRequired = true;
+            this.txtName.Location = new System.Drawing.Point(175, 36);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceHolder = null;
+            this.txtName.Size = new System.Drawing.Size(170, 25);
+            this.txtName.TabIndex = 43;
+            this.txtName.Tag = "공정명";
+            // 
             // cboMaterial
             // 
             this.cboMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMaterial.FormattingEnabled = true;
-            this.cboMaterial.Location = new System.Drawing.Point(175, 152);
+            this.cboMaterial.Location = new System.Drawing.Point(175, 154);
             this.cboMaterial.Name = "cboMaterial";
-            this.cboMaterial.Size = new System.Drawing.Size(174, 25);
+            this.cboMaterial.Size = new System.Drawing.Size(170, 25);
             this.cboMaterial.TabIndex = 42;
             // 
             // cboInspect
@@ -228,7 +240,7 @@ namespace DESK_MES
             this.cboInspect.FormattingEnabled = true;
             this.cboInspect.Location = new System.Drawing.Point(175, 115);
             this.cboInspect.Name = "cboInspect";
-            this.cboInspect.Size = new System.Drawing.Size(174, 25);
+            this.cboInspect.Size = new System.Drawing.Size(170, 25);
             this.cboInspect.TabIndex = 41;
             // 
             // cboDeffect
@@ -237,7 +249,7 @@ namespace DESK_MES
             this.cboDeffect.FormattingEnabled = true;
             this.cboDeffect.Location = new System.Drawing.Point(175, 76);
             this.cboDeffect.Name = "cboDeffect";
-            this.cboDeffect.Size = new System.Drawing.Size(174, 25);
+            this.cboDeffect.Size = new System.Drawing.Size(170, 25);
             this.cboDeffect.TabIndex = 40;
             // 
             // label12
@@ -246,7 +258,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(55, 155);
+            this.label12.Location = new System.Drawing.Point(55, 157);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(91, 17);
             this.label12.TabIndex = 31;
@@ -282,21 +294,11 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(55, 76);
+            this.label9.Location = new System.Drawing.Point(55, 79);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 17);
             this.label9.TabIndex = 27;
             this.label9.Text = "불량 체크";
-            // 
-            // txtName
-            // 
-            this.txtName.isNumeric = false;
-            this.txtName.isRequired = false;
-            this.txtName.Location = new System.Drawing.Point(175, 36);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceHolder = null;
-            this.txtName.Size = new System.Drawing.Size(174, 25);
-            this.txtName.TabIndex = 43;
             // 
             // PopProcessRegister
             // 
@@ -311,6 +313,7 @@ namespace DESK_MES
             this.Name = "PopProcessRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "공정 등록";
+            this.Load += new System.EventHandler(this.PopProcessRegister_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -335,7 +338,7 @@ namespace DESK_MES
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;

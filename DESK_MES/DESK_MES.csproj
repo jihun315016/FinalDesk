@@ -33,15 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,6 +97,7 @@
     </Compile>
     <Compile Include="DAC\MenuDAC.cs" />
     <Compile Include="DAC\OrderDAC.cs" />
+    <Compile Include="DAC\OperationDAC.cs" />
     <Compile Include="DAC\ProductDAC.cs" />
     <Compile Include="DAC\ReleaseDAC.cs" />
     <Compile Include="DAC\UserDAC.cs" />
@@ -432,6 +439,7 @@
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MenuService.cs" />
     <Compile Include="Service\OrderService.cs" />
+    <Compile Include="Service\OperationService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Service\ReleaseService.cs" />
     <Compile Include="Service\UserGroupService.cs" />
