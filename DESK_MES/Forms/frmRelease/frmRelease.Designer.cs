@@ -48,6 +48,8 @@ namespace DESK_MES
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtOrderRegiDate = new System.Windows.Forms.TextBox();
             this.txtReleaseDate = new System.Windows.Forms.TextBox();
             this.txtRelease_OK_Date = new System.Windows.Forms.TextBox();
@@ -69,8 +71,7 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button6 = new System.Windows.Forms.Button();
             this.btnProductList = new System.Windows.Forms.Button();
-            this.txtClientName = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -284,6 +285,7 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.txtClientName);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.txtOrderRegiDate);
@@ -305,6 +307,30 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // txtClientName
+            // 
+            this.txtClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtClientName.Enabled = false;
+            this.txtClientName.Location = new System.Drawing.Point(127, 106);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.ReadOnly = true;
+            this.txtClientName.Size = new System.Drawing.Size(189, 25);
+            this.txtClientName.TabIndex = 86;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(25, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 17);
+            this.label9.TabIndex = 85;
+            this.label9.Text = "거래처명";
             // 
             // txtOrderRegiDate
             // 
@@ -561,33 +587,17 @@ namespace DESK_MES
             this.btnProductList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProductList.Size = new System.Drawing.Size(104, 27);
             this.btnProductList.TabIndex = 36;
-            this.btnProductList.Text = "   재고조회";
+            this.btnProductList.Text = "   바코드출력";
             this.btnProductList.UseVisualStyleBackColor = true;
             this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
-            // txtClientName
+            // label10
             // 
-            this.txtClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClientName.Enabled = false;
-            this.txtClientName.Location = new System.Drawing.Point(127, 106);
-            this.txtClientName.Name = "txtClientName";
-            this.txtClientName.ReadOnly = true;
-            this.txtClientName.Size = new System.Drawing.Size(189, 25);
-            this.txtClientName.TabIndex = 86;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 110);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 17);
-            this.label9.TabIndex = 85;
-            this.label9.Text = "거래처명";
+            this.label10.Location = new System.Drawing.Point(28, 319);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 12);
+            this.label10.TabIndex = 87;
+            this.label10.Text = "label10";
             // 
             // frmRelease
             // 
@@ -664,5 +674,6 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtRelease_OK_Date;
         private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
