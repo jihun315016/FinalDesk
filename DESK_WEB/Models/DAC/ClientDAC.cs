@@ -81,7 +81,7 @@ namespace DESK_WEB.Models
         {
             string sql = @"SELECT Client_Code, Client_Name
                             FROM TB_Client
-                            WHERE Client_Type=@type ";
+                            WHERE Is_Delete = 'N' AND Client_Type=@type ";
 
             SqlCommand cmd = new SqlCommand(sql, new SqlConnection(strConn));
             cmd.Parameters.AddWithValue("@type", type);
