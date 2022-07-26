@@ -47,15 +47,15 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dgvList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "공정 번호", "Operation_No");
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "공정명", "Operation_Name", colWidth: 130);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "불량 체크 여부", "Is_Check_Deffect", colWidth: 210);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 210);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "자재 사용 여부", "Is_Check_Marerial", colWidth: 210);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 시간", "Create_Time", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자", "Create_User", colWidth: 120);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "불량 체크 여부", "Is_Check_Deffect", colWidth: 180);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 180);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "자재 사용 여부", "Is_Check_Marerial", colWidth: 180);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 시간", "Create_Time", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자", "Create_User_Name", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자 번호", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자 번호", "Update_User_No", isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_User", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_User_Name", isVisible: false);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -169,9 +169,15 @@ namespace DESK_MES
             dlg.Filter = "Execl Files(*.xls)|*.xls";
             dlg.Title = "엑셀파일로 내보내기";
 
+            List<OperationVO> list = dgvList.DataSource as List<OperationVO>;
+            if (list == null)
+            {
+                MessageBox.Show("조회 항목이 없습니다.");
+                return;
+            }
+
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                List<OperationVO> list = dgvList.DataSource as List<OperationVO>;
                 ExcelUtil excel = new ExcelUtil();
                 List<OperationVO> output = list;
 
