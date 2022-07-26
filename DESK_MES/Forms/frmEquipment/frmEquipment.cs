@@ -99,7 +99,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name"); //1
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "유형", "Operation_Type_Name"); //2
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "상태", "Is_Inoperative"); //3
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "최근다운시간", "Inoperative_Start_Time"); //4
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "최근다운시간", "Is_Inoperative_Date"); //4
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time"); //5
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자", "Create_User_Name"); //6

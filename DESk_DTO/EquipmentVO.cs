@@ -15,6 +15,7 @@ namespace DESK_DTO
         public string Is_Inoperative { get; set; }
         public string Inoperative_Start_Time { get; set; }
         public string Create_Time { get; set; }
+        public string Is_Inoperative_Date { get; set; }
         public int Create_User_No { get; set; }
         public string Create_User_Name { get; set; }
         public string Update_Time { get; set; }
