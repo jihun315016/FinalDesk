@@ -99,6 +99,7 @@
     <Compile Include="DAC\OrderDAC.cs" />
     <Compile Include="DAC\OperationDAC.cs" />
     <Compile Include="DAC\ProductDAC.cs" />
+    <Compile Include="DAC\PurchaseDAC.cs" />
     <Compile Include="DAC\ReleaseDAC.cs" />
     <Compile Include="DAC\UserDAC.cs" />
     <Compile Include="DAC\UserGroupDAC.cs" />
@@ -441,6 +442,7 @@
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\OperationService.cs" />
     <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\PurchaseService.cs" />
     <Compile Include="Service\ReleaseService.cs" />
     <Compile Include="Service\UserGroupService.cs" />
     <Compile Include="Service\UserService.cs" />
