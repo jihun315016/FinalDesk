@@ -112,5 +112,10 @@ namespace DESK_MES
             PopOperationRegister pop = new PopOperationRegister(user);
             pop.ShowDialog();
         }
+
+        private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
