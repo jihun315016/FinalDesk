@@ -36,7 +36,7 @@ namespace DESK_MES
             string sql = @"select Equipment_No, Equipment_Name, Is_Inoperative, e.Create_Time, e.Create_User_No, u.[User_Name],e.Update_Time, e.Update_User_No,ur.[User_Name], e.Is_Delete
                             from [dbo].[TB_EQUIPMENT] e left join [dbo].[TB_USER] u on e.Create_User_No = u.User_No
 							                            left join [dbo].[TB_USER] ur on e.Update_User_No = ur.User_No
-                            where Is_Delete = 'N'";
+                            where e.Is_Delete = 'N'";
             try
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
