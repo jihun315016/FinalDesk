@@ -44,7 +44,6 @@ namespace DESK_MES
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtOperationName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboMaterial = new System.Windows.Forms.ComboBox();
             this.cboIsInspect = new System.Windows.Forms.ComboBox();
@@ -54,6 +53,7 @@ namespace DESK_MES
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtOperationName = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -235,13 +235,6 @@ namespace DESK_MES
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
             // 
-            // txtOperationName
-            // 
-            this.txtOperationName.Location = new System.Drawing.Point(179, 80);
-            this.txtOperationName.Name = "txtOperationName";
-            this.txtOperationName.Size = new System.Drawing.Size(179, 25);
-            this.txtOperationName.TabIndex = 56;
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -337,6 +330,17 @@ namespace DESK_MES
             this.label9.TabIndex = 43;
             this.label9.Text = "불량 체크";
             // 
+            // txtOperationName
+            // 
+            this.txtOperationName.isNumeric = false;
+            this.txtOperationName.isRequired = true;
+            this.txtOperationName.Location = new System.Drawing.Point(179, 80);
+            this.txtOperationName.Name = "txtOperationName";
+            this.txtOperationName.PlaceHolder = null;
+            this.txtOperationName.Size = new System.Drawing.Size(179, 25);
+            this.txtOperationName.TabIndex = 57;
+            this.txtOperationName.Tag = "공정명";
+            // 
             // PopOperationModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -386,7 +390,7 @@ namespace DESK_MES
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cboIsDeffect;
-        private System.Windows.Forms.TextBox txtOperationName;
         private System.Windows.Forms.Label label2;
+        private ccTextBox txtOperationName;
     }
 }

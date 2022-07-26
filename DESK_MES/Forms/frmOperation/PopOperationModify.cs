@@ -42,6 +42,13 @@ namespace DESK_MES
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtOperationName });
+            if (msg.Length > 0)
+            {
+                MessageBox.Show(msg);
+                return;
+            }
+
             if (cboIsDeffect.SelectedIndex == 0 || cboIsInspect.SelectedIndex == 0 || cboMaterial.SelectedIndex == 0)
             {
                 MessageBox.Show("불량 체크 여부와 검사 데이터 입력, 자재 사용 여부를 모두 작성해주세요.");
