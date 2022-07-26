@@ -153,6 +153,12 @@ namespace DESK_MES
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtCodeDetail.Text))
+            {
+                MessageBox.Show("품번을 선택하세요.");
+                return;
+            }
+
             List<ProductVO> temp = productSrv.GetProductList(txtCodeDetail.Text);
             ProductVO prd = temp.FirstOrDefault();
 
@@ -173,6 +179,7 @@ namespace DESK_MES
             prdList = productSrv.GetProductList();
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
+            dgvList.DataSource = null;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -181,16 +188,22 @@ namespace DESK_MES
             dlg.Filter = "Execl Files(*.xls)|*.xls";
             dlg.Title = "엑셀파일로 내보내기";
 
+            List<ProductVO> list = dgvList.DataSource as List<ProductVO>;
+            if (list == null)
+            {
+                MessageBox.Show("조회 항목이 없습니다.");
+                return;
+            }
+
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                List<ProductVO> list = dgvList.DataSource as List<ProductVO>;
                 ExcelUtil excel = new ExcelUtil();
-                List<ProductVO> orders = list;
+                List<ProductVO> output = list;
 
                 string[] columnImport = { "Product_Code", "Product_Name", "Product_Type", "Price", "Unit", "Create_Time", "Create_User_Name" };
                 string[] columnName = { "품번", "품명", "유형", "가격", "단위", "등록 시간", "등록 사용자" };
 
-                if (excel.ExportList(orders, dlg.FileName, columnImport, columnName))
+                if (excel.ExportList(output, dlg.FileName, columnImport, columnName))
                 {
                     MessageBox.Show("엑셀 다운로드 완료");
                 }

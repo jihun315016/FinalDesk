@@ -10,10 +10,10 @@ namespace DESK_MES.Service
 {
     public class OperationService
     {
-        public List<OperationVO> GetOperationList()
+        public List<OperationVO> GetOperationList(int no = 0)
         {
             OperationDAC dac = new OperationDAC();
-            List<OperationVO> list = dac.GetOperationList();
+            List<OperationVO> list = dac.GetOperationList(no);
             dac.Dispose();
             return list;
         }
@@ -22,6 +22,22 @@ namespace DESK_MES.Service
         {
             OperationDAC dac = new OperationDAC();
             bool result = dac.SaveOperation(oper);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool UpdateOperation(OperationVO oper)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.UpdateOperation(oper);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool DeleteOperation(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.DeleteOperation(operNo);
             dac.Dispose();
             return result;
         }

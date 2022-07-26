@@ -40,7 +40,7 @@ namespace DESK_MES.DAC
 
             sb.Append(@"SELECT 
                         Product_Code, Product_Name, Product_Type, Is_Image, Price, Unit, c.Client_Code, Client_Name, p.Create_Time, p.Create_User_No
-                        , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Create_User_Name
+                        , u.User_Name Create_User_Name, p.Update_Time, p.Update_User_No, uu.User_Name Update_User_Name
                         FROM TB_PRODUCT p
                         LEFT JOIN TB_USER u ON p.Create_User_No = u.User_No
                         LEFT JOIN TB_USER uu ON p.Update_User_No = uu.User_No 

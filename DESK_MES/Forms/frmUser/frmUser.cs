@@ -218,6 +218,10 @@ namespace DESK_MES
             {
                 saveFileName = dlg.FileName;
             }
+            else
+            {
+                return;
+            }
 
             List<UserGroupVO> list = dgvMain.DataSource as List<UserGroupVO>;
 

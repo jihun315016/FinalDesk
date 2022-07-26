@@ -43,16 +43,16 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -170,6 +170,7 @@ namespace DESK_MES
             this.button3.TabIndex = 27;
             this.button3.Text = "   닫기";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnAdd
             // 
@@ -197,10 +198,10 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtUser);
             this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtName);
+            this.groupBox2.Controls.Add(this.txtCode);
             this.groupBox2.Controls.Add(this.dateTimePicker3);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
@@ -214,6 +215,35 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(182, 176);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(177, 25);
+            this.txtUser.TabIndex = 39;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(182, 100);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(177, 25);
+            this.comboBox1.TabIndex = 38;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(182, 62);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(177, 25);
+            this.txtName.TabIndex = 37;
+            // 
+            // txtCode
+            // 
+            this.txtCode.Location = new System.Drawing.Point(182, 27);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(177, 25);
+            this.txtCode.TabIndex = 36;
             // 
             // dateTimePicker3
             // 
@@ -253,7 +283,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(67, 100);
+            this.label10.Location = new System.Drawing.Point(71, 103);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 17);
             this.label10.TabIndex = 30;
@@ -283,35 +313,6 @@ namespace DESK_MES
             this.label9.TabIndex = 27;
             this.label9.Text = "설비명";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(182, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 25);
-            this.textBox1.TabIndex = 36;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(182, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 25);
-            this.textBox2.TabIndex = 37;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(182, 100);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 25);
-            this.comboBox1.TabIndex = 38;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(182, 176);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 25);
-            this.textBox3.TabIndex = 39;
-            // 
             // PopEquipmentRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -325,6 +326,7 @@ namespace DESK_MES
             this.Name = "PopEquipmentRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "설비 등록";
+            this.Load += new System.EventHandler(this.PopEquipmentRegister_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -352,10 +354,10 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class PopProcessRegister : Form
+    public partial class PopOperationRegister : Form
     {
         OperationService processSrv;
         UserVO user;
 
-        public PopProcessRegister(UserVO user)
+        public PopOperationRegister(UserVO user)
         {
             InitializeComponent();
             this.user = user;
@@ -63,6 +63,11 @@ namespace DESK_MES
             {
                 MessageBox.Show("등록에 실패했습니다.");
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

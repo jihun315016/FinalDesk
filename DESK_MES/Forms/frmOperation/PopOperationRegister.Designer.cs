@@ -1,7 +1,7 @@
 ﻿
 namespace DESK_MES
 {
-    partial class PopProcessRegister
+    partial class PopOperationRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace DESK_MES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopProcessRegister));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopOperationRegister));
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,7 +51,6 @@ namespace DESK_MES
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -169,6 +168,7 @@ namespace DESK_MES
             this.btnClose.TabIndex = 27;
             this.btnClose.Text = "   닫기";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAdd
             // 
@@ -299,7 +299,7 @@ namespace DESK_MES
             this.label9.TabIndex = 27;
             this.label9.Text = "불량 체크";
             // 
-            // PopProcessRegister
+            // PopOperationRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -309,7 +309,7 @@ namespace DESK_MES
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "PopProcessRegister";
+            this.Name = "PopOperationRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "공정 등록";
             this.Load += new System.EventHandler(this.PopProcessRegister_Load);
