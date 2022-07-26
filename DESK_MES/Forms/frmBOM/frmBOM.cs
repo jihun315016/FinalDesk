@@ -121,6 +121,9 @@ namespace DESK_MES
 
         private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpUpdateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 

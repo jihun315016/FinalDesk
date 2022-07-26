@@ -112,6 +112,9 @@ namespace DESK_MES
 
         private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpUpdateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
@@ -136,7 +139,6 @@ namespace DESK_MES
                 txtUpdateUserDetail.Text = prd.Update_User_Name;
             }
             
-
             if (prd.Is_Image == 1)
             {
                 try

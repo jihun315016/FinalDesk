@@ -35,10 +35,10 @@ namespace DESK_MES
         {
             InspectList = InspectSrv.GetInspectItemList();
 
-            //dtpCreateTime.Format = DateTimePickerFormat.Custom;
-            //dtpCreateTime.CustomFormat = " ";
-            //dtpUpdateTime.Format = DateTimePickerFormat.Custom;
-            //dtpUpdateTime.CustomFormat = " ";
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+            dtpUpdateTime.CustomFormat = " ";
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "검사 항목 번호", "검사 항목명" });
             comboBox1.SelectedIndex = 0;
@@ -93,9 +93,55 @@ namespace DESK_MES
                 comboBox1.Enabled = textBox1.Enabled = true;
         }
 
+        private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+
+            List<InspectItemVO> temp = InspectSrv.GetInspectItemList(Convert.ToInt32(dgvList["Inspect_No", e.RowIndex].Value.ToString()));
+            InspectItemVO item = temp.FirstOrDefault();
+            txtInspectNoDetail.Text = item.Inspect_No.ToString();
+            txtInspectNameDetail.Text = item.Inspect_Name;
+            txtTargetDetail.Text = item.Target.ToString();
+            txtLslDetail.Text = item.LSL.ToString();
+            txtUslDetail.Text = item.USL.ToString();
+            dtpCreateTime.Value = item.Create_Time;
+            txtCreateUserDetail.Text = item.Create_User_Name;
+
+            if (item.Update_Time.ToString() == "0001-01-01 오전 12:00:00")
+            {
+                dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+                dtpUpdateTime.CustomFormat = " ";
+            }
+            else
+            {
+                dtpUpdateTime.Format = dtpCreateTime.Format;
+                dtpUpdateTime.Value = item.Update_Time;
+                txtUpdateUserDetail.Text = item.Update_User_Name;
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopInspectItemRegister pop = new PopInspectItemRegister(user);
+            pop.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtInspectNoDetail.Text))
+            {
+                MessageBox.Show("검사 항목을 선택해주세요.");
+                return;
+            }
+
+            List<InspectItemVO> temp = InspectSrv.GetInspectItemList(Convert.ToInt32(txtInspectNoDetail.Text));
+            InspectItemVO item = temp.FirstOrDefault();
+
+            PopInspectItemModify pop = new PopInspectItemModify(item, user);
             pop.ShowDialog();
         }
     }
