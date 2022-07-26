@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DESK_DTO;
+using DESK_MES.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,39 @@ namespace DESK_MES
 {
     public partial class PopInspectItemRegister : Form
     {
-        public PopInspectItemRegister()
+        UserVO user;
+        InspectService InspectSrv;
+
+        public PopInspectItemRegister(UserVO user)
         {
             InitializeComponent();
+            this.user = user;
+        }
+
+        private void PopInspectItemRegister_Load(object sender, EventArgs e)
+        {
+            InspectSrv = new InspectService();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtInspectName, txtTarget, txtLsl, txtUsl });
+            if (msg.Length > 0)
+            {
+                MessageBox.Show(msg);
+                return;
+            }
+
+            InspectItemVO item = new InspectItemVO()
+            {
+                Inspect_Name = txtInspectName.Text,
+                Target = Convert.ToInt32(txtTarget.Text),
+                LSL = Convert.ToInt32(txtLsl.Text),
+                USL = Convert.ToInt32(txtUsl.Text),
+                Create_User_No = user.User_No
+            };
+
+            // TODO : 등록
         }
     }
 }

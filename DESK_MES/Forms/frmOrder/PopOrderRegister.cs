@@ -135,7 +135,7 @@ namespace DESK_MES
                 int unit = Convert.ToInt32(dgvOrderList["Unit", e.RowIndex].Value);
                 int Qty = Convert.ToInt32(dgvOrderList["Qty_PerUnit", e.RowIndex].Value);
 
-                dgvOrderList["TotalQyu", e.RowIndex].Value = (unit * Qty).ToString();
+                dgvOrderList["TotalQty", e.RowIndex].Value = (unit * Qty).ToString();
                 dgvOrderList["TotalPrice", e.RowIndex].Value = (price * unit * Qty).ToString();
 
             }

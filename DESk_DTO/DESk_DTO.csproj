@@ -45,12 +45,15 @@
     <Compile Include="ClientVO.cs" />
     <Compile Include="CodeCountVO.cs" />
     <Compile Include="EquipmentVO.cs" />
+    <Compile Include="InspectItemVO.cs" />
     <Compile Include="MenuVO.cs" />
     <Compile Include="OperationVO.cs" />
     <Compile Include="OrderDetailVO.cs" />
     <Compile Include="OrderVO.cs" />
     <Compile Include="ProductVO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseDetailVO.cs" />
+    <Compile Include="PurchaseVO.cs" />
     <Compile Include="ReleaseVO.cs" />
     <Compile Include="ResMessage.cs" />
     <Compile Include="UserGroupVO.cs" />

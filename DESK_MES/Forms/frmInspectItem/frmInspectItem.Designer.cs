@@ -503,7 +503,6 @@ namespace DESK_MES
             this.button1.TabIndex = 27;
             this.button1.Text = "   변경";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAdd
             // 
@@ -529,6 +528,7 @@ namespace DESK_MES
             this.Name = "frmInspectItem";
             this.Text = "frmInspectItem";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmInspectItem_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
