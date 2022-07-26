@@ -121,6 +121,11 @@ namespace DESK_MES.DAC
             }
         }
 
+        /// <summary>
+        /// 공정 삭제 기능
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <returns></returns>
         public bool DeleteOperation(int operNo)
         {
             string sql = "DELETE FROM TB_OPERATION WHERE Operation_No = @Operation_No ";
