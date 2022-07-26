@@ -72,6 +72,19 @@ namespace DESK_MES
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = operationSrv.DeleteOperation(Convert.ToInt32(txtOperationNo.Text));
+                if (result)
+                {
+                    MessageBox.Show("삭제가 완료되었습니다.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
+            }
 
         }
 

@@ -192,12 +192,12 @@ namespace DESK_MES
             {
                 List<ProductVO> list = dgvList.DataSource as List<ProductVO>;
                 ExcelUtil excel = new ExcelUtil();
-                List<ProductVO> orders = list;
+                List<ProductVO> output = list;
 
                 string[] columnImport = { "Product_Code", "Product_Name", "Product_Type", "Price", "Unit", "Create_Time", "Create_User_Name" };
                 string[] columnName = { "품번", "품명", "유형", "가격", "단위", "등록 시간", "등록 사용자" };
 
-                if (excel.ExportList(orders, dlg.FileName, columnImport, columnName))
+                if (excel.ExportList(output, dlg.FileName, columnImport, columnName))
                 {
                     MessageBox.Show("엑셀 다운로드 완료");
                 }

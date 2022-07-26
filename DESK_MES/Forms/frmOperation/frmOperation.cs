@@ -162,5 +162,31 @@ namespace DESK_MES
             PopOperationModify pop = new PopOperationModify(user, oper);
             pop.ShowDialog();
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                List<OperationVO> list = dgvList.DataSource as List<OperationVO>;
+                ExcelUtil excel = new ExcelUtil();
+                List<OperationVO> output = list;
+
+                string[] columnImport = { "Operation_No", "Operation_Name", "Is_Check_Deffect", "Is_Check_Inspect", "Is_Check_Marerial" };
+                string[] columnName = { "공정 번호", "공정명", "불량 체크 여부", "검사 데이터 체크 여부", "자재 사용 여부" };
+
+                if (excel.ExportList(output, dlg.FileName, columnImport, columnName))
+                {
+                    MessageBox.Show("엑셀 다운로드 완료");
+                }
+                else
+                {
+                    MessageBox.Show("엑셀 다운 실패");
+                }
+            }
+        }
     }
 }

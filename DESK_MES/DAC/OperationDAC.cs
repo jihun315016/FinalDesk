@@ -87,6 +87,12 @@ namespace DESK_MES.DAC
             }
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 공정 수정 기능
+        /// </summary>
+        /// <param name="oper"></param>
+        /// <returns></returns>
         public bool UpdateOperation(OperationVO oper)
         {
             string sql = @"UPDATE TB_OPERATION 
@@ -106,6 +112,23 @@ namespace DESK_MES.DAC
                 cmd.Parameters.AddWithValue("@Update_User_No", oper.Update_User_No);
                 cmd.Parameters.AddWithValue("@Operation_No", oper.Operation_No);
 
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteOperation(int operNo)
+        {
+            string sql = "DELETE FROM TB_OPERATION WHERE Operation_No = @Operation_No ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
                 int iRow = cmd.ExecuteNonQuery();
                 return iRow > 0;
             }
