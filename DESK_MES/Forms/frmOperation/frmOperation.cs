@@ -107,12 +107,6 @@ namespace DESK_MES
                 comboBox1.Enabled = textBox1.Enabled = true;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            PopOperationRegister pop = new PopOperationRegister(user);
-            pop.ShowDialog();
-        }
-
         private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
@@ -120,7 +114,7 @@ namespace DESK_MES
 
             List<OperationVO> temp = operationSrv.GetOperationList(Convert.ToInt32(dgvList["Operation_No", e.RowIndex].Value));
             OperationVO oper = temp.FirstOrDefault();
-            txtOperNo.Text = oper.Operation_No.ToString();
+            txtOperNoDetail.Text = oper.Operation_No.ToString();
             txtOperNameDetail.Text = oper.Operation_Name;
             txtIsDeffectDetail.Text = oper.Is_Check_Deffect == "Y" ? "예" : "아니오";
             txtIsInspectDetail.Text = oper.Is_Check_Inspect == "Y" ? "예" : "아니오";
@@ -139,6 +133,18 @@ namespace DESK_MES
                 dtpUpdateTime.Value = oper.Update_Time;
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            PopOperationRegister pop = new PopOperationRegister(user);
+            pop.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            PopOperationModify pop = new PopOperationModify(user);
+            pop.ShowDialog();
         }
     }
 }

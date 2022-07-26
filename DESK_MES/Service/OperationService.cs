@@ -25,5 +25,13 @@ namespace DESK_MES.Service
             dac.Dispose();
             return result;
         }
+
+        public bool UpdateOperation(OperationVO oper)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.UpdateOperation(oper);
+            dac.Dispose();
+            return result;
+        }
     }
 }

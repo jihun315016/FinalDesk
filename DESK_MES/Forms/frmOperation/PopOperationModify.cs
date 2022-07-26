@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DESK_DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace DESK_MES
 {
     public partial class PopOperationModify : Form
     {
-        public PopOperationModify()
+        public PopOperationModify(UserVO user)
         {
             InitializeComponent();
+        }
+
+        private void PopOperationModify_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
