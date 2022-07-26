@@ -38,9 +38,10 @@ namespace DESK_MES
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
 
-            cboIsDeffect.Items.AddRange(new string[] { "검사 여부", "예", "아니오" });
-            cboIsInspect.Items.AddRange(new string[] { "검사 여부", "예", "아니오" });
-            cboMaterial.Items.AddRange(new string[] { "검사 여부", "예", "아니오" });
+            string[] isChackArr = new string[] { "검사 여부", "예", "아니오" };
+            cboIsDeffect.Items.AddRange(isChackArr);
+            cboIsInspect.Items.AddRange(isChackArr);
+            cboMaterial.Items.AddRange(isChackArr);
             cboIsDeffect.SelectedIndex = cboIsInspect.SelectedIndex = cboMaterial.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvList);
@@ -143,7 +144,14 @@ namespace DESK_MES
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            PopOperationModify pop = new PopOperationModify(user);
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택하세요.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+            PopOperationModify pop = new PopOperationModify(user, oper);
             pop.ShowDialog();
         }
     }

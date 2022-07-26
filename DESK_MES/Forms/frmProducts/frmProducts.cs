@@ -153,6 +153,12 @@ namespace DESK_MES
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtCodeDetail.Text))
+            {
+                MessageBox.Show("품번을 선택하세요.");
+                return;
+            }
+
             List<ProductVO> temp = productSrv.GetProductList(txtCodeDetail.Text);
             ProductVO prd = temp.FirstOrDefault();
 
