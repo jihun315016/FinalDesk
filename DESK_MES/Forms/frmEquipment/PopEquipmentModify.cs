@@ -63,12 +63,19 @@ namespace DESK_MES
 
             cbotype.SelectedValue = selectEqui.Operation_Type_No;
             cboInoper.SelectedValue = selectEqui.Is_Inoperative;
-
-            dtpInoper.Value = Convert.ToDateTime(selectEqui.Is_Inoperative_Date);
+            if (selectEqui.Is_Inoperative_Date != null)
+            {
+                dtpInoper.Value = Convert.ToDateTime(selectEqui.Is_Inoperative_Date);
+            }
+            else
+            {
+                dtpInoper.Value =Convert.ToDateTime( "9997-01-01");
+            }
             dtpCreate.Value = Convert.ToDateTime(selectEqui.Create_Time);
             dtpUpdate.Value = DateTime.Now;
         }
 
+        //닫기
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -78,13 +85,19 @@ namespace DESK_MES
         {
             if (cboInoper.SelectedIndex == 0) //N
             {
-                label5.Visible = false;
-                txtReason.Visible = false;
-                label7.Visible = false;
-                txtHistory.Visible = false;
-
-                this.Size = new Size(513, 533);
-                panel5.Location = new Point(58, 206);
+                if (selectEqui.Is_Inoperative == "N")
+                {
+                    label5.Visible = false;
+                    txtReason.Visible = false;
+                    label7.Visible = false;
+                    txtHistory.Visible = false;
+                    this.Size = new Size(513, 533);
+                    panel5.Location = new Point(58, 206);
+                }
+                else
+                {
+                    txtHistory.Enabled = true;
+                }
             }
             else //Y
             {
@@ -92,9 +105,88 @@ namespace DESK_MES
                 txtReason.Visible = true;
                 label7.Visible = true;
                 txtHistory.Visible = true;
+                txtHistory.Enabled = false;
 
                 this.Size = new Size(513, 769);
                 panel5.Location = new Point(58, 430);
+                if (selectEqui.Is_Inoperative == "Y")
+                {
+                    txtHistory.Text = string.Empty;
+                }
+                else
+                {
+                    txtHistory.Text = "[설비 재가동시 기입]";
+                }
+            }
+        }
+
+        //수정
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ccTextBox[] txt = new ccTextBox[] { txtName };
+            if (cboInoper.SelectedIndex == 1)
+            {
+                txt.Append(txtReason);
+            }
+            if (selectEqui.Is_Inoperative == "Y")
+            {
+                txt.Append(txtHistory);
+            }
+            string msg = TextBoxUtil.IsRequiredCheck(txt);
+            StringBuilder sb = new StringBuilder();
+            if (msg.Length > 0)
+            {
+                sb.Append(msg);
+
+                if (txtName.Text.Length > 30)
+                {
+                    sb.Append($"\n[{txtName.Tag}]의 글자수는 30개 이하만 가능합니다");
+                }
+                MessageBox.Show(sb.ToString(), "설비 수정 오류", MessageBoxButtons.OK);
+                return;
+            }
+            //수정
+            EquipmentVO equi = new EquipmentVO
+            {
+                Equipment_No = Convert.ToInt32(txtNo.Text),
+                Equipment_Name = txtName.Text,
+                Operation_Type_No = Convert.ToInt32(cbotype.SelectedValue),
+                Is_Inoperative = cboInoper.SelectedValue.ToString(),
+                Inoperative_Reason = txtReason.Text,
+                Action_History = txtHistory.Text,
+                Update_User_No = userV.User_No,
+                Is_Inoperative_Date = selectEqui.Is_Inoperative_Date
+            };
+            if (equi.Is_Inoperative_Date == null)
+            {
+                equi.Is_Inoperative_Date = DateTime.Now.ToString();
+            }
+            //db
+            if (srv.UpdateEquipment(equi))
+            {
+                MessageBox.Show("설비 수정 성공", "수정", MessageBoxButtons.OK);
+                
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                
+            }
+            else
+            {
+                MessageBox.Show("설비 수정 실패");
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (srv.DeleteEquipment(selectEqui.Equipment_No))
+            {
+                MessageBox.Show("설비 삭제 성공", "삭제", MessageBoxButtons.OK);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+            }
+            else
+            {
+                MessageBox.Show("설비 삭제 실패");
             }
         }
     }

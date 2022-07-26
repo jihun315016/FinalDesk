@@ -94,7 +94,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(497, 494);
+            this.panel1.Size = new System.Drawing.Size(497, 755);
             this.panel1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -112,7 +112,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(497, 494);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(497, 755);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -155,7 +155,7 @@ namespace DESK_MES
             // 
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 437);
+            this.panel3.Location = new System.Drawing.Point(3, 698);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(491, 54);
             this.panel3.TabIndex = 1;
@@ -186,6 +186,7 @@ namespace DESK_MES
             this.button1.TabIndex = 36;
             this.button1.Text = "   수정";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -217,6 +218,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 34;
             this.btnAdd.Text = "   삭제";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel4
             // 
@@ -224,7 +226,7 @@ namespace DESK_MES
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(491, 358);
+            this.panel4.Size = new System.Drawing.Size(491, 619);
             this.panel4.TabIndex = 2;
             // 
             // groupBox2
@@ -247,7 +249,7 @@ namespace DESK_MES
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(491, 358);
+            this.groupBox2.Size = new System.Drawing.Size(491, 619);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
@@ -255,23 +257,25 @@ namespace DESK_MES
             // txtName
             // 
             this.txtName.isNumeric = false;
-            this.txtName.isRequired = false;
+            this.txtName.isRequired = true;
             this.txtName.Location = new System.Drawing.Point(179, 70);
             this.txtName.Name = "txtName";
             this.txtName.PlaceHolder = null;
             this.txtName.Size = new System.Drawing.Size(221, 25);
             this.txtName.TabIndex = 53;
+            this.txtName.Tag = "설비명";
             // 
             // txtHistory
             // 
             this.txtHistory.isNumeric = false;
-            this.txtHistory.isRequired = false;
+            this.txtHistory.isRequired = true;
             this.txtHistory.Location = new System.Drawing.Point(179, 325);
             this.txtHistory.Multiline = true;
             this.txtHistory.Name = "txtHistory";
-            this.txtHistory.PlaceHolder = null;
+            this.txtHistory.PlaceHolder = "";
             this.txtHistory.Size = new System.Drawing.Size(221, 99);
             this.txtHistory.TabIndex = 53;
+            this.txtHistory.Tag = "조치내역";
             // 
             // label7
             // 
@@ -288,13 +292,14 @@ namespace DESK_MES
             // txtReason
             // 
             this.txtReason.isNumeric = false;
-            this.txtReason.isRequired = false;
+            this.txtReason.isRequired = true;
             this.txtReason.Location = new System.Drawing.Point(179, 215);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
             this.txtReason.PlaceHolder = null;
             this.txtReason.Size = new System.Drawing.Size(221, 96);
             this.txtReason.TabIndex = 53;
+            this.txtReason.Tag = "비가동사유";
             // 
             // label5
             // 
@@ -328,7 +333,7 @@ namespace DESK_MES
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.dtpUpdate);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(57, 206);
+            this.panel5.Location = new System.Drawing.Point(58, 445);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(351, 145);
             this.panel5.TabIndex = 52;
@@ -506,7 +511,7 @@ namespace DESK_MES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 494);
+            this.ClientSize = new System.Drawing.Size(497, 755);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

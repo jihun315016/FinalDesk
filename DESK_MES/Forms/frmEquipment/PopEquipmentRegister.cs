@@ -70,7 +70,6 @@ namespace DESK_MES
             }
             EquipmentVO eq = new EquipmentVO
             {
-                Equipment_No = Convert.ToInt32(txtCode.Text),
                 Equipment_Name = txtName.Text,
                 Operation_Type_No = Convert.ToInt32(comboBox1.SelectedValue),
                 Create_User_No = user.User_No

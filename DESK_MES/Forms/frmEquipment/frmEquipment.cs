@@ -127,9 +127,16 @@ namespace DESK_MES
                 txtType.Text = dgvMain[2, e.RowIndex].Value.ToString();
             }
             txtInoper.Text = dgvMain[3, e.RowIndex].Value.ToString();
-            if (dgvMain[4, e.RowIndex].Value != null) 
+            if (dgvMain[4, e.RowIndex].Value != null)
             {
-                dtpInoper.Value = Convert.ToDateTime( dgvMain[4, e.RowIndex].Value);
+                dtpInoper.Value = Convert.ToDateTime(dgvMain[4, e.RowIndex].Value);
+                dtpInoper.Visible = true;
+                panel8.Location = new Point(9, 213); //9, 178
+            }
+            else
+            {
+                dtpInoper.Visible = false ;
+                panel8.Location = new Point(9, 178);
             }
             dtpCreate.Value = Convert.ToDateTime(dgvMain[5, e.RowIndex].Value);
             txtCreateUser.Text = dgvMain[6, e.RowIndex].Value.ToString();
@@ -144,6 +151,7 @@ namespace DESK_MES
             }
             else
             {
+                dtpUpdate.Value = Convert.ToDateTime("9997-01-01");
                 dtpUpdate.Visible = false;
                 txtUpdateUser.Visible = false;
                 label3.Visible = false;
