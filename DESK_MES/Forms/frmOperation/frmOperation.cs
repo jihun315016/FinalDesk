@@ -169,9 +169,15 @@ namespace DESK_MES
             dlg.Filter = "Execl Files(*.xls)|*.xls";
             dlg.Title = "엑셀파일로 내보내기";
 
+            List<OperationVO> list = dgvList.DataSource as List<OperationVO>;
+            if (list == null)
+            {
+                MessageBox.Show("조회 항목이 없습니다.");
+                return;
+            }
+
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                List<OperationVO> list = dgvList.DataSource as List<OperationVO>;
                 ExcelUtil excel = new ExcelUtil();
                 List<OperationVO> output = list;
 
