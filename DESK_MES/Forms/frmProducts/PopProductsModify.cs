@@ -25,10 +25,6 @@ namespace DESK_MES
             InitControl(prd);
         }
 
-        private void PopProductsModify_Load(object sender, EventArgs e)
-        {
-        }
-
         void InitControl(ProductVO prd)
         {
             productSrv = new ProductService();

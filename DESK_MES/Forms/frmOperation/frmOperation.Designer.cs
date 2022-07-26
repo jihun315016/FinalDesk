@@ -44,6 +44,9 @@ namespace DESK_MES
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtIsDeffectDetail = new System.Windows.Forms.TextBox();
+            this.txtMaterialDetail = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.txtOperNoDetail = new System.Windows.Forms.TextBox();
             this.txtUpdateUserDetail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,14 +64,10 @@ namespace DESK_MES
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtMaterialDetail = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtIsDeffectDetail = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -96,24 +95,26 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnExcel);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.SetChildIndex(this.label2, 0);
             this.groupBox1.Controls.SetChildIndex(this.comboBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.textBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnOpenDetail, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnReset, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnSearch, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button1, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button2, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button3, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnUpdate, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnExcel, 0);
             // 
             // btnSearch
             // 
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnOpenDetail
             // 
@@ -277,6 +278,42 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // txtIsDeffectDetail
+            // 
+            this.txtIsDeffectDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIsDeffectDetail.Enabled = false;
+            this.txtIsDeffectDetail.Location = new System.Drawing.Point(140, 108);
+            this.txtIsDeffectDetail.Name = "txtIsDeffectDetail";
+            this.txtIsDeffectDetail.ReadOnly = true;
+            this.txtIsDeffectDetail.Size = new System.Drawing.Size(176, 25);
+            this.txtIsDeffectDetail.TabIndex = 30;
+            // 
+            // txtMaterialDetail
+            // 
+            this.txtMaterialDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaterialDetail.Enabled = false;
+            this.txtMaterialDetail.Location = new System.Drawing.Point(140, 175);
+            this.txtMaterialDetail.Name = "txtMaterialDetail";
+            this.txtMaterialDetail.ReadOnly = true;
+            this.txtMaterialDetail.Size = new System.Drawing.Size(176, 25);
+            this.txtMaterialDetail.TabIndex = 29;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 178);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(91, 17);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "자재사용 체크";
             // 
             // txtOperNoDetail
             // 
@@ -478,20 +515,21 @@ namespace DESK_MES
             this.dgvList.TabIndex = 0;
             this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
-            // button3
+            // btnExcel
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.ImageIndex = 3;
-            this.button3.ImageList = this.imageList2;
-            this.button3.Location = new System.Drawing.Point(1096, 30);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(76, 27);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "   엑셀";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcel.ImageIndex = 3;
+            this.btnExcel.ImageList = this.imageList2;
+            this.btnExcel.Location = new System.Drawing.Point(1096, 30);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnExcel.Size = new System.Drawing.Size(76, 27);
+            this.btnExcel.TabIndex = 35;
+            this.btnExcel.Text = "   엑셀";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // imageList2
             // 
@@ -503,20 +541,21 @@ namespace DESK_MES
             this.imageList2.Images.SetKeyName(3, "엑셀.png");
             this.imageList2.Images.SetKeyName(4, "check.png");
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.ImageIndex = 1;
-            this.button2.ImageList = this.imageList2;
-            this.button2.Location = new System.Drawing.Point(1014, 30);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(76, 27);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "   변경";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.ImageIndex = 1;
+            this.btnUpdate.ImageList = this.imageList2;
+            this.btnUpdate.Location = new System.Drawing.Point(1014, 30);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnUpdate.Size = new System.Drawing.Size(76, 27);
+            this.btnUpdate.TabIndex = 34;
+            this.btnUpdate.Text = "   변경";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -533,57 +572,6 @@ namespace DESK_MES
             this.btnAdd.Text = "   생성";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 4;
-            this.button1.ImageList = this.imageList2;
-            this.button1.Location = new System.Drawing.Point(850, 30);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(76, 27);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "   확정";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // txtMaterialDetail
-            // 
-            this.txtMaterialDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaterialDetail.Enabled = false;
-            this.txtMaterialDetail.Location = new System.Drawing.Point(140, 175);
-            this.txtMaterialDetail.Name = "txtMaterialDetail";
-            this.txtMaterialDetail.ReadOnly = true;
-            this.txtMaterialDetail.Size = new System.Drawing.Size(176, 25);
-            this.txtMaterialDetail.TabIndex = 29;
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 178);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 17);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "자재사용 체크";
-            // 
-            // txtIsDeffectDetail
-            // 
-            this.txtIsDeffectDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIsDeffectDetail.Enabled = false;
-            this.txtIsDeffectDetail.Location = new System.Drawing.Point(140, 108);
-            this.txtIsDeffectDetail.Name = "txtIsDeffectDetail";
-            this.txtIsDeffectDetail.ReadOnly = true;
-            this.txtIsDeffectDetail.Size = new System.Drawing.Size(176, 25);
-            this.txtIsDeffectDetail.TabIndex = 30;
             // 
             // frmOperation
             // 
@@ -643,11 +631,10 @@ namespace DESK_MES
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvList;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboMaterial;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtMaterialDetail;

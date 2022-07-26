@@ -478,7 +478,6 @@ namespace DESK_MES
             this.Name = "PopProductsModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "품목 수정";
-            this.Load += new System.EventHandler(this.PopProductsModify_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

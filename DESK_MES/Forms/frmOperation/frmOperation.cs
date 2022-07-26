@@ -38,9 +38,10 @@ namespace DESK_MES
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
 
-            cboIsDeffect.Items.AddRange(new string[] { "검사 여부", "예", "아니오" });
-            cboIsInspect.Items.AddRange(new string[] { "검사 여부", "예", "아니오" });
-            cboMaterial.Items.AddRange(new string[] { "검사 여부", "예", "아니오" });
+            string[] isChackArr = new string[] { "검사 여부", "예", "아니오" };
+            cboIsDeffect.Items.AddRange(isChackArr);
+            cboIsInspect.Items.AddRange(isChackArr);
+            cboMaterial.Items.AddRange(isChackArr);
             cboIsDeffect.SelectedIndex = cboIsInspect.SelectedIndex = cboMaterial.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvList);
@@ -107,10 +108,12 @@ namespace DESK_MES
                 comboBox1.Enabled = textBox1.Enabled = true;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            PopOperationRegister pop = new PopOperationRegister(user);
-            pop.ShowDialog();
+            operationList = operationSrv.GetOperationList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            dgvList.DataSource = null;
         }
 
         private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -120,7 +123,7 @@ namespace DESK_MES
 
             List<OperationVO> temp = operationSrv.GetOperationList(Convert.ToInt32(dgvList["Operation_No", e.RowIndex].Value));
             OperationVO oper = temp.FirstOrDefault();
-            txtOperNo.Text = oper.Operation_No.ToString();
+            txtOperNoDetail.Text = oper.Operation_No.ToString();
             txtOperNameDetail.Text = oper.Operation_Name;
             txtIsDeffectDetail.Text = oper.Is_Check_Deffect == "Y" ? "예" : "아니오";
             txtIsInspectDetail.Text = oper.Is_Check_Inspect == "Y" ? "예" : "아니오";
@@ -138,6 +141,51 @@ namespace DESK_MES
                 dtpUpdateTime.Format = dtpCreateTime.Format;
                 dtpUpdateTime.Value = oper.Update_Time;
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            PopOperationRegister pop = new PopOperationRegister(user);
+            pop.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택하세요.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+            PopOperationModify pop = new PopOperationModify(user, oper);
+            pop.ShowDialog();
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                List<OperationVO> list = dgvList.DataSource as List<OperationVO>;
+                ExcelUtil excel = new ExcelUtil();
+                List<OperationVO> output = list;
+
+                string[] columnImport = { "Operation_No", "Operation_Name", "Is_Check_Deffect", "Is_Check_Inspect", "Is_Check_Marerial" };
+                string[] columnName = { "공정 번호", "공정명", "불량 체크 여부", "검사 데이터 체크 여부", "자재 사용 여부" };
+
+                if (excel.ExportList(output, dlg.FileName, columnImport, columnName))
+                {
+                    MessageBox.Show("엑셀 다운로드 완료");
+                }
+                else
+                {
+                    MessageBox.Show("엑셀 다운 실패");
+                }
             }
         }
     }

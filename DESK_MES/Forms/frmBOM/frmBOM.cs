@@ -153,7 +153,7 @@ namespace DESK_MES
             isBomProductList = productSrv.GetBomList();
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
-            dgvProductList.DataSource = null;
+            dgvProductList.DataSource = dgvChild.DataSource = dgvParent.DataSource = null;
         }
 
         private void btnOpenDetail_Click(object sender, EventArgs e)
