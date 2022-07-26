@@ -19,6 +19,14 @@ namespace DESK_MES
             return result;
         }
 
+        public PurchaseVO GetPurchaseInfoByPurchaseCode(int no)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            PurchaseVO result = dac.GetPurchaseInfoByPurchaseCode(no);
+            dac.Dispose();
+
+            return result;
+        }
         public List<PurchaseDetailVO> GetPurchaseDetailList(int no)  // 주문 상세정보 가져오기
         {
             PurchaseDAC dac = new PurchaseDAC();
@@ -46,10 +54,10 @@ namespace DESK_MES
             return result;
         }
 
-        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<PurchaseDetailVO> purchaseList)
+        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<PurchaseDetailVO> lotIDList, List<PurchaseDetailVO> purchaseList)
         {
             PurchaseDAC dac = new PurchaseDAC();
-            bool result = dac.RegisterIncomingPurchase(purchase, purchaseList);
+            bool result = dac.RegisterIncomingPurchase(purchase, lotIDList, purchaseList);
             dac.Dispose();
 
             return result;

@@ -87,7 +87,7 @@ namespace DESK_MES
             {
                 return null;
             }
-        } // 주문 상세정보 가져오기
+        } 
 
         public OrderVO GetOrderListByOrderNO(int no)
         {
