@@ -287,7 +287,10 @@ namespace DESK_MES
             {
                 saveFileName = dlg.FileName;
             }
-
+            else
+            {
+                return;
+            }
             List<UserGroupVO> list = dataGridView1.DataSource as List<UserGroupVO>;
 
             ExcelUtil excel = new ExcelUtil();
