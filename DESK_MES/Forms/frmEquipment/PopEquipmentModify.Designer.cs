@@ -62,6 +62,7 @@ namespace DESK_MES
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpInoper = new System.Windows.Forms.DateTimePicker();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -70,6 +71,7 @@ namespace DESK_MES
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList2
@@ -88,7 +90,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 507);
+            this.panel1.Size = new System.Drawing.Size(434, 675);
             this.panel1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -106,7 +108,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 507);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 675);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -149,7 +151,7 @@ namespace DESK_MES
             // 
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 450);
+            this.panel3.Location = new System.Drawing.Point(3, 618);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(428, 54);
             this.panel3.TabIndex = 1;
@@ -218,33 +220,26 @@ namespace DESK_MES
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(428, 371);
+            this.panel4.Size = new System.Drawing.Size(428, 539);
             this.panel4.TabIndex = 2;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.panel5);
             this.groupBox2.Controls.Add(this.cboInoper);
             this.groupBox2.Controls.Add(this.cbotype);
-            this.groupBox2.Controls.Add(this.txtCreate);
-            this.groupBox2.Controls.Add(this.txtUpdate);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.txtNo);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.dtpUpdate);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dtpInoper);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.dtpCreate);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(428, 371);
+            this.groupBox2.Size = new System.Drawing.Size(428, 539);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
@@ -267,14 +262,14 @@ namespace DESK_MES
             // 
             // txtCreate
             // 
-            this.txtCreate.Location = new System.Drawing.Point(179, 247);
+            this.txtCreate.Location = new System.Drawing.Point(122, 40);
             this.txtCreate.Name = "txtCreate";
             this.txtCreate.Size = new System.Drawing.Size(177, 25);
             this.txtCreate.TabIndex = 49;
             // 
             // txtUpdate
             // 
-            this.txtUpdate.Location = new System.Drawing.Point(179, 317);
+            this.txtUpdate.Location = new System.Drawing.Point(122, 110);
             this.txtUpdate.Name = "txtUpdate";
             this.txtUpdate.Size = new System.Drawing.Size(177, 25);
             this.txtUpdate.TabIndex = 48;
@@ -311,7 +306,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 324);
+            this.label4.Location = new System.Drawing.Point(7, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 40;
@@ -320,7 +315,7 @@ namespace DESK_MES
             // dtpUpdate
             // 
             this.dtpUpdate.Enabled = false;
-            this.dtpUpdate.Location = new System.Drawing.Point(179, 282);
+            this.dtpUpdate.Location = new System.Drawing.Point(122, 75);
             this.dtpUpdate.Name = "dtpUpdate";
             this.dtpUpdate.Size = new System.Drawing.Size(177, 25);
             this.dtpUpdate.TabIndex = 39;
@@ -331,7 +326,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 288);
+            this.label3.Location = new System.Drawing.Point(7, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 38;
@@ -340,7 +335,7 @@ namespace DESK_MES
             // dtpCreate
             // 
             this.dtpCreate.Enabled = false;
-            this.dtpCreate.Location = new System.Drawing.Point(179, 212);
+            this.dtpCreate.Location = new System.Drawing.Point(122, 5);
             this.dtpCreate.Name = "dtpCreate";
             this.dtpCreate.Size = new System.Drawing.Size(177, 25);
             this.dtpCreate.TabIndex = 37;
@@ -351,7 +346,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(64, 216);
+            this.label15.Location = new System.Drawing.Point(7, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 17);
             this.label15.TabIndex = 36;
@@ -363,7 +358,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(64, 252);
+            this.label14.Location = new System.Drawing.Point(7, 45);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 17);
             this.label14.TabIndex = 34;
@@ -425,11 +420,26 @@ namespace DESK_MES
             this.dtpInoper.Size = new System.Drawing.Size(177, 25);
             this.dtpInoper.TabIndex = 37;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.txtUpdate);
+            this.panel5.Controls.Add(this.label14);
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.txtCreate);
+            this.panel5.Controls.Add(this.dtpCreate);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.dtpUpdate);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(58, 206);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(313, 185);
+            this.panel5.TabIndex = 52;
+            // 
             // PopEquipmentModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 507);
+            this.ClientSize = new System.Drawing.Size(434, 675);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -448,6 +458,8 @@ namespace DESK_MES
             this.panel4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -485,5 +497,6 @@ namespace DESK_MES
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtpInoper;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel5;
     }
 }

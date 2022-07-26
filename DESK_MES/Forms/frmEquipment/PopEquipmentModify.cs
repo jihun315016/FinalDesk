@@ -62,7 +62,6 @@ namespace DESK_MES
             dtpInoper.Value = Convert.ToDateTime(selectEqui.Inoperative_Start_Time);
             dtpCreate.Value = Convert.ToDateTime(selectEqui.Create_Time);
             dtpUpdate.Value = DateTime.Now;
-
         }
 
         private void button3_Click(object sender, EventArgs e)
