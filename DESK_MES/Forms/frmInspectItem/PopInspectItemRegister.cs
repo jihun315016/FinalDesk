@@ -46,7 +46,16 @@ namespace DESK_MES
                 Create_User_No = user.User_No
             };
 
-            // TODO : 등록
+            bool result = InspectSrv.SaveInspectItem(item);
+            if (result)
+            {
+                MessageBox.Show("검사 항목이 등록되었습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("등록에 실패했습니다.");
+            }
         }
     }
 }
