@@ -40,8 +40,8 @@ namespace DESK_MES
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -51,24 +51,22 @@ namespace DESK_MES
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAllProduct = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvPurchaseList = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.txtCreateUSer = new System.Windows.Forms.TextBox();
+            this.cboClient = new System.Windows.Forms.ComboBox();
+            this.txtPurchaseNo = new System.Windows.Forms.TextBox();
+            this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dtpCreateTime = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -80,9 +78,9 @@ namespace DESK_MES
             this.panel4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllProduct)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,8 +175,8 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnClose);
+            this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -188,35 +186,37 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // button3
+            // btnClose
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.ImageIndex = 1;
-            this.button3.ImageList = this.imageList2;
-            this.button3.Location = new System.Drawing.Point(1093, 18);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(76, 27);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "   닫기";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.ImageIndex = 1;
+            this.btnClose.ImageList = this.imageList2;
+            this.btnClose.Location = new System.Drawing.Point(1093, 18);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnClose.Size = new System.Drawing.Size(76, 27);
+            this.btnClose.TabIndex = 27;
+            this.btnClose.Text = "   닫기";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 0;
-            this.button1.ImageList = this.imageList2;
-            this.button1.Location = new System.Drawing.Point(1011, 18);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(76, 27);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "   등록";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.ImageIndex = 0;
+            this.btnAdd.ImageList = this.imageList2;
+            this.btnAdd.Location = new System.Drawing.Point(1011, 18);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnAdd.Size = new System.Drawing.Size(76, 27);
+            this.btnAdd.TabIndex = 26;
+            this.btnAdd.Text = "   등록";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -323,7 +323,7 @@ namespace DESK_MES
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dgvAllProduct);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 64);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -334,19 +334,19 @@ namespace DESK_MES
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "자재 목록";
             // 
-            // dataGridView1
+            // dgvAllProduct
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(806, 191);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvAllProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAllProduct.Location = new System.Drawing.Point(3, 22);
+            this.dgvAllProduct.Name = "dgvAllProduct";
+            this.dgvAllProduct.RowTemplate.Height = 23;
+            this.dgvAllProduct.Size = new System.Drawing.Size(806, 191);
+            this.dgvAllProduct.TabIndex = 0;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Controls.Add(this.dgvPurchaseList);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 294);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -357,30 +357,29 @@ namespace DESK_MES
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "발주 목록";
             // 
-            // dataGridView2
+            // dgvPurchaseList
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 22);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(806, 191);
-            this.dataGridView2.TabIndex = 1;
+            this.dgvPurchaseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPurchaseList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPurchaseList.Location = new System.Drawing.Point(3, 22);
+            this.dgvPurchaseList.Name = "dgvPurchaseList";
+            this.dgvPurchaseList.RowTemplate.Height = 23;
+            this.dgvPurchaseList.Size = new System.Drawing.Size(806, 191);
+            this.dgvPurchaseList.TabIndex = 1;
+            this.dgvPurchaseList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchaseList_CellValueChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.dateTimePicker5);
+            this.groupBox1.Controls.Add(this.txtCreateUSer);
+            this.groupBox1.Controls.Add(this.cboClient);
+            this.groupBox1.Controls.Add(this.txtPurchaseNo);
+            this.groupBox1.Controls.Add(this.dtpDueDate);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.dateTimePicker3);
+            this.groupBox1.Controls.Add(this.dtpCreateTime);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.dateTimePicker4);
+            this.groupBox1.Controls.Add(this.dtpPurchaseDate);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -393,14 +392,36 @@ namespace DESK_MES
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "발주정보";
             // 
-            // dateTimePicker5
+            // txtCreateUSer
             // 
-            this.dateTimePicker5.Enabled = false;
-            this.dateTimePicker5.Location = new System.Drawing.Point(131, 181);
-            this.dateTimePicker5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(189, 25);
-            this.dateTimePicker5.TabIndex = 81;
+            this.txtCreateUSer.Location = new System.Drawing.Point(131, 266);
+            this.txtCreateUSer.Name = "txtCreateUSer";
+            this.txtCreateUSer.Size = new System.Drawing.Size(189, 25);
+            this.txtCreateUSer.TabIndex = 85;
+            // 
+            // cboClient
+            // 
+            this.cboClient.FormattingEnabled = true;
+            this.cboClient.Location = new System.Drawing.Point(131, 102);
+            this.cboClient.Name = "cboClient";
+            this.cboClient.Size = new System.Drawing.Size(189, 25);
+            this.cboClient.TabIndex = 83;
+            // 
+            // txtPurchaseNo
+            // 
+            this.txtPurchaseNo.Location = new System.Drawing.Point(131, 61);
+            this.txtPurchaseNo.Name = "txtPurchaseNo";
+            this.txtPurchaseNo.Size = new System.Drawing.Size(189, 25);
+            this.txtPurchaseNo.TabIndex = 82;
+            // 
+            // dtpDueDate
+            // 
+            this.dtpDueDate.Enabled = false;
+            this.dtpDueDate.Location = new System.Drawing.Point(131, 184);
+            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpDueDate.Name = "dtpDueDate";
+            this.dtpDueDate.Size = new System.Drawing.Size(189, 25);
+            this.dtpDueDate.TabIndex = 81;
             // 
             // label12
             // 
@@ -411,16 +432,16 @@ namespace DESK_MES
             this.label12.TabIndex = 80;
             this.label12.Text = "입고예정일";
             // 
-            // dateTimePicker3
+            // dtpCreateTime
             // 
-            this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtpCreateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker3.Enabled = false;
-            this.dateTimePicker3.Location = new System.Drawing.Point(131, 263);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(189, 25);
-            this.dateTimePicker3.TabIndex = 79;
+            this.dtpCreateTime.Enabled = false;
+            this.dtpCreateTime.Location = new System.Drawing.Point(131, 225);
+            this.dtpCreateTime.Name = "dtpCreateTime";
+            this.dtpCreateTime.Size = new System.Drawing.Size(189, 25);
+            this.dtpCreateTime.TabIndex = 79;
             // 
             // label15
             // 
@@ -428,7 +449,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(29, 269);
+            this.label15.Location = new System.Drawing.Point(29, 228);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 17);
             this.label15.TabIndex = 78;
@@ -440,23 +461,11 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(29, 310);
+            this.label14.Location = new System.Drawing.Point(29, 269);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 17);
             this.label14.TabIndex = 76;
             this.label14.Text = "생성사용자";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(29, 228);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 17);
-            this.label13.TabIndex = 73;
-            this.label13.Text = "발주상태";
             // 
             // label10
             // 
@@ -470,16 +479,16 @@ namespace DESK_MES
             this.label10.TabIndex = 72;
             this.label10.Text = "거래처";
             // 
-            // dateTimePicker4
+            // dtpPurchaseDate
             // 
-            this.dateTimePicker4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtpPurchaseDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker4.Enabled = false;
-            this.dateTimePicker4.Location = new System.Drawing.Point(131, 140);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(189, 25);
-            this.dateTimePicker4.TabIndex = 71;
+            this.dtpPurchaseDate.Enabled = false;
+            this.dtpPurchaseDate.Location = new System.Drawing.Point(131, 143);
+            this.dtpPurchaseDate.Name = "dtpPurchaseDate";
+            this.dtpPurchaseDate.Size = new System.Drawing.Size(189, 25);
+            this.dtpPurchaseDate.TabIndex = 71;
             // 
             // label11
             // 
@@ -505,36 +514,6 @@ namespace DESK_MES
             this.label9.TabIndex = 68;
             this.label9.Text = "발주번호";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(131, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(189, 25);
-            this.textBox2.TabIndex = 82;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(131, 102);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(189, 25);
-            this.comboBox1.TabIndex = 83;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(131, 225);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(189, 25);
-            this.comboBox2.TabIndex = 84;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(131, 307);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(189, 25);
-            this.textBox3.TabIndex = 85;
-            // 
             // PopPurchaseRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -548,6 +527,7 @@ namespace DESK_MES
             this.Name = "PopPurchaseRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "발주등록";
+            this.Load += new System.EventHandler(this.PopPurchaseRegister_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -560,9 +540,9 @@ namespace DESK_MES
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllProduct)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseList)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -580,8 +560,8 @@ namespace DESK_MES
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel4;
@@ -591,23 +571,21 @@ namespace DESK_MES
         protected System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAllProduct;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvPurchaseList;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker dtpDueDate;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dtpCreateTime;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dtpPurchaseDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCreateUSer;
+        private System.Windows.Forms.ComboBox cboClient;
+        private System.Windows.Forms.TextBox txtPurchaseNo;
     }
 }

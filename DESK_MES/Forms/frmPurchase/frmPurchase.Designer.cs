@@ -46,6 +46,16 @@ namespace DESK_MES
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -63,23 +73,9 @@ namespace DESK_MES
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.btnIncoming = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -116,18 +112,18 @@ namespace DESK_MES
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnModify);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnIncoming);
             this.groupBox1.Controls.SetChildIndex(this.label2, 0);
             this.groupBox1.Controls.SetChildIndex(this.comboBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.textBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnOpenDetail, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnReset, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnSearch, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button1, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnIncoming, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button2, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnModify, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
             // 
             // comboBox1
@@ -280,10 +276,6 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox14);
-            this.groupBox4.Controls.Add(this.label20);
-            this.groupBox4.Controls.Add(this.textBox13);
-            this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.textBox12);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.textBox11);
@@ -312,13 +304,134 @@ namespace DESK_MES
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
             // 
+            // textBox12
+            // 
+            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox12.Enabled = false;
+            this.textBox12.Location = new System.Drawing.Point(124, 281);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(189, 25);
+            this.textBox12.TabIndex = 32;
+            this.textBox12.Text = "미정/대기/완료";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(22, 284);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(60, 17);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "입고상태";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox11.Enabled = false;
+            this.textBox11.Location = new System.Drawing.Point(124, 351);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(189, 25);
+            this.textBox11.TabIndex = 30;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.Enabled = false;
+            this.textBox6.Location = new System.Drawing.Point(124, 316);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(189, 25);
+            this.textBox6.TabIndex = 29;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(22, 354);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(73, 17);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "등록사용자";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox10.Enabled = false;
+            this.textBox10.Location = new System.Drawing.Point(124, 211);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(189, 25);
+            this.textBox10.TabIndex = 26;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(22, 214);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(73, 17);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "입고예정일";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox9.Enabled = false;
+            this.textBox9.Location = new System.Drawing.Point(124, 141);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(189, 25);
+            this.textBox9.TabIndex = 24;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox8.Enabled = false;
+            this.textBox8.Location = new System.Drawing.Point(124, 106);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(189, 25);
+            this.textBox8.TabIndex = 23;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(22, 109);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 17);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "거래처명";
+            // 
             // label15
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(22, 389);
+            this.label15.Location = new System.Drawing.Point(22, 319);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 17);
             this.label15.TabIndex = 20;
@@ -516,21 +629,21 @@ namespace DESK_MES
             this.imageList2.Images.SetKeyName(3, "엑셀.png");
             this.imageList2.Images.SetKeyName(4, "check.png");
             // 
-            // button2
+            // btnModify
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.ImageIndex = 1;
-            this.button2.ImageList = this.imageList2;
-            this.button2.Location = new System.Drawing.Point(1014, 30);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(76, 27);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "   변경";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModify.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModify.ImageIndex = 1;
+            this.btnModify.ImageList = this.imageList2;
+            this.btnModify.Location = new System.Drawing.Point(1014, 30);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnModify.Size = new System.Drawing.Size(76, 27);
+            this.btnModify.TabIndex = 34;
+            this.btnModify.Text = "   변경";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnAdd
             // 
@@ -548,190 +661,21 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button1
+            // btnIncoming
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 4;
-            this.button1.ImageList = this.imageList2;
-            this.button1.Location = new System.Drawing.Point(850, 30);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(76, 27);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "   확정";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(124, 106);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(189, 25);
-            this.textBox8.TabIndex = 23;
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(22, 109);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 17);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "거래처명";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(124, 141);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(189, 25);
-            this.textBox9.TabIndex = 24;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(124, 211);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(189, 25);
-            this.textBox10.TabIndex = 26;
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(22, 214);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(73, 17);
-            this.label17.TabIndex = 25;
-            this.label17.Text = "입고예정일";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(22, 424);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 17);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "등록사용자";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(124, 386);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(189, 25);
-            this.textBox6.TabIndex = 29;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(124, 421);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(189, 25);
-            this.textBox11.TabIndex = 30;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(124, 281);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(189, 25);
-            this.textBox12.TabIndex = 32;
-            this.textBox12.Text = "미정/대기/완료";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(22, 284);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 17);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "입고상태";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox13.Enabled = false;
-            this.textBox13.Location = new System.Drawing.Point(124, 316);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(189, 25);
-            this.textBox13.TabIndex = 34;
-            this.textBox13.Text = "미정/대기/완료";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(22, 319);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(73, 17);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "입고창고명";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox14.Enabled = false;
-            this.textBox14.Location = new System.Drawing.Point(124, 351);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(189, 25);
-            this.textBox14.TabIndex = 36;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(22, 354);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(62, 17);
-            this.label20.TabIndex = 35;
-            this.label20.Text = "자재 LOT";
+            this.btnIncoming.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIncoming.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnIncoming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIncoming.ImageIndex = 1;
+            this.btnIncoming.ImageList = this.imageList2;
+            this.btnIncoming.Location = new System.Drawing.Point(835, 30);
+            this.btnIncoming.Name = "btnIncoming";
+            this.btnIncoming.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnIncoming.Size = new System.Drawing.Size(91, 27);
+            this.btnIncoming.TabIndex = 32;
+            this.btnIncoming.Text = "   입고처리";
+            this.btnIncoming.UseVisualStyleBackColor = true;
+            this.btnIncoming.Click += new System.EventHandler(this.btnIncoming_Click);
             // 
             // frmPurchase
             // 
@@ -741,6 +685,7 @@ namespace DESK_MES
             this.Name = "frmPurchase";
             this.Text = "frmPurchase";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPurchase_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -797,18 +742,14 @@ namespace DESK_MES
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnIncoming;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox11;

@@ -52,6 +52,8 @@
     <Compile Include="OrderVO.cs" />
     <Compile Include="ProductVO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseDetailVO.cs" />
+    <Compile Include="PurchaseVO.cs" />
     <Compile Include="ReleaseVO.cs" />
     <Compile Include="ResMessage.cs" />
     <Compile Include="UserGroupVO.cs" />
