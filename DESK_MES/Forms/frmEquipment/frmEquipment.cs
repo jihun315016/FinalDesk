@@ -17,6 +17,7 @@ namespace DESK_MES
         List<EquipmentVO> allList;
         List<EquipmentVO> saveList;
         UserVO userVV;
+        EquipmentVO selectEq;
         int userNO;
         string userName;
         string saveFileName;
@@ -33,6 +34,7 @@ namespace DESK_MES
             saveList = allList = list;
             dgvMain.DataSource = null;
             dgvMain.DataSource = allList;
+            ResetDetail();
         }
        
         private void ResetDetail()
@@ -52,11 +54,18 @@ namespace DESK_MES
             int eqLastNum = allList.Last().Equipment_No + 1;//
             userVV = ((frmMain)this.MdiParent).userInfo;
             PopEquipmentRegister pop = new PopEquipmentRegister(eqLastNum, userVV);
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                BindingGdv();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtEquipNo.Text))
+            {
+
+            }
             PopEquipmentModify pop = new PopEquipmentModify();
             pop.ShowDialog();
         }

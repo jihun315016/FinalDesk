@@ -50,5 +50,44 @@ namespace DESK_MES
                 txtUser.Text= user.User_Name;
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ccTextBox[] txt = new ccTextBox[] { txtName };
+            string msg = TextBoxUtil.IsRequiredCheck(txt);
+            StringBuilder sb = new StringBuilder();
+            if (msg.Length > 0)
+            {
+                sb.Append(msg);
+
+                if (txtName.Text.Length > 30)
+                {
+                    sb.Append($"\n[{txtName.Tag}]의 글자수는 30개 이하만 가능합니다");
+                }
+                MessageBox.Show(sb.ToString(), "설비 등록 오류", MessageBoxButtons.OK);
+                return;
+            }
+            EquipmentVO eq = new EquipmentVO
+            {
+                Equipment_No = Convert.ToInt32(txtCode.Text),
+                Equipment_Name = txtName.Text,
+                Operation_Type_No = Convert.ToInt32(comboBox1.SelectedValue),
+                Create_User_No = user.Create_User_No
+            };
+
+            if (srv.InsertEquipmentList(eq))
+            {
+                if (MessageBox.Show("설비 등록 완료", "설비 등록", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("등록 실패");
+            }
+
+        }
     }
 }
