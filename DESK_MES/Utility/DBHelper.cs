@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -37,6 +38,7 @@ namespace DESK_MES
             catch (Exception err)
             {
                 string msg = err.Message;
+                Debug.WriteLine(msg);
                 return null;
             }
         }

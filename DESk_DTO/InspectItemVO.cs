@@ -17,5 +17,8 @@ namespace DESK_DTO
         public int Create_User_No { get; set; }
         public DateTime Update_Time { get; set; }
         public int Update_User_No { get; set; }
+
+        public string Create_User_Name { get; set; }
+        public string Update_User_Name { get; set; }
     }
 }
