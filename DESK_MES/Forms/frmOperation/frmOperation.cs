@@ -112,5 +112,33 @@ namespace DESK_MES
             PopOperationRegister pop = new PopOperationRegister(user);
             pop.ShowDialog();
         }
+
+        private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+
+            List<OperationVO> temp = operationSrv.GetOperationList(Convert.ToInt32(dgvList["Operation_No", e.RowIndex].Value));
+            OperationVO oper = temp.FirstOrDefault();
+            txtOperNo.Text = oper.Operation_No.ToString();
+            txtOperNameDetail.Text = oper.Operation_Name;
+            txtIsDeffectDetail.Text = oper.Is_Check_Deffect == "Y" ? "예" : "아니오";
+            txtIsInspectDetail.Text = oper.Is_Check_Inspect == "Y" ? "예" : "아니오";
+            txtMaterialDetail.Text = oper.Is_Check_Marerial == "Y" ? "예" : "아니오";
+            dtpCreateTime.Value = oper.Create_Time;
+            txtCreateUserDetail.Text = oper.Create_User_Name;
+
+            if (oper.Update_Time.ToString() == "0001-01-01 오전 12:00:00")
+            {
+                dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+                dtpUpdateTime.CustomFormat = " ";
+            }
+            else
+            {
+                dtpUpdateTime.Format = dtpCreateTime.Format;
+                dtpUpdateTime.Value = oper.Update_Time;
+                txtUpdateUserDetail.Text = oper.Update_User_Name;
+            }
+        }
     }
 }

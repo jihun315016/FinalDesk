@@ -19,7 +19,7 @@ namespace DESK_DTO
         public int Update_User_No { get; set; }
         public string Is_Delete { get; set; }
 
-        public string Create_User { get; set; }
-        public string Update_User { get; set; }
+        public string Create_User_Name { get; set; }
+        public string Update_User_Name { get; set; }
     }
 }
