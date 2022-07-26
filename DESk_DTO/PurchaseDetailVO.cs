@@ -13,6 +13,10 @@ namespace DESK_DTO
         public int TotalQty { get; set; }
         public int TotalPrice { get; set; }
         public int Qty_PerUnit { get; set; }
+        public string Product_Name { get; set; }
+        public string Product_Type { get; set; }
+        public int Price { get; set; }
+        public int Unit { get; set; }
 
         // 자재LOT 테이블
         public string Lot_Code { get; set; }

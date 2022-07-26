@@ -43,6 +43,7 @@ namespace DESK_MES
             //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_No", colWidth: 60);
 
             DataGridUtil.SetInitGridView(dataGridView2);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "발주코드", "Purchase_No", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "품번", "Product_Code", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "품명", "Product_Name", colWidth: 230);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "유형", "Product_Type", colWidth: 60);
@@ -101,10 +102,19 @@ namespace DESK_MES
 
         private void btnIncoming_Click(object sender, EventArgs e)
         {
-            PopIncomingCreateLot pop = new PopIncomingCreateLot();
-            pop.ShowDialog();
+            if(purchaseNo != 0 )
+            {
+                PopIncomingCreateLot pop = new PopIncomingCreateLot(purchaseNo);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("입고처리할 발주코드를 선택해주세요");
+                return;
+            }
         }
-
-
     }
 }

@@ -61,20 +61,61 @@ namespace DESK_MES
                 return null;
             }
         }
+        public PurchaseVO GetPurchaseInfoByPurchaseCode(int no) // 선택한 발주 정보 가져오기
+        {
+            try
+            {
+                string sql = @"select Purchase_No, 
+                                      P.Client_Code,
+                                      Client_Name,
+                                      convert(varchar(10), Purchase_Date, 23) Purchase_Date,
+                                      Purchase_State,
+                                      convert(varchar(10), Incoming_Date, 23) Incoming_Date,
+                                      Is_Incoming,
+                                      convert(varchar(10), P.Create_Time, 23) Create_Time,
+                                      P.Create_User_No,
+                                      convert(varchar(10), P.Update_Time, 23) Update_Time,
+                                      P.Update_User_No,
+                                      convert(varchar(10), IncomingDue_date, 23) IncomingDue_date
+                               from [dbo].[TB_PURCHASE] P
+                               INNER JOIN [dbo].[TB_Client] C ON P.Client_Code=C.Client_Code
+                               where Purchase_No=@Purchase_No";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Purchase_No", no);
+
+                    List<PurchaseVO> list = DBHelpler.DataReaderMapToList<PurchaseVO>(cmd.ExecuteReader());
+
+                    if (list != null && list.Count > 0)
+                        return list[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
 
         public List<PurchaseDetailVO> GetPurchaseDetailList(int no)
         {
             try
             {
-                // 카테고리, 주문번호, 제품번호, 제품이름, 주문 수량, 제품단가, 합계
                 string sql = @"select Purchase_No, 
-                                      PD.Product_Code,
+                                      PD.Product_Code as Product_Code,
+                              	      Product_Name,
+                              	      Product_Type,
+                              	      Price,
+                               	      Unit,
                                       TotalQty,
                                       Qty_PerUnit,
                                       TotalPrice
-                               from [dbo].[TB_PURCHASE_DETAIL] PD
-                               INNER JOIN [dbo].[TB_PRODUCT] P ON PD.Product_Code=P.Product_Code
-                               where Purchase_No=@Purchase_No";
+                              from [dbo].[TB_PURCHASE_DETAIL] PD
+                              INNER JOIN [dbo].[TB_PRODUCT] P ON PD.Product_Code=P.Product_Code
+                              where Purchase_No=@Purchase_No";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
@@ -87,7 +128,7 @@ namespace DESK_MES
             {
                 return null;
             }
-        } // 주문 상세정보 가져오기
+        } 
 
 
         public List<ProductVO> GetProductListForPurchase()
@@ -163,7 +204,7 @@ namespace DESK_MES
             }
         }
 
-        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<PurchaseDetailVO> purchaseList) // 발주 등록
+        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<PurchaseDetailVO> lotIDList, List<PurchaseDetailVO> purchaseList) // 발주 등록
         {
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -194,9 +235,13 @@ namespace DESK_MES
                     cmd.Parameters.AddWithValue("@Warehouse_Code", purchase.Warehouse_Code);
                     cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
 
+                    foreach(PurchaseDetailVO id in lotIDList)
+                    {
+                        cmd.Parameters["@Lot_Code"].Value = id.Lot_Code;
+                    }
+
                     foreach (PurchaseDetailVO item in purchaseList)
                     {
-                        cmd.Parameters["@Lot_Code"].Value = item.Lot_Code;
                         cmd.Parameters["@Product_Code"].Value = item.Product_Code;
                         cmd.Parameters["@Lot_Qty"].Value = item.Lot_Qty;
                         cmd.Parameters["@Cur_Qty"].Value = item.Cur_Qty;
