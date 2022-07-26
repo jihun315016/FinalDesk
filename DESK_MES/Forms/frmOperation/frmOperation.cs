@@ -108,6 +108,14 @@ namespace DESK_MES
                 comboBox1.Enabled = textBox1.Enabled = true;
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            operationList = operationSrv.GetOperationList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            dgvList.DataSource = null;
+        }
+
         private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";

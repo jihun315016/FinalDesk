@@ -112,6 +112,10 @@ namespace DESK_MES
             // 
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // btnOpenDetail
             // 
             this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);

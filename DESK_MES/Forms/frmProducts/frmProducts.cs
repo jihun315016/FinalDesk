@@ -179,6 +179,7 @@ namespace DESK_MES
             prdList = productSrv.GetProductList();
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
+            dgvList.DataSource = null;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

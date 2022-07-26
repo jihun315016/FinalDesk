@@ -15,14 +15,16 @@ namespace DESK_MES
     public partial class PopOperationModify : Form
     {
         OperationService operationSrv;
-        int operationNo;
+        UserVO user;
 
         public PopOperationModify(UserVO user, OperationVO oper)
         {
             InitializeComponent();
+            this.user = user;
+            InitControl(oper);
         }
 
-        private void PopOperationModify_Load(object sender, EventArgs e)
+        private void InitControl(OperationVO oper)
         {
             operationSrv = new OperationService();
 
@@ -30,10 +32,52 @@ namespace DESK_MES
             cboIsDeffect.Items.AddRange(isChackArr);
             cboIsInspect.Items.AddRange(isChackArr);
             cboMaterial.Items.AddRange(isChackArr);
-            
-            txtOperationNo.Text = operationNo.ToString();
-            
-            
+
+            txtOperationNo.Text = oper.Operation_No.ToString();
+            txtOperationName.Text = oper.Operation_Name;
+            cboIsDeffect.SelectedIndex = oper.Is_Check_Deffect == "Y" ? 1 : 2;
+            cboIsInspect.SelectedIndex = oper.Is_Check_Inspect == "Y" ? 1 : 2;
+            cboMaterial.SelectedIndex = oper.Is_Check_Marerial == "Y" ? 1 : 2;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (cboIsDeffect.SelectedIndex == 0 || cboIsInspect.SelectedIndex == 0 || cboMaterial.SelectedIndex == 0)
+            {
+                MessageBox.Show("불량 체크 여부와 검사 데이터 입력, 자재 사용 여부를 모두 작성해주세요.");
+                return;
+            }
+
+            OperationVO oper = new OperationVO()
+            {
+                Operation_No = Convert.ToInt32(txtOperationNo.Text),
+                Operation_Name = txtOperationName.Text,
+                Is_Check_Deffect = cboIsDeffect.SelectedIndex == 1 ? "Y" : "N",
+                Is_Check_Inspect = cboIsInspect.SelectedIndex == 1 ? "Y" : "N",
+                Is_Check_Marerial = cboMaterial.SelectedIndex == 1 ? "Y" : "N",
+                Update_User_No = user.User_No
+            };
+
+            bool result = operationSrv.UpdateOperation(oper);
+            if (result)
+            {
+                MessageBox.Show("수정이 완료되었습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("수정에 실패했습니다.");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
