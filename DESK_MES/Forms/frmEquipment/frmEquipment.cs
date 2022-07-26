@@ -16,6 +16,7 @@ namespace DESK_MES
         EquipmentService srv;
         List<EquipmentVO> allList;
         List<EquipmentVO> saveList;
+        UserVO userVV;
         int userNO;
         string userName;
         string saveFileName;
@@ -33,27 +34,7 @@ namespace DESK_MES
             dgvMain.DataSource = null;
             dgvMain.DataSource = allList;
         }
-        /// <summary>
-        /// 김준모/콤보박스 바인딩 메서드(UserVO)
-        /// </summary>
-        /// <param name="cbo"></param>
-        /// <param name="list"></param>
-        /// <param name="dis"></param>
-        /// <param name="val"></param>
-        private void ComboBinding(ComboBox cbo, List<UserGroupVO> list, string dis, string val, bool blank = false)
-        {
-            if (blank)
-            {
-                list.Insert(0, new UserGroupVO
-                { Auth_Name = "전체", User_Group_Name = "전체" }
-                );
-            }
-            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbo.DisplayMember = dis;
-            cbo.ValueMember = val;
-
-            cbo.DataSource = list;
-        }
+       
         private void ResetDetail()
         {
             txtEquipNo.Text = "";
@@ -68,7 +49,9 @@ namespace DESK_MES
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopEquipmentRegister pop = new PopEquipmentRegister();
+            int eqLastNum = allList.Last().Equipment_No + 1;//
+            userVV = ((frmMain)this.MdiParent).userInfo;
+            PopEquipmentRegister pop = new PopEquipmentRegister(eqLastNum, userVV);
             pop.ShowDialog();
         }
 
@@ -83,19 +66,17 @@ namespace DESK_MES
             if (srv == null)
                 srv = new EquipmentService();
             //UserGroupService srvG = new UserGroupService();
-
+            //
             dtpCreate.Format = DateTimePickerFormat.Custom;
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpUpdate.Format = DateTimePickerFormat.Custom;
             dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
-
 
             cboDate.Items.Add("전체");
             cboDate.Items.Add("생성시간");
             cboDate.Items.Add("변경시간");
             cboDate.SelectedIndex = 0;
             cboDate.DropDownStyle = ComboBoxStyle.DropDownList;
-
             DataGridUtil.SetInitGridView(dgvMain);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비번호", "Equipment_No"); //0
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name"); //1
@@ -114,6 +95,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경자ID", "Update_User_No", isVisible: false); //12
             BindingGdv();
 
+            
             flag = false;
         }
 
