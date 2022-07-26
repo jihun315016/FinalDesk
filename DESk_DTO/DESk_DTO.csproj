@@ -45,6 +45,7 @@
     <Compile Include="ClientVO.cs" />
     <Compile Include="CodeCountVO.cs" />
     <Compile Include="EquipmentVO.cs" />
+    <Compile Include="InspectItemVO.cs" />
     <Compile Include="MenuVO.cs" />
     <Compile Include="OperationVO.cs" />
     <Compile Include="OrderDetailVO.cs" />
