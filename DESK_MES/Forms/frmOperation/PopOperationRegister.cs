@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class PopProcessRegister : Form
+    public partial class PopOperationRegister : Form
     {
         OperationService processSrv;
         UserVO user;
 
-        public PopProcessRegister(UserVO user)
+        public PopOperationRegister(UserVO user)
         {
             InitializeComponent();
             this.user = user;

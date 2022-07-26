@@ -1,7 +1,7 @@
 ﻿
 namespace DESK_MES
 {
-    partial class frmProcess
+    partial class frmOperation
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace DESK_MES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProcess));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOperation));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtOperNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();

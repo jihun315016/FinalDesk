@@ -1,7 +1,7 @@
 ﻿
 namespace DESK_MES
 {
-    partial class PopProcessModify
+    partial class PopOperationModify
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace DESK_MES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopProcessModify));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopOperationModify));
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();

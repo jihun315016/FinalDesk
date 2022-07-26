@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class frmProcess : FormStyle_2
+    public partial class frmOperation : FormStyle_2
     {
         OperationService operationSrv;
         UserVO user;
         List<OperationVO> operationList;
 
-        public frmProcess()
+        public frmOperation()
         {
             InitializeComponent();
             label1.Text = "공정 관리";
@@ -109,7 +109,7 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopProcessRegister pop = new PopProcessRegister(user);
+            PopOperationRegister pop = new PopOperationRegister(user);
             pop.ShowDialog();
         }
     }

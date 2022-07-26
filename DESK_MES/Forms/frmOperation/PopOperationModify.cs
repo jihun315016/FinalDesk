@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class PopProcessModify : Form
+    public partial class PopOperationModify : Form
     {
-        public PopProcessModify()
+        public PopOperationModify()
         {
             InitializeComponent();
         }
