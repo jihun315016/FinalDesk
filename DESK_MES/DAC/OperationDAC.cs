@@ -28,16 +28,22 @@ namespace DESK_MES.DAC
             }
         }
 
-        public List<OperationVO> GetOperationList()
+        public List<OperationVO> GetOperationList(int no)
         {
-            string sql = @"select 
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(@"select 
 	                            Operation_No, Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, 
 	                            o.Create_Time, o.Create_User_No, u.User_Name Create_User, o.Update_Time, o.Update_User_No, uu.User_Name Update_User 
                             from TB_OPERATION o
                             LEFT JOIN TB_USER u ON o.Create_User_No = u.User_No
-                            LEFT JOIN TB_USER uu ON o.Update_User_No = uu.User_No ";
+                            LEFT JOIN TB_USER uu ON o.Update_User_No = uu.User_No ");
 
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            if (no > 0)
+                sb.Append(" WHERE Operation_No = @no ");
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.Parameters.AddWithValue("@no", no);
             SqlDataReader reader = cmd.ExecuteReader();
             List<OperationVO> list = DBHelpler.DataReaderMapToList<OperationVO>(reader);
             reader.Close();
