@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DESK_DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +13,22 @@ namespace DESK_MES
 {
     public partial class frmInspectItem : FormStyle_2
     {
+        UserVO user;
+
         public frmInspectItem()
         {
             InitializeComponent();
             label1.Text = "품질-검사 항목 설정";
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void frmInspectItem_Load(object sender, EventArgs e)
         {
-            PopInspectItemRegister pop = new PopInspectItemRegister();
-            pop.ShowDialog();
+            this.user = ((frmMain)(this.MdiParent)).userInfo;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopInspectItemModify pop = new PopInspectItemModify();
+            PopInspectItemRegister pop = new PopInspectItemRegister(user);
             pop.ShowDialog();
         }
     }

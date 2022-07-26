@@ -43,10 +43,10 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtUsl = new DESK_MES.ccTextBox();
+            this.txtLsl = new DESK_MES.ccTextBox();
+            this.txtTarget = new DESK_MES.ccTextBox();
+            this.txtInspectName = new DESK_MES.ccTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -183,6 +183,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 28;
             this.btnAdd.Text = "   등록";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel4
             // 
@@ -195,10 +196,10 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtUsl);
+            this.groupBox2.Controls.Add(this.txtLsl);
+            this.groupBox2.Controls.Add(this.txtTarget);
+            this.groupBox2.Controls.Add(this.txtInspectName);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
@@ -211,33 +212,49 @@ namespace DESK_MES
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
             // 
-            // textBox5
+            // txtUsl
             // 
-            this.textBox5.Location = new System.Drawing.Point(166, 171);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(190, 25);
-            this.textBox5.TabIndex = 50;
+            this.txtUsl.isNumeric = true;
+            this.txtUsl.isRequired = true;
+            this.txtUsl.Location = new System.Drawing.Point(166, 171);
+            this.txtUsl.Name = "txtUsl";
+            this.txtUsl.PlaceHolder = null;
+            this.txtUsl.Size = new System.Drawing.Size(190, 25);
+            this.txtUsl.TabIndex = 54;
+            this.txtUsl.Tag = "상한값(USL)";
             // 
-            // textBox4
+            // txtLsl
             // 
-            this.textBox4.Location = new System.Drawing.Point(167, 128);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(190, 25);
-            this.textBox4.TabIndex = 49;
+            this.txtLsl.isNumeric = true;
+            this.txtLsl.isRequired = true;
+            this.txtLsl.Location = new System.Drawing.Point(166, 128);
+            this.txtLsl.Name = "txtLsl";
+            this.txtLsl.PlaceHolder = null;
+            this.txtLsl.Size = new System.Drawing.Size(190, 25);
+            this.txtLsl.TabIndex = 53;
+            this.txtLsl.Tag = "하한값(LSL)";
             // 
-            // textBox3
+            // txtTarget
             // 
-            this.textBox3.Location = new System.Drawing.Point(166, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(190, 25);
-            this.textBox3.TabIndex = 48;
+            this.txtTarget.isNumeric = true;
+            this.txtTarget.isRequired = true;
+            this.txtTarget.Location = new System.Drawing.Point(166, 84);
+            this.txtTarget.Name = "txtTarget";
+            this.txtTarget.PlaceHolder = null;
+            this.txtTarget.Size = new System.Drawing.Size(190, 25);
+            this.txtTarget.TabIndex = 52;
+            this.txtTarget.Tag = "검사 목표 값(Target)";
             // 
-            // textBox2
+            // txtInspectName
             // 
-            this.textBox2.Location = new System.Drawing.Point(166, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 25);
-            this.textBox2.TabIndex = 46;
+            this.txtInspectName.isNumeric = false;
+            this.txtInspectName.isRequired = true;
+            this.txtInspectName.Location = new System.Drawing.Point(166, 40);
+            this.txtInspectName.Name = "txtInspectName";
+            this.txtInspectName.PlaceHolder = null;
+            this.txtInspectName.Size = new System.Drawing.Size(190, 25);
+            this.txtInspectName.TabIndex = 51;
+            this.txtInspectName.Tag = "검사 항목명";
             // 
             // label5
             // 
@@ -300,6 +317,7 @@ namespace DESK_MES
             this.Name = "PopInspectItemRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "검사 등록";
+            this.Load += new System.EventHandler(this.PopInspectItemRegister_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -327,13 +345,13 @@ namespace DESK_MES
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
+        private ccTextBox txtUsl;
+        private ccTextBox txtLsl;
+        private ccTextBox txtTarget;
+        private ccTextBox txtInspectName;
     }
 }
