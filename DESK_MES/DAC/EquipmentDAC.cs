@@ -33,26 +33,34 @@ namespace DESK_MES
         /// <returns></returns>
         public List<EquipmentVO> SelectEquipmentAllList()
         {
-            string sql = @"with groupp as
-(
-select Equipment_No, Equipment_Name, e.Operation_Type_No,c.Name as Operation_Type_Name, Is_Inoperative, convert(nvarchar(20), e.Create_Time,20) Create_Time, e.Create_User_No, u.[User_Name] Create_User_Name,convert(nvarchar(20), 
-e.Update_Time,20) Update_Time, e.Update_User_No,ur.[User_Name] Update_User_Name,convert(nvarchar(20), Is_Inoperative_Date,20)as Is_Inoperative_Date, e.Is_Delete
-                            from [dbo].[TB_EQUIPMENT] e left join [dbo].[TB_USER] u on e.Create_User_No = u.User_No
-							                            left join [dbo].[TB_USER] ur on e.Update_User_No = ur.User_No
-														left join TB_COMMON_CODE c on e.Operation_Type_No = c.Code
-                            where e.Is_Delete = 'N'
-							)
-							select Equipment_No, Equipment_Name, Operation_Type_No,Operation_Type_Name, Is_Inoperative,Create_Time, Create_User_No, Create_User_Name,
-Update_Time, Update_User_No,Update_User_Name,Is_Inoperative_Date,Is_Delete
-							from groupp 
-							order by Equipment_Name";
+            string sql = @"USP_EquipmentSelectAll";
             try
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
                     List<EquipmentVO> list = DBHelpler.DataReaderMapToList<EquipmentVO>(cmd.ExecuteReader());
 
                     return list;
+                }
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+        }
+        public EquipmentVO SelectEquipmentNoList(int eqNo)
+        {
+            string sql = @"USP_EquipmentSelectNo";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Equipment_No", eqNo);
+                    List<EquipmentVO> list = DBHelpler.DataReaderMapToList<EquipmentVO>(cmd.ExecuteReader());
+
+                    return list[0];
                 }
             }
             catch (Exception err)

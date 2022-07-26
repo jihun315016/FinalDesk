@@ -64,8 +64,7 @@ namespace DESK_MES
         {
             if (! string.IsNullOrEmpty(txtEquipNo.Text))
             {
-                EquipmentVO eq = allList.Find((f) => f.Equipment_No.Equals(selectEqui));
-                PopEquipmentModify pop = new PopEquipmentModify(eq,userVV);
+                PopEquipmentModify pop = new PopEquipmentModify(selectEqui, userVV);
                 if (pop.ShowDialog() == DialogResult.OK)
                 {
                     BindingGdv();

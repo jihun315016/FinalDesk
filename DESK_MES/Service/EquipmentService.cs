@@ -17,6 +17,13 @@ namespace DESK_MES
             db.Dispose();
             return list;
         }
+        public EquipmentVO SelectEquipmentNoList(int eqNo)
+        {
+            EquipmentDAC db = new EquipmentDAC();
+            EquipmentVO equi = db.SelectEquipmentNoList(eqNo);
+            db.Dispose();
+            return equi;
+        }
         public List<EquipmentVO> SelectOperationTypeList()
         {
             EquipmentDAC db = new EquipmentDAC();
