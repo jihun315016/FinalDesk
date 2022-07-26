@@ -26,7 +26,7 @@ namespace DESK_MES
 
             return result;
         }
-        public OrderVO GetOrderListByOrderNO(int no)  // 주문 상세정보 가져오기
+        public OrderVO GetOrderListByOrderNO(int no)  // 선택 주문 정보 가져오기
         {
             OrderDAC dac = new OrderDAC();
             OrderVO result = dac.GetOrderListByOrderNO(no);

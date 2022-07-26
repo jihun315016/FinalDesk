@@ -53,7 +53,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOrderList, "단가", "Price", colWidth: 80);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOrderList, "주문단위", "Unit", colWidth: 90);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOrderList, "수량 입력", "Qty_PerUnit", colWidth: 90);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOrderList, "총 구매수량", "TotalQyu", colWidth: 110);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOrderList, "총 구매수량", "TotalQty", colWidth: 110);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOrderList, "총액", "TotalPrice", colWidth: 100);
 
             dgvOrderList.Columns["Qty_PerUnit"].ReadOnly = false;

@@ -46,25 +46,25 @@ namespace DESK_MES
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtIncomingState = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtRegiUser = new System.Windows.Forms.TextBox();
+            this.txtRegiDate = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtDueDate = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtPurchaseRegiDate = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtPurchaseState = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtIncomingDate = new System.Windows.Forms.TextBox();
+            this.txtClientCode = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPurchaseCode = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -276,25 +276,25 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox12);
+            this.groupBox4.Controls.Add(this.txtIncomingState);
             this.groupBox4.Controls.Add(this.label18);
-            this.groupBox4.Controls.Add(this.textBox11);
-            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.txtRegiUser);
+            this.groupBox4.Controls.Add(this.txtRegiDate);
             this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.textBox10);
+            this.groupBox4.Controls.Add(this.txtDueDate);
             this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.textBox9);
-            this.groupBox4.Controls.Add(this.textBox8);
+            this.groupBox4.Controls.Add(this.txtPurchaseRegiDate);
+            this.groupBox4.Controls.Add(this.txtClientName);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Controls.Add(this.txtPurchaseState);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.txtIncomingDate);
+            this.groupBox4.Controls.Add(this.txtClientCode);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.txtPurchaseCode);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(832, 3);
@@ -304,18 +304,18 @@ namespace DESK_MES
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
             // 
-            // textBox12
+            // txtIncomingState
             // 
-            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtIncomingState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(124, 281);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(189, 25);
-            this.textBox12.TabIndex = 32;
-            this.textBox12.Text = "미정/대기/완료";
+            this.txtIncomingState.Enabled = false;
+            this.txtIncomingState.Location = new System.Drawing.Point(124, 281);
+            this.txtIncomingState.Name = "txtIncomingState";
+            this.txtIncomingState.ReadOnly = true;
+            this.txtIncomingState.Size = new System.Drawing.Size(189, 25);
+            this.txtIncomingState.TabIndex = 32;
+            this.txtIncomingState.Text = "미정/대기/완료";
             // 
             // label18
             // 
@@ -329,29 +329,29 @@ namespace DESK_MES
             this.label18.TabIndex = 31;
             this.label18.Text = "입고상태";
             // 
-            // textBox11
+            // txtRegiUser
             // 
-            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtRegiUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(124, 351);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(189, 25);
-            this.textBox11.TabIndex = 30;
+            this.txtRegiUser.Enabled = false;
+            this.txtRegiUser.Location = new System.Drawing.Point(124, 351);
+            this.txtRegiUser.Name = "txtRegiUser";
+            this.txtRegiUser.ReadOnly = true;
+            this.txtRegiUser.Size = new System.Drawing.Size(189, 25);
+            this.txtRegiUser.TabIndex = 30;
             // 
-            // textBox6
+            // txtRegiDate
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtRegiDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(124, 316);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(189, 25);
-            this.textBox6.TabIndex = 29;
+            this.txtRegiDate.Enabled = false;
+            this.txtRegiDate.Location = new System.Drawing.Point(124, 316);
+            this.txtRegiDate.Name = "txtRegiDate";
+            this.txtRegiDate.ReadOnly = true;
+            this.txtRegiDate.Size = new System.Drawing.Size(189, 25);
+            this.txtRegiDate.TabIndex = 29;
             // 
             // label13
             // 
@@ -365,17 +365,17 @@ namespace DESK_MES
             this.label13.TabIndex = 27;
             this.label13.Text = "등록사용자";
             // 
-            // textBox10
+            // txtDueDate
             // 
-            this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(124, 211);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(189, 25);
-            this.textBox10.TabIndex = 26;
+            this.txtDueDate.Enabled = false;
+            this.txtDueDate.Location = new System.Drawing.Point(124, 211);
+            this.txtDueDate.Name = "txtDueDate";
+            this.txtDueDate.ReadOnly = true;
+            this.txtDueDate.Size = new System.Drawing.Size(189, 25);
+            this.txtDueDate.TabIndex = 26;
             // 
             // label17
             // 
@@ -389,29 +389,29 @@ namespace DESK_MES
             this.label17.TabIndex = 25;
             this.label17.Text = "입고예정일";
             // 
-            // textBox9
+            // txtPurchaseRegiDate
             // 
-            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPurchaseRegiDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(124, 141);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(189, 25);
-            this.textBox9.TabIndex = 24;
+            this.txtPurchaseRegiDate.Enabled = false;
+            this.txtPurchaseRegiDate.Location = new System.Drawing.Point(124, 141);
+            this.txtPurchaseRegiDate.Name = "txtPurchaseRegiDate";
+            this.txtPurchaseRegiDate.ReadOnly = true;
+            this.txtPurchaseRegiDate.Size = new System.Drawing.Size(189, 25);
+            this.txtPurchaseRegiDate.TabIndex = 24;
             // 
-            // textBox8
+            // txtClientName
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(124, 106);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(189, 25);
-            this.textBox8.TabIndex = 23;
+            this.txtClientName.Enabled = false;
+            this.txtClientName.Location = new System.Drawing.Point(124, 106);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.ReadOnly = true;
+            this.txtClientName.Size = new System.Drawing.Size(189, 25);
+            this.txtClientName.TabIndex = 23;
             // 
             // label16
             // 
@@ -437,18 +437,18 @@ namespace DESK_MES
             this.label15.TabIndex = 20;
             this.label15.Text = "등록시간";
             // 
-            // textBox7
+            // txtPurchaseState
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPurchaseState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(124, 176);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(189, 25);
-            this.textBox7.TabIndex = 19;
-            this.textBox7.Text = "대기/확정";
+            this.txtPurchaseState.Enabled = false;
+            this.txtPurchaseState.Location = new System.Drawing.Point(124, 176);
+            this.txtPurchaseState.Name = "txtPurchaseState";
+            this.txtPurchaseState.ReadOnly = true;
+            this.txtPurchaseState.Size = new System.Drawing.Size(189, 25);
+            this.txtPurchaseState.TabIndex = 19;
+            this.txtPurchaseState.Text = "대기/확정";
             // 
             // label14
             // 
@@ -462,29 +462,29 @@ namespace DESK_MES
             this.label14.TabIndex = 18;
             this.label14.Text = "발주상태";
             // 
-            // textBox5
+            // txtIncomingDate
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtIncomingDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(124, 246);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(189, 25);
-            this.textBox5.TabIndex = 16;
+            this.txtIncomingDate.Enabled = false;
+            this.txtIncomingDate.Location = new System.Drawing.Point(124, 246);
+            this.txtIncomingDate.Name = "txtIncomingDate";
+            this.txtIncomingDate.ReadOnly = true;
+            this.txtIncomingDate.Size = new System.Drawing.Size(189, 25);
+            this.txtIncomingDate.TabIndex = 16;
             // 
-            // textBox4
+            // txtClientCode
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtClientCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(124, 71);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(189, 25);
-            this.textBox4.TabIndex = 15;
+            this.txtClientCode.Enabled = false;
+            this.txtClientCode.Location = new System.Drawing.Point(124, 71);
+            this.txtClientCode.Name = "txtClientCode";
+            this.txtClientCode.ReadOnly = true;
+            this.txtClientCode.Size = new System.Drawing.Size(189, 25);
+            this.txtClientCode.TabIndex = 15;
             // 
             // label12
             // 
@@ -522,17 +522,17 @@ namespace DESK_MES
             this.label11.TabIndex = 8;
             this.label11.Text = "발주등록일";
             // 
-            // textBox3
+            // txtPurchaseCode
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPurchaseCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(124, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(189, 25);
-            this.textBox3.TabIndex = 7;
+            this.txtPurchaseCode.Enabled = false;
+            this.txtPurchaseCode.Location = new System.Drawing.Point(124, 36);
+            this.txtPurchaseCode.Name = "txtPurchaseCode";
+            this.txtPurchaseCode.ReadOnly = true;
+            this.txtPurchaseCode.Size = new System.Drawing.Size(189, 25);
+            this.txtPurchaseCode.TabIndex = 7;
             // 
             // label9
             // 
@@ -582,6 +582,7 @@ namespace DESK_MES
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(801, 206);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox5
             // 
@@ -726,14 +727,14 @@ namespace DESK_MES
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtPurchaseState;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtIncomingDate;
+        private System.Windows.Forms.TextBox txtClientCode;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPurchaseCode;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -745,15 +746,15 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnIncoming;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtDueDate;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtPurchaseRegiDate;
+        private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtIncomingState;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtRegiUser;
+        private System.Windows.Forms.TextBox txtRegiDate;
         private System.Windows.Forms.Label label13;
     }
 }

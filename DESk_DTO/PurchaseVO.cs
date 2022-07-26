@@ -20,5 +20,6 @@ namespace DESK_DTO
         public int Create_User_No { get; set; }
         public string Update_Time { get; set; }
         public string Update_User_No { get; set; }
+        public string Warehouse_Code { get; set; }
     }
 }
