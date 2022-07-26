@@ -33,9 +33,13 @@ namespace DESK_MES
         /// <returns></returns>
         public List<EquipmentVO> SelectEquipmentAllList()
         {
-            string sql = @"select Equipment_No, Equipment_Name, Is_Inoperative, e.Create_Time, e.Create_User_No, u.[User_Name],e.Update_Time, e.Update_User_No,ur.[User_Name], e.Is_Delete
+            string sql = @"select Equipment_No, Equipment_Name, e.Operation_Type_No, Operation_Name as Operation_Type_Name,Is_Inoperative, convert(nvarchar(20), e.Create_Time,20) Create_Time, e.Create_User_No, u.[User_Name] Create_User_Name,convert(nvarchar(20), 
+e.Update_Time,20) Update_Time, e.Update_User_No,ur.[User_Name] Update_User_Name,convert(nvarchar(20), (select Inoperative_Start_Time
+from TB_INOPERATIVE_EQUIPMENT
+where Equipment_No = e.Equipment_No),20) as Inoperative_Start_Time,e.Is_Delete
                             from [dbo].[TB_EQUIPMENT] e left join [dbo].[TB_USER] u on e.Create_User_No = u.User_No
 							                            left join [dbo].[TB_USER] ur on e.Update_User_No = ur.User_No
+														left join TB_OPERATION o on e.Operation_Type_No = o.Operation_No
                             where e.Is_Delete = 'N'";
             try
             {
