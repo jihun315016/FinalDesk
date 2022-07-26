@@ -21,7 +21,7 @@ namespace DESK_MES
         int userNO;
         string userName;
         string saveFileName;
-        int selectUser;
+        int selectEqui;
         bool flag = false;
         public frmEquipment()
         {
@@ -62,12 +62,15 @@ namespace DESK_MES
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtEquipNo.Text))
+            if (! string.IsNullOrEmpty(txtEquipNo.Text))
             {
-
+                EquipmentVO eq = allList.Find((f) => f.Equipment_No.Equals(selectEqui));
+                PopEquipmentModify pop = new PopEquipmentModify(eq,userVV);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    BindingGdv();
+                }
             }
-            PopEquipmentModify pop = new PopEquipmentModify();
-            pop.ShowDialog();
         }
 
         private void frmEquipment_Load(object sender, EventArgs e)
@@ -75,7 +78,9 @@ namespace DESK_MES
             if (srv == null)
                 srv = new EquipmentService();
             //UserGroupService srvG = new UserGroupService();
-            //
+            userVV =((frmMain)this.MdiParent).userInfo;
+            dtpInoper.Format = DateTimePickerFormat.Custom;
+            dtpInoper.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpCreate.Format = DateTimePickerFormat.Custom;
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpUpdate.Format = DateTimePickerFormat.Custom;
@@ -86,7 +91,10 @@ namespace DESK_MES
             cboDate.Items.Add("변경시간");
             cboDate.SelectedIndex = 0;
             cboDate.DropDownStyle = ComboBoxStyle.DropDownList;
+
             DataGridUtil.SetInitGridView(dgvMain);
+            dgvMain.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비번호", "Equipment_No"); //0
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name"); //1
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "유형", "Operation_Type_Name"); //2
@@ -103,7 +111,6 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자ID", "Create_User_No", isVisible: false); //11
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경자ID", "Update_User_No", isVisible: false); //12
             BindingGdv();
-
             
             flag = false;
         }
@@ -113,7 +120,7 @@ namespace DESK_MES
             if (e.RowIndex < 0) return;
             ResetDetail();
 
-            selectUser = Convert.ToInt32(dgvMain[0, e.RowIndex].Value);
+            selectEqui = Convert.ToInt32(dgvMain[0, e.RowIndex].Value);
             txtEquipNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
             txtName.Text = dgvMain[1, e.RowIndex].Value.ToString();
             if (dgvMain[2, e.RowIndex].Value != null)

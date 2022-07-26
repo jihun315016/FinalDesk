@@ -24,5 +24,8 @@ namespace DESK_DTO
         //
         public int Code { get; set; }
         public string Name { get; set; }
+        public string Catagory { get; set; }
+
+
     }
 }
