@@ -26,6 +26,11 @@ namespace DESK_MES
             this.user = ((frmMain)(this.MdiParent)).userInfo;
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopInspectItemRegister pop = new PopInspectItemRegister(user);
