@@ -190,17 +190,23 @@
     <Compile Include="Forms\frmManufacture\frmManufacture.Designer.cs">
       <DependentUpon>frmManufacture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmOIItemRelation\frmOIItemRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOIItemRelation\frmOIItemRelation.Designer.cs">
+      <DependentUpon>frmOIItemRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOIItemRelation\PopOIItemRelationRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOIItemRelation\PopOIItemRelationRegister.Designer.cs">
+      <DependentUpon>PopOIItemRelationRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmOperation\frmOperation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmOperation\frmOperation.Designer.cs">
       <DependentUpon>frmOperation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmOperation\frmOperationInspectItemRelation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmOperation\frmOperationInspectItemRelation.Designer.cs">
-      <DependentUpon>frmOperationInspectItemRelation.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmOrder\frmOrder.cs">
       <SubType>Form</SubType>
@@ -526,11 +532,14 @@
     <EmbeddedResource Include="Forms\frmManufacture\frmManufacture.resx">
       <DependentUpon>frmManufacture.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOIItemRelation\frmOIItemRelation.resx">
+      <DependentUpon>frmOIItemRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOIItemRelation\PopOIItemRelationRegister.resx">
+      <DependentUpon>PopOIItemRelationRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOperation\frmOperation.resx">
       <DependentUpon>frmOperation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmOperation\frmOperationInspectItemRelation.resx">
-      <DependentUpon>frmOperationInspectItemRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOrder\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
@@ -720,5 +729,6 @@
   <ItemGroup>
     <None Include="Resources\close-red.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

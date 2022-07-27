@@ -16,7 +16,7 @@ namespace DESK_MES
     {
         UserVO user;
         InspectService InspectSrv;
-        List<InspectItemVO> InspectList;
+        List<InspectItemVO> inspectList;
 
         public frmInspectItem()
         {
@@ -33,7 +33,7 @@ namespace DESK_MES
 
         void InitControl()
         {
-            InspectList = InspectSrv.GetInspectItemList();
+            inspectList = InspectSrv.GetInspectItemList();
 
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
             dtpCreateTime.CustomFormat = " ";
@@ -62,7 +62,7 @@ namespace DESK_MES
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<InspectItemVO> list = InspectList.Where(p => 1 == 1).ToList();
+            List<InspectItemVO> list = inspectList.Where(p => 1 == 1).ToList();
 
             // 상세 검색
             if (panel5.Visible)
@@ -151,7 +151,7 @@ namespace DESK_MES
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            InspectList = InspectSrv.GetInspectItemList();
+            inspectList = InspectSrv.GetInspectItemList();
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
             dgvList.DataSource = null;

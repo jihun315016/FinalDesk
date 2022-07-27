@@ -12,13 +12,13 @@ using DESK_MES.Service;
 
 namespace DESK_MES
 {
-    public partial class frmOperationInspectItemRelation : FormStyle_1
+    public partial class frmOIItemRelation : FormStyle_1
     {
         OperationService operationSrv;
         UserVO user;
         List<OperationVO> operationList;
 
-        public frmOperationInspectItemRelation()
+        public frmOIItemRelation()
         {
             InitializeComponent();
         }
@@ -139,6 +139,12 @@ namespace DESK_MES
                 dtpUpdateTime.Value = oper.Update_Time;
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            PopOIItemRelationRegister pop = new PopOIItemRelationRegister();
+            pop.ShowDialog();
         }
     }
 }
