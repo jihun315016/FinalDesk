@@ -55,6 +55,9 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_User_Name", isVisible: false);
+            dgvList.Columns["Target"].DefaultCellStyle.Format = "###,##0";
+            dgvList.Columns["USL"].DefaultCellStyle.Format = "###,##0";
+            dgvList.Columns["LSL"].DefaultCellStyle.Format = "###,##0";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

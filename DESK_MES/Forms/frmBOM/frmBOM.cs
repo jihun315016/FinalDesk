@@ -73,6 +73,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 사용자", "Update_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 사용자 번호", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 사용자 번호", "Update_User_No", isVisible: false);
+            dgvProductList.Columns["Price"].DefaultCellStyle.Format = "###,##0";
 
             DataGridUtil.SetInitGridView(dgvChild);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvChild, "품번", "Product_Code");
