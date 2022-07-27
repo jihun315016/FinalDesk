@@ -16,10 +16,13 @@ namespace DESK_MES
         PurchaseService srv = null;
         List<ProductVO> allList; // 전체 품목 리스트
 
-        public PopPurchaseRegister()
+        public PopPurchaseRegister(UserVO user)
         {
             InitializeComponent();
             srv = new PurchaseService();
+            txtCreateUSer.Text = user.User_Name;
+            int userNO = user.User_No;
+
         }
 
         private void PopPurchaseRegister_Load(object sender, EventArgs e)

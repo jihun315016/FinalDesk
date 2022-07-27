@@ -204,7 +204,82 @@ namespace DESK_MES
             }
         }
 
-        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<PurchaseDetailVO> lotIDList, List<PurchaseDetailVO> purchaseList) // 발주 등록
+        public PurchaseDetailVO GetLastID() // 새롭게 등록할 LotID 가져오기
+        {
+            try
+            {
+                string sql = @"select TOP(1) [Lot_Code]
+                               from [dbo].[TB_MATERIAL_LOT]   
+                               ORDER BY [Lot_Code] DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    List<PurchaseDetailVO> list = DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+
+                    if (list != null && list.Count > 0)
+                        return list[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+
+        }
+        public PurchaseDetailVO GetIncomingProductInfo(string no) // 입고하는 품목 정보 가져오기
+        {
+            try
+            {
+                string sql = @"select PD.Product_Code as Product_Code,
+                              	      P.Product_Name as Product_Name,
+                                      TotalQty
+                              from [dbo].[TB_PURCHASE_DETAIL] PD
+                              INNER JOIN [dbo].[TB_PRODUCT] P ON PD.Product_Code=P.Product_Code
+                              where PD.Product_Code=@Product_Code";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Product_Code", no);
+
+                    List<PurchaseDetailVO> list = DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+
+                    if (list != null && list.Count > 0)
+                        return list[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
+        public List<PurchaseDetailVO> GetEqualWarehouse(string no)
+        {
+            try
+            {
+                string sql = @"select WP.Warehouse_Code, Warehouse_Name
+                               from [dbo].[TB_WAREHOUSE] W
+                               inner join [dbo].[TB_WAREHOUSE_PRODUCT_RELATION] WP on W.Warehouse_Code=WP.Warehouse_Code
+                               inner join [dbo].[TB_PRODUCT] P on  WP.Product_Code=P.Product_Code
+                               where WP.Product_Code=@Product_Code";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Product_Code", no);
+                    return DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
+        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<string> lotIDList, List<PurchaseDetailVO> purchaseList) // 발주 등록
         {
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -228,23 +303,36 @@ namespace DESK_MES
 
                     cmd.Parameters.Add("@Lot_Code", System.Data.SqlDbType.NVarChar);
                     cmd.Parameters.Add("@Product_Code", System.Data.SqlDbType.NVarChar);
-                    cmd.Parameters.AddWithValue("@Client_Code", purchase.Purchase_No);
+                    cmd.Parameters.AddWithValue("@Client_Code", System.Data.SqlDbType.NVarChar);
                     cmd.Parameters.AddWithValue("@Lot_Time", DateTime.Now);
                     cmd.Parameters.Add("@Lot_Qty", System.Data.SqlDbType.Int);
                     cmd.Parameters.Add("@Cur_Qty", System.Data.SqlDbType.Int);
-                    cmd.Parameters.AddWithValue("@Warehouse_Code", purchase.Warehouse_Code);
+                    cmd.Parameters.AddWithValue("@Warehouse_Code", System.Data.SqlDbType.NVarChar);
                     cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
 
-                    foreach(PurchaseDetailVO id in lotIDList)
+                    for(int i = 0; i < lotIDList.Count; i++)
                     {
-                        cmd.Parameters["@Lot_Code"].Value = id.Lot_Code;
+                        cmd.Parameters["@Lot_Code"].Value = lotIDList[i];
+                        cmd.Parameters["@Product_Code"].Value = purchaseList[i].Product_Code;
+                        cmd.Parameters["@Client_Code"].Value = purchaseList[i].Client_Code;
+                        cmd.Parameters["@Warehouse_Code"].Value = purchaseList[i].Warehouse_Code;
+                        cmd.Parameters["@Lot_Qty"].Value = purchaseList[i].Lot_Qty;
+                        cmd.Parameters["@Cur_Qty"].Value = purchaseList[i].Cur_Qty;
+
+                        cmd.ExecuteNonQuery();
                     }
+
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"update [dbo].[TB_WAREHOUSE_PRODUCT_RELATION] set Product_Quantity=@Product_Quantity
+                                        where Product_Code=@Product_Code";
+
+                    cmd.Parameters.Add("@Product_Code", System.Data.SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@Product_Quantity", System.Data.SqlDbType.Int);
 
                     foreach (PurchaseDetailVO item in purchaseList)
                     {
                         cmd.Parameters["@Product_Code"].Value = item.Product_Code;
-                        cmd.Parameters["@Lot_Qty"].Value = item.Lot_Qty;
-                        cmd.Parameters["@Cur_Qty"].Value = item.Cur_Qty;
+                        cmd.Parameters["@Product_Quantity"].Value = item.Lot_Qty;
 
                         cmd.ExecuteNonQuery();
                     }

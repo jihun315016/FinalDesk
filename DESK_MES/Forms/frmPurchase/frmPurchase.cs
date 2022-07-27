@@ -17,7 +17,7 @@ namespace DESK_MES
         int purchaseNo = 0;
         List<PurchaseVO> purchaseList;
         List<PurchaseDetailVO> purchaseDetailList;
-
+        UserVO user;
 
         public frmPurchase()
         {
@@ -26,6 +26,7 @@ namespace DESK_MES
         }
         private void frmPurchase_Load(object sender, EventArgs e)
         {
+            this.user = ((frmMain)(this.MdiParent)).userInfo;
             srv = new PurchaseService();
 
             DataGridUtil.SetInitGridView(dataGridView1);
@@ -75,7 +76,7 @@ namespace DESK_MES
             txtPurchaseState.Text = dataGridView1["Purchase_State", e.RowIndex].Value.ToString();
             txtDueDate.Text = dataGridView1["IncomingDue_date", e.RowIndex].Value.ToString();
             txtIncomingState.Text = dataGridView1["Is_Incoming", e.RowIndex].Value.ToString();
-            txtIncomingDate.Text = dataGridView1["Incoming_Date", e.RowIndex].Value.ToString();
+            //txtIncomingDate.Text = dataGridView1["Incoming_Date", e.RowIndex].Value.ToString();
             txtRegiDate.Text = dataGridView1["Create_Time", e.RowIndex].Value.ToString();
             //txtRegiUser.Text = dataGridView1["Create_User_No", e.RowIndex].Value.ToString();
 
@@ -84,7 +85,7 @@ namespace DESK_MES
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopPurchaseRegister pop = new PopPurchaseRegister(); ;
+            PopPurchaseRegister pop = new PopPurchaseRegister(user);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 LoadData();

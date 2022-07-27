@@ -10,7 +10,7 @@ namespace DESK_MES
 {
     public class PurchaseService
     {
-        public List<PurchaseVO> GetPurchaseList()  // 주문 정보 가져오기
+        public List<PurchaseVO> GetPurchaseList()  // 발주 정보 가져오기
         {
             PurchaseDAC dac = new PurchaseDAC();
             List<PurchaseVO> result = dac.GetPurchaseList();
@@ -27,7 +27,7 @@ namespace DESK_MES
 
             return result;
         }
-        public List<PurchaseDetailVO> GetPurchaseDetailList(int no)  // 주문 상세정보 가져오기
+        public List<PurchaseDetailVO> GetPurchaseDetailList(int no)  // 발주 상세정보 가져오기
         {
             PurchaseDAC dac = new PurchaseDAC();
             List<PurchaseDetailVO> result = dac.GetPurchaseDetailList(no);
@@ -54,7 +54,31 @@ namespace DESK_MES
             return result;
         }
 
-        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<PurchaseDetailVO> lotIDList, List<PurchaseDetailVO> purchaseList)
+        public PurchaseDetailVO GetLastID()
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            PurchaseDetailVO result = dac.GetLastID();
+            dac.Dispose();
+
+            return result;
+        }
+        public PurchaseDetailVO GetIncomingProductInfo(string no)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            PurchaseDetailVO result = dac.GetIncomingProductInfo(no);
+            dac.Dispose();
+
+            return result;
+        }
+        public List<PurchaseDetailVO> GetEqualWarehouse(string no)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            List<PurchaseDetailVO> result = dac.GetEqualWarehouse(no);
+            dac.Dispose();
+
+            return result;
+        }
+        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<string> lotIDList, List<PurchaseDetailVO> purchaseList)
         {
             PurchaseDAC dac = new PurchaseDAC();
             bool result = dac.RegisterIncomingPurchase(purchase, lotIDList, purchaseList);
