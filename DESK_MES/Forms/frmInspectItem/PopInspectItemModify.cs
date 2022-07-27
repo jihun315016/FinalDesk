@@ -1,4 +1,5 @@
 ﻿using DESK_DTO;
+using DESK_MES.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace DESK_MES
 {
     public partial class PopInspectItemModify : Form
     {
+        InspectService inspectSrv;
         UserVO user;
 
         public PopInspectItemModify(InspectItemVO item, UserVO user)
@@ -20,6 +22,11 @@ namespace DESK_MES
             InitializeComponent();
             InitControl(item);
             this.user = user;
+        }
+
+        private void PopInspectItemModify_Load(object sender, EventArgs e)
+        {
+            inspectSrv = new InspectService();
         }
 
         void InitControl(InspectItemVO item)
@@ -43,7 +50,16 @@ namespace DESK_MES
                 Update_User_No = user.Update_User_No
             };
 
-            //  TODO : 검사 항목 수정
+            bool result = inspectSrv.UpdateInspectItem(item);
+            if (result)
+            {
+                MessageBox.Show("수정이 완료되었습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("수정에 실패했습니다.");
+            }
         }
     }
 }

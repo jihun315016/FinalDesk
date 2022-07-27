@@ -26,5 +26,13 @@ namespace DESK_MES.Service
             dac.Dispose();
             return result;
         }
+
+        public bool UpdateInspectItem(InspectItemVO item)
+        {
+            InspectDAC dac = new InspectDAC();
+            bool result = dac.UpdateInspectItem(item);
+            dac.Dispose();
+            return result;
+        }
     }
 }

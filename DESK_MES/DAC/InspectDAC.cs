@@ -27,6 +27,12 @@ namespace DESK_MES.DAC
             conn.Close();
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 검사 데이터 항목 조회
+        /// </summary>
+        /// <param name="no"></param>
+        /// <returns></returns>
         public List<InspectItemVO> GetInspectItemList(int no)
         {
             StringBuilder sb = new StringBuilder();
@@ -48,6 +54,12 @@ namespace DESK_MES.DAC
             return list;
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 검사 데이터 항목 저장
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool SaveInspectItem(InspectItemVO item)
         {
             string sql = @"INSERT INTO TB_INSPECT_ITEM
@@ -69,6 +81,38 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 검사 데이터 항목 수정
+        /// </summary>
+        /// <param name="item"></param>
+        public bool UpdateInspectItem(InspectItemVO item)
+        {
+            string sql = @"UPDATE TB_INSPECT_ITEM SET
+                            Inspect_Name = @Inspect_Name, Target = @Target, USL = @USL, LSL = @LSL, 
+                            Update_Time = CONVERT(CHAR(19), GETDATE(), 20), Update_User_No = @Update_User_No
+                            WHERE Inspect_No = @Inspect_No ";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Inspect_Name", item.Inspect_Name);
+                cmd.Parameters.AddWithValue("@Target", item.Target);
+                cmd.Parameters.AddWithValue("@USL", item.USL);
+                cmd.Parameters.AddWithValue("@LSL", item.LSL);
+                cmd.Parameters.AddWithValue("@Update_User_No", item.Update_User_No);
+                cmd.Parameters.AddWithValue("@Inspect_No", item.Inspect_No);
+
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
                 return false;
             }
         }

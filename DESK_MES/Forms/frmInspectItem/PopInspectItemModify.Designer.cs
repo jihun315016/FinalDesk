@@ -358,6 +358,7 @@ namespace DESK_MES
             this.Name = "PopInspectItemModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "검사 수정";
+            this.Load += new System.EventHandler(this.PopInspectItemModify_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
