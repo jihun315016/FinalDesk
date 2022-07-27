@@ -196,6 +196,12 @@
     <Compile Include="Forms\frmOperation\frmOperation.Designer.cs">
       <DependentUpon>frmOperation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmOperation\frmOperationInspectItemRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOperation\frmOperationInspectItemRelation.Designer.cs">
+      <DependentUpon>frmOperationInspectItemRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmOrder\frmOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -522,6 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOperation\frmOperation.resx">
       <DependentUpon>frmOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOperation\frmOperationInspectItemRelation.resx">
+      <DependentUpon>frmOperationInspectItemRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOrder\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
