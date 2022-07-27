@@ -122,7 +122,20 @@ namespace DESK_MES
                 Auth_ID = Convert.ToInt32(cboAuth.SelectedValue),
                 Is_Delete = cboDelete.Text,
                 Update_User_No =  userNo
-            };            
+            };
+
+            if (srv.UpdateUser(uservo))
+            {
+                if (MessageBox.Show("사용자 정보 변경 완료", "사용자 정보 변경", MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("사옹자 정보 변경 실패");
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -68,6 +68,9 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button5 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.rdtWork = new System.Windows.Forms.RadioButton();
+            this.rdtDeWork = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -79,6 +82,7 @@ namespace DESK_MES
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel7
@@ -95,6 +99,7 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel8);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.btnAdd);
@@ -107,6 +112,7 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
             this.groupBox1.Controls.SetChildIndex(this.button5, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
+            this.groupBox1.Controls.SetChildIndex(this.panel8, 0);
             // 
             // btnSearch
             // 
@@ -584,6 +590,38 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.rdtWork);
+            this.panel8.Controls.Add(this.rdtDeWork);
+            this.panel8.Location = new System.Drawing.Point(465, 30);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(241, 31);
+            this.panel8.TabIndex = 39;
+            // 
+            // rdtWork
+            // 
+            this.rdtWork.AutoSize = true;
+            this.rdtWork.Location = new System.Drawing.Point(3, 5);
+            this.rdtWork.Name = "rdtWork";
+            this.rdtWork.Size = new System.Drawing.Size(65, 21);
+            this.rdtWork.TabIndex = 0;
+            this.rdtWork.TabStop = true;
+            this.rdtWork.Text = "재직자";
+            this.rdtWork.UseVisualStyleBackColor = true;
+            // 
+            // rdtDeWork
+            // 
+            this.rdtDeWork.AutoSize = true;
+            this.rdtDeWork.Location = new System.Drawing.Point(105, 5);
+            this.rdtDeWork.Name = "rdtDeWork";
+            this.rdtDeWork.Size = new System.Drawing.Size(65, 21);
+            this.rdtDeWork.TabIndex = 0;
+            this.rdtDeWork.TabStop = true;
+            this.rdtDeWork.Text = "퇴사자";
+            this.rdtDeWork.UseVisualStyleBackColor = true;
+            this.rdtDeWork.CheckedChanged += new System.EventHandler(this.rdtDeWork_CheckedChanged);
+            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -608,6 +646,8 @@ namespace DESK_MES
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -650,5 +690,8 @@ namespace DESK_MES
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox cboDate;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.RadioButton rdtWork;
+        private System.Windows.Forms.RadioButton rdtDeWork;
     }
 }

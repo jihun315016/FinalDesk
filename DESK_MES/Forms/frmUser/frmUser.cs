@@ -16,6 +16,7 @@ namespace DESK_MES
         UserService srv;
         List<UserVO> allList;
         List<UserVO> saveList;
+        List<UserVO> deleteUserList;
         int userNO;
         string userName;
         string saveFileName;
@@ -31,6 +32,7 @@ namespace DESK_MES
         /// </summary>
         public void BindingGdv()
         {
+            rdtWork.Checked = true;
             List<UserVO> list = srv.SelectUserList();
             saveList = allList = list;
             dgvMain.DataSource = null;
@@ -101,6 +103,8 @@ namespace DESK_MES
             cboDate.Items.Add("변경시간");
             cboDate.SelectedIndex = 0;
             cboDate.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            rdtWork.Checked = true;
 
             DataGridUtil.SetInitGridView(dgvMain);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사번", "User_No"); //0
@@ -206,7 +210,6 @@ namespace DESK_MES
             }
         }
 
-
         //엑셀
         private void button3_Click(object sender, EventArgs e)
         {
@@ -248,6 +251,7 @@ namespace DESK_MES
                 flag = false;
                 //일반검색
                 textBox1.Enabled = true;
+                comboBox1.Enabled = true;
                 cboGroupType.SelectedIndex = 0;
                 cboAuth.SelectedIndex = 0;
                 cboDate.SelectedIndex = 0;
@@ -257,6 +261,7 @@ namespace DESK_MES
                 flag = true;
                 //상세검색
                 textBox1.Enabled = false;
+                comboBox1.Enabled = false;
                 comboBox1.SelectedIndex = 0;
             }
         }
@@ -264,7 +269,7 @@ namespace DESK_MES
         private void btnReset_Click(object sender, EventArgs e)
         {
             //상위
-            BindingGdv();
+            //BindingGdv();
             textBox1.Text = "";
             comboBox1.SelectedIndex = 0;
             selectUser = 0;
@@ -273,6 +278,7 @@ namespace DESK_MES
             cboDate.SelectedIndex = 0;
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker2.Value = DateTime.Now;
+            rdtWork.Checked = true;
 
             // 상세정보
             txtUserNo.Text = "";
@@ -367,7 +373,14 @@ namespace DESK_MES
                 //}
                 #endregion
                 StringBuilder sb = new StringBuilder();
-                saveList = allList;
+                if (rdtWork.Checked)
+                {
+                    saveList = allList;
+                }
+                else
+                {
+                    saveList=deleteUserList;
+                }
                 ComboBox[] cbo = new ComboBox[] { cboGroupType, cboAuth, cboDate };
                 foreach (ComboBox item in cbo)
                 {
@@ -410,12 +423,21 @@ namespace DESK_MES
             //기본검색
             else
             {
+                if (rdtWork.Checked)
+                {
+                    saveList = allList;
+                }
+                else
+                {
+                    saveList = deleteUserList;
+                }
                 if (comboBox1.SelectedIndex == 0)
                 {
                     //사용자 그룹ID
                     if (string.IsNullOrWhiteSpace(textBox1.Text))
                     {
-                        BindingGdv();
+                        dgvMain.DataSource = null;
+                        dgvMain.DataSource = saveList;
                     }
                     else
                     {
@@ -425,7 +447,7 @@ namespace DESK_MES
                             textBox1.Text = "";
                             return;
                         }
-                        dgvMain.DataSource = allList.FindAll((f) => f.User_No == num);
+                        dgvMain.DataSource = saveList.FindAll((f) => f.User_No == num);
                     }
                 }
                 else if (comboBox1.SelectedIndex == 1)
@@ -433,11 +455,12 @@ namespace DESK_MES
                     //사용자 그룹명
                     if (string.IsNullOrWhiteSpace(textBox1.Text))
                     {
-                        BindingGdv();
+                        dgvMain.DataSource = null;
+                        dgvMain.DataSource = saveList;
                     }
                     else
                     {
-                        dgvMain.DataSource = allList.FindAll((f) => f.User_Name.Contains(textBox1.Text));
+                        dgvMain.DataSource = saveList.FindAll((f) => f.User_Name.Contains(textBox1.Text));
                     }
                 }
             }
@@ -448,6 +471,21 @@ namespace DESK_MES
             if (e.KeyChar == 13)
             {
                 btnSearch_Click(this, null);
+            }
+        }
+
+        private void rdtDeWork_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdtDeWork.Checked) //퇴사자 표시 //Y 가 퇴사자임
+            {
+                deleteUserList= allList.FindAll((f) => f.Is_Delete.Equals("Y"));
+                dgvMain.DataSource = null;
+                dgvMain.DataSource = deleteUserList;
+            }
+            else
+            {
+                dgvMain.DataSource = null;
+                dgvMain.DataSource = allList;
             }
         }
     }

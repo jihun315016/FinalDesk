@@ -54,28 +54,9 @@ namespace DESK_MES
             dtpUpdate.Value = DateTime.Now;
             txtUpdateUser.Text = "";
         }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            int eqLastNum = allList.Last().Equipment_No + 1;//
-            userVV = ((frmMain)this.MdiParent).userInfo;
-            PopEquipmentRegister pop = new PopEquipmentRegister(eqLastNum, userVV);
-            if (pop.ShowDialog() == DialogResult.OK)
-            {
-                BindingGdv();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (! string.IsNullOrEmpty(txtEquipNo.Text))
-            {
-                PopEquipmentModify pop = new PopEquipmentModify(selectEqui, userVV);
-                if (pop.ShowDialog() == DialogResult.OK)
-                {
-                    BindingGdv();
-                }
-            }
-        }
+        /// <summary>
+        /// 상단 검색, 상세검색등 초기화
+        /// </summary>
         private void UpbarReset()
         {
             comboBox1.SelectedIndex = 0;
@@ -89,10 +70,10 @@ namespace DESK_MES
 
         private void frmEquipment_Load(object sender, EventArgs e)
         {
+            //초기 설정
             if (srv == null)
                 srv = new EquipmentService();
-            //UserGroupService srvG = new UserGroupService();
-            userVV =((frmMain)this.MdiParent).userInfo;
+            userVV = ((frmMain)this.MdiParent).userInfo;
             dtpInoper.Format = DateTimePickerFormat.Custom;
             dtpInoper.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpCreate.Format = DateTimePickerFormat.Custom;
@@ -104,9 +85,6 @@ namespace DESK_MES
             comboBox1.Items.Add("설비명");
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<EquipmentVO> equ = srv.SelectOperationTypeList().FindAll((f) => f.Catagory.Equals("설비유형"));
-            ComboBoxUtil.ComboBinding<EquipmentVO>(cboUpType, equ, "Name", "Code",blank:true);
-
             cboUpInoper.Items.Add("전체");
             cboUpInoper.Items.Add("N");
             cboUpInoper.Items.Add("Y");
@@ -115,7 +93,10 @@ namespace DESK_MES
             cboDate.Items.Add("전체");
             cboDate.Items.Add("생성시간");
             cboDate.Items.Add("변경시간");
+            cboDate.Items.Add("최근다운시간");
             cboDate.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            
 
             DataGridUtil.SetInitGridView(dgvMain);
             dgvMain.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -135,9 +116,39 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "유형 번호", "Operation_Type_No", isVisible: false); //10
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자ID", "Create_User_No", isVisible: false); //11
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경자ID", "Update_User_No", isVisible: false); //12
+
+            //바인딩
+            List<EquipmentVO> equ = srv.SelectOperationTypeList().FindAll((f) => f.Catagory.Equals("설비유형"));
+            ComboBoxUtil.ComboBinding<EquipmentVO>(cboUpType, equ, "Name", "Code", blank: true);
+            ResetDetail();
+            UpbarReset();
             BindingGdv();
-            
+
             flag = false;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int eqLastNum = allList.Last().Equipment_No + 1;//
+            userVV = ((frmMain)this.MdiParent).userInfo;
+            PopEquipmentRegister pop = new PopEquipmentRegister(eqLastNum, userVV);
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                BindingGdv();
+            }
+        }
+
+        //수정
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (! string.IsNullOrEmpty(txtEquipNo.Text))
+            {
+                PopEquipmentModify pop = new PopEquipmentModify(selectEqui, userVV);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    BindingGdv();
+                }
+            }
         }
 
         private void dgvMain_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -223,6 +234,122 @@ namespace DESK_MES
         {
             UpbarReset();
             ResetDetail();
+            BindingGdv();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (flag)//상세검색
+            {                
+                StringBuilder sb = new StringBuilder();
+                saveList = allList;
+                ComboBox[] cbo = new ComboBox[] { cboUpType, cboUpInoper, cboDate };
+                foreach (ComboBox item in cbo)
+                {
+                    if (item.SelectedIndex != 0)
+                    {
+                        if (item.Name == "cboUpType")
+                        {
+                            saveList = saveList.FindAll((f) => f.Operation_Type_Name == item.Text);
+                        }
+                        else if (item.Name == "cboUpInoper")
+                        {
+                            saveList = saveList.FindAll((f) => f.Is_Inoperative == item.Text);
+                        }
+                        else //데이타
+                        {
+                            if (dateTimePicker1.Value > dateTimePicker2.Value)
+                            {
+                                sb.Append("[날짜 범위를 재설정 해주세요]");
+                            }
+
+                            else if (item.SelectedIndex == 1)
+                            {
+                                saveList = saveList.FindAll((f) => Convert.ToDateTime(f.Create_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Create_Time) <= dateTimePicker2.Value);
+                            }
+                            else if(item.SelectedIndex ==2)
+                            {
+                                saveList = saveList.FindAll((f) => Convert.ToDateTime(f.Update_Time) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Update_Time) <= dateTimePicker2.Value);
+                            }
+                            else
+                            {
+                                saveList = saveList.FindAll((f) => Convert.ToDateTime(f.Is_Inoperative_Date) >= dateTimePicker1.Value).FindAll((f) => Convert.ToDateTime(f.Is_Inoperative_Date) <= dateTimePicker2.Value);
+                            }
+                        }
+                    }
+                }
+                if (sb.Length > 0)
+                {
+                    MessageBox.Show(sb.ToString());
+                    return;
+                }
+                dgvMain.DataSource = null;
+                dgvMain.DataSource = saveList;
+            }
+            //기본검색
+            else
+            {
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    //사용자 그룹ID
+                    if (string.IsNullOrWhiteSpace(textBox1.Text))
+                    {
+                        BindingGdv();
+                    }
+                    else
+                    {
+                        int num;
+                        if (!int.TryParse(textBox1.Text, out num))
+                        {
+                            textBox1.Text = "";
+                            return;
+                        }
+                        dgvMain.DataSource = allList.FindAll((f) => f.Equipment_No == num);
+                    }
+                }
+                else if (comboBox1.SelectedIndex == 1)
+                {
+                    //사용자 그룹명
+                    if (string.IsNullOrWhiteSpace(textBox1.Text))
+                    {
+                        BindingGdv();
+                    }
+                    else
+                    {
+                        dgvMain.DataSource = allList.FindAll((f) => f.Equipment_Name.Contains(textBox1.Text));
+                    }
+                }
+            }
+        }
+
+        private void btnOpenDetail_Click(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                flag = false;
+                //일반검색
+                textBox1.Enabled = true;
+                comboBox1.Enabled = true;
+                cboUpType.SelectedIndex = 0;
+                cboUpInoper.SelectedIndex = 0;
+                cboDate.SelectedIndex = 0;
+            }
+            else
+            {
+                flag = true;
+                //상세검색
+                textBox1.Enabled = false;
+                comboBox1.Enabled = false;
+                comboBox1.SelectedIndex = 0;
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnSearch_Click(this, null);
+            }
         }
     }
 }
