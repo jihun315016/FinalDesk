@@ -116,5 +116,29 @@ namespace DESK_MES.DAC
                 return false;
             }
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 검사 데이터 항목 삭제
+        /// </summary>
+        /// <param name="InspectNo"></param>
+        /// <returns></returns>
+        public bool DeleteInspectItem(int InspectNo)
+        {
+            string sql = "DELETE FROM TB_INSPECT_ITEM WHERE Inspect_No = @Inspect_No";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Inspect_No", InspectNo);
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
     }
 }

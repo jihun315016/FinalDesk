@@ -144,5 +144,45 @@ namespace DESK_MES
             PopInspectItemModify pop = new PopInspectItemModify(item, user);
             pop.ShowDialog();
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            InspectList = InspectSrv.GetInspectItemList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            dgvList.DataSource = null;
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+
+            List<InspectItemVO> list = dgvList.DataSource as List<InspectItemVO>;
+            if (list == null)
+            {
+                MessageBox.Show("조회 항목이 없습니다.");
+                return;
+            }
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                ExcelUtil excel = new ExcelUtil();
+                List<InspectItemVO> output = list;
+
+                string[] columnImport = { "Inspect_No", "Inspect_Name", "Target", "USL", "LSL", "Create_Time", "Create_User_Name" };
+                string[] columnName = { "검사 항목 번호", "검사 항목명", "타겟값", "상한값", "하한값", "등록 시간", "등록 사용자" };
+
+                if (excel.ExportList(output, dlg.FileName, columnImport, columnName))
+                {
+                    MessageBox.Show("엑셀 다운로드 완료");
+                }
+                else
+                {
+                    MessageBox.Show("엑셀 다운 실패");
+                }
+            }
+        }
     }
 }
