@@ -102,7 +102,7 @@ namespace DESK_MES
 
         private void btnIncoming_Click(object sender, EventArgs e)
         {
-            if(purchaseNo != 0 )
+            if (purchaseNo != 0)
             {
                 PopIncomingCreateLot pop = new PopIncomingCreateLot(purchaseNo);
                 if (pop.ShowDialog() == DialogResult.OK)
