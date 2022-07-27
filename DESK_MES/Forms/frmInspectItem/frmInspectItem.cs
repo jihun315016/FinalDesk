@@ -118,6 +118,7 @@ namespace DESK_MES
             {
                 dtpUpdateTime.Format = DateTimePickerFormat.Custom;
                 dtpUpdateTime.CustomFormat = " ";
+                txtUpdateUserDetail.Text = string.Empty;
             }
             else
             {

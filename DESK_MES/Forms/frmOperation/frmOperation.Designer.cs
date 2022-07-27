@@ -285,7 +285,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIsDeffectDetail.Enabled = false;
-            this.txtIsDeffectDetail.Location = new System.Drawing.Point(140, 108);
+            this.txtIsDeffectDetail.Location = new System.Drawing.Point(140, 109);
             this.txtIsDeffectDetail.Name = "txtIsDeffectDetail";
             this.txtIsDeffectDetail.ReadOnly = true;
             this.txtIsDeffectDetail.Size = new System.Drawing.Size(176, 25);
@@ -297,7 +297,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaterialDetail.Enabled = false;
-            this.txtMaterialDetail.Location = new System.Drawing.Point(140, 175);
+            this.txtMaterialDetail.Location = new System.Drawing.Point(140, 178);
             this.txtMaterialDetail.Name = "txtMaterialDetail";
             this.txtMaterialDetail.ReadOnly = true;
             this.txtMaterialDetail.Size = new System.Drawing.Size(176, 25);
@@ -309,7 +309,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 178);
+            this.label16.Location = new System.Drawing.Point(25, 181);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(91, 17);
             this.label16.TabIndex = 28;
@@ -333,7 +333,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUpdateUserDetail.Enabled = false;
-            this.txtUpdateUserDetail.Location = new System.Drawing.Point(140, 308);
+            this.txtUpdateUserDetail.Location = new System.Drawing.Point(140, 311);
             this.txtUpdateUserDetail.Name = "txtUpdateUserDetail";
             this.txtUpdateUserDetail.ReadOnly = true;
             this.txtUpdateUserDetail.Size = new System.Drawing.Size(176, 25);
@@ -345,7 +345,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 311);
+            this.label4.Location = new System.Drawing.Point(25, 314);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 24;
@@ -357,7 +357,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpUpdateTime.Enabled = false;
-            this.dtpUpdateTime.Location = new System.Drawing.Point(140, 274);
+            this.dtpUpdateTime.Location = new System.Drawing.Point(140, 277);
             this.dtpUpdateTime.Name = "dtpUpdateTime";
             this.dtpUpdateTime.Size = new System.Drawing.Size(176, 25);
             this.dtpUpdateTime.TabIndex = 23;
@@ -368,7 +368,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 277);
+            this.label3.Location = new System.Drawing.Point(25, 280);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 22;
@@ -380,7 +380,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpCreateTime.Enabled = false;
-            this.dtpCreateTime.Location = new System.Drawing.Point(140, 206);
+            this.dtpCreateTime.Location = new System.Drawing.Point(140, 209);
             this.dtpCreateTime.Name = "dtpCreateTime";
             this.dtpCreateTime.Size = new System.Drawing.Size(176, 25);
             this.dtpCreateTime.TabIndex = 21;
@@ -391,7 +391,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(25, 209);
+            this.label15.Location = new System.Drawing.Point(25, 212);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 17);
             this.label15.TabIndex = 20;
@@ -403,7 +403,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCreateUserDetail.Enabled = false;
-            this.txtCreateUserDetail.Location = new System.Drawing.Point(140, 240);
+            this.txtCreateUserDetail.Location = new System.Drawing.Point(140, 243);
             this.txtCreateUserDetail.Name = "txtCreateUserDetail";
             this.txtCreateUserDetail.ReadOnly = true;
             this.txtCreateUserDetail.Size = new System.Drawing.Size(176, 25);
@@ -415,7 +415,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 243);
+            this.label14.Location = new System.Drawing.Point(25, 246);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 17);
             this.label14.TabIndex = 18;
@@ -427,7 +427,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIsInspectDetail.Enabled = false;
-            this.txtIsInspectDetail.Location = new System.Drawing.Point(140, 143);
+            this.txtIsInspectDetail.Location = new System.Drawing.Point(140, 144);
             this.txtIsInspectDetail.Name = "txtIsInspectDetail";
             this.txtIsInspectDetail.ReadOnly = true;
             this.txtIsInspectDetail.Size = new System.Drawing.Size(176, 25);
@@ -439,7 +439,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 146);
+            this.label12.Location = new System.Drawing.Point(25, 147);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(109, 17);
             this.label12.TabIndex = 12;
@@ -451,7 +451,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 113);
+            this.label10.Location = new System.Drawing.Point(25, 114);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 17);
             this.label10.TabIndex = 10;

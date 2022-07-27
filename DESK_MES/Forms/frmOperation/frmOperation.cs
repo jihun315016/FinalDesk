@@ -21,7 +21,6 @@ namespace DESK_MES
         public frmOperation()
         {
             InitializeComponent();
-            label1.Text = "공정 관리";
         }
 
         private void frmProcess_Load(object sender, EventArgs e)
@@ -33,6 +32,12 @@ namespace DESK_MES
 
         void InitControl()
         {
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+            dtpUpdateTime.CustomFormat = " ";
+
+            label1.Text = "공정 관리";
             operationList = operationSrv.GetOperationList();
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
@@ -138,6 +143,7 @@ namespace DESK_MES
             {
                 dtpUpdateTime.Format = DateTimePickerFormat.Custom;
                 dtpUpdateTime.CustomFormat = " ";
+                txtUpdateUserDetail.Text = string.Empty;
             }
             else
             {
