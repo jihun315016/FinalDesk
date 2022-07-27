@@ -36,11 +36,9 @@ namespace DESK_MES
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cboDate = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cboUpInoper = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboUpType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -110,6 +108,10 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.button1, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
             // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -126,11 +128,9 @@ namespace DESK_MES
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.cboDate);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.cboUpInoper);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.cboUpType);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -142,7 +142,7 @@ namespace DESK_MES
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(843, 24);
+            this.dateTimePicker2.Location = new System.Drawing.Point(665, 24);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker2.TabIndex = 41;
@@ -150,7 +150,7 @@ namespace DESK_MES
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(725, 24);
+            this.dateTimePicker1.Location = new System.Drawing.Point(547, 24);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker1.TabIndex = 42;
@@ -158,7 +158,7 @@ namespace DESK_MES
             // cboDate
             // 
             this.cboDate.FormattingEnabled = true;
-            this.cboDate.Location = new System.Drawing.Point(606, 24);
+            this.cboDate.Location = new System.Drawing.Point(428, 24);
             this.cboDate.Name = "cboDate";
             this.cboDate.Size = new System.Drawing.Size(108, 25);
             this.cboDate.TabIndex = 40;
@@ -166,61 +166,45 @@ namespace DESK_MES
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(820, 27);
+            this.label13.Location = new System.Drawing.Point(642, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(17, 17);
             this.label13.TabIndex = 39;
             this.label13.Text = "~";
             // 
-            // textBox10
+            // cboUpInoper
             // 
-            this.textBox10.Location = new System.Drawing.Point(78, 24);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 25);
-            this.textBox10.TabIndex = 32;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "설비코드";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(472, 24);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(108, 25);
-            this.comboBox4.TabIndex = 29;
+            this.cboUpInoper.FormattingEnabled = true;
+            this.cboUpInoper.Location = new System.Drawing.Point(294, 24);
+            this.cboUpInoper.Name = "cboUpInoper";
+            this.cboUpInoper.Size = new System.Drawing.Size(108, 25);
+            this.cboUpInoper.TabIndex = 29;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(385, 28);
+            this.label8.Location = new System.Drawing.Point(207, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 17);
             this.label8.TabIndex = 28;
             this.label8.Text = "||  설비 상태";
             // 
-            // comboBox3
+            // cboUpType
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(271, 24);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(108, 25);
-            this.comboBox3.TabIndex = 27;
+            this.cboUpType.FormattingEnabled = true;
+            this.cboUpType.Location = new System.Drawing.Point(93, 24);
+            this.cboUpType.Name = "cboUpType";
+            this.cboUpType.Size = new System.Drawing.Size(108, 25);
+            this.cboUpType.TabIndex = 27;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(184, 28);
+            this.label7.Location = new System.Drawing.Point(22, 28);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.Size = new System.Drawing.Size(65, 17);
             this.label7.TabIndex = 26;
-            this.label7.Text = "||  설비 유형";
+            this.label7.Text = "설비 유형";
             // 
             // tableLayoutPanel1
             // 
@@ -602,11 +586,9 @@ namespace DESK_MES
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cboUpInoper;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboUpType;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox4;
