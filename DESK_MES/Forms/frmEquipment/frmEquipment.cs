@@ -28,6 +28,9 @@ namespace DESK_MES
             InitializeComponent();
             label1.Text = "설비 관리";
         }
+        /// <summary>
+        /// 그리드뷰 초기화, 바인딩(DB)
+        /// </summary>
         public void BindingGdv()
         {
             List<EquipmentVO> list = srv.SelectEquipmentAllList();
@@ -36,7 +39,9 @@ namespace DESK_MES
             dgvMain.DataSource = allList;
             ResetDetail();
         }
-       
+       /// <summary>
+       /// 상세 정보단 초기화
+       /// </summary>
         private void ResetDetail()
         {
             txtEquipNo.Text = "";
@@ -71,6 +76,16 @@ namespace DESK_MES
                 }
             }
         }
+        private void UpbarReset()
+        {
+            comboBox1.SelectedIndex = 0;
+            cboUpInoper.SelectedIndex = 0;
+            cboDate.SelectedIndex = 0;
+            cboUpType.SelectedIndex = 0;
+            textBox1.Text = "";
+            dateTimePicker1.Value = DateTime.Now.AddDays(-1);
+            dateTimePicker2.Value = DateTime.Now;
+        }
 
         private void frmEquipment_Load(object sender, EventArgs e)
         {
@@ -85,10 +100,21 @@ namespace DESK_MES
             dtpUpdate.Format = DateTimePickerFormat.Custom;
             dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
+            comboBox1.Items.Add("설비번호");
+            comboBox1.Items.Add("설비명");
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            List<EquipmentVO> equ = srv.SelectOperationTypeList().FindAll((f) => f.Catagory.Equals("설비유형"));
+            ComboBoxUtil.ComboBinding<EquipmentVO>(cboUpType, equ, "Name", "Code",blank:true);
+
+            cboUpInoper.Items.Add("전체");
+            cboUpInoper.Items.Add("N");
+            cboUpInoper.Items.Add("Y");
+            cboUpInoper.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cboDate.Items.Add("전체");
             cboDate.Items.Add("생성시간");
             cboDate.Items.Add("변경시간");
-            cboDate.SelectedIndex = 0;
             cboDate.DropDownStyle = ComboBoxStyle.DropDownList;
 
             DataGridUtil.SetInitGridView(dgvMain);
@@ -180,23 +206,6 @@ namespace DESK_MES
             ExcelUtil excel = new ExcelUtil();
             List<EquipmentVO> orders = list;
 
-            //설비번호", "Equipment_No"); //0
-            //설비명", "Equipment_Name"); //1
-            //유형", "Operation_Type_Name"); //2
-            //상태", "Is_Inoperative"); //3
-            //최근다운시간", "Is_Inoperative_Date
-
-            //생성시간", "Create_Time"); //5
-            //생성자", "Create_User_Name"); //6
-            //변경시간", "Update_Time"); //7
-            //변경자", "Update_User_Name"); //8
-
-
-            //삭제 여부", "Is_Delete", isVisible
-            //유형 번호", "Operation_Type_No", i
-            //생성자ID", "Create_User_No", isVis
-            //변경자ID", "Update_User_No", isVis
-
             string[] columnImport = { "Equipment_No", "Equipment_Name", "Operation_Type_Name", "Is_Inoperative", "Is_Inoperative_Date", "Create_Time", "Create_User_Name", "Update_Time", "Update_User_Name", "Is_Delete" };
             string[] columnName = { "설비번호", "설비명", "유형", "상태", "최근다운시간", "생성시간", "생성자", "변경시간", "변경자", "삭제여부" };
 
@@ -208,6 +217,12 @@ namespace DESK_MES
             {
                 MessageBox.Show("엑셀 다운 실패");
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            UpbarReset();
+            ResetDetail();
         }
     }
 }
