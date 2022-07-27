@@ -151,23 +151,45 @@ namespace DESK_MES
                     Child_Name = dgvLowList["Product_Name", e.RowIndex].Value.ToString(),
                     Child_Type = dgvLowList["Product_Type", e.RowIndex].Value.ToString(),
                     Qty = pop.Qty
-                };
-
-                BomVO item = selectedList.FirstOrDefault(s => s.Child_Product_Code == newPrd.Child_Product_Code);
-
-                // 하위 항목 새로 등록
-                if (item == null)
-                {
-                    selectedList.Add(newPrd);
-                }
-                // 이미 등록된 항목인 경우 (수량 추가)
-                else
-                {
-                    item.Qty = item.Qty + pop.Qty;
-                }
-                dgvChildList.DataSource = null;
-                dgvChildList.DataSource = selectedList;
+                };                
+                AddBom(newPrd, pop.Qty);
             }
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            PopSelectBomQty pop = new PopSelectBomQty();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                BomVO newPrd = new BomVO()
+                {
+                    Parent_Product_Code = cboName.SelectedValue.ToString(),
+                    Child_Product_Code = dgvLowList["Product_Code", dgvLowList.CurrentCell.RowIndex].Value.ToString(),
+                    Child_Name = dgvLowList["Product_Name", dgvLowList.CurrentCell.RowIndex].Value.ToString(),
+                    Child_Type = dgvLowList["Product_Type", dgvLowList.CurrentCell.RowIndex].Value.ToString(),
+                    Qty = pop.Qty
+                };
+                AddBom(newPrd, pop.Qty);
+            }
+        }
+
+        void AddBom(BomVO newPrd, int qty)
+        {
+            BomVO item = selectedList.FirstOrDefault(s => s.Child_Product_Code == newPrd.Child_Product_Code);
+
+            // 하위 항목 새로 등록
+            if (item == null)
+            {
+                selectedList.Add(newPrd);
+            }
+            // 이미 등록된 항목인 경우 (수량 추가)
+            else
+            {
+                item.Qty = item.Qty + qty;
+            }
+            dgvChildList.DataSource = null;
+            dgvChildList.DataSource = selectedList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -182,11 +204,6 @@ namespace DESK_MES
             {
                 btnSearch_Click(this, null);
             }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            dgvLowList_CellDoubleClick(this, null);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

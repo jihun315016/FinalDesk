@@ -32,16 +32,6 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOIItemRelation));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cboMaterial = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtOperNo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtOperName = new System.Windows.Forms.TextBox();
-            this.cboIsInspect = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboIsDeffect = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtIsDeffectDetail = new System.Windows.Forms.TextBox();
@@ -76,7 +66,6 @@ namespace DESK_MES
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -120,11 +109,17 @@ namespace DESK_MES
             // 
             // btnOpenDetail
             // 
+            this.btnOpenDetail.Visible = false;
             this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(350, 30);
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // imageList1
             // 
@@ -138,108 +133,12 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cboMaterial);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtOperNo);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtOperName);
-            this.groupBox2.Controls.Add(this.cboIsInspect);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.cboIsDeffect);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1184, 72);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            // 
-            // cboMaterial
-            // 
-            this.cboMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMaterial.FormattingEnabled = true;
-            this.cboMaterial.Location = new System.Drawing.Point(858, 23);
-            this.cboMaterial.Name = "cboMaterial";
-            this.cboMaterial.Size = new System.Drawing.Size(91, 25);
-            this.cboMaterial.TabIndex = 44;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(771, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "||  자재 사용";
-            // 
-            // txtOperNo
-            // 
-            this.txtOperNo.Location = new System.Drawing.Point(78, 24);
-            this.txtOperNo.Name = "txtOperNo";
-            this.txtOperNo.Size = new System.Drawing.Size(100, 25);
-            this.txtOperNo.TabIndex = 42;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 17);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "공정 번호";
-            // 
-            // txtOperName
-            // 
-            this.txtOperName.Location = new System.Drawing.Point(253, 23);
-            this.txtOperName.Name = "txtOperName";
-            this.txtOperName.Size = new System.Drawing.Size(100, 25);
-            this.txtOperName.TabIndex = 40;
-            // 
-            // cboIsInspect
-            // 
-            this.cboIsInspect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboIsInspect.FormattingEnabled = true;
-            this.cboIsInspect.Location = new System.Drawing.Point(674, 23);
-            this.cboIsInspect.Name = "cboIsInspect";
-            this.cboIsInspect.Size = new System.Drawing.Size(91, 25);
-            this.cboIsInspect.TabIndex = 39;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(543, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 17);
-            this.label8.TabIndex = 38;
-            this.label8.Text = "||  검사 데이터 체크";
-            // 
-            // cboIsDeffect
-            // 
-            this.cboIsDeffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboIsDeffect.FormattingEnabled = true;
-            this.cboIsDeffect.Location = new System.Drawing.Point(446, 23);
-            this.cboIsDeffect.Name = "cboIsDeffect";
-            this.cboIsDeffect.Size = new System.Drawing.Size(91, 25);
-            this.cboIsDeffect.TabIndex = 37;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(359, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 17);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "||  불량 체크";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(184, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 17);
-            this.label6.TabIndex = 35;
-            this.label6.Text = "||  공정명";
             // 
             // tableLayoutPanel1
             // 
@@ -599,12 +498,12 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // frmOperationInspectItemRelation
+            // frmOIItemRelation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
-            this.Name = "frmOperationInspectItemRelation";
+            this.Name = "frmOIItemRelation";
             this.Text = "frmOperationInspectItemRelation";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOperationInspectItemRelation_Load);
@@ -616,8 +515,6 @@ namespace DESK_MES
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -644,16 +541,6 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cboMaterial;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtOperNo;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtOperName;
-        private System.Windows.Forms.ComboBox cboIsInspect;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cboIsDeffect;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtIsDeffectDetail;
         private System.Windows.Forms.TextBox txtMaterialDetail;
         private System.Windows.Forms.Label label16;

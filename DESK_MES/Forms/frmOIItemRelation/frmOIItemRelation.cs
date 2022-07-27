@@ -34,16 +34,11 @@ namespace DESK_MES
         {
             label1.Text = "공정 - 검사 데이터 항목 관리";
 
-            operationList = operationSrv.GetOperationList();
+            // 검사 데이터 체크를 하는 공정만 조회해야 함
+            operationList = operationSrv.GetOperationList().Where(o => o.Is_Check_Inspect == "Y").ToList();
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
-
-            string[] isChackArr = new string[] { "검사 여부", "예", "아니오" };
-            cboIsDeffect.Items.AddRange(isChackArr);
-            cboIsInspect.Items.AddRange(isChackArr);
-            cboMaterial.Items.AddRange(isChackArr);
-            cboIsDeffect.SelectedIndex = cboIsInspect.SelectedIndex = cboMaterial.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvOperation);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정 번호", "Operation_No");
@@ -62,41 +57,14 @@ namespace DESK_MES
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<OperationVO> list = operationList.Where(p => 1 == 1).ToList();
-            // 상세 검색
-            if (panel5.Visible)
-            {
-                if (!string.IsNullOrWhiteSpace(txtOperNo.Text.Trim()))
-                    list = list.Where(p => p.Operation_No.ToString().ToLower().Contains(txtOperNo.Text.ToLower())).ToList();
 
-                if (!string.IsNullOrWhiteSpace(txtOperName.Text.Trim()))
-                    list = list.Where(p => p.Operation_Name.ToLower().Contains(txtOperName.Text.ToLower())).ToList();
+            // 품번 검색
+            if (comboBox1.SelectedIndex == 1)
+                list = list.Where(o => o.Operation_No.ToString().ToLower().Contains(textBox1.Text.ToLower())).ToList();
 
-                if (cboIsDeffect.SelectedIndex == 1)
-                    list = list.Where(p => p.Is_Check_Deffect == "Y").ToList();
-                else if (cboIsDeffect.SelectedIndex == 2)
-                    list = list.Where(p => p.Is_Check_Deffect == "N").ToList();
-
-                if (cboIsInspect.SelectedIndex == 1)
-                    list = list.Where(p => p.Is_Check_Inspect == "Y").ToList();
-                else if (cboIsInspect.SelectedIndex == 2)
-                    list = list.Where(p => p.Is_Check_Inspect == "N").ToList();
-
-                if (cboMaterial.SelectedIndex == 1)
-                    list = list.Where(p => p.Is_Check_Marerial == "Y").ToList();
-                else if (cboMaterial.SelectedIndex == 2)
-                    list = list.Where(p => p.Is_Check_Marerial == "N").ToList();
-            }
-            // 일반 검색
-            else
-            {
-                // 품번 검색
-                if (comboBox1.SelectedIndex == 1)
-                    list = list.Where(o => o.Operation_No.ToString().ToLower().Contains(textBox1.Text.ToLower())).ToList();
-
-                // 품명 검색
-                else if (comboBox1.SelectedIndex == 2)
-                    list = list.Where(o => o.Operation_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
-            }
+            // 품명 검색
+            else if (comboBox1.SelectedIndex == 2)
+                list = list.Where(o => o.Operation_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
 
             dgvOperation.DataSource = list;
         }
@@ -153,6 +121,14 @@ namespace DESK_MES
 
             PopOIItemRelationRegister pop = new PopOIItemRelationRegister(user, oper);
             pop.ShowDialog();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            operationList = operationSrv.GetOperationList().Where(o => o.Is_Check_Inspect == "Y").ToList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            dgvOperation.DataSource = null;
+            dataGridView2.DataSource = null;
         }
     }
 }
