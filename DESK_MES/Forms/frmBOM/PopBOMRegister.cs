@@ -184,6 +184,20 @@ namespace DESK_MES
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            dgvLowList_CellDoubleClick(this, null);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string childCode = dgvChildList["Child_Product_Code", dgvChildList.CurrentCell.RowIndex].Value.ToString();
+            BomVO item = selectedList.Where(s => s.Child_Product_Code == childCode).FirstOrDefault();
+            selectedList.Remove(item);
+            dgvChildList.DataSource = null;
+            dgvChildList.DataSource = selectedList;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool result = productSrv.SaveBom(selectedList, user.User_No);

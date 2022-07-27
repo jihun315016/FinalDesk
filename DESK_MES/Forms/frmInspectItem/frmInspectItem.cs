@@ -16,7 +16,7 @@ namespace DESK_MES
     {
         UserVO user;
         InspectService InspectSrv;
-        List<InspectItemVO> InspectList;
+        List<InspectItemVO> inspectList;
 
         public frmInspectItem()
         {
@@ -33,7 +33,7 @@ namespace DESK_MES
 
         void InitControl()
         {
-            InspectList = InspectSrv.GetInspectItemList();
+            inspectList = InspectSrv.GetInspectItemList();
 
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
             dtpCreateTime.CustomFormat = " ";
@@ -55,11 +55,14 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_User_Name", isVisible: false);
+            dgvList.Columns["Target"].DefaultCellStyle.Format = "###,##0";
+            dgvList.Columns["USL"].DefaultCellStyle.Format = "###,##0";
+            dgvList.Columns["LSL"].DefaultCellStyle.Format = "###,##0";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<InspectItemVO> list = InspectList.Where(p => 1 == 1).ToList();
+            List<InspectItemVO> list = inspectList.Where(p => 1 == 1).ToList();
 
             // 상세 검색
             if (panel5.Visible)
@@ -115,6 +118,7 @@ namespace DESK_MES
             {
                 dtpUpdateTime.Format = DateTimePickerFormat.Custom;
                 dtpUpdateTime.CustomFormat = " ";
+                txtUpdateUserDetail.Text = string.Empty;
             }
             else
             {
@@ -143,6 +147,46 @@ namespace DESK_MES
 
             PopInspectItemModify pop = new PopInspectItemModify(item, user);
             pop.ShowDialog();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            inspectList = InspectSrv.GetInspectItemList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            dgvList.DataSource = null;
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+
+            List<InspectItemVO> list = dgvList.DataSource as List<InspectItemVO>;
+            if (list == null)
+            {
+                MessageBox.Show("조회 항목이 없습니다.");
+                return;
+            }
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                ExcelUtil excel = new ExcelUtil();
+                List<InspectItemVO> output = list;
+
+                string[] columnImport = { "Inspect_No", "Inspect_Name", "Target", "USL", "LSL", "Create_Time", "Create_User_Name" };
+                string[] columnName = { "검사 항목 번호", "검사 항목명", "타겟값", "상한값", "하한값", "등록 시간", "등록 사용자" };
+
+                if (excel.ExportList(output, dlg.FileName, columnImport, columnName))
+                {
+                    MessageBox.Show("엑셀 다운로드 완료");
+                }
+                else
+                {
+                    MessageBox.Show("엑셀 다운 실패");
+                }
+            }
         }
     }
 }

@@ -67,6 +67,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자 번호", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 여부", "Is_Image", isVisible: false);
+            dgvList.Columns["Price"].DefaultCellStyle.Format = "###,##0";
             prdList = productSrv.GetProductList();
         }
 
@@ -131,6 +132,7 @@ namespace DESK_MES
             {
                 dtpUpdateTime.Format = DateTimePickerFormat.Custom;
                 dtpUpdateTime.CustomFormat = " ";
+                txtUpdateUserDetail.Text = string.Empty;
             }
             else
             {

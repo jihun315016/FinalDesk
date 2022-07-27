@@ -1,4 +1,5 @@
 ﻿using DESK_DTO;
+using DESK_MES.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace DESK_MES
 {
     public partial class PopInspectItemModify : Form
     {
+        InspectService inspectSrv;
         UserVO user;
 
         public PopInspectItemModify(InspectItemVO item, UserVO user)
@@ -20,6 +22,11 @@ namespace DESK_MES
             InitializeComponent();
             InitControl(item);
             this.user = user;
+        }
+
+        private void PopInspectItemModify_Load(object sender, EventArgs e)
+        {
+            inspectSrv = new InspectService();
         }
 
         void InitControl(InspectItemVO item)
@@ -40,10 +47,41 @@ namespace DESK_MES
                 Target = Convert.ToInt32(txtTarget.Text),
                 LSL = Convert.ToInt32(txtLsl.Text),
                 USL = Convert.ToInt32(txtUsl.Text),
-                Update_User_No = user.Update_User_No
+                Update_User_No = user.User_No
             };
 
-            //  TODO : 검사 항목 수정
+            bool result = inspectSrv.UpdateInspectItem(item);
+            if (result)
+            {
+                MessageBox.Show("수정이 완료되었습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("수정에 실패했습니다.");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = inspectSrv.DeleteInspectItem(Convert.ToInt32(txtInspectNo.Text));
+                if (result)
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
