@@ -46,5 +46,15 @@ namespace DESK_MES
                 DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "하한값", "LSL", colWidth: 120);
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
