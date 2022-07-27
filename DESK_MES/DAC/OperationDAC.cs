@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -83,6 +84,47 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 공정에 대한 검사 데이터 항목 관계 설정
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <param name="userNo"></param>
+        /// <param name="inspectList"></param>
+        /// <returns></returns>
+        public bool SaveOIRelation(int operNo, int userNo, List<InspectItemVO> inspectList)
+        {
+            string sql = @"INSERT INTO TB_INSPECT_OPERATION_RELEATION
+                        (Inspect_No, Operation_No, Create_Time, Create_User_No)
+                        VALUES
+                        (@Inspect_No, @Operation_No, CONVERT([char](19),getdate(),(20)), @Create_User_No) ";
+
+            SqlTransaction tran = conn.BeginTransaction();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Transaction = tran;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                cmd.Parameters.AddWithValue("@Create_User_No", userNo);
+                cmd.Parameters.Add("@Inspect_No", SqlDbType.Int);
+
+                foreach (InspectItemVO item in inspectList)
+                {
+                    cmd.Parameters["@Inspect_No"].Value = item.Inspect_No;
+                    cmd.ExecuteNonQuery();
+                }
+
+                tran.Commit();
+                return true;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();
                 return false;
             }
         }

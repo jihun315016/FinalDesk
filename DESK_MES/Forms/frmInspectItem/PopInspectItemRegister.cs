@@ -57,5 +57,10 @@ namespace DESK_MES
                 MessageBox.Show("등록에 실패했습니다.");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
