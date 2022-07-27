@@ -143,7 +143,15 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopOIItemRelationRegister pop = new PopOIItemRelationRegister();
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택하세요.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+
+            PopOIItemRelationRegister pop = new PopOIItemRelationRegister(user, oper);
             pop.ShowDialog();
         }
     }

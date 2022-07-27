@@ -18,26 +18,33 @@ namespace DESK_MES
         List<InspectItemVO> InspectList;
         UserVO user;
 
-        public PopOIItemRelationRegister()
+        public PopOIItemRelationRegister(UserVO user, OperationVO oper)
         {
             InitializeComponent();
+            this.user = user;
+            lblOperationName.Text = oper.Operation_Name;
+            lblOperationName.Tag = oper.Operation_No;
         }
 
         private void PopOperationInspectItemRelationRegister_Load(object sender, EventArgs e)
         {
             inspectSrv = new InspectService();
+            InitControl();
         }
 
         void InitControl()
         {
             InspectList = inspectSrv.GetInspectItemList();
 
-            DataGridUtil.SetInitGridView(dgvInspect);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspect, "검사 항목 번호", "Inspect_No", colWidth: 160);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspect, "검사 항목명", "Inspect_Name", colWidth: 170);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspect, "타겟값", "Target", colWidth: 130);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspect, "상한값", "USL", colWidth: 130);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspect, "하한값", "LSL", colWidth: 130);
+            foreach (DataGridView dgv in new DataGridView[] { dgvInspect, dgvRegistered })
+            {
+                DataGridUtil.SetInitGridView(dgv);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목 번호", "Inspect_No", colWidth: 130);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 150);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "타겟값", "Target", colWidth: 120);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "상한값", "USL", colWidth: 120);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "하한값", "LSL", colWidth: 120);
+            }
         }
     }
 }

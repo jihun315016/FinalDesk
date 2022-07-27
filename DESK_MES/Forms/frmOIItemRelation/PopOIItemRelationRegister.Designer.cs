@@ -32,11 +32,11 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopOIItemRelationRegister));
             this.dgvInspect = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dgvRegistered = new System.Windows.Forms.GroupBox();
+            this.dgvRegistered = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblOperationName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -49,9 +49,11 @@ namespace DESK_MES
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInspect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.dgvRegistered.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistered)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,44 +73,48 @@ namespace DESK_MES
             this.dgvInspect.Location = new System.Drawing.Point(3, 17);
             this.dgvInspect.Name = "dgvInspect";
             this.dgvInspect.RowTemplate.Height = 23;
-            this.dgvInspect.Size = new System.Drawing.Size(680, 129);
+            this.dgvInspect.Size = new System.Drawing.Size(680, 99);
             this.dgvInspect.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 17);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(680, 129);
-            this.dataGridView2.TabIndex = 1;
             // 
             // dgvRegistered
             // 
-            this.dgvRegistered.Controls.Add(this.dataGridView2);
+            this.dgvRegistered.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistered.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRegistered.Location = new System.Drawing.Point(3, 198);
+            this.dgvRegistered.Location = new System.Drawing.Point(3, 17);
             this.dgvRegistered.Name = "dgvRegistered";
-            this.dgvRegistered.Size = new System.Drawing.Size(686, 149);
+            this.dgvRegistered.RowTemplate.Height = 23;
+            this.dgvRegistered.Size = new System.Drawing.Size(680, 99);
             this.dgvRegistered.TabIndex = 1;
-            this.dgvRegistered.TabStop = false;
-            this.dgvRegistered.Text = "등록된 검사 데이터 항목";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dgvRegistered);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(3, 198);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(686, 119);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "등록된 검사 데이터 항목";
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.dgvRegistered, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.groupBox3, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblOperationName, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox4, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.button2, 0, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowCount = 5;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(692, 350);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -118,22 +124,22 @@ namespace DESK_MES
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 43);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(686, 149);
+            this.groupBox3.Size = new System.Drawing.Size(686, 119);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "검사 데이터 항목";
             // 
-            // label2
+            // lblOperationName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(686, 40);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOperationName.AutoSize = true;
+            this.lblOperationName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblOperationName.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblOperationName.Location = new System.Drawing.Point(3, 0);
+            this.lblOperationName.Name = "lblOperationName";
+            this.lblOperationName.Size = new System.Drawing.Size(686, 40);
+            this.lblOperationName.TabIndex = 2;
+            this.lblOperationName.Text = "label2";
+            this.lblOperationName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox2
             // 
@@ -278,6 +284,26 @@ namespace DESK_MES
             this.panel1.Size = new System.Drawing.Size(704, 506);
             this.panel1.TabIndex = 5;
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Location = new System.Drawing.Point(614, 168);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 24);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "추가";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.Location = new System.Drawing.Point(614, 323);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 24);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "삭제";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // PopOIItemRelationRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -289,8 +315,8 @@ namespace DESK_MES
             this.Text = "PopOperationInspectItemRelationRegister";
             this.Load += new System.EventHandler(this.PopOperationInspectItemRelationRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInspect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.dgvRegistered.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistered)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -309,11 +335,11 @@ namespace DESK_MES
         #endregion
 
         private System.Windows.Forms.DataGridView dgvInspect;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.GroupBox dgvRegistered;
+        private System.Windows.Forms.DataGridView dgvRegistered;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblOperationName;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnClose;
@@ -326,5 +352,7 @@ namespace DESK_MES
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
