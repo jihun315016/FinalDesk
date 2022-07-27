@@ -2,6 +2,7 @@
 using DESK_MES.DAC;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,14 @@ namespace DESK_MES.Service
             List<OperationVO> list = dac.GetOperationList(no);
             dac.Dispose();
             return list;
+        }
+
+        public DataSet GetOIRelation()
+        {
+            OperationDAC dac = new OperationDAC();
+            DataSet ds = dac.GetOIRelation();
+            dac.Dispose();
+            return ds;
         }
 
         public bool SaveOperation(OperationVO oper)

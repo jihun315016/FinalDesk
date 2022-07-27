@@ -39,10 +39,10 @@ namespace DESK_MES.DAC
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"select 
+            sb.Append(@"SELECT 
 	                        Operation_No, Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, 
 	                        o.Create_Time, o.Create_User_No, u.User_Name Create_User_Name, o.Update_Time, o.Update_User_No, uu.User_Name Update_User_Name 
-                        from TB_OPERATION o
+                        FROM TB_OPERATION o
                         LEFT JOIN TB_USER u ON o.Create_User_No = u.User_No
                         LEFT JOIN TB_USER uu ON o.Update_User_No = uu.User_No ");
 
@@ -55,6 +55,29 @@ namespace DESK_MES.DAC
             List<OperationVO> list = DBHelpler.DataReaderMapToList<OperationVO>(reader);
             reader.Close();
             return list;
+        }
+
+        public DataSet GetOIRelation()
+        {
+            string sql = @"SELECT 
+	                            Operation_No, Operation_Name, Is_Check_Deffect, Is_Check_Inspect, Is_Check_Marerial, 
+	                            o.Create_Time, o.Create_User_No, u.User_Name Create_User_Name, o.Update_Time, o.Update_User_No, uu.User_Name Update_User_Name 
+                            FROM TB_OPERATION o
+                            LEFT JOIN TB_USER u ON o.Create_User_No = u.User_No
+                            LEFT JOIN TB_USER uu ON o.Update_User_No = uu.User_No
+                            WHERE Is_Check_Inspect = 'Y' ;
+
+                            SELECT 
+                                Inspect_No, Inspect_Name, Target, USL, LSL, 
+                                i.Create_Time, i.Create_User_No, u.User_Name Create_User_Name, i.Update_Time, i.Update_User_No, uu.User_Name Update_User_Name 
+                            FROM TB_INSPECT_ITEM i
+                            LEFT JOIN TB_USER u ON i.Create_User_No = u.User_No
+                            LEFT JOIN TB_USER uu ON i.Update_User_No = uu.User_No ";
+
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            da.Fill(ds);
+            return ds;
         }
 
         /// <summary>

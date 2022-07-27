@@ -16,7 +16,7 @@ namespace DESK_MES
     {
         OperationService operationSrv;
         UserVO user;
-        List<OperationVO> operationList;
+        DataSet ds;
 
         public frmOIItemRelation()
         {
@@ -26,16 +26,14 @@ namespace DESK_MES
         private void frmOperationInspectItemRelation_Load(object sender, EventArgs e)
         {
             operationSrv = new OperationService();
+            ds = operationSrv.GetOIRelation();
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             InitControl();
         }
 
         void InitControl()
         {
-            label1.Text = "공정 - 검사 데이터 항목 관리";
-
-            // 검사 데이터 체크를 하는 공정만 조회해야 함
-            operationList = operationSrv.GetOperationList().Where(o => o.Is_Check_Inspect == "Y").ToList();
+            label1.Text = "공정 - 검사 데이터 항목 관리";           
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
@@ -52,21 +50,26 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자", "Update_User_Name", isVisible: false);
+
+            dgvOperation.DataSource = ds.Tables[0];
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<OperationVO> list = operationList.Where(p => 1 == 1).ToList();
+            //List<OperationVO> list = operationList.Where(p => 1 == 1).ToList();
+
+            DataView dv = new DataView(ds.Tables[0]);
+            
 
             // 품번 검색
             if (comboBox1.SelectedIndex == 1)
-                list = list.Where(o => o.Operation_No.ToString().ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                dv.RowFilter = $"CONVERT(Operation_No, System.String) LIKE '%{textBox1.Text}%'";
 
             // 품명 검색
             else if (comboBox1.SelectedIndex == 2)
-                list = list.Where(o => o.Operation_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                dv.RowFilter = $"Operation_Name LIKE '%{textBox1.Text}%'";
 
-            dgvOperation.DataSource = list;
+            dgvOperation.DataSource = dv.ToTable();
         }
 
         private void btnOpenDetail_Click(object sender, EventArgs e)
@@ -125,7 +128,7 @@ namespace DESK_MES
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            operationList = operationSrv.GetOperationList().Where(o => o.Is_Check_Inspect == "Y").ToList();
+            ds = operationSrv.GetOIRelation();
             comboBox1.Enabled = textBox1.Enabled = true;
             dgvOperation.DataSource = null;
             dataGridView2.DataSource = null;
