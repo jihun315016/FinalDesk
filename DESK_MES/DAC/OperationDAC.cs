@@ -67,12 +67,9 @@ namespace DESK_MES.DAC
                             LEFT JOIN TB_USER uu ON o.Update_User_No = uu.User_No
                             WHERE Is_Check_Inspect = 'Y' ;
 
-                            SELECT 
-                                Inspect_No, Inspect_Name, Target, USL, LSL, 
-                                i.Create_Time, i.Create_User_No, u.User_Name Create_User_Name, i.Update_Time, i.Update_User_No, uu.User_Name Update_User_Name 
-                            FROM TB_INSPECT_ITEM i
-                            LEFT JOIN TB_USER u ON i.Create_User_No = u.User_No
-                            LEFT JOIN TB_USER uu ON i.Update_User_No = uu.User_No ";
+                            SELECT Operation_No, ior.Inspect_No, i.Inspect_Name, i.Target, i.USL, i.LSL
+                            FROM TB_INSPECT_OPERATION_RELEATION ior
+                            JOIN TB_INSPECT_ITEM i ON ior.Inspect_No = i.Inspect_No ";
 
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
