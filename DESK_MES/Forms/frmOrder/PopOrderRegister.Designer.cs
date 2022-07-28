@@ -55,22 +55,12 @@ namespace DESK_MES
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvOrderList = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpCreateDate = new System.Windows.Forms.DateTimePicker();
+            this.cboClient = new System.Windows.Forms.ComboBox();
             this.dtpReleaseDate = new System.Windows.Forms.DateTimePicker();
             this.dtpOrderRegiDate = new System.Windows.Forms.DateTimePicker();
-            this.txtClientName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtCreateUser = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtOrderState = new System.Windows.Forms.TextBox();
-            this.txtClientCode = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtOrderNo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -374,22 +364,12 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dtpCreateDate);
+            this.groupBox1.Controls.Add(this.cboClient);
             this.groupBox1.Controls.Add(this.dtpReleaseDate);
             this.groupBox1.Controls.Add(this.dtpOrderRegiDate);
-            this.groupBox1.Controls.Add(this.txtClientName);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.txtCreateUser);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.txtOrderState);
-            this.groupBox1.Controls.Add(this.txtClientCode);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtOrderNo);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(827, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -400,36 +380,27 @@ namespace DESK_MES
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "주문정보";
             // 
-            // dtpCreateDate
+            // cboClient
             // 
-            this.dtpCreateDate.Location = new System.Drawing.Point(129, 280);
-            this.dtpCreateDate.Name = "dtpCreateDate";
-            this.dtpCreateDate.Size = new System.Drawing.Size(189, 25);
-            this.dtpCreateDate.TabIndex = 95;
+            this.cboClient.FormattingEnabled = true;
+            this.cboClient.Location = new System.Drawing.Point(127, 60);
+            this.cboClient.Name = "cboClient";
+            this.cboClient.Size = new System.Drawing.Size(189, 25);
+            this.cboClient.TabIndex = 95;
             // 
             // dtpReleaseDate
             // 
-            this.dtpReleaseDate.Location = new System.Drawing.Point(129, 206);
+            this.dtpReleaseDate.Location = new System.Drawing.Point(127, 148);
             this.dtpReleaseDate.Name = "dtpReleaseDate";
             this.dtpReleaseDate.Size = new System.Drawing.Size(189, 25);
             this.dtpReleaseDate.TabIndex = 94;
             // 
             // dtpOrderRegiDate
             // 
-            this.dtpOrderRegiDate.Location = new System.Drawing.Point(129, 169);
+            this.dtpOrderRegiDate.Location = new System.Drawing.Point(127, 104);
             this.dtpOrderRegiDate.Name = "dtpOrderRegiDate";
             this.dtpOrderRegiDate.Size = new System.Drawing.Size(189, 25);
             this.dtpOrderRegiDate.TabIndex = 93;
-            // 
-            // txtClientName
-            // 
-            this.txtClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClientName.Location = new System.Drawing.Point(129, 132);
-            this.txtClientName.Name = "txtClientName";
-            this.txtClientName.Size = new System.Drawing.Size(189, 25);
-            this.txtClientName.TabIndex = 92;
             // 
             // label18
             // 
@@ -437,7 +408,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(27, 138);
+            this.label18.Location = new System.Drawing.Point(25, 64);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(60, 17);
             this.label18.TabIndex = 91;
@@ -446,89 +417,11 @@ namespace DESK_MES
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 212);
+            this.label12.Location = new System.Drawing.Point(25, 152);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 17);
+            this.label12.Size = new System.Drawing.Size(73, 17);
             this.label12.TabIndex = 87;
-            this.label12.Text = "출고예정일자";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(27, 286);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 17);
-            this.label15.TabIndex = 86;
-            this.label15.Text = "생성시간";
-            // 
-            // txtCreateUser
-            // 
-            this.txtCreateUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCreateUser.Location = new System.Drawing.Point(129, 317);
-            this.txtCreateUser.Name = "txtCreateUser";
-            this.txtCreateUser.Size = new System.Drawing.Size(189, 25);
-            this.txtCreateUser.TabIndex = 85;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(27, 323);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 17);
-            this.label14.TabIndex = 84;
-            this.label14.Text = "생성사용자";
-            // 
-            // txtOrderState
-            // 
-            this.txtOrderState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOrderState.Location = new System.Drawing.Point(129, 243);
-            this.txtOrderState.Name = "txtOrderState";
-            this.txtOrderState.Size = new System.Drawing.Size(189, 25);
-            this.txtOrderState.TabIndex = 83;
-            // 
-            // txtClientCode
-            // 
-            this.txtClientCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClientCode.Location = new System.Drawing.Point(129, 95);
-            this.txtClientCode.Name = "txtClientCode";
-            this.txtClientCode.Size = new System.Drawing.Size(189, 25);
-            this.txtClientCode.TabIndex = 82;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 249);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 17);
-            this.label13.TabIndex = 81;
-            this.label13.Text = "주문상태";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(27, 101);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 17);
-            this.label10.TabIndex = 80;
-            this.label10.Text = "거래처번호";
+            this.label12.Text = "출고예정일";
             // 
             // label11
             // 
@@ -536,33 +429,11 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 175);
+            this.label11.Location = new System.Drawing.Point(25, 108);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 17);
+            this.label11.Size = new System.Drawing.Size(73, 17);
             this.label11.TabIndex = 79;
-            this.label11.Text = "주문등록일자";
-            // 
-            // txtOrderNo
-            // 
-            this.txtOrderNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOrderNo.Location = new System.Drawing.Point(129, 58);
-            this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(189, 25);
-            this.txtOrderNo.TabIndex = 78;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(27, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 17);
-            this.label9.TabIndex = 77;
-            this.label9.Text = "주문번호";
+            this.label11.Text = "주문등록일";
             // 
             // PopOrderRegister
             // 
@@ -624,21 +495,11 @@ namespace DESK_MES
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpCreateDate;
         private System.Windows.Forms.DateTimePicker dtpReleaseDate;
         private System.Windows.Forms.DateTimePicker dtpOrderRegiDate;
-        private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtCreateUser;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtOrderState;
-        private System.Windows.Forms.TextBox txtClientCode;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtOrderNo;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cboClient;
     }
 }

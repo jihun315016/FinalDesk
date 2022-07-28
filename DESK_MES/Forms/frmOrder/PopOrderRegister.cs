@@ -13,24 +13,26 @@ namespace DESK_MES
 {
     public partial class PopOrderRegister : Form
     {
-
+        UserVO user;
         OrderService srv = null;
         List<ProductVO> allList; // 전체 품목 리스트
 
-        public PopOrderRegister()
+        public PopOrderRegister(UserVO user)
         {
             InitializeComponent();
             srv = new OrderService();
+            this.user = user;
         }
 
         private void PopOrderRegister_Load(object sender, EventArgs e)
         {
+
             DataGridUtil.SetInitGridView(dgvAllProduct);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품번", "Product_Code", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품명", "Product_Name", colWidth: 230);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "유형", "Product_Type", colWidth: 60);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "단가", "Price", colWidth: 80);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "주문단위", "Unit", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "주문단위", "Unit", colWidth: 120);
 
             DataGridViewButtonColumn btnAddItem = new DataGridViewButtonColumn();
             btnAddItem.Name = "";
@@ -70,6 +72,11 @@ namespace DESK_MES
                 row.Cells[6].Value = "Product_Code";
             }
             dgvOrderList.CellClick += DgvDeleteOrderList_CellClick;
+
+            List<OrderVO> client = srv.GetClientList();
+            cboClient.DisplayMember = "Client_Name";
+            cboClient.ValueMember = "Client_Code";
+            cboClient.DataSource = client;
 
             LoadData();
         }
@@ -174,11 +181,11 @@ namespace DESK_MES
 
             OrderVO order = new OrderVO
             {
-                Client_Code = txtClientCode.Text.ToString(),
+                Client_Code = cboClient.SelectedValue.ToString(),
                 Order_Date = dtpOrderRegiDate.Value.ToShortDateString(),
                 Release_Date = dtpReleaseDate.Value.ToShortDateString(),
-                Release_State = "출고 대기",
-                Create_Time = dtpCreateDate.Value.ToShortDateString()
+                Release_State = "N",
+                Create_User_No = user.User_No
             };
 
             bool result = srv.RegisterOrder(order, orderList);

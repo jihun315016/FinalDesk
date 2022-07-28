@@ -73,7 +73,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 561);
+            this.panel1.Size = new System.Drawing.Size(1084, 561);
             this.panel1.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -94,7 +94,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 561);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1084, 561);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -111,14 +111,14 @@ namespace DESK_MES
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(978, 62);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1078, 62);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(342, 3);
+            this.panel2.Location = new System.Drawing.Point(392, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 56);
             this.panel2.TabIndex = 0;
@@ -141,7 +141,7 @@ namespace DESK_MES
             this.panel3.Location = new System.Drawing.Point(3, 505);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(978, 52);
+            this.panel3.Size = new System.Drawing.Size(1078, 52);
             this.panel3.TabIndex = 1;
             // 
             // groupBox2
@@ -152,7 +152,7 @@ namespace DESK_MES
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(978, 52);
+            this.groupBox2.Size = new System.Drawing.Size(1078, 52);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -163,7 +163,7 @@ namespace DESK_MES
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.ImageIndex = 1;
             this.btnClose.ImageList = this.imageList2;
-            this.btnClose.Location = new System.Drawing.Point(893, 18);
+            this.btnClose.Location = new System.Drawing.Point(993, 18);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(76, 27);
@@ -191,7 +191,7 @@ namespace DESK_MES
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(978, 425);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1078, 425);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // groupBox1
@@ -208,7 +208,7 @@ namespace DESK_MES
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(972, 64);
+            this.groupBox1.Size = new System.Drawing.Size(1072, 64);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -313,7 +313,7 @@ namespace DESK_MES
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 73);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(972, 349);
+            this.groupBox3.Size = new System.Drawing.Size(1072, 349);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "원자재 목록";
@@ -325,14 +325,14 @@ namespace DESK_MES
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(966, 325);
+            this.dataGridView1.Size = new System.Drawing.Size(1066, 325);
             this.dataGridView1.TabIndex = 0;
             // 
             // PopIncomingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1084, 561);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -341,6 +341,7 @@ namespace DESK_MES
             this.Name = "PopIncomingList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PopIncomingList";
+            this.Load += new System.EventHandler(this.PopIncomingList_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

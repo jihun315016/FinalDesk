@@ -26,7 +26,7 @@ namespace DESK_DTO
         public int Cur_Qty { get; set; } // 현재수량 = 입고수량 = 생산 후 잔여 수량
         public string Warehouse_Code { get; set; }
         public string Warehouse_Name { get; set; }
-        public int Create_Time { get; set; }
-        public string Create_User_No { get; set; } // 입고된 시간
+        public string Create_Time { get; set; }
+        public int Create_User_No { get; set; } // 입고된 시간
     }
 }

@@ -44,8 +44,6 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관 창고 코드", "Warehouse_Code", colWidth: 100);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관 창고명", "Warehouse_Name", colWidth: 100);
             
-            //DataGridViewComboBoxColumn combobox1 = new DataGridViewComboBoxColumn();
-            //dataGridView1.Columns.Add(combobox1);
 
             List<PurchaseDetailVO> detail = srv.GetPurchaseDetailList(purchaseCode);
             dataGridView1.DataSource = detail;

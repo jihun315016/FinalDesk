@@ -86,5 +86,14 @@ namespace DESK_MES
 
             return result;
         }
+
+        public List<PurchaseDetailVO> GetIncomingList()  // 입고목록 가져오기
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            List<PurchaseDetailVO> result = dac.GetIncomingList();
+            dac.Dispose();
+
+            return result;
+        }
     }
 }
