@@ -44,6 +44,10 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -58,10 +62,6 @@ namespace DESK_MES
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -247,6 +247,48 @@ namespace DESK_MES
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(191, 361);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(189, 25);
+            this.textBox1.TabIndex = 103;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Location = new System.Drawing.Point(191, 320);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(189, 25);
+            this.dateTimePicker1.TabIndex = 102;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(89, 323);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 17);
+            this.label2.TabIndex = 101;
+            this.label2.Text = "변경시간";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(89, 364);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.TabIndex = 100;
+            this.label3.Text = "변경사용자";
+            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(191, 279);
@@ -388,48 +430,6 @@ namespace DESK_MES
             this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 86;
             this.label9.Text = "발주번호";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(191, 361);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 25);
-            this.textBox1.TabIndex = 103;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(191, 320);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(189, 25);
-            this.dateTimePicker1.TabIndex = 102;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(89, 323);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 17);
-            this.label2.TabIndex = 101;
-            this.label2.Text = "변경시간";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 364);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
-            this.label3.TabIndex = 100;
-            this.label3.Text = "변경사용자";
             // 
             // PopPurchaseModify
             // 

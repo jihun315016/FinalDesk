@@ -232,6 +232,12 @@
     <Compile Include="Forms\frmPurchaseStatus\frmPurchaseStatus.Designer.cs">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmPurchase\PopIncomingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPurchase\PopIncomingList.Designer.cs">
+      <DependentUpon>PopIncomingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmRelease\frmRelease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -555,6 +561,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPurchase\PopIncomingCreateLot.resx">
       <DependentUpon>PopIncomingCreateLot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPurchase\PopIncomingList.resx">
+      <DependentUpon>PopIncomingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRelease\frmRelease.resx">
       <DependentUpon>frmRelease.cs</DependentUpon>

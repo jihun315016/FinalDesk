@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class frmEquipmentStop : FormStyle_3
+    public partial class PopIncomingList : Form
     {
-        public frmEquipmentStop()
+        public PopIncomingList()
         {
             InitializeComponent();
-            label1.Text = "설비 비가동 내역";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            PopEquipmentStopRegister pop = new PopEquipmentStopRegister();
-            pop.ShowDialog();
+            this.Close();
         }
     }
 }
