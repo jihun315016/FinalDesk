@@ -175,6 +175,24 @@ namespace DESK_MES.DAC
             }
         }
 
+        public bool DeleteOIIetm(int operNo)
+        {
+            string sql = @"DELETE FROM TB_INSPECT_OPERATION_RELEATION
+                            WHERE Operation_No = @Operation_No ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// Author : 강지훈
         /// 공정 수정 기능

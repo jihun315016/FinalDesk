@@ -60,6 +60,7 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -96,6 +97,7 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.SetChildIndex(this.label2, 0);
@@ -106,6 +108,7 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.btnSearch, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnUpdate, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnDelete, 0);
             // 
             // btnOpenDetail
             // 
@@ -474,7 +477,7 @@ namespace DESK_MES
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.ImageIndex = 1;
             this.btnUpdate.ImageList = this.imageList2;
-            this.btnUpdate.Location = new System.Drawing.Point(1096, 30);
+            this.btnUpdate.Location = new System.Drawing.Point(1014, 30);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnUpdate.Size = new System.Drawing.Size(76, 27);
@@ -490,7 +493,7 @@ namespace DESK_MES
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.ImageIndex = 0;
             this.btnAdd.ImageList = this.imageList2;
-            this.btnAdd.Location = new System.Drawing.Point(1014, 30);
+            this.btnAdd.Location = new System.Drawing.Point(932, 30);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(76, 27);
@@ -498,6 +501,22 @@ namespace DESK_MES
             this.btnAdd.Text = "   생성";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.ImageIndex = 0;
+            this.btnDelete.ImageList = this.imageList2;
+            this.btnDelete.Location = new System.Drawing.Point(1096, 30);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnDelete.Size = new System.Drawing.Size(76, 27);
+            this.btnDelete.TabIndex = 35;
+            this.btnDelete.Text = "   삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmOIItemRelation
             // 
@@ -559,5 +578,6 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtOperNameDetail;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtUpdateUserDetail;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

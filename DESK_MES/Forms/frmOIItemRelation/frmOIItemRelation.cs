@@ -177,5 +177,29 @@ namespace DESK_MES
             PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(user, oper, false);
             pop.ShowDialog();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+
+            if (MessageBox.Show("검사 데이터 항목을 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = operationSrv.DeleteOIIetm(Convert.ToInt32(txtOperNoDetail.Text));
+                if (result)
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                    btnReset_Click(this, null);
+                    btnSearch_Click(this, null);
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
+            }
+        }
     }
 }

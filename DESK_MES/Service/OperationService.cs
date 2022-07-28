@@ -56,6 +56,14 @@ namespace DESK_MES.Service
             return result;
         }
 
+        public bool DeleteOIIetm(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.DeleteOIIetm(operNo);
+            dac.Dispose();
+            return result;
+        }
+
         public bool UpdateOperation(OperationVO oper)
         {
             OperationDAC dac = new OperationDAC();
