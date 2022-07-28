@@ -117,5 +117,11 @@ namespace DESK_MES
                 return;
             }
         }
+
+        private void btnIncomingList_Click(object sender, EventArgs e)
+        {
+            PopIncomingList pop = new PopIncomingList();
+            pop.ShowDialog();
+        }
     }
 }

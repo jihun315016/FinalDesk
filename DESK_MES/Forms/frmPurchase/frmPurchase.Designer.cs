@@ -713,6 +713,7 @@ namespace DESK_MES
             this.btnIncomingList.TabIndex = 37;
             this.btnIncomingList.Text = "   입고목록";
             this.btnIncomingList.UseVisualStyleBackColor = true;
+            this.btnIncomingList.Click += new System.EventHandler(this.btnIncomingList_Click);
             // 
             // frmPurchase
             // 
