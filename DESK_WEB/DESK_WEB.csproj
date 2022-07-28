@@ -2031,6 +2031,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\api\ClientController.cs" />
     <Compile Include="Controllers\api\ImageUploadController.cs" />
+    <Compile Include="Controllers\api\PopController.cs" />
     <Compile Include="Controllers\LotController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\TradeController.cs" />
