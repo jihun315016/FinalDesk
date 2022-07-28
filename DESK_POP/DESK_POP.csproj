@@ -52,11 +52,11 @@
     <Compile Include="Controls\ccTextBox.Designer.cs">
       <DependentUpon>ccTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="POP_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="POP_Main.Designer.cs">
+      <DependentUpon>POP_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Lot_Add.cs">
       <SubType>Form</SubType>
@@ -92,8 +92,8 @@
     <EmbeddedResource Include="Controls\ccTextBox.resx">
       <DependentUpon>ccTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="POP_Main.resx">
+      <DependentUpon>POP_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lot_Add.resx">
       <DependentUpon>Lot_Add.cs</DependentUpon>

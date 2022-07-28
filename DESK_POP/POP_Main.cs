@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DESK_POP
 {
-    public partial class Form1 : Form
+    public partial class POP_Main : Form
     {
-        public Form1()
+        public POP_Main()
         {
             InitializeComponent();
         }
