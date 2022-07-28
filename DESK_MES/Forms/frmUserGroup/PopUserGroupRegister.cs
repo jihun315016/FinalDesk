@@ -55,7 +55,7 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text) & txtName.Text.Length < 40)
+            if (! string.IsNullOrWhiteSpace(txtName.Text) && txtName.Text.Length < 40)
             {
                 
                 UserGroupVO userG = new UserGroupVO
