@@ -58,7 +58,7 @@ namespace DESK_MES
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvInspectItem = new System.Windows.Forms.DataGridView();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.btnModify = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -96,7 +96,7 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnModify);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.SetChildIndex(this.label2, 0);
             this.groupBox1.Controls.SetChildIndex(this.comboBox1, 0);
@@ -105,7 +105,7 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.btnReset, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnSearch, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnModify, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnUpdate, 0);
             // 
             // btnOpenDetail
             // 
@@ -467,20 +467,21 @@ namespace DESK_MES
             this.imageList2.Images.SetKeyName(3, "엑셀.png");
             this.imageList2.Images.SetKeyName(4, "check.png");
             // 
-            // btnModify
+            // btnUpdate
             // 
-            this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModify.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModify.ImageIndex = 1;
-            this.btnModify.ImageList = this.imageList2;
-            this.btnModify.Location = new System.Drawing.Point(1096, 30);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnModify.Size = new System.Drawing.Size(76, 27);
-            this.btnModify.TabIndex = 34;
-            this.btnModify.Text = "   변경";
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.ImageIndex = 1;
+            this.btnUpdate.ImageList = this.imageList2;
+            this.btnUpdate.Location = new System.Drawing.Point(1096, 30);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnUpdate.Size = new System.Drawing.Size(76, 27);
+            this.btnUpdate.TabIndex = 34;
+            this.btnUpdate.Text = "   변경";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -538,7 +539,7 @@ namespace DESK_MES
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dgvInspectItem;
         private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtIsDeffectDetail;

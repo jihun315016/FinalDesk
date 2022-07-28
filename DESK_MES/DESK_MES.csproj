@@ -196,11 +196,11 @@
     <Compile Include="Forms\frmOIItemRelation\frmOIItemRelation.Designer.cs">
       <DependentUpon>frmOIItemRelation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmOIItemRelation\PopOIItemRelationRegister.cs">
+    <Compile Include="Forms\frmOIItemRelation\PopOIItemRelationRegUpd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmOIItemRelation\PopOIItemRelationRegister.Designer.cs">
-      <DependentUpon>PopOIItemRelationRegister.cs</DependentUpon>
+    <Compile Include="Forms\frmOIItemRelation\PopOIItemRelationRegUpd.Designer.cs">
+      <DependentUpon>PopOIItemRelationRegUpd.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmOperation\frmOperation.cs">
       <SubType>Form</SubType>
@@ -541,8 +541,8 @@
     <EmbeddedResource Include="Forms\frmOIItemRelation\frmOIItemRelation.resx">
       <DependentUpon>frmOIItemRelation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmOIItemRelation\PopOIItemRelationRegister.resx">
-      <DependentUpon>PopOIItemRelationRegister.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmOIItemRelation\PopOIItemRelationRegUpd.resx">
+      <DependentUpon>PopOIItemRelationRegUpd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOperation\frmOperation.resx">
       <DependentUpon>frmOperation.cs</DependentUpon>

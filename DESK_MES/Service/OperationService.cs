@@ -35,6 +35,19 @@ namespace DESK_MES.Service
             return result;
         }
 
+        public List<int> GetInspectListByOperation(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            DataTable dt = dac.GetInspectListByOperation(operNo);
+            List<int> list = new List<int>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(Convert.ToInt32(dr["Inspect_No"]));
+            }
+            dac.Dispose();
+            return list;
+        }
+
         public bool SaveOIRelation(int operNo, int userNo, List<InspectItemVO> inspectList)
         {
             OperationDAC dac = new OperationDAC();

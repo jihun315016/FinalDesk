@@ -1,7 +1,7 @@
 ﻿
 namespace DESK_MES
 {
-    partial class PopOIItemRelationRegister
+    partial class PopOIItemRelationRegUpd
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace DESK_MES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopOIItemRelationRegister));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopOIItemRelationRegUpd));
             this.dgvInspect = new System.Windows.Forms.DataGridView();
             this.dgvRegistered = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -46,7 +46,7 @@ namespace DESK_MES
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -244,20 +244,20 @@ namespace DESK_MES
             this.panel3.Size = new System.Drawing.Size(688, 54);
             this.panel3.TabIndex = 1;
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 58);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "공정-검사 데이터 등록";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(294, 58);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "Label1";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lblTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(197, 3);
             this.panel2.Name = "panel2";
@@ -308,15 +308,15 @@ namespace DESK_MES
             this.panel1.Size = new System.Drawing.Size(694, 506);
             this.panel1.TabIndex = 5;
             // 
-            // PopOIItemRelationRegister
+            // PopOIItemRelationRegUpd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 506);
             this.Controls.Add(this.panel1);
-            this.Name = "PopOIItemRelationRegister";
+            this.Name = "PopOIItemRelationRegUpd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PopOperationInspectItemRelationRegister";
+            this.Text = "PopOIItemRelationRegUpd";
             this.Load += new System.EventHandler(this.PopOperationInspectItemRelationRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInspect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistered)).EndInit();
@@ -351,7 +351,7 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

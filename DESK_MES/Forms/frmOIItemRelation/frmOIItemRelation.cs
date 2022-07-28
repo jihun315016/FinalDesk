@@ -132,26 +132,50 @@ namespace DESK_MES
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
-            {
-                MessageBox.Show("공정을 선택하세요.");
-                return;
-            }
-
-            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
-
-            PopOIItemRelationRegister pop = new PopOIItemRelationRegister(user, oper);
-            pop.ShowDialog();
-        }
-
         private void btnReset_Click(object sender, EventArgs e)
         {
             ds = operationSrv.GetOIRelation();
             comboBox1.Enabled = textBox1.Enabled = true;
             dgvOperation.DataSource = null;
             dgvInspectItem.DataSource = null;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+
+            if (dgvInspectItem.Rows.Count > 0)
+            {
+                MessageBox.Show("이미 공정에 등록된 검사 데이터 항목이 있습니다.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+            PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(user, oper, true);
+            pop.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+
+            if (dgvInspectItem.Rows.Count < 1)
+            {
+                MessageBox.Show("공정에 등록된 검사 데이터 항목이 없습니다.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+            PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(user, oper, false);
+            pop.ShowDialog();
         }
     }
 }

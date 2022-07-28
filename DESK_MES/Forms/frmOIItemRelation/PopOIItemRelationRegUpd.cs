@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class PopOIItemRelationRegister : Form
+    public partial class PopOIItemRelationRegUpd : Form
     {
         InspectService inspectSrv;
         OperationService operationSrv;
@@ -21,12 +21,18 @@ namespace DESK_MES
         List<InspectItemVO> selectedInspect;
         UserVO user;
 
-        public PopOIItemRelationRegister(UserVO user, OperationVO oper)
+        public PopOIItemRelationRegUpd(UserVO user, OperationVO oper, bool isReg)
         {
             InitializeComponent();
             this.user = user;
             lblOperationName.Text = oper.Operation_Name;
             lblOperationName.Tag = oper.Operation_No;
+
+            lblTitle.Tag = isReg; // 등록 or 수정 유무
+            if (isReg)
+                lblTitle.Text = "공정-검사 데이터 등록";
+            else
+                lblTitle.Text = "공정-검사 데이터 수정";            
         }
 
         private void PopOperationInspectItemRelationRegister_Load(object sender, EventArgs e)
@@ -41,6 +47,25 @@ namespace DESK_MES
         {
             inspectList = inspectSrv.GetInspectItemList();
 
+            // 검사 데이터 항목 수정인 경우
+            if (!(bool)lblTitle.Tag)
+            {
+                List<int> inspectItems = operationSrv.GetInspectListByOperation(Convert.ToInt32(lblOperationName.Tag));
+                foreach (int item in inspectItems)
+                {
+                    
+                    foreach (InspectItemVO inspect in inspectList)
+                    {
+                        if (item == inspect.Inspect_No)
+                        {
+                            selectedInspect.Add(inspect);
+                        }
+                    }
+                }
+
+                selectedInspect.ForEach(s => inspectList.Remove(s));
+            }
+
             foreach (DataGridView dgv in new DataGridView[] { dgvInspect, dgvRegistered })
             {
                 DataGridUtil.SetInitGridView(dgv);
@@ -52,6 +77,7 @@ namespace DESK_MES
             }
 
             dgvInspect.DataSource = inspectList;
+            dgvRegistered.DataSource = selectedInspect;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
