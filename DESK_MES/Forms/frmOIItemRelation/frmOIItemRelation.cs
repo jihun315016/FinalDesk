@@ -51,19 +51,20 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자", "Update_User_Name", isVisible: false);
 
-            dgvOperation.DataSource = ds;
-            dgvOperation.DataMember = "Table";
-            DataRelation relation = new DataRelation("OIRelation", ds.Tables["Table"].Columns["Operation_No"], ds.Tables["Table1"].Columns["Operation_No"]);
-            ds.Relations.Add(relation);
-            dataGridView2.DataSource = ds;
-            dataGridView2.DataMember = "Table.OIRelation";
+            DataGridUtil.SetInitGridView(dgvInspectItem);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "공정 번호", "Operation_No", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "검사 데이터 번호", "Inspect_No", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "검사 데이터 항목명", "Inspect_Name", colWidth: 210);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "타겟값", "Target", colWidth: 160);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "상한값", "USL", colWidth: 160);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "하한값", "LSL", colWidth: 160);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            DataSet tempDs = new DataSet();
             DataView dv = new DataView(ds.Tables[0]);
             
-
             // 품번 검색
             if (comboBox1.SelectedIndex == 1)
                 dv.RowFilter = $"CONVERT(Operation_No, System.String) LIKE '%{textBox1.Text}%'";
@@ -72,7 +73,23 @@ namespace DESK_MES
             else if (comboBox1.SelectedIndex == 2)
                 dv.RowFilter = $"Operation_Name LIKE '%{textBox1.Text}%'";
 
-            dgvOperation.DataSource = dv.ToTable();
+            tempDs.Tables.Add(dv.ToTable());
+            tempDs.Tables.Add(new DataView(ds.Tables[1]).ToTable());
+
+            DataRelation relation = new DataRelation("OIRelation", tempDs.Tables["Table"].Columns["Operation_No"], tempDs.Tables["Table1"].Columns["Operation_No"]);
+            dgvOperation.DataSource = tempDs;
+            dgvOperation.DataMember = "Table";
+            dgvInspectItem.DataSource = null;
+            try
+            {
+                tempDs.Relations.Add(relation);
+                dgvInspectItem.DataSource = tempDs;
+                dgvInspectItem.DataMember = "Table.OIRelation";
+            }
+            catch (Exception err) { }
+
+                
+            
         }
 
         private void btnOpenDetail_Click(object sender, EventArgs e)
@@ -134,7 +151,7 @@ namespace DESK_MES
             ds = operationSrv.GetOIRelation();
             comboBox1.Enabled = textBox1.Enabled = true;
             dgvOperation.DataSource = null;
-            dataGridView2.DataSource = null;
+            dgvInspectItem.DataSource = null;
         }
     }
 }

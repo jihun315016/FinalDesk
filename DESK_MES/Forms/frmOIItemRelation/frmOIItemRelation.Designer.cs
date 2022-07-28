@@ -56,7 +56,7 @@ namespace DESK_MES
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvOperation = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvInspectItem = new System.Windows.Forms.DataGridView();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@ namespace DESK_MES
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperation)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInspectItem)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -438,7 +438,7 @@ namespace DESK_MES
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.dataGridView2);
+            this.groupBox5.Controls.Add(this.dgvInspectItem);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 264);
             this.groupBox5.Name = "groupBox5";
@@ -447,15 +447,15 @@ namespace DESK_MES
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "검사 데이터 항목";
             // 
-            // dataGridView2
+            // dgvInspectItem
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 21);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(801, 222);
-            this.dataGridView2.TabIndex = 1;
+            this.dgvInspectItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInspectItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInspectItem.Location = new System.Drawing.Point(3, 21);
+            this.dgvInspectItem.Name = "dgvInspectItem";
+            this.dgvInspectItem.RowTemplate.Height = 23;
+            this.dgvInspectItem.Size = new System.Drawing.Size(801, 222);
+            this.dgvInspectItem.TabIndex = 1;
             // 
             // imageList2
             // 
@@ -522,7 +522,7 @@ namespace DESK_MES
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperation)).EndInit();
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInspectItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,7 +536,7 @@ namespace DESK_MES
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvOperation;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvInspectItem;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
