@@ -43,7 +43,14 @@ namespace DESK_MES
 
             return result;
         }
+        public List<OrderVO> GetClientList()  // 주문 거래처 가져오기
+        {
+            OrderDAC dac = new OrderDAC();
+            List<OrderVO> result = dac.GetClientList();
+            dac.Dispose();
 
+            return result;
+        }
         public bool RegisterOrder(OrderVO order, List<OrderDetailVO> orderList)
         {
             OrderDAC dac = new OrderDAC();

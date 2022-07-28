@@ -29,7 +29,11 @@ namespace DESK_MES
             }
         }
 
-        public List<OrderVO> GetOrderList() // 주문 정보 가져오기
+        /// <summary>
+        /// 전체 주문 목록 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<OrderVO> GetOrderList() 
         {
             try
             {
@@ -44,10 +48,14 @@ namespace DESK_MES
                                	      Release_State,
                                       convert(varchar(10), OD.Create_Time, 23) Create_Time,
                                	      OD.Create_User_No,
+									  U.User_Name AS Create_User_Name,
                                       convert(varchar(10), OD.Update_Time, 23) Update_Time,
-                               	      OD.Update_User_No
+                               	      OD.Update_User_No, 
+									  UU.User_Name AS Update_User_Name
                                from [dbo].[TB_ORDER] OD
-                               INNER JOIN [dbo].[TB_Client] C ON OD.Client_Code=C.Client_Code";
+                               LEFT JOIN [dbo].[TB_Client] C ON OD.Client_Code=C.Client_Code
+							   LEFT JOIN [dbo].[TB_USER] U ON OD.Create_User_No=U.User_No
+							   LEFT JOIN [dbo].[TB_USER] UU ON OD.Update_User_No=UU.User_No";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
@@ -61,6 +69,11 @@ namespace DESK_MES
             }
         }
 
+        /// <summary>
+        /// 선택한 주문 상세정보 가져오기
+        /// </summary>
+        /// <param name="no"></param>
+        /// <returns></returns>
         public List<OrderDetailVO> GetOrderDetailList(int no)
         {
             try
@@ -69,9 +82,12 @@ namespace DESK_MES
                 string sql = @"select Order_No,
                                       OD.Product_Code AS Product_Code,
                                       Product_Name,
-                                      TotalPrice,
+                                      Product_Type,
+                                      Price,
+                                      Unit,
                                       Qty_PerUnit,
-                                      TotalQty
+                                      TotalQty,
+                                      TotalPrice
                                from[dbo].[TB_ORDER_DETAIL] OD
                                INNER JOIN [dbo].[TB_PRODUCT] P ON OD.Product_Code=P.Product_Code
                                WHERE Order_No=@Order_No";
@@ -89,6 +105,11 @@ namespace DESK_MES
             }
         } 
 
+        /// <summary>
+        /// 선택한 주문 목록 가져오기
+        /// </summary>
+        /// <param name="no"></param>
+        /// <returns></returns>
         public OrderVO GetOrderListByOrderNO(int no)
         {
             try
@@ -125,6 +146,11 @@ namespace DESK_MES
                 return null;
             }
         }
+
+        /// <summary>
+        /// 주문을 위한 완제품 목록 가져오기
+        /// </summary>
+        /// <returns></returns>
         public List<ProductVO> GetProductListForOrder()
         {
             try
@@ -148,33 +174,37 @@ namespace DESK_MES
             }
         }
 
-        public List<OrderDetailVO> GetOrderDetailList(string code) 
+        /// <summary>
+        /// 주문 거래처 가져오기(콤보박스)
+        /// </summary>
+        /// <returns></returns>
+        public List<OrderVO> GetClientList()
         {
             try
             {
-                string sql = @"select WP.Product_Code as Product_Code, 
-                                      WP.Warehouse_Code as Warehouse_Code, 
-                                      Product_Quantity,
-                                      Safe_Stock,
-                                      CONVERT(VARCHAR(20), WP.Create_Time, 20) Create_Time,
-                                      WP.Create_User_No as Create_User_No
-                               from TB_WAREHOUSE_PRODUCT_RELATION WP 
-                               INNER JOIN TB_PRODUCT P ON WP.Product_Code = P.Product_Code
-                               WHERE Warehouse_Code = @Warehouse_Code";
+                List<OrderVO> list = new List<OrderVO>();
+
+                string sql = @"select Client_Code, Client_Name
+                               from [dbo].[TB_Client]
+                               where Client_Type='CUS'";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Warehouse_Code", code);
-
-                    return DBHelpler.DataReaderMapToList<OrderDetailVO>(cmd.ExecuteReader());
+                    list = DBHelpler.DataReaderMapToList<OrderVO>(cmd.ExecuteReader());
                 }
+                return list;
             }
             catch (Exception err)
             {
                 return null;
             }
         }
-
+        /// <summary>
+        /// 주문 등록하기
+        /// </summary>
+        /// <param name="order"></param>
+        /// <param name="orderList"></param>
+        /// <returns></returns>
         public bool RegisterOrder(OrderVO order, List<OrderDetailVO> orderList) // 주문 등록
         {
             using (SqlCommand cmd = new SqlCommand())
@@ -182,8 +212,8 @@ namespace DESK_MES
                 SqlTransaction trans = conn.BeginTransaction();
                 try
                 {
-                    cmd.CommandText = @"insert into [dbo].[TB_ORDER] (Client_Code, Order_Date, Release_Date, Release_State, Create_Time)
-                                        values (@Client_Code, @Order_Date, @Release_Date, @Release_State, @Create_Time); SELECT @@IDENTITY";
+                    cmd.CommandText = @"insert into [dbo].[TB_ORDER] (Client_Code, Order_Date, Release_Date, Release_State, Create_Time, Create_User_No)
+                                        values (@Client_Code, @Order_Date, @Release_Date, @Release_State, @Create_Time, @Create_User_No); SELECT @@IDENTITY";
 
                     cmd.Connection = conn;
                     cmd.Transaction = trans;
@@ -192,6 +222,7 @@ namespace DESK_MES
                     cmd.Parameters.AddWithValue("@Release_Date", order.Release_Date);
                     cmd.Parameters.AddWithValue("@Release_State", order.Release_State);
                     cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Create_User_No", order.Create_User_No);
 
                     int newOrderID = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -226,20 +257,29 @@ namespace DESK_MES
             }
         }
 
-        public bool UpdateOrderInfo(OrderVO order) // 주문 수정
+        /// <summary>
+        /// 주문 수정
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        public bool UpdateOrderInfo(OrderVO order) 
         {
             using (SqlCommand cmd = new SqlCommand())
             {
                 try
                 {
                     cmd.CommandText = @"Update [dbo].[TB_ORDER] set Release_Date=@Release_Date, 
-                                                                    Order_State=@Order_State
+                                                                    Order_State=@Order_State,
+                                                                    Update_Time=@Update_Time,
+                                                                    Update_User_No=@Update_User_No
                                         where Order_No=@Order_No";
 
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@Order_No", order.Order_No);
                     cmd.Parameters.AddWithValue("@Release_Date", order.Release_Date);
                     cmd.Parameters.AddWithValue("@Order_State", order.Order_State);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", order.Update_User_No);
                     cmd.ExecuteNonQuery();
 
                     return true;

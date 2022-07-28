@@ -347,5 +347,35 @@ namespace DESK_MES
                 }
             }
         }
+
+        public List<PurchaseDetailVO> GetIncomingList() // 입고된 자재 목록 가져오기
+        {
+            try
+            {
+                List<PurchaseDetailVO> list = new List<PurchaseDetailVO>();
+
+                string sql = @"select Purchase_No, 
+                                      DT.Product_Code AS Product_Code,
+                                      Product_Name,
+                                      Lot_Code, 
+                                      Lot_Qty, 
+                                      Warehouse_Name, 
+                                      CONVERT(nvarchar(20), ML.Create_Time, 23) Create_Time
+                               from [dbo].[TB_PURCHASE_DETAIL] DT
+                               inner join [dbo].[TB_MATERIAL_LOT] ML on DT.Product_Code=ML.Product_Code
+                               inner join [dbo].[TB_WAREHOUSE] WH on ML.Warehouse_Code=WH.Warehouse_Code
+							   inner join [dbo].[TB_PRODUCT] PR on DT.Product_Code=PR.Product_Code";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    list = DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+                }
+                return list;
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
     }
 }

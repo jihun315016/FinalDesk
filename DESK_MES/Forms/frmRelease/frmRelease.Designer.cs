@@ -71,7 +71,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button6 = new System.Windows.Forms.Button();
             this.btnProductList = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -285,7 +284,6 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.txtClientName);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.txtOrderRegiDate);
@@ -433,9 +431,9 @@ namespace DESK_MES
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(25, 148);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 17);
+            this.label16.Size = new System.Drawing.Size(73, 17);
             this.label16.TabIndex = 70;
-            this.label16.Text = "주문일자";
+            this.label16.Text = "주문등록일";
             // 
             // txtOrderNo
             // 
@@ -572,7 +570,7 @@ namespace DESK_MES
             this.button6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.button6.Size = new System.Drawing.Size(104, 27);
             this.button6.TabIndex = 32;
-            this.button6.Text = "   출고처리";
+            this.button6.Text = "   출고등록";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // btnProductList
@@ -591,21 +589,13 @@ namespace DESK_MES
             this.btnProductList.UseVisualStyleBackColor = true;
             this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(28, 319);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 12);
-            this.label10.TabIndex = 87;
-            this.label10.Text = "label10";
-            // 
             // frmRelease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmRelease";
-            this.Text = "frmRelease";
+            this.Text = "  출고관리";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmRelease_Load);
             this.panel1.ResumeLayout(false);
@@ -674,6 +664,5 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtRelease_OK_Date;
         private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
     }
 }

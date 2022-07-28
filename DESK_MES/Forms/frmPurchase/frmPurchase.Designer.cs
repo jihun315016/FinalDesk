@@ -680,7 +680,7 @@ namespace DESK_MES
             this.btnIncoming.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnIncoming.Size = new System.Drawing.Size(91, 27);
             this.btnIncoming.TabIndex = 32;
-            this.btnIncoming.Text = "   입고처리";
+            this.btnIncoming.Text = "   입고등록";
             this.btnIncoming.UseVisualStyleBackColor = true;
             this.btnIncoming.Click += new System.EventHandler(this.btnIncoming_Click);
             // 
@@ -721,7 +721,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Name = "frmPurchase";
-            this.Text = "frmPurchase";
+            this.Text = "  발주관리";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPurchase_Load);
             this.panel1.ResumeLayout(false);

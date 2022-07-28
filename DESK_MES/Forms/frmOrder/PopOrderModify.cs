@@ -13,12 +13,15 @@ namespace DESK_MES
 {
     public partial class PopOrderModify : Form
     {
+        UserVO user;
         OrderService srv;
 
-        public PopOrderModify(int orderNo)
+        public PopOrderModify(int orderNo, UserVO user)
         {
             InitializeComponent();
             srv = new OrderService();
+            this.user = user;
+
             OrderVO info = srv.GetOrderListByOrderNO(orderNo);
 
             txtOrderNo.Text = info.Order_No.ToString();
@@ -27,7 +30,6 @@ namespace DESK_MES
             txtOrderRegiDate.Text = info.Order_Date;
             dtpReleaseDate.Value = Convert.ToDateTime(info.Release_Date);
             cboOrderState.Text = info.Order_State;
-            txtCreateDate.Text = info.Create_Time;
 
         }
         private void PopOrderModify_Load(object sender, EventArgs e)
@@ -40,7 +42,8 @@ namespace DESK_MES
             {
                 Order_No = Convert.ToInt32(txtOrderNo.Text),
                 Release_Date = dtpReleaseDate.Value.ToShortDateString(),
-                Order_State = cboOrderState.Text.ToString()
+                Order_State = cboOrderState.Text.ToString(),
+                Update_User_No = user.User_No
             };
             bool result = srv.UpdateOrderInfo(order);
             if (result)

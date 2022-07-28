@@ -59,12 +59,10 @@ namespace DESK_MES
             this.label11 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.btnWarehouseProduct = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -97,22 +95,18 @@ namespace DESK_MES
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnWarehouseProduct);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnModify);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.SetChildIndex(this.label2, 0);
             this.groupBox1.Controls.SetChildIndex(this.comboBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.textBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnOpenDetail, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnReset, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnSearch, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button6, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnModify, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button2, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnWarehouseProduct, 0);
             // 
             // comboBox1
@@ -465,21 +459,6 @@ namespace DESK_MES
             this.label9.TabIndex = 6;
             this.label9.Text = "창고명";
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.ImageIndex = 5;
-            this.button2.ImageList = this.imageList2;
-            this.button2.Location = new System.Drawing.Point(740, 30);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(104, 27);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "   재고실사";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // imageList2
             // 
             this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
@@ -538,21 +517,6 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.ImageIndex = 4;
-            this.button6.ImageList = this.imageList2;
-            this.button6.Location = new System.Drawing.Point(850, 30);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(76, 27);
-            this.button6.TabIndex = 37;
-            this.button6.Text = "   출고";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // btnWarehouseProduct
             // 
             this.btnWarehouseProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -560,7 +524,7 @@ namespace DESK_MES
             this.btnWarehouseProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWarehouseProduct.ImageIndex = 5;
             this.btnWarehouseProduct.ImageList = this.imageList2;
-            this.btnWarehouseProduct.Location = new System.Drawing.Point(630, 30);
+            this.btnWarehouseProduct.Location = new System.Drawing.Point(822, 30);
             this.btnWarehouseProduct.Name = "btnWarehouseProduct";
             this.btnWarehouseProduct.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnWarehouseProduct.Size = new System.Drawing.Size(104, 27);
@@ -575,7 +539,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmWarehouse";
-            this.Text = "frmWarehouse";
+            this.Text = "  창고관리";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmWarehouse_Load);
             this.panel1.ResumeLayout(false);
@@ -625,11 +589,9 @@ namespace DESK_MES
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnWarehouseProduct;
         private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
