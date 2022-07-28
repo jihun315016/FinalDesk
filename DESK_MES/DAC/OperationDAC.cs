@@ -137,18 +137,25 @@ namespace DESK_MES.DAC
         /// <returns></returns>
         public bool SaveOIRelation(int operNo, int userNo, List<InspectItemVO> inspectList)
         {
-            string sql = @"INSERT INTO TB_INSPECT_OPERATION_RELEATION
-                        (Inspect_No, Operation_No, Create_Time, Create_User_No)
-                        VALUES
-                        (@Inspect_No, @Operation_No, CONVERT([char](19),getdate(),(20)), @Create_User_No) ";
-
             SqlTransaction tran = conn.BeginTransaction();
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand();
             cmd.Transaction = tran;
 
             try
             {
+                cmd.Connection = conn;
+                // 이미 등록된 항목 삭제
+                cmd.CommandText = @"DELETE FROM TB_INSPECT_OPERATION_RELEATION
+                                    WHERE Operation_No = @Operation_No ";
+
                 cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                cmd.ExecuteNonQuery();
+
+                // 검사 데이터 항목 추가
+                cmd.CommandText = @"INSERT INTO TB_INSPECT_OPERATION_RELEATION
+                                    (Inspect_No, Operation_No, Create_Time, Create_User_No)
+                                    VALUES
+                                    (@Inspect_No, @Operation_No, CONVERT([char](19),getdate(),(20)), @Create_User_No) ";
                 cmd.Parameters.AddWithValue("@Create_User_No", userNo);
                 cmd.Parameters.Add("@Inspect_No", SqlDbType.Int);
 

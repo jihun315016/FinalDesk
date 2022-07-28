@@ -114,14 +114,15 @@ namespace DESK_MES
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool result = (operationSrv.SaveOIRelation(Convert.ToInt32(lblOperationName.Tag), user.User_No, selectedInspect));
+            string msg = (bool)lblTitle.Tag ? "등록" : "수정";
             if (result)
             {
-                MessageBox.Show("공정 - 검사 데이터 관계가 등록되었습니다.");
+                MessageBox.Show($"공정 - 검사 데이터 관계가 {msg}되었습니다.");
                 this.Close();
             }
             else
             {
-                MessageBox.Show("등록에 실패했습니다.");
+                MessageBox.Show($"{msg}에 실패했습니다.");
             }
         }
 
