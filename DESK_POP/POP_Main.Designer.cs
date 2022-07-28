@@ -1,7 +1,7 @@
 ﻿
 namespace DESK_POP
 {
-    partial class Form1
+    partial class POP_Main
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.

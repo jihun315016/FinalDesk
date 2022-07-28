@@ -2040,6 +2040,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DAC\ClientDAC.cs" />
+    <Compile Include="Models\DAC\PopDAC.cs" />
     <Compile Include="Models\DAC\WarehouseDAC.cs" />
     <Compile Include="Models\DTO\ClientVO.cs" />
     <Compile Include="Models\DTO\ResMessage.cs" />
