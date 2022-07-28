@@ -51,13 +51,16 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자", "Update_User_Name", isVisible: false);
 
-            dgvOperation.DataSource = ds.Tables[0];
+            dgvOperation.DataSource = ds;
+            dgvOperation.DataMember = "Table";
+            DataRelation relation = new DataRelation("OIRelation", ds.Tables["Table"].Columns["Operation_No"], ds.Tables["Table1"].Columns["Operation_No"]);
+            ds.Relations.Add(relation);
+            dataGridView2.DataSource = ds;
+            dataGridView2.DataMember = "Table.OIRelation";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //List<OperationVO> list = operationList.Where(p => 1 == 1).ToList();
-
             DataView dv = new DataView(ds.Tables[0]);
             
 
