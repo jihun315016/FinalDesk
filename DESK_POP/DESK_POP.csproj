@@ -129,7 +129,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DESk_DTO\DESK_DTO.csproj">
+      <Project>{2f2a607a-eeaf-4bc2-b56e-16c6a818e2bc}</Project>
+      <Name>DESK_DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>

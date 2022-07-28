@@ -441,7 +441,7 @@ namespace DESK_POP
             this.button2.Text = "진행하기";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // POP_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -449,8 +449,9 @@ namespace DESK_POP
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Name = "Form1";
+            this.Name = "POP_Main";
             this.Text = "작업지시현황";
+            this.Load += new System.EventHandler(this.POP_Main_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
