@@ -31,6 +31,8 @@ namespace DESK_MES
             dtpReleaseDate.Value = Convert.ToDateTime(info.Release_Date);
             cboOrderState.Text = info.Order_State;
 
+
+
         }
         private void PopOrderModify_Load(object sender, EventArgs e)
         {

@@ -31,7 +31,7 @@ namespace DESK_MES
 
 
             DataGridUtil.SetInitGridView(dataGridView1);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처코드", "Client_Code", colWidth: 230, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처코드", "Client_Code", colWidth: 100);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 60);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처유형", "Client_Type", colWidth: 80);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사업자등록번호", "Client_Number", colWidth: 60);
@@ -55,36 +55,6 @@ namespace DESK_MES
             clientList = srv.GetClientList();
             dataGridView1.DataSource = clientList;
         }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            PopClientRegister pop = new PopClientRegister();
-            if (pop.ShowDialog() == DialogResult.OK)
-            {
-                LoadData();
-            }
-        }
-
-        private void btnModify_Click(object sender, EventArgs e)
-        {
-            if (clientCode != null)
-            {
-                PopClientModify pop = new PopClientModify(clientCode);
-                if (pop.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
-            }
-            else
-            {
-                MessageBox.Show("변경하실 항목을 선택해주세요");
-                return;                
-            }
-        }
-
-        private void btnExcel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -103,5 +73,39 @@ namespace DESK_MES
             txtModifyUser.Text = (dataGridView1["Update_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
 
         }
+
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            PopClientRegister pop = new PopClientRegister(user);
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            if (clientCode != null)
+            {
+                PopClientModify pop = new PopClientModify(clientCode, user);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("변경하실 항목을 선택해주세요");
+                return;                
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

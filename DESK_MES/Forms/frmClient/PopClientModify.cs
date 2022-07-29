@@ -16,23 +16,28 @@ namespace DESK_MES
 {
     public partial class PopClientModify : Form
     {
-        ServiceHelper service = null;
+        UserVO user;
+        ClientService srv = null;
+        
 
-        public PopClientModify(string clientCode)
+        public PopClientModify(string clientCode, UserVO user)
         {
             InitializeComponent();
-            service = new ServiceHelper("api/Client");
+            this.user = user;
+            srv = new ClientService();
 
-            ResMessage<ClientVO> resResult = service.GetAsyncT<ResMessage<ClientVO>>(clientCode);
+            ClientVO info = srv.GetClientInfoByCode(clientCode);
 
-            if (resResult.ErrCode == 0)
-            {
-                textBox1.Text = resResult.Data.Client_Code.ToString();
-                textBox2.Text = resResult.Data.Client_Name.ToString();
-                comboBox1.Text = resResult.Data.Client_Type.ToString();
-                textBox5.Text = resResult.Data.Client_Number.ToString();
-                textBox6.Text = resResult.Data.Client_Phone.ToString();
-            }
+            textBox1.Text = info.Client_Code;
+            textBox2.Text = info.Client_Name;
+            textBox3.Text = info.Client_Type;
+            textBox5.Text = info.Client_Number;
+            textBox6.Text = info.Client_Phone;
+
+        }
+        private void PopClientModify_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -41,21 +46,21 @@ namespace DESK_MES
             {
                 Client_Code = textBox1.Text,
                 Client_Name = textBox2.Text,
-                Client_Type = comboBox1.Text,
-                Client_Phone = textBox6.Text
+                Client_Type = textBox3.Text,
+                Client_Phone = textBox6.Text,
+                Update_User_No = user.User_No
             };
 
-            ResMessage<List<ClientVO>> result = service.PostAsync<ClientVO, List<ClientVO>>("UpdateClient", client);
-
-            if (result.ErrCode == 0)
+            bool result = srv.UpdateClientInfo(client);
+            if (result)
             {
-                MessageBox.Show("성공적으로 등록되었습니다.");
+                MessageBox.Show("성공적으로 수정되었습니다.");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrMsg);
+                MessageBox.Show("수정 중 오류가 발생했습니다.");
             }
         }
 
@@ -63,15 +68,16 @@ namespace DESK_MES
         {
             string clientNO = textBox1.Text;
 
-            ResMessage resResult = service.GetAsyncNon($"DelClient/{clientNO}");
-
-            if (resResult.ErrCode == 0)
+            bool result = srv.DeleteClientInfo(clientNO);
+            if (result)
             {
-                MessageBox.Show("삭제되었습니다.");
+                MessageBox.Show("성공적으로 삭제되었습니다.");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
-                MessageBox.Show(resResult.ErrMsg);
+                MessageBox.Show("수정 중 오류가 발생했습니다.");
             }
         }
 

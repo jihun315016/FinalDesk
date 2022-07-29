@@ -13,39 +13,54 @@ namespace DESK_MES
 {
     public partial class PopClientRegister : Form
     {
-        ServiceHelper service = null;
+        UserVO user;
+        ClientService srv = null;
 
-        public PopClientRegister()
+        public PopClientRegister(UserVO user)
         {
             InitializeComponent();
-            service = new ServiceHelper("api/Client");
+            this.user = user;
+            srv = new ClientService();
 
-            string[] type = new string[] { "매입처", "매출처" };
+            // CUS : 매출처(제품)
+            // VEN : 매입처(원자재)
+            string[] type = new string[] { "CUS", "VEN" };
             comboBox1.Items.AddRange(type);
+            comboBox1.SelectedIndex = 0;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {            
+        {
+            ClientVO lastID = srv.GetLastID();
+            string id = lastID.Client_Code.ToString();
+            string[] search = id.Split(new char[] { '_' });
+            string name = search[0];
+            string num = search[1];
+
+            string addID = (int.Parse(search[1]) + 1).ToString().PadLeft(4, '0');
+
+            string newid = (name + "_" + addID);
+
             ClientVO client = new ClientVO
             {
-                Client_Code = textBox1.Text,
+                Client_Code = newid,
                 Client_Name = textBox2.Text,
                 Client_Type = comboBox1.Text,
                 Client_Number = textBox5.Text,
-                Client_Phone = textBox6.Text                
+                Client_Phone = textBox6.Text,
+                Create_User_No = user.User_No
             };
 
-            ResMessage<List<ClientVO>> result = service.PostAsync<ClientVO, List<ClientVO>>("SaveClient", client);
-
-            if (result.ErrCode == 0)
+            bool result = srv.RegisterClient(client);
+            if (result)
             {
-                MessageBox.Show("성공적으로 등록되었습니다.");
+                MessageBox.Show($"거래처가 등록되었습니다.");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show(result.ErrMsg);
+                MessageBox.Show("주문처리 중 오류가 발생했습니다. 다시 시도하여 주십시오.");
             }
         }
 

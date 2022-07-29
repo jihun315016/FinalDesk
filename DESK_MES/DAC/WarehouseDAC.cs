@@ -118,7 +118,37 @@ namespace DESK_MES
             }
         }
 
-        
+        //public bool RegisterClient(ClientVO client) // 품목 등록
+        //{
+        //    try
+        //    {
+        //        //  ITEM_QUANTITY , ITEM_SAFETY_STOCK
+        //        string sql = @"INSERT INTO TB_Client (Client_Code, Client_Name, Client_Type, Client_Number, Client_Phone, Create_Time, Create_User_No)
+        //                            VALUES (@Client_Code, @Client_Name, @Client_Type, @Client_Number, @Client_Phone, @Create_Time, @Create_User_No)";
+
+        //        using (SqlCommand cmd = new SqlCommand(sql, conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@Client_Code", client.Client_Code);
+        //            cmd.Parameters.AddWithValue("@Client_Name", client.Client_Name);
+        //            cmd.Parameters.AddWithValue("@Client_Type", client.Client_Type);
+        //            cmd.Parameters.AddWithValue("@Client_Number", client.Client_Number);
+        //            cmd.Parameters.AddWithValue("@Client_Phone", client.Client_Phone);
+        //            cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
+        //            cmd.Parameters.AddWithValue("@Create_User_No", client.Create_User_No);
+
+
+        //            int iRowAffect = cmd.ExecuteNonQuery();
+        //            return (iRowAffect > 0);
+        //        }
+
+        //        return true;
+
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         //public bool SaveWarehouse(WarehouseVO warehouse)
         //{
