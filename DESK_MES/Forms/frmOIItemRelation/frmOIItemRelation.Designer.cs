@@ -113,7 +113,6 @@ namespace DESK_MES
             // btnOpenDetail
             // 
             this.btnOpenDetail.Visible = false;
-            this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
             // 
             // comboBox1
             // 
@@ -205,7 +204,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaterialDetail.Enabled = false;
-            this.txtMaterialDetail.Location = new System.Drawing.Point(140, 179);
+            this.txtMaterialDetail.Location = new System.Drawing.Point(140, 180);
             this.txtMaterialDetail.Name = "txtMaterialDetail";
             this.txtMaterialDetail.ReadOnly = true;
             this.txtMaterialDetail.Size = new System.Drawing.Size(176, 25);
@@ -217,7 +216,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 179);
+            this.label16.Location = new System.Drawing.Point(25, 180);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(91, 17);
             this.label16.TabIndex = 46;
@@ -241,7 +240,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUpdateUserDetail.Enabled = false;
-            this.txtUpdateUserDetail.Location = new System.Drawing.Point(140, 314);
+            this.txtUpdateUserDetail.Location = new System.Drawing.Point(140, 315);
             this.txtUpdateUserDetail.Name = "txtUpdateUserDetail";
             this.txtUpdateUserDetail.ReadOnly = true;
             this.txtUpdateUserDetail.Size = new System.Drawing.Size(176, 25);
@@ -253,7 +252,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpUpdateTime.Enabled = false;
-            this.dtpUpdateTime.Location = new System.Drawing.Point(140, 280);
+            this.dtpUpdateTime.Location = new System.Drawing.Point(140, 281);
             this.dtpUpdateTime.Name = "dtpUpdateTime";
             this.dtpUpdateTime.Size = new System.Drawing.Size(176, 25);
             this.dtpUpdateTime.TabIndex = 42;
@@ -264,7 +263,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 280);
+            this.label9.Location = new System.Drawing.Point(25, 281);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 41;
@@ -276,7 +275,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpCreateTime.Enabled = false;
-            this.dtpCreateTime.Location = new System.Drawing.Point(140, 212);
+            this.dtpCreateTime.Location = new System.Drawing.Point(140, 213);
             this.dtpCreateTime.Name = "dtpCreateTime";
             this.dtpCreateTime.Size = new System.Drawing.Size(176, 25);
             this.dtpCreateTime.TabIndex = 40;
@@ -287,7 +286,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(25, 212);
+            this.label15.Location = new System.Drawing.Point(25, 213);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 17);
             this.label15.TabIndex = 39;
@@ -299,7 +298,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCreateUserDetail.Enabled = false;
-            this.txtCreateUserDetail.Location = new System.Drawing.Point(140, 246);
+            this.txtCreateUserDetail.Location = new System.Drawing.Point(140, 247);
             this.txtCreateUserDetail.Name = "txtCreateUserDetail";
             this.txtCreateUserDetail.ReadOnly = true;
             this.txtCreateUserDetail.Size = new System.Drawing.Size(176, 25);
@@ -311,7 +310,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 246);
+            this.label14.Location = new System.Drawing.Point(25, 247);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 17);
             this.label14.TabIndex = 37;
@@ -395,7 +394,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 314);
+            this.label13.Location = new System.Drawing.Point(25, 315);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(73, 17);
             this.label13.TabIndex = 27;

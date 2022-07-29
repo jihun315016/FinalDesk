@@ -34,6 +34,10 @@ namespace DESK_MES
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,17 +51,13 @@ namespace DESK_MES
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblEquipMentName = new System.Windows.Forms.Label();
+            this.lblOperationName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvInspect = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvRegistered = new System.Windows.Forms.DataGridView();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -102,6 +102,52 @@ namespace DESK_MES
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(340, 34);
             this.panel5.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "설비명";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(56, 6);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(104, 25);
+            this.txtName.TabIndex = 27;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.ImageIndex = 0;
+            this.button1.ImageList = this.imageList1;
+            this.button1.Location = new System.Drawing.Point(231, 7);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(27, 25);
+            this.button1.TabIndex = 26;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.ImageIndex = 1;
+            this.btnSearch.ImageList = this.imageList1;
+            this.btnSearch.Location = new System.Drawing.Point(166, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnSearch.Size = new System.Drawing.Size(59, 25);
+            this.btnSearch.TabIndex = 25;
+            this.btnSearch.Text = "   검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -251,7 +297,7 @@ namespace DESK_MES
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.lblEquipMentName, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblOperationName, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnAdd, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.panel5, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnDelete, 1, 3);
@@ -270,17 +316,17 @@ namespace DESK_MES
             this.tableLayoutPanel3.Size = new System.Drawing.Size(692, 401);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // lblEquipMentName
+            // lblOperationName
             // 
-            this.lblEquipMentName.AutoSize = true;
-            this.lblEquipMentName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEquipMentName.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblEquipMentName.Location = new System.Drawing.Point(3, 0);
-            this.lblEquipMentName.Name = "lblEquipMentName";
-            this.lblEquipMentName.Size = new System.Drawing.Size(340, 40);
-            this.lblEquipMentName.TabIndex = 2;
-            this.lblEquipMentName.Text = "label2";
-            this.lblEquipMentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOperationName.AutoSize = true;
+            this.lblOperationName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblOperationName.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblOperationName.Location = new System.Drawing.Point(3, 0);
+            this.lblOperationName.Name = "lblOperationName";
+            this.lblOperationName.Size = new System.Drawing.Size(340, 40);
+            this.lblOperationName.TabIndex = 2;
+            this.lblOperationName.Text = "label2";
+            this.lblOperationName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnAdd
             // 
@@ -346,52 +392,6 @@ namespace DESK_MES
             this.dgvRegistered.Size = new System.Drawing.Size(334, 261);
             this.dgvRegistered.TabIndex = 1;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.ImageIndex = 1;
-            this.btnSearch.ImageList = this.imageList1;
-            this.btnSearch.Location = new System.Drawing.Point(166, 6);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnSearch.Size = new System.Drawing.Size(59, 25);
-            this.btnSearch.TabIndex = 25;
-            this.btnSearch.Text = "   검색";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 0;
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(231, 7);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(27, 25);
-            this.button1.TabIndex = 26;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(56, 6);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(104, 25);
-            this.txtName.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "설비명";
-            // 
             // PopEquipmentAndProcessRegUpd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -442,7 +442,7 @@ namespace DESK_MES
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label lblEquipMentName;
+        private System.Windows.Forms.Label lblOperationName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox3;

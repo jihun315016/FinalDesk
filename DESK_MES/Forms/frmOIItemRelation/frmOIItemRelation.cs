@@ -92,14 +92,6 @@ namespace DESK_MES
             
         }
 
-        private void btnOpenDetail_Click(object sender, EventArgs e)
-        {
-            if (panel5.Visible)
-                comboBox1.Enabled = textBox1.Enabled = false;
-            else
-                comboBox1.Enabled = textBox1.Enabled = true;
-        }
-
         private void dgvOperation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
