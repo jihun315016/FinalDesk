@@ -35,10 +35,17 @@ namespace DESK_MES
             this.dgvRegistered = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblOperationName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnReset = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -51,17 +58,11 @@ namespace DESK_MES
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInspect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistered)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -71,36 +72,36 @@ namespace DESK_MES
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvInspect
             // 
             this.dgvInspect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInspect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInspect.Location = new System.Drawing.Point(3, 19);
+            this.dgvInspect.Location = new System.Drawing.Point(3, 21);
             this.dgvInspect.Name = "dgvInspect";
             this.dgvInspect.RowTemplate.Height = 23;
-            this.dgvInspect.Size = new System.Drawing.Size(329, 324);
+            this.dgvInspect.Size = new System.Drawing.Size(334, 265);
             this.dgvInspect.TabIndex = 0;
             // 
             // dgvRegistered
             // 
             this.dgvRegistered.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistered.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRegistered.Location = new System.Drawing.Point(3, 19);
+            this.dgvRegistered.Location = new System.Drawing.Point(3, 21);
             this.dgvRegistered.Name = "dgvRegistered";
             this.dgvRegistered.RowTemplate.Height = 23;
-            this.dgvRegistered.Size = new System.Drawing.Size(329, 327);
+            this.dgvRegistered.Size = new System.Drawing.Size(334, 265);
             this.dgvRegistered.TabIndex = 1;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dgvRegistered);
-            this.groupBox4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox4.Location = new System.Drawing.Point(344, 83);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox4.Location = new System.Drawing.Point(349, 83);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(335, 349);
+            this.groupBox4.Size = new System.Drawing.Size(340, 289);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "등록된 검사 데이터 항목";
@@ -126,19 +127,8 @@ namespace DESK_MES
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(687, 435);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(692, 405);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dgvInspect);
-            this.groupBox3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 83);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(335, 346);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "검사 데이터 항목";
             // 
             // lblOperationName
             // 
@@ -147,7 +137,7 @@ namespace DESK_MES
             this.lblOperationName.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblOperationName.Location = new System.Drawing.Point(3, 0);
             this.lblOperationName.Name = "lblOperationName";
-            this.lblOperationName.Size = new System.Drawing.Size(335, 40);
+            this.lblOperationName.Size = new System.Drawing.Size(340, 40);
             this.lblOperationName.TabIndex = 2;
             this.lblOperationName.Text = "label2";
             this.lblOperationName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -155,7 +145,7 @@ namespace DESK_MES
             // btnAdd
             // 
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAdd.Location = new System.Drawing.Point(263, 448);
+            this.btnAdd.Location = new System.Drawing.Point(268, 378);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 24);
             this.btnAdd.TabIndex = 3;
@@ -163,10 +153,88 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnSearch);
+            this.panel5.Controls.Add(this.btnReset);
+            this.panel5.Controls.Add(this.txtName);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 43);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(340, 34);
+            this.panel5.TabIndex = 5;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.ImageIndex = 1;
+            this.btnSearch.ImageList = this.imageList1;
+            this.btnSearch.Location = new System.Drawing.Point(241, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnSearch.Size = new System.Drawing.Size(59, 25);
+            this.btnSearch.TabIndex = 24;
+            this.btnSearch.Text = "   검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "새로고침.png");
+            this.imageList1.Images.SetKeyName(1, "검색_1.png");
+            // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.ImageIndex = 0;
+            this.btnReset.ImageList = this.imageList1;
+            this.btnReset.Location = new System.Drawing.Point(306, 6);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.btnReset.Size = new System.Drawing.Size(27, 25);
+            this.btnReset.TabIndex = 23;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtName.Location = new System.Drawing.Point(131, 6);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(104, 25);
+            this.txtName.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 17);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "검사 데이터 항목명";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-32, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "품명";
+            // 
             // btnDelete
             // 
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelete.Location = new System.Drawing.Point(604, 448);
+            this.btnDelete.Location = new System.Drawing.Point(614, 378);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 24);
             this.btnDelete.TabIndex = 4;
@@ -174,13 +242,25 @@ namespace DESK_MES
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvInspect);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox3.Location = new System.Drawing.Point(3, 83);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(340, 289);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "검사 데이터 항목";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(693, 455);
+            this.groupBox2.Size = new System.Drawing.Size(698, 425);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
@@ -191,7 +271,7 @@ namespace DESK_MES
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(693, 455);
+            this.panel4.Size = new System.Drawing.Size(698, 425);
             this.panel4.TabIndex = 2;
             // 
             // btnClose
@@ -201,7 +281,7 @@ namespace DESK_MES
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.ImageIndex = 3;
             this.btnClose.ImageList = this.imageList2;
-            this.btnClose.Location = new System.Drawing.Point(608, 18);
+            this.btnClose.Location = new System.Drawing.Point(613, 18);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(76, 27);
@@ -226,7 +306,7 @@ namespace DESK_MES
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.ImageIndex = 1;
             this.btnSave.ImageList = this.imageList2;
-            this.btnSave.Location = new System.Drawing.Point(526, 18);
+            this.btnSave.Location = new System.Drawing.Point(531, 18);
             this.btnSave.Name = "btnSave";
             this.btnSave.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSave.Size = new System.Drawing.Size(76, 27);
@@ -242,7 +322,7 @@ namespace DESK_MES
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(693, 54);
+            this.groupBox1.Size = new System.Drawing.Size(698, 54);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
@@ -250,9 +330,9 @@ namespace DESK_MES
             // 
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 534);
+            this.panel3.Location = new System.Drawing.Point(3, 504);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(693, 54);
+            this.panel3.Size = new System.Drawing.Size(698, 54);
             this.panel3.TabIndex = 1;
             // 
             // lblTitle
@@ -270,7 +350,7 @@ namespace DESK_MES
             // 
             this.panel2.Controls.Add(this.lblTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(199, 3);
+            this.panel2.Location = new System.Drawing.Point(202, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 58);
             this.panel2.TabIndex = 0;
@@ -288,7 +368,7 @@ namespace DESK_MES
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(693, 64);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(698, 64);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -306,7 +386,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(699, 591);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(704, 561);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -316,90 +396,14 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(699, 591);
+            this.panel1.Size = new System.Drawing.Size(704, 561);
             this.panel1.TabIndex = 5;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnSearch);
-            this.panel5.Controls.Add(this.btnReset);
-            this.panel5.Controls.Add(this.txtName);
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 43);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(335, 34);
-            this.panel5.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-32, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "품명";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "새로고침.png");
-            this.imageList1.Images.SetKeyName(1, "검색_1.png");
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.ImageIndex = 1;
-            this.btnSearch.ImageList = this.imageList1;
-            this.btnSearch.Location = new System.Drawing.Point(224, 5);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnSearch.Size = new System.Drawing.Size(76, 27);
-            this.btnSearch.TabIndex = 24;
-            this.btnSearch.Text = "   검색";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset.ImageIndex = 0;
-            this.btnReset.ImageList = this.imageList1;
-            this.btnReset.Location = new System.Drawing.Point(306, 5);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.btnReset.Size = new System.Drawing.Size(27, 27);
-            this.btnReset.TabIndex = 23;
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(118, 6);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 21);
-            this.txtName.TabIndex = 22;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 15);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "검사 데이터 항목명";
             // 
             // PopOIItemRelationRegUpd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 591);
+            this.ClientSize = new System.Drawing.Size(704, 561);
             this.Controls.Add(this.panel1);
             this.Name = "PopOIItemRelationRegUpd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -410,6 +414,8 @@ namespace DESK_MES
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -419,8 +425,6 @@ namespace DESK_MES
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
