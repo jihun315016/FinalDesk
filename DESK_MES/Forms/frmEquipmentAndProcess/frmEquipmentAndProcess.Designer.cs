@@ -112,6 +112,10 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.button1, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(350, 30);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -543,7 +547,6 @@ namespace DESK_MES
             this.button1.TabIndex = 27;
             this.button1.Text = "   변경";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAdd
             // 

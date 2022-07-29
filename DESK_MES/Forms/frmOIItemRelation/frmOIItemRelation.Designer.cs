@@ -507,7 +507,7 @@ namespace DESK_MES
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.ImageIndex = 0;
+            this.btnDelete.ImageIndex = 2;
             this.btnDelete.ImageList = this.imageList2;
             this.btnDelete.Location = new System.Drawing.Point(1096, 30);
             this.btnDelete.Name = "btnDelete";

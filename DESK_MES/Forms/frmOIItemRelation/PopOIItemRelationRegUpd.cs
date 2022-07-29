@@ -30,9 +30,15 @@ namespace DESK_MES
 
             lblTitle.Tag = isReg; // 등록 or 수정 유무
             if (isReg)
+            {
                 lblTitle.Text = "공정-검사 데이터 등록";
+                btnSave.Text = "등록";
+            }
             else
-                lblTitle.Text = "공정-검사 데이터 수정";            
+            {
+                lblTitle.Text = "공정-검사 데이터 수정";
+                btnSave.Text = "수정";
+            }
         }
 
         private void PopOperationInspectItemRelationRegister_Load(object sender, EventArgs e)
@@ -70,14 +76,25 @@ namespace DESK_MES
             {
                 DataGridUtil.SetInitGridView(dgv);
                 DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목 번호", "Inspect_No", colWidth: 130);
-                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 150);
-                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "타겟값", "Target", colWidth: 120);
-                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "상한값", "USL", colWidth: 120);
-                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "하한값", "LSL", colWidth: 120);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 170);
             }
 
             dgvInspect.DataSource = inspectList;
             dgvRegistered.DataSource = selectedInspect;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvInspect.DataSource = null;
+            dgvInspect.DataSource = inspectList.Where(i => i.Inspect_Name.Contains(txtName.Text.Trim())).ToList();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            inspectList = inspectSrv.GetInspectItemList();
+            dgvInspect.DataSource = null;
+            dgvInspect.DataSource = inspectList;
+            txtName.Text = string.Empty;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -206,6 +206,12 @@ namespace DESK_MES
             }
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            cboType_SelectedIndexChanged(this, null);
+            txtName.Text = string.Empty;
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string childCode = dgvChildList["Child_Product_Code", dgvChildList.CurrentCell.RowIndex].Value.ToString();

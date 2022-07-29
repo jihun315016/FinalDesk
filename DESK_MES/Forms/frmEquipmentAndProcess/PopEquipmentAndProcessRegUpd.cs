@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class PopEquipmentAndProcessRegister : Form
+    public partial class PopEquipmentAndProcessRegUpd : Form
     {
-        public PopEquipmentAndProcessRegister()
+        public PopEquipmentAndProcessRegUpd()
         {
             InitializeComponent();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

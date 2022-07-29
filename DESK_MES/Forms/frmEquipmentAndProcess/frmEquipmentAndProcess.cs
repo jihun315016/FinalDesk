@@ -20,13 +20,7 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopEquipmentAndProcessRegister pop = new PopEquipmentAndProcessRegister();
-            pop.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            PopEquipmentAndProcessModify pop = new PopEquipmentAndProcessModify();
+            PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd();
             pop.ShowDialog();
         }
     }

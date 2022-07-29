@@ -418,11 +418,11 @@
     <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessModify.Designer.cs">
       <DependentUpon>PopEquipmentAndProcessModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegister.cs">
+    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegUpd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegister.Designer.cs">
-      <DependentUpon>PopEquipmentAndProcessRegister.cs</DependentUpon>
+    <Compile Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegUpd.Designer.cs">
+      <DependentUpon>PopEquipmentAndProcessRegUpd.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmEquipmentStop\PopEquipmentStopRegister.cs">
       <SubType>Form</SubType>
@@ -658,8 +658,8 @@
     <EmbeddedResource Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessModify.resx">
       <DependentUpon>PopEquipmentAndProcessModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegister.resx">
-      <DependentUpon>PopEquipmentAndProcessRegister.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmEquipmentAndProcess\PopEquipmentAndProcessRegUpd.resx">
+      <DependentUpon>PopEquipmentAndProcessRegUpd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEquipmentStop\PopEquipmentStopRegister.resx">
       <DependentUpon>PopEquipmentStopRegister.cs</DependentUpon>
