@@ -83,6 +83,8 @@
     <Compile Include="BaseForm\FormStyle_3.Designer.cs">
       <DependentUpon>FormStyle_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAC\ClientDAC.cs" />
+    <Compile Include="Service\ClientService.cs" />
     <Compile Include="Controls\ccTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
