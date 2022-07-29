@@ -221,6 +221,7 @@ namespace DESK_MES
             if (result)
             {
                 MessageBox.Show("BOM 등록에 성공하셨습니다.");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else

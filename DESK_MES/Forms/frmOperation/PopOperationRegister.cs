@@ -57,6 +57,7 @@ namespace DESK_MES
             if (result)
             {
                 MessageBox.Show("공정이 등록되었습니다.");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else

@@ -131,7 +131,11 @@ namespace DESK_MES
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopInspectItemRegister pop = new PopInspectItemRegister(user);
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                btnReset_Click(this, null);
+                btnSearch_Click(this, null);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -146,7 +150,11 @@ namespace DESK_MES
             InspectItemVO item = temp.FirstOrDefault();
 
             PopInspectItemModify pop = new PopInspectItemModify(item, user);
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                btnReset_Click(this, null);
+                btnSearch_Click(this, null);
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
