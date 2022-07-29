@@ -13,7 +13,9 @@ namespace DESK_MES
 {
     public partial class frmClient : FormStyle_2
     {
-        ServiceHelper service;
+        UserVO user;
+        ClientService srv;
+        List<ClientVO> clientList;
         string clientCode = null;
 
         public frmClient()
@@ -24,28 +26,34 @@ namespace DESK_MES
         }
         private void frmClient_Load(object sender, EventArgs e)
         {
+            this.user = ((frmMain)(this.MdiParent)).userInfo;
+            srv = new ClientService();
 
-            service = new ServiceHelper("api/Client");
 
-            LoadData();
+            DataGridUtil.SetInitGridView(dataGridView1);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처코드", "Client_Code", colWidth: 230, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처유형", "Client_Type", colWidth: 80);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사업자등록번호", "Client_Number", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "연락처", "Client_Phone", colWidth: 120);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성일자", "Create_Time", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성사용자", "Create_User_Name", colWidth: 80);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정일자", "Update_Time", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_Name", colWidth: 60);
+
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
             dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             dtpModifyTime.Format = DateTimePickerFormat.Custom;
             dtpModifyTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+
+            LoadData();
         }
 
         private void LoadData()
         {
-            ResMessage<List<ClientVO>> result = service.GetAsync<List<ClientVO>>("Client");
-            if (result != null)
-            {
-                dataGridView1.DataSource = result.Data;
-            }
-            else
-            {
-                MessageBox.Show("서비스 호출 중 오류가 발생했습니다. 다시 시도하여 주십시오.");
-            }
+            clientList = srv.GetClientList();
+            dataGridView1.DataSource = clientList;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -78,20 +86,22 @@ namespace DESK_MES
 
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
             clientCode = dataGridView1[0, e.RowIndex].Value.ToString();
 
-            ResMessage<ClientVO> resResult = service.GetAsyncT<ResMessage<ClientVO>>(clientCode);
+            txtCode.Text = dataGridView1["Client_Code", e.RowIndex].Value.ToString();
+            txtName.Text = dataGridView1["Client_Name", e.RowIndex].Value.ToString();
+            txtType.Text = dataGridView1["Client_Type", e.RowIndex].Value.ToString();
+            txtNumber.Text = dataGridView1["Client_Number", e.RowIndex].Value.ToString();
+            txtPhone.Text = dataGridView1["Client_Phone", e.RowIndex].Value.ToString();
+            dtpCreateTime.Text = dataGridView1["Create_Time", e.RowIndex].Value.ToString();
+            txtCreateUser.Text = (dataGridView1["Create_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
+            dtpModifyTime.Text = (dataGridView1["Update_Time", e.RowIndex].Value ?? string.Empty).ToString();
+            txtModifyUser.Text = (dataGridView1["Update_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
 
-            if (resResult.ErrCode == 0)
-            {
-                txtCode.Text = resResult.Data.Client_Code.ToString();
-                txtName.Text = resResult.Data.Client_Name.ToString();
-                txtType.Text = resResult.Data.Client_Type.ToString();
-                txtNumber.Text = resResult.Data.Client_Number.ToString();
-                txtPhone.Text = resResult.Data.Client_Phone.ToString();                
-            }
         }
     }
 }

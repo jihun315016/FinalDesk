@@ -8,14 +8,6 @@ namespace DESK_DTO
 {
     public class ClientVO
     {
-        //Client_Code 
-        //Client_Name
-        //Client_Type
-        //Create_Time
-        //Create_User_No
-        //Update_Time
-        //Update_User_No
-        //Is_Delete
         public string Client_Code { get; set; }
         public string Client_Name { get; set; }
         public string Client_Type { get; set; }
