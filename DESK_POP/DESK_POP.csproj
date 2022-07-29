@@ -59,6 +59,12 @@
     <Compile Include="Controls\ccTextBox.Designer.cs">
       <DependentUpon>ccTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ucWorkGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucWorkGroup.Designer.cs">
+      <DependentUpon>ucWorkGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="POP_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="Utility\TextBoxUtil.cs" />
     <EmbeddedResource Include="Controls\ccTextBox.resx">
       <DependentUpon>ccTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucWorkGroup.resx">
+      <DependentUpon>ucWorkGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POP_Main.resx">
       <DependentUpon>POP_Main.cs</DependentUpon>

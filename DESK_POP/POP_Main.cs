@@ -13,7 +13,7 @@ namespace DESK_POP
 {
     public partial class POP_Main : Form
     {
-        public PopVO userInfo { get; set; }
+        public PopVO userInfo { get; set; } //접속자 정보[ User_No, User_Name, u.User_Group_No, User_Group_Name, User_Group_Type, Auth_Name ]
         public POP_Main()
         {
             InitializeComponent();
@@ -21,6 +21,7 @@ namespace DESK_POP
 
         private void POP_Main_Load(object sender, EventArgs e)
         {
+            #region*로그인
             this.Hide();
             POP_Login pop = new POP_Login();
             if (pop.ShowDialog() != DialogResult.OK)
@@ -33,6 +34,10 @@ namespace DESK_POP
                 this.Show();
                 this.userInfo = pop.userVO;
             }
+            #endregion
+            int littt = 3; //db에서 가져온 리스트의 갯수/<나중에 삭제>
+
+            ucWorkGroup wg = new ucWorkGroup();
         }
     }
 }
