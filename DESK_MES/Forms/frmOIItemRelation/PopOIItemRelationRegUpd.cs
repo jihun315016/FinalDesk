@@ -19,12 +19,10 @@ namespace DESK_MES
         OperationService operationSrv;
         List<InspectItemVO> inspectList;
         List<InspectItemVO> selectedInspect;
-        UserVO user;
 
-        public PopOIItemRelationRegUpd(UserVO user, OperationVO oper, bool isReg)
+        public PopOIItemRelationRegUpd(OperationVO oper, bool isReg)
         {
             InitializeComponent();
-            this.user = user;
             lblOperationName.Text = oper.Operation_Name;
             lblOperationName.Tag = oper.Operation_No;
 
@@ -110,7 +108,6 @@ namespace DESK_MES
                 dgvInspect.DataSource = inspectList;
                 dgvRegistered.DataSource = selectedInspect;
             }
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -130,7 +127,7 @@ namespace DESK_MES
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool result = (operationSrv.SaveOIRelation(Convert.ToInt32(lblOperationName.Tag), user.User_No, selectedInspect));
+            bool result = (operationSrv.SaveOIRelation(Convert.ToInt32(lblOperationName.Tag), selectedInspect));
             string msg = (bool)lblTitle.Tag ? "등록" : "수정";
             if (result)
             {
