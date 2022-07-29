@@ -125,7 +125,7 @@ namespace DESK_MES
             }
 
             OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
-            PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd(user, oper, true);
+            PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd(oper, true);
             pop.ShowDialog();
         }
     }

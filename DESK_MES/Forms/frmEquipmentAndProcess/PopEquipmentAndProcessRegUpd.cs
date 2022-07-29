@@ -18,12 +18,10 @@ namespace DESK_MES
         OperationService operationSrv;
         List<EquipmentVO> equipmentList;
         List<EquipmentVO> selectedInspect;
-        UserVO user;
 
-        public PopEquipmentAndProcessRegUpd(UserVO user, OperationVO oper, bool isReg)
+        public PopEquipmentAndProcessRegUpd(OperationVO oper, bool isReg)
         {
             InitializeComponent();
-            this.user = user;
             lblOperationName.Text = oper.Operation_Name;
             lblOperationName.Tag = oper.Operation_No;
 
@@ -78,6 +76,9 @@ namespace DESK_MES
                 DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "설비 번호", "Equipment_No", colWidth: 130);
                 DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "설비명", "Equipment_Name", colWidth: 170);
             }
+
+            dgvEquipment.DataSource = equipmentList;
+            dgvRegistered.DataSource = selectedInspect;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -111,6 +112,8 @@ namespace DESK_MES
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvRegistered.CurrentCell == null) return;
+
             EquipmentVO item = selectedInspect.Where(s => s.Equipment_No == Convert.ToInt32(dgvRegistered["Equipment_No", dgvRegistered.CurrentCell.RowIndex].Value)).FirstOrDefault();
             if (item != null)
             {
@@ -142,6 +145,11 @@ namespace DESK_MES
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvRegistered_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show("??");
         }
     }
 }

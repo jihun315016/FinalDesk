@@ -112,6 +112,8 @@ namespace DESK_MES
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvRegistered.CurrentCell == null) return;
+
             InspectItemVO item = selectedInspect.Where(s => s.Inspect_No == Convert.ToInt32(dgvRegistered["Inspect_No", dgvRegistered.CurrentCell.RowIndex].Value)).FirstOrDefault();
             if (item != null)
             {

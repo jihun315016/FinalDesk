@@ -397,6 +397,7 @@ namespace DESK_MES
             this.dgvRegistered.RowTemplate.Height = 23;
             this.dgvRegistered.Size = new System.Drawing.Size(334, 261);
             this.dgvRegistered.TabIndex = 1;
+            this.dgvRegistered.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistered_CellClick);
             // 
             // PopEquipmentAndProcessRegUpd
             // 
