@@ -69,6 +69,7 @@ namespace DESK_MES
             if (result)
             {
                 MessageBox.Show("수정이 완료되었습니다.");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -85,6 +86,7 @@ namespace DESK_MES
                 if (result)
                 {
                     MessageBox.Show("삭제가 완료되었습니다.");
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else

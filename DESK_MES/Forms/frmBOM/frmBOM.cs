@@ -201,7 +201,11 @@ namespace DESK_MES
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopBOMRegister pop = new PopBOMRegister(user);
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                btnReset_Click(this, null);
+                btnSearch_Click(this, null);
+            }
         }
     }
 }

@@ -106,8 +106,8 @@ namespace DESK_MES
             PopProductsRegister pop = new PopProductsRegister(user);
             if (pop.ShowDialog() == DialogResult.OK)
             {
-                prdList = productSrv.GetProductList();
-                dgvList.DataSource = null;
+                btnReset_Click(this, null);
+                btnSearch_Click(this, null);
             }
         }
 
@@ -167,7 +167,11 @@ namespace DESK_MES
             ProductVO prd = temp.FirstOrDefault();
 
             PopProductsModify pop = new PopProductsModify(prd, user);
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                btnReset_Click(this, null);
+                btnSearch_Click(this, null);
+            }
         }
 
         private void btnOpenDetail_Click(object sender, EventArgs e)
