@@ -50,6 +50,7 @@ namespace DESK_MES
             if (result)
             {
                 MessageBox.Show("검사 항목이 등록되었습니다.");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
