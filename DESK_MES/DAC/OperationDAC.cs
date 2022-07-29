@@ -132,10 +132,9 @@ namespace DESK_MES.DAC
         /// 공정에 대한 검사 데이터 항목 관계 설정
         /// </summary>
         /// <param name="operNo"></param>
-        /// <param name="userNo"></param>
         /// <param name="inspectList"></param>
         /// <returns></returns>
-        public bool SaveOIRelation(int operNo, int userNo, List<InspectItemVO> inspectList)
+        public bool SaveOIRelation(int operNo, List<InspectItemVO> inspectList)
         {
             SqlTransaction tran = conn.BeginTransaction();
             SqlCommand cmd = new SqlCommand();
@@ -153,15 +152,60 @@ namespace DESK_MES.DAC
 
                 // 검사 데이터 항목 추가
                 cmd.CommandText = @"INSERT INTO TB_INSPECT_OPERATION_RELEATION
-                                    (Inspect_No, Operation_No, Create_Time, Create_User_No)
+                                    (Inspect_No, Operation_No)
                                     VALUES
-                                    (@Inspect_No, @Operation_No, CONVERT([char](19),getdate(),(20)), @Create_User_No) ";
-                cmd.Parameters.AddWithValue("@Create_User_No", userNo);
+                                    (@Inspect_No, @Operation_No) ";
                 cmd.Parameters.Add("@Inspect_No", SqlDbType.Int);
 
                 foreach (InspectItemVO item in inspectList)
                 {
                     cmd.Parameters["@Inspect_No"].Value = item.Inspect_No;
+                    cmd.ExecuteNonQuery();
+                }
+
+                tran.Commit();
+                return true;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 공정에 대한 설비 관계 설정
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <param name="equipmentList"></param>
+        /// <returns></returns>
+        public bool SaveOERelation(int operNo, List<EquipmentVO> equipmentList)
+        {
+            SqlTransaction tran = conn.BeginTransaction();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Transaction = tran;
+
+            try
+            {
+                cmd.Connection = conn;
+                // 이미 등록된 항목 삭제
+                cmd.CommandText = @"DELETE FROM TB_EQUIPMENT_OPERATION_RELATION
+                                    WHERE Operation_No = @Operation_No ";
+
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                cmd.ExecuteNonQuery();
+
+                // 설비 추가
+                cmd.CommandText = @"INSERT INTO TB_EQUIPMENT_OPERATION_RELATION
+                                    (Equipment_No, Operation_No)
+                                    VALUES
+                                    (@Equipment_No, @Operation_No) ";
+                cmd.Parameters.Add("@Equipment_No", SqlDbType.Int);
+
+                foreach (EquipmentVO item in equipmentList)
+                {
+                    cmd.Parameters["@Equipment_No"].Value = item.Equipment_No;
                     cmd.ExecuteNonQuery();
                 }
 

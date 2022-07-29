@@ -26,7 +26,7 @@ namespace DESK_MES
         private void frmOperationInspectItemRelation_Load(object sender, EventArgs e)
         {
             operationSrv = new OperationService();
-            ds = operationSrv.GetOIRelation();
+            ds = operationSrv.GetOIRelation(); // 검사 데이터를 등록하는 공정만 조회
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             InitControl();
         }
@@ -87,9 +87,6 @@ namespace DESK_MES
                 dgvInspectItem.DataMember = "Table.OIRelation";
             }
             catch (Exception err) { }
-
-                
-            
         }
 
         private void dgvOperation_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -147,7 +144,7 @@ namespace DESK_MES
             }
 
             OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
-            PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(user, oper, true);
+            PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(oper, true);
             pop.ShowDialog();
         }
 
@@ -166,7 +163,7 @@ namespace DESK_MES
             }
 
             OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
-            PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(user, oper, false);
+            PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(oper, false);
             pop.ShowDialog();
         }
 

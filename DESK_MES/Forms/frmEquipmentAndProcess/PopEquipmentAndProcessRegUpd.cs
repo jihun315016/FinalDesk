@@ -126,7 +126,17 @@ namespace DESK_MES
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            bool result = (operationSrv.SaveOERelation(Convert.ToInt32(lblOperationName.Tag), selectedInspect));
+            string msg = (bool)lblTitle.Tag ? "등록" : "수정";
+            if (result)
+            {
+                MessageBox.Show($"공정 - 설비가 {msg}되었습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show($"{msg}에 실패했습니다.");
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
