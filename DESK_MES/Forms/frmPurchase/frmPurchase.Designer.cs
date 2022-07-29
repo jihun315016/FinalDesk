@@ -76,7 +76,6 @@ namespace DESK_MES
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnIncoming = new System.Windows.Forms.Button();
-            this.btnPurchaseOK = new System.Windows.Forms.Button();
             this.btnIncomingList = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -114,7 +113,6 @@ namespace DESK_MES
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnIncomingList);
-            this.groupBox1.Controls.Add(this.btnPurchaseOK);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnModify);
             this.groupBox1.Controls.Add(this.btnAdd);
@@ -129,7 +127,6 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnModify, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnPurchaseOK, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnIncomingList, 0);
             // 
             // comboBox1
@@ -675,7 +672,7 @@ namespace DESK_MES
             this.btnIncoming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIncoming.ImageIndex = 4;
             this.btnIncoming.ImageList = this.imageList2;
-            this.btnIncoming.Location = new System.Drawing.Point(641, 31);
+            this.btnIncoming.Location = new System.Drawing.Point(738, 30);
             this.btnIncoming.Name = "btnIncoming";
             this.btnIncoming.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnIncoming.Size = new System.Drawing.Size(91, 27);
@@ -684,21 +681,6 @@ namespace DESK_MES
             this.btnIncoming.UseVisualStyleBackColor = true;
             this.btnIncoming.Click += new System.EventHandler(this.btnIncoming_Click);
             // 
-            // btnPurchaseOK
-            // 
-            this.btnPurchaseOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPurchaseOK.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPurchaseOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPurchaseOK.ImageIndex = 4;
-            this.btnPurchaseOK.ImageList = this.imageList2;
-            this.btnPurchaseOK.Location = new System.Drawing.Point(835, 31);
-            this.btnPurchaseOK.Name = "btnPurchaseOK";
-            this.btnPurchaseOK.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnPurchaseOK.Size = new System.Drawing.Size(91, 27);
-            this.btnPurchaseOK.TabIndex = 36;
-            this.btnPurchaseOK.Text = "   발주확정";
-            this.btnPurchaseOK.UseVisualStyleBackColor = true;
-            // 
             // btnIncomingList
             // 
             this.btnIncomingList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -706,7 +688,7 @@ namespace DESK_MES
             this.btnIncomingList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIncomingList.ImageIndex = 1;
             this.btnIncomingList.ImageList = this.imageList2;
-            this.btnIncomingList.Location = new System.Drawing.Point(738, 31);
+            this.btnIncomingList.Location = new System.Drawing.Point(835, 30);
             this.btnIncomingList.Name = "btnIncomingList";
             this.btnIncomingList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnIncomingList.Size = new System.Drawing.Size(91, 27);
@@ -793,7 +775,6 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtRegiUser;
         private System.Windows.Forms.TextBox txtRegiDate;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnPurchaseOK;
         private System.Windows.Forms.Button btnIncomingList;
     }
 }

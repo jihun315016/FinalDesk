@@ -13,10 +13,12 @@ namespace DESK_MES
 {
     public partial class frmWarehouse : FormStyle_2
     {
-        ServiceHelper service;
+        UserVO user;
         WarehouseService srv;
         string warehouseCode = null;
+        List<WarehouseVO> warehouseList;
         List<WarehouseProductVO> warehouseDetailList;
+        
 
 
         public frmWarehouse()
@@ -26,19 +28,18 @@ namespace DESK_MES
         }
         private void frmWarehouse_Load(object sender, EventArgs e)
         {
-            service = new ServiceHelper("api/Warehouse");
+            this.user = ((frmMain)(this.MdiParent)).userInfo;
             srv = new WarehouseService();
 
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고코드", "Warehouse_Code", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고명", "Warehouse_Name", colWidth: 230, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고명", "Warehouse_Name", colWidth: 230);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고유형", "Warehouse_Type", colWidth: 60);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고주소", "Warehouse_Address", colWidth: 80);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성일자", "Create_Time", colWidth: 60);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성사용자", "Create_User_Name", colWidth: 80);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정일자", "Update_Time", colWidth: 60);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_Name", colWidth: 60);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "삭제여부", "Is_Delete", colWidth: 60);
 
             DataGridUtil.SetInitGridView(dataGridView2);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "창고코드", "Warehouse_Code", colWidth: 120);
@@ -52,15 +53,8 @@ namespace DESK_MES
         }
         private void LoadData()
         {
-            ResMessage<List<WarehouseVO>> result = service.GetAsync<List<WarehouseVO>>("Warehouse");
-            if (result != null)
-            {
-                dataGridView1.DataSource = result.Data;
-            }
-            else
-            {
-                MessageBox.Show("서비스 호출 중 오류가 발생했습니다. 다시 시도하여 주십시오.");
-            }
+            warehouseList = srv.GetAllWarehouse();
+            dataGridView1.DataSource = warehouseList;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -69,14 +63,14 @@ namespace DESK_MES
 
             warehouseCode = dataGridView1[0, e.RowIndex].Value.ToString();
 
-            ResMessage<WarehouseVO> resResult = service.GetAsyncT<ResMessage<WarehouseVO>>(warehouseCode);
-            if (resResult.ErrCode == 0)
-            {
-                txtCode.Text = resResult.Data.Warehouse_Code.ToString();
-                txtName.Text = resResult.Data.Warehouse_Name.ToString();
-                txtType.Text = resResult.Data.Warehouse_Type.ToString();
-                txtAdress.Text = resResult.Data.Warehouse_Address.ToString();
-            }
+            txtCode.Text = dataGridView1["Warehouse_Code", e.RowIndex].Value.ToString();
+            txtName.Text = dataGridView1["Warehouse_Name", e.RowIndex].Value.ToString();
+            txtType.Text = dataGridView1["Warehouse_Type", e.RowIndex].Value.ToString();
+            txtAdress.Text = dataGridView1["Warehouse_Address", e.RowIndex].Value.ToString();
+            dtpCreateTime.Text = dataGridView1["Create_Time", e.RowIndex].Value.ToString();
+            txtCreateUser.Text = (dataGridView1["Create_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
+            dtpModifyTime.Text = (dataGridView1["Update_Time", e.RowIndex].Value ?? string.Empty).ToString();
+            txtModifyUser.Text = (dataGridView1["Update_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
 
             warehouseDetailList = srv.GetWarehouseDetailList(warehouseCode);
             dataGridView2.DataSource = warehouseDetailList;
@@ -84,7 +78,7 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopWarehouseRegister pop = new PopWarehouseRegister();
+            PopWarehouseRegister pop = new PopWarehouseRegister(user);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
@@ -95,7 +89,7 @@ namespace DESK_MES
         {
             if (warehouseCode != null)
             {
-                PopWarehouseModify pop = new PopWarehouseModify(warehouseCode);
+                PopWarehouseModify pop = new PopWarehouseModify(warehouseCode, user);
                 if (pop.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();

@@ -30,23 +30,36 @@ namespace DESK_MES
         }
 
         /// <summary>
-        /// 창고 저장용 품목 목록 가져오기
+        /// 전체 창고 정보 가져오기
         /// </summary>
         /// <returns></returns>
-        public List<ProductVO> GetProductListForWarehouse()
+        public List<WarehouseVO> GetAllWarehouse()
         {
             try
             {
-                string sql = @"select Product_Code, 
-                                      Product_Name, 
-                                      Product_Type, 
-                                      Unit 
-                               from [dbo].[TB_PRODUCT]";
+                List<WarehouseVO> list = new List<WarehouseVO>();
+
+                string sql = @"select Warehouse_Code, 
+                                      Warehouse_Name, 
+                                      Warehouse_Address,
+                                      Warehouse_Type,
+                                      CONVERT(VARCHAR(20), W.Create_Time, 20) Create_Time,
+                                      W.Create_User_No,
+									  U.User_Name AS Create_User_Name,
+                                      CONVERT(VARCHAR(20), W.Update_Time, 20) Update_Time, 
+									  UU.User_Name AS Update_User_Name,
+                                      W.Update_User_No,
+                                      W.Is_Delete
+                               from TB_WAREHOUSE W
+							   LEFT JOIN [dbo].[TB_USER] U ON W.Create_User_No=U.User_No
+							   LEFT JOIN [dbo].[TB_USER] UU ON W.Update_User_No=UU.User_No
+                               where W.Is_Delete='N'";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    return DBHelpler.DataReaderMapToList<ProductVO>(cmd.ExecuteReader());
+                    list = DBHelpler.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
                 }
+                return list;
             }
             catch (Exception err)
             {
@@ -55,11 +68,11 @@ namespace DESK_MES
         }
 
         /// <summary>
-        /// // 선택한 창고 따른 상세정보 가져오기
+        /// // 선택한 창고 따른 창고 상세정보 가져오기
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public List<WarehouseProductVO> GetWarehouseDetailList(string code) 
+        public List<WarehouseProductVO> GetWarehouseDetailList(string code)
         {
             try
             {
@@ -88,28 +101,28 @@ namespace DESK_MES
                 return null;
             }
         }
-        /// <summary>
-        /// 창고 전체 정보 가져오기
-        /// </summary>
-        /// <returns></returns>
-        public List<WarehouseVO> GetAllWarehouse()
+
+        public WarehouseVO GetWarehouseInfoByCode(string code)
         {
             try
             {
                 string sql = @"select Warehouse_Code, 
-                                           Warehouse_Name, 
-                                           Warehouse_Address,
-                                           Warehouse_Type,
-                                           CONVERT(VARCHAR(20), Create_Time, 20) Create_Time,
-                                           Create_User_No,
-                                           CONVERT(VARCHAR(20), Update_Time, 20) Update_Time, 
-                                           Update_User_No,
-                                           Is_Delete
-                                    from TB_WAREHOUSE"; ;
+                                      Warehouse_Name, 
+                                      Warehouse_Address,
+                                      Warehouse_Type
+                               from TB_WAREHOUSE W
+                               where Warehouse_Code=@Warehouse_Code";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    return DBHelpler.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
+                    cmd.Parameters.AddWithValue("@Warehouse_Code", code);
+
+                    List<WarehouseVO> list = DBHelpler.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
+
+                    if (list != null && list.Count > 0)
+                        return list[0];
+                    else
+                        return null;
                 }
             }
             catch (Exception err)
@@ -118,100 +131,156 @@ namespace DESK_MES
             }
         }
 
-        //public bool RegisterClient(ClientVO client) // 품목 등록
-        //{
-        //    try
-        //    {
-        //        //  ITEM_QUANTITY , ITEM_SAFETY_STOCK
-        //        string sql = @"INSERT INTO TB_Client (Client_Code, Client_Name, Client_Type, Client_Number, Client_Phone, Create_Time, Create_User_No)
-        //                            VALUES (@Client_Code, @Client_Name, @Client_Type, @Client_Number, @Client_Phone, @Create_Time, @Create_User_No)";
+        /// <summary>
+        /// 신규 등록할 창고ID 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public WarehouseVO GetLastID()
+        {
+            try
+            {
+                string sql = @"select TOP 1 Warehouse_Code
+                               from [dbo].[TB_WAREHOUSE]
+                               order by Warehouse_Code desc";
 
-        //        using (SqlCommand cmd = new SqlCommand(sql, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@Client_Code", client.Client_Code);
-        //            cmd.Parameters.AddWithValue("@Client_Name", client.Client_Name);
-        //            cmd.Parameters.AddWithValue("@Client_Type", client.Client_Type);
-        //            cmd.Parameters.AddWithValue("@Client_Number", client.Client_Number);
-        //            cmd.Parameters.AddWithValue("@Client_Phone", client.Client_Phone);
-        //            cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
-        //            cmd.Parameters.AddWithValue("@Create_User_No", client.Create_User_No);
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    List<WarehouseVO> list = DBHelpler.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
+
+                    if (list != null && list.Count > 0)
+                        return list[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
 
 
-        //            int iRowAffect = cmd.ExecuteNonQuery();
-        //            return (iRowAffect > 0);
-        //        }
+        public bool RegisterWarehouse(WarehouseVO warehouse)
+        {
+            try
+            {
+                string sql = @"INSERT INTO TB_WAREHOUSE (Warehouse_Code, Warehouse_Name, Warehouse_Address, Warehouse_Type, Create_Time, Create_User_No)
+                                    VALUES (@Warehouse_Code, @Warehouse_Name, @Warehouse_Address, @Warehouse_Type, @Create_Time, @Create_User_No)";
 
-        //        return true;
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Warehouse_Code", warehouse.Warehouse_Code);
+                    cmd.Parameters.AddWithValue("@Warehouse_Name", warehouse.Warehouse_Name);
+                    cmd.Parameters.AddWithValue("@Warehouse_Address", warehouse.Warehouse_Address);
+                    cmd.Parameters.AddWithValue("@Warehouse_Type", warehouse.Warehouse_Type);
+                    cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Create_User_No", warehouse.Create_User_No);
 
-        //    }
-        //    catch (Exception err)
-        //    {
-        //        return false;
-        //    }
-        //}
 
-        //public bool SaveWarehouse(WarehouseVO warehouse)
-        //{
-        //    using (SqlCommand cmd = new SqlCommand())
-        //    {
-        //        cmd.Connection = new SqlConnection(strConn);
-        //        cmd.CommandText = @"INSERT INTO TB_WAREHOUSE (Warehouse_Code, Warehouse_Name, Warehouse_Address, Warehouse_Type, Create_Time)
-        //                            VALUES (@Warehouse_Code, @Warehouse_Name, @Warehouse_Address, @Warehouse_Type, @Create_Time)";
+                    int iRowAffect = cmd.ExecuteNonQuery();
+                    return (iRowAffect > 0);
+                }
 
-        //        cmd.Parameters.AddWithValue("@Warehouse_Code", warehouse.Warehouse_Code);
-        //        cmd.Parameters.AddWithValue("@Warehouse_Name", warehouse.Warehouse_Name);
-        //        cmd.Parameters.AddWithValue("@Warehouse_Address", warehouse.Warehouse_Address);
-        //        cmd.Parameters.AddWithValue("@Warehouse_Type", warehouse.Warehouse_Type);
-        //        cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
+                return true;
 
-        //        cmd.Connection.Open();
-        //        int iRowAffect = cmd.ExecuteNonQuery();
-        //        cmd.Connection.Close();
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
 
-        //        return (iRowAffect > 0);
-        //    }
-        //}
 
-        //public bool UpdateWarehouse(WarehouseVO warehouse)
-        //{
-        //    using (SqlCommand cmd = new SqlCommand())
-        //    {
-        //        cmd.Connection = new SqlConnection(strConn);
-        //        cmd.CommandText = @"UPDATE TB_WAREHOUSE SET Warehouse_Name = @Warehouse_Name,
-        //                                                    Warehouse_Address = @Warehouse_Address,
-        //                                                    Warehouse_Type = @Warehouse_Type
-        //                            WHERE Warehouse_Code= @Warehouse_Code";
+        public bool UpdateWarehouseInfo(WarehouseVO warehouse)
+        {
+            string sql = @"UPDATE TB_WAREHOUSE 
+                           SET Warehouse_Name = @Warehouse_Name,
+                               Warehouse_Address = @Warehouse_Address,
+                               Warehouse_Type = @Warehouse_Type,
+                               Update_Time = @Update_Time,
+                               Update_User_No = @Update_User_No
+                           WHERE Warehouse_Code= @Warehouse_Code";
 
-        //        cmd.Parameters.AddWithValue("@Warehouse_Code", warehouse.Warehouse_Code);
-        //        cmd.Parameters.AddWithValue("@Warehouse_Name", warehouse.Warehouse_Name);
-        //        cmd.Parameters.AddWithValue("@Warehouse_Address", warehouse.Warehouse_Address);
-        //        cmd.Parameters.AddWithValue("@Warehouse_Type", warehouse.Warehouse_Type);
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Warehouse_Name", warehouse.Warehouse_Name);
+                    cmd.Parameters.AddWithValue("@Warehouse_Address", warehouse.Warehouse_Address);
+                    cmd.Parameters.AddWithValue("@Warehouse_Type", warehouse.Warehouse_Type);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", warehouse.Update_User_No);
+                    cmd.Parameters.AddWithValue("@Warehouse_Code", warehouse.Warehouse_Code);
 
-        //        cmd.Connection.Open();
-        //        int iRowAffect = cmd.ExecuteNonQuery();
-        //        cmd.Connection.Close();
+                    int iRowAffect = cmd.ExecuteNonQuery();
+                    if (iRowAffect < 1)
+                        throw new Exception("해당 창고 정보가 없습니다.");
+                }
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
 
-        //        return (iRowAffect > 0);
-        //    }
-        //}
+        public bool DeleteWarehouseInfo(string warehouse)
+        {
+            string sql = @"UPDATE TB_WAREHOUSE 
+                           SET Is_Delete = 'Y'
+                           WHERE Warehouse_Code= @Warehouse_Code";
 
-        //public bool DeleteWarehouse(string warehouseNO)
-        //{
-        //    using (SqlCommand cmd = new SqlCommand())
-        //    {
-        //        cmd.Connection = new SqlConnection(strConn);
-        //        cmd.CommandText = @"UPDATE TB_WAREHOUSE SET Is_Delete = 'Y'
-        //                            WHERE Warehouse_Code= @Warehouse_Code";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Warehouse_Code", warehouse);
 
-        //        cmd.Parameters.AddWithValue("@Warehouse_Code", warehouseNO);
+                    int iRowAffect = cmd.ExecuteNonQuery();
+                    if (iRowAffect < 1)
+                        throw new Exception("해당 창고 정보가 없습니다.");
+                }
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
 
-        //        cmd.Connection.Open();
-        //        int iRowAffect = cmd.ExecuteNonQuery();
-        //        cmd.Connection.Close();
+        /// <summary>
+        /// 창고 저장용 품목 목록 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductVO> GetProductListForWarehouse()
+        {
+            try
+            {
+                string sql = @"select Product_Code, 
+                                      Product_Name, 
+                                      Product_Type, 
+                                      Unit 
+                               from [dbo].[TB_PRODUCT]";
 
-        //        return (iRowAffect > 0);
-        //    }
-        //}
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    return DBHelpler.DataReaderMapToList<ProductVO>(cmd.ExecuteReader());
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
+        
+        /// <summary>
+        /// 창고에 보관할 상품 지정(등록)하기
+        /// </summary>
+        /// <param name="warehouseNo"></param>
+        /// <param name="saveList"></param>
+        /// <returns></returns>
+
         public bool SaveProductInWarehouse(string warehouseNo, List<WarehouseProductVO> saveList)
         {
             using (SqlCommand cmd = new SqlCommand())

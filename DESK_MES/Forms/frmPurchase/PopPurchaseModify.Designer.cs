@@ -41,7 +41,6 @@ namespace DESK_MES
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -157,7 +156,6 @@ namespace DESK_MES
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -172,7 +170,7 @@ namespace DESK_MES
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.ImageIndex = 3;
             this.button1.ImageList = this.imageList2;
-            this.button1.Location = new System.Drawing.Point(229, 18);
+            this.button1.Location = new System.Drawing.Point(311, 18);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(76, 27);
@@ -194,21 +192,6 @@ namespace DESK_MES
             this.button3.TabIndex = 29;
             this.button3.Text = "   닫기";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.ImageIndex = 0;
-            this.btnAdd.ImageList = this.imageList2;
-            this.btnAdd.Location = new System.Drawing.Point(311, 18);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnAdd.Size = new System.Drawing.Size(76, 27);
-            this.btnAdd.TabIndex = 28;
-            this.btnAdd.Text = "   삭제";
-            this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -469,7 +452,6 @@ namespace DESK_MES
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox3;
