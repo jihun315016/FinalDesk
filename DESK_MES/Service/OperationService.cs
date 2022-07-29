@@ -48,10 +48,18 @@ namespace DESK_MES.Service
             return list;
         }
 
-        public bool SaveOIRelation(int operNo, int userNo, List<InspectItemVO> inspectList)
+        public bool SaveOIRelation(int operNo, List<InspectItemVO> inspectList)
         {
             OperationDAC dac = new OperationDAC();
-            bool result = dac.SaveOIRelation(operNo, userNo, inspectList);
+            bool result = dac.SaveOIRelation(operNo, inspectList);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool SaveOERelation(int operNo, List<EquipmentVO> equipmentList)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.SaveOERelation(operNo, equipmentList);
             dac.Dispose();
             return result;
         }

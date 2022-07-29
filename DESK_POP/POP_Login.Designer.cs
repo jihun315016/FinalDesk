@@ -31,11 +31,12 @@ namespace DESK_POP
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtCopy1 = new DESK_POP.ccTextBox();
             this.lblChk = new System.Windows.Forms.Label();
             this.txtID = new DESK_POP.ccTextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,29 +57,73 @@ namespace DESK_POP
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.txtCopy1);
             this.splitContainer1.Panel2.Controls.Add(this.lblChk);
             this.splitContainer1.Panel2.Controls.Add(this.txtID);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(410, 132);
-            this.splitContainer1.SplitterDistance = 48;
+            this.splitContainer1.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.splitContainer1.Size = new System.Drawing.Size(608, 127);
+            this.splitContainer1.SplitterDistance = 46;
             this.splitContainer1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(156, 9);
+            this.label1.Location = new System.Drawing.Point(158, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "로그인";
             // 
+            // txtCopy1
+            // 
+            this.txtCopy1.Enabled = false;
+            this.txtCopy1.isNumeric = false;
+            this.txtCopy1.isRequired = false;
+            this.txtCopy1.Location = new System.Drawing.Point(111, 3);
+            this.txtCopy1.Name = "txtCopy1";
+            this.txtCopy1.PlaceHolder = null;
+            this.txtCopy1.Size = new System.Drawing.Size(147, 20);
+            this.txtCopy1.TabIndex = 12;
+            // 
+            // lblChk
+            // 
+            this.lblChk.AutoSize = true;
+            this.lblChk.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblChk.ForeColor = System.Drawing.Color.Red;
+            this.lblChk.Location = new System.Drawing.Point(111, 50);
+            this.lblChk.Name = "lblChk";
+            this.lblChk.Size = new System.Drawing.Size(148, 15);
+            this.lblChk.TabIndex = 11;
+            this.lblChk.Text = "* ID가 일치하지 않습니다.";
+            // 
+            // txtID
+            // 
+            this.txtID.isNumeric = false;
+            this.txtID.isRequired = false;
+            this.txtID.Location = new System.Drawing.Point(111, 20);
+            this.txtID.Name = "txtID";
+            this.txtID.PlaceHolder = "";
+            this.txtID.Size = new System.Drawing.Size(147, 20);
+            this.txtID.TabIndex = 10;
+            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(273, 48);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(67, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "로그인";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(285, 25);
+            this.button1.Location = new System.Drawing.Point(273, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(67, 23);
             this.button1.TabIndex = 9;
@@ -90,49 +135,17 @@ namespace DESK_POP
             // 
             this.label2.AutoSize = true;
             this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(74, 28);
+            this.label2.Location = new System.Drawing.Point(65, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 15);
+            this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "아이디";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(285, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(67, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "로그인";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // lblChk
-            // 
-            this.lblChk.AutoSize = true;
-            this.lblChk.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblChk.ForeColor = System.Drawing.Color.Red;
-            this.lblChk.Location = new System.Drawing.Point(123, 56);
-            this.lblChk.Name = "lblChk";
-            this.lblChk.Size = new System.Drawing.Size(148, 15);
-            this.lblChk.TabIndex = 11;
-            this.lblChk.Text = "* ID가 일치하지 않습니다.";
-            // 
-            // txtID
-            // 
-            this.txtID.isNumeric = false;
-            this.txtID.isRequired = false;
-            this.txtID.Location = new System.Drawing.Point(123, 26);
-            this.txtID.Name = "txtID";
-            this.txtID.PlaceHolder = "";
-            this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(147, 23);
-            this.txtID.TabIndex = 10;
             // 
             // POP_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 132);
+            this.ClientSize = new System.Drawing.Size(608, 127);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -158,5 +171,6 @@ namespace DESK_POP
         private ccTextBox txtID;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblChk;
+        private ccTextBox txtCopy1;
     }
 }
