@@ -36,7 +36,7 @@ namespace DESK_MES
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -55,7 +55,7 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvInspect = new System.Windows.Forms.DataGridView();
+            this.dgvEquipment = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvRegistered = new System.Windows.Forms.DataGridView();
             this.panel5.SuspendLayout();
@@ -69,7 +69,7 @@ namespace DESK_MES
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInspect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistered)).BeginInit();
             this.SuspendLayout();
@@ -94,7 +94,7 @@ namespace DESK_MES
             // 
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.txtName);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btnReset);
             this.panel5.Controls.Add(this.btnSearch);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -121,18 +121,19 @@ namespace DESK_MES
             this.txtName.Size = new System.Drawing.Size(104, 25);
             this.txtName.TabIndex = 27;
             // 
-            // button1
+            // btnReset
             // 
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 0;
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(231, 7);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(27, 25);
-            this.button1.TabIndex = 26;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnReset.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.ImageIndex = 0;
+            this.btnReset.ImageList = this.imageList1;
+            this.btnReset.Location = new System.Drawing.Point(231, 6);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.btnReset.Size = new System.Drawing.Size(27, 25);
+            this.btnReset.TabIndex = 26;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSearch
             // 
@@ -148,6 +149,7 @@ namespace DESK_MES
             this.btnSearch.TabIndex = 25;
             this.btnSearch.Text = "   검색";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel1
             // 
@@ -350,7 +352,7 @@ namespace DESK_MES
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dgvInspect);
+            this.groupBox3.Controls.Add(this.dgvEquipment);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox3.Location = new System.Drawing.Point(3, 83);
@@ -360,15 +362,15 @@ namespace DESK_MES
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "설비";
             // 
-            // dgvInspect
+            // dgvEquipment
             // 
-            this.dgvInspect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInspect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInspect.Location = new System.Drawing.Point(3, 21);
-            this.dgvInspect.Name = "dgvInspect";
-            this.dgvInspect.RowTemplate.Height = 23;
-            this.dgvInspect.Size = new System.Drawing.Size(334, 261);
-            this.dgvInspect.TabIndex = 0;
+            this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEquipment.Location = new System.Drawing.Point(3, 21);
+            this.dgvEquipment.Name = "dgvEquipment";
+            this.dgvEquipment.RowTemplate.Height = 23;
+            this.dgvEquipment.Size = new System.Drawing.Size(334, 261);
+            this.dgvEquipment.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -405,6 +407,7 @@ namespace DESK_MES
             this.Name = "PopEquipmentAndProcessRegUpd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "공정-설비 등록";
+            this.Load += new System.EventHandler(this.PopEquipmentAndProcessRegUpd_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -418,7 +421,7 @@ namespace DESK_MES
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInspect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistered)).EndInit();
             this.ResumeLayout(false);
@@ -446,11 +449,11 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dgvInspect;
+        private System.Windows.Forms.DataGridView dgvEquipment;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgvRegistered;
         protected System.Windows.Forms.Button btnSearch;
-        protected System.Windows.Forms.Button button1;
+        protected System.Windows.Forms.Button btnReset;
         protected System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
     }

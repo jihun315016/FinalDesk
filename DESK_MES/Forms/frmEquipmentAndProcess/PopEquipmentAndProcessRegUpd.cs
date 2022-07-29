@@ -16,8 +16,8 @@ namespace DESK_MES
     {
         EquipmentService EquipmentSrv;
         OperationService operationSrv;
-        List<InspectItemVO> inspectList;
-        List<InspectItemVO> selectedInspect;
+        List<EquipmentVO> equipmentList;
+        List<EquipmentVO> selectedInspect;
         UserVO user;
 
         public PopEquipmentAndProcessRegUpd(UserVO user, OperationVO oper, bool isReg)
@@ -30,19 +30,48 @@ namespace DESK_MES
             lblTitle.Tag = isReg; // 등록 or 수정 유무
             if (isReg)
             {
-                lblTitle.Text = "공정-검사 데이터 등록";
+                lblTitle.Text = "공정-공정 등록";
                 btnSave.Text = "등록";
             }
             else
             {
-                lblTitle.Text = "공정-검사 데이터 수정";
+                lblTitle.Text = "공정-공정 수정";
                 btnSave.Text = "수정";
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void PopEquipmentAndProcessRegUpd_Load(object sender, EventArgs e)
         {
+            EquipmentSrv = new EquipmentService();
 
+            InitControl();
+        }
+
+        void InitControl()
+        {
+            // TODO : 설비 관계 수정인 경우 별도의 처리 필요
+
+
+            foreach (DataGridView dgv in new DataGridView[] { dgvEquipment, dgvRegistered })
+            {
+                DataGridUtil.SetInitGridView(dgv);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "설비 번호", "Equipment_No", colWidth: 130);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "설비명", "Equipment_Name", colWidth: 170);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvEquipment.DataSource = null;
+            dgvEquipment.DataSource = equipmentList.Where(eq => eq.Equipment_Name.Contains(txtName.Text.Trim())).ToList();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            equipmentList = EquipmentSrv.SelectEquipmentAllList();
+            dgvEquipment.DataSource = null;
+            dgvEquipment.DataSource = equipmentList;
+            txtName.Text = string.Empty;
         }
     }
 }
