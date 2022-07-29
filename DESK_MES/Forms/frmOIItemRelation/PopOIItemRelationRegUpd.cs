@@ -68,6 +68,7 @@ namespace DESK_MES
                 }
 
                 selectedInspect.ForEach(s => inspectList.Remove(s));
+                dgvRegistered.DataSource = selectedInspect;
             }
 
             foreach (DataGridView dgv in new DataGridView[] { dgvInspect, dgvRegistered })
@@ -78,7 +79,6 @@ namespace DESK_MES
             }
 
             dgvInspect.DataSource = inspectList;
-            dgvRegistered.DataSource = selectedInspect;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

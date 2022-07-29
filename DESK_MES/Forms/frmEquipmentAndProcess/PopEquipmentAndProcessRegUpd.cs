@@ -64,6 +64,7 @@ namespace DESK_MES
                 //            selectedInspect.Add(equipment);
                 //        }
                 //    }
+                //dgvRegistered.DataSource = selectedInspect;
                 //}
 
                 selectedInspect.ForEach(s => equipmentList.Remove(s));
@@ -78,7 +79,6 @@ namespace DESK_MES
             }
 
             dgvEquipment.DataSource = equipmentList;
-            dgvRegistered.DataSource = selectedInspect;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
