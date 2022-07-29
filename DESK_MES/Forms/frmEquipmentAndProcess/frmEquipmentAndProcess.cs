@@ -63,7 +63,17 @@ namespace DESK_MES
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgvOperation.DataSource = operationList;
+            List<OperationVO> list = operationList.Where(o => 1 == 1).ToList();
+
+            // 공정 번호 검색
+            if (comboBox1.SelectedIndex == 1)
+                list = list.Where(l => l.Operation_No.ToString().ToLower().Contains(textBox1.Text)).ToList();
+
+            // 공정명 검색
+            else if (comboBox1.SelectedIndex == 2)
+                list = list.Where(l => l.Operation_Name.ToLower().Contains(textBox1.Text)).ToList();
+
+            dgvOperation.DataSource = list;
         }
 
         private void dgvOperation_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -96,6 +106,8 @@ namespace DESK_MES
                 dtpUpdateTime.Value = oper.Update_Time;
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
             }
+
+            // TODO : 하위 항목 그리드 뷰 조회
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -113,7 +125,7 @@ namespace DESK_MES
             }
 
             OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
-            PopOIItemRelationRegUpd pop = new PopOIItemRelationRegUpd(user, oper, true);
+            PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd(user, oper, true);
             pop.ShowDialog();
         }
     }

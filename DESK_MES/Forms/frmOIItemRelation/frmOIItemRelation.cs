@@ -65,11 +65,11 @@ namespace DESK_MES
             DataSet tempDs = new DataSet();
             DataView dv = new DataView(ds.Tables[0]);
             
-            // 품번 검색
+            // 공정 번호 검색
             if (comboBox1.SelectedIndex == 1)
                 dv.RowFilter = $"CONVERT(Operation_No, System.String) LIKE '%{textBox1.Text}%'";
 
-            // 품명 검색
+            // 공정명 검색
             else if (comboBox1.SelectedIndex == 2)
                 dv.RowFilter = $"Operation_Name LIKE '%{textBox1.Text}%'";
 
