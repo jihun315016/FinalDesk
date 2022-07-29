@@ -2044,6 +2044,7 @@
     <Compile Include="Models\DAC\PopDAC.cs" />
     <Compile Include="Models\DAC\WarehouseDAC.cs" />
     <Compile Include="Models\DTO\ClientVO.cs" />
+    <Compile Include="Models\DTO\PopVO.cs" />
     <Compile Include="Models\DTO\ResMessage.cs" />
     <Compile Include="Models\DTO\WarehouseVO.cs" />
     <Compile Include="Models\Helper.cs" />

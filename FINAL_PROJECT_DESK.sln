@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DESK_WEB", "DESK_WEB\DESK_W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DESK_DTO", "DESk_DTO\DESK_DTO.csproj", "{2F2A607A-EEAF-4BC2-B56E-16C6A818E2BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DESK_EQM", "DESK_EQM\DESK_EQM.csproj", "{F5FBA9EE-A0CD-4113-A2FC-94F792712B2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2F2A607A-EEAF-4BC2-B56E-16C6A818E2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F2A607A-EEAF-4BC2-B56E-16C6A818E2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F2A607A-EEAF-4BC2-B56E-16C6A818E2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5FBA9EE-A0CD-4113-A2FC-94F792712B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5FBA9EE-A0CD-4113-A2FC-94F792712B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5FBA9EE-A0CD-4113-A2FC-94F792712B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5FBA9EE-A0CD-4113-A2FC-94F792712B2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,19 +13,17 @@ namespace DESK_POP
 {
     public partial class POP_Login : Form
     {
-        public UserVO userVO { get; set; }
+        ServiceHelper serv;
+        public PopVO userVO { get; set; }
         public POP_Login()
         {
             InitializeComponent();
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void POP_Login_Load(object sender, EventArgs e)
         {
+            //초기설정
+            serv = new ServiceHelper("api/Pop");
             txtID.Text = "";
             lblChk.Visible = false;
             this.ActiveControl = txtID;
@@ -34,23 +32,48 @@ namespace DESK_POP
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (txtID.Text.Length < 5) //나중에 == ID자릿수로 변경
+           if (txtID.Text.Length >= 5) //나중에 == ID자릿수로 변경
             {
-                txtID.Text += "dddd";
-                //button1_Click(this, null);
+                txtCopy1.Text = txtID.Text;
+                
+
+                ResMessage<PopVO> resresult= serv.GetAsyncT<ResMessage<PopVO>>(txtID.Text);
+                
+                if (resresult.ErrCode == 0)
+                {
+                    lblChk.Visible = false;
+                    userVO = resresult.Data;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    txtID.Text = txtCopy1.Text = "";
+                    lblChk.Visible = true;
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hi");
-            //유저 유무 확인
+            if (MessageBox.Show("Hi", "hii", MessageBoxButtons.OK) == DialogResult.OK)
+            {
+                txtID.Text = txtCopy1.Text = "";
+            }
+            ResMessage<PopVO> resresult = serv.GetAsyncT<ResMessage<PopVO>>(txtID.Text);
 
-            //DB 단에 검색
-
-            //패스(다음화면으로)
-
-            // lblChk.Visible = true; // 틀리면 보여주기 //시간후 사라지기
+            if (resresult.ErrCode == 0)
+            {
+                lblChk.Visible = false;
+                userVO = resresult.Data;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                txtID.Text = txtCopy1.Text = "";
+                lblChk.Visible = true;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
