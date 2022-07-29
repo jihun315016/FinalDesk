@@ -110,7 +110,6 @@ namespace DESK_MES
                 dgvInspect.DataSource = inspectList;
                 dgvRegistered.DataSource = selectedInspect;
             }
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

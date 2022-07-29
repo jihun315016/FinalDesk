@@ -249,6 +249,7 @@ namespace DESK_MES
             this.btnClose.TabIndex = 27;
             this.btnClose.Text = "   닫기";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // imageList2
             // 
@@ -273,6 +274,7 @@ namespace DESK_MES
             this.btnSave.TabIndex = 26;
             this.btnSave.Text = "   등록";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel4
             // 
@@ -339,6 +341,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "추가";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -349,6 +352,7 @@ namespace DESK_MES
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBox3
             // 
