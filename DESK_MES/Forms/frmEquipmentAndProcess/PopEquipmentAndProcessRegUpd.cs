@@ -49,7 +49,27 @@ namespace DESK_MES
 
         void InitControl()
         {
-            // TODO : 설비 관계 수정인 경우 별도의 처리 필요
+            equipmentList = EquipmentSrv.SelectEquipmentAllList();
+
+            // 설비 관계 수정인 경우
+            if (!(bool)lblTitle.Tag)
+            {
+                // TODO : 선택된 공정에 대한 설비 항목 리스트 조회 -> foreach
+                //List<int> inspectItems = operationSrv.GetInspectListByOperation(Convert.ToInt32(lblOperationName.Tag));
+                //foreach (int item in inspectItems)
+                //{
+
+                //    foreach (EquipmentVO equipment in equipmentList)
+                //    {
+                //        if (item == equipment.Equipment_No)
+                //        {
+                //            selectedInspect.Add(equipment);
+                //        }
+                //    }
+                //}
+
+                selectedInspect.ForEach(s => equipmentList.Remove(s));
+            }
 
 
             foreach (DataGridView dgv in new DataGridView[] { dgvEquipment, dgvRegistered })
