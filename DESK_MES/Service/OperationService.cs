@@ -48,6 +48,19 @@ namespace DESK_MES.Service
             return list;
         }
 
+        public List<int> GetEquipmentListByOperation(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            DataTable dt = dac.GetEquipmentListByOperation(operNo);
+            List<int> list = new List<int>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(Convert.ToInt32(dr["Equipment_No"]));
+            }
+            dac.Dispose();
+            return list;
+        }
+
         public bool SaveOIRelation(int operNo, List<InspectItemVO> inspectList)
         {
             OperationDAC dac = new OperationDAC();
@@ -68,6 +81,14 @@ namespace DESK_MES.Service
         {
             OperationDAC dac = new OperationDAC();
             bool result = dac.DeleteOIIetm(operNo);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool DeleteEOItem(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.DeleteEOItem(operNo);
             dac.Dispose();
             return result;
         }

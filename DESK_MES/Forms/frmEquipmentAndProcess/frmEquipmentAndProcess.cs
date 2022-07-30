@@ -81,6 +81,14 @@ namespace DESK_MES
             dgvOperation.DataSource = list;
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            operationList = operationSrv.GetOperationList();
+            comboBox1.Enabled = textBox1.Enabled = true;
+            dgvOperation.DataSource = null;
+            dgvEquipment.DataSource = null;
+        }
+
         private void dgvOperation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -114,14 +122,6 @@ namespace DESK_MES
 
             List<EquipmentVO> list = equipmentSrv.SelectEquipmentByOperation(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
             dgvEquipment.DataSource = list;
-
-            Debug.WriteLine(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
-            if (list != null)
-            {
-                list.ForEach(l => Debug.WriteLine($"{l.Equipment_No} {l.Equipment_Name}"));
-                Debug.WriteLine("-----");
-            }
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -141,6 +141,49 @@ namespace DESK_MES
             OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
             PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd(oper, true);
             pop.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+
+            if (dgvEquipment.Rows.Count < 1)
+            {
+                MessageBox.Show("공정에 등록된 설비가 없습니다.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+            PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd(oper, false);
+            pop.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+            
+            if (MessageBox.Show("공정에 해당하는 설비를 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = operationSrv.DeleteEOItem(Convert.ToInt32(txtOperNoDetail.Text));
+                if (result)
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                    btnReset_Click(this, null);
+                    btnSearch_Click(this, null);
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
+            }
         }
     }
 }

@@ -173,7 +173,7 @@ namespace DESK_MES
                 return;
             }
 
-            if (MessageBox.Show("검사 데이터 항목을 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("공정에 해당하는 검사 데이터 항목을 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 bool result = operationSrv.DeleteOIIetm(Convert.ToInt32(txtOperNoDetail.Text));
                 if (result)

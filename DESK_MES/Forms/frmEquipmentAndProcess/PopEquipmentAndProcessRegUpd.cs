@@ -50,33 +50,32 @@ namespace DESK_MES
         {
             equipmentList = EquipmentSrv.SelectEquipmentAllList();
 
-            // 설비 관계 수정인 경우
-            if (!(bool)lblTitle.Tag)
-            {
-                // TODO : 선택된 공정에 대한 설비 항목 리스트 조회 -> foreach
-                //List<int> inspectItems = operationSrv.GetInspectListByOperation(Convert.ToInt32(lblOperationName.Tag));
-                //foreach (int item in inspectItems)
-                //{
-
-                //    foreach (EquipmentVO equipment in equipmentList)
-                //    {
-                //        if (item == equipment.Equipment_No)
-                //        {
-                //            selectedInspect.Add(equipment);
-                //        }
-                //    }
-                //dgvRegistered.DataSource = selectedInspect;
-                //}
-
-                selectedInspect.ForEach(s => equipmentList.Remove(s));
-            }
-
-
             foreach (DataGridView dgv in new DataGridView[] { dgvEquipment, dgvRegistered })
             {
                 DataGridUtil.SetInitGridView(dgv);
                 DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "설비 번호", "Equipment_No", colWidth: 130);
                 DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "설비명", "Equipment_Name", colWidth: 170);
+            }
+
+            // 설비 관계 수정인 경우
+            if (!(bool)lblTitle.Tag)
+            {
+                // TODO : 선택된 공정에 대한 설비 항목 리스트 조회 -> foreach
+                List<int> equipmentList = operationSrv.GetEquipmentListByOperation(Convert.ToInt32(lblOperationName.Tag));
+                foreach (int item in equipmentList)
+                {
+
+                    foreach (EquipmentVO equipment in this.equipmentList)
+                    {
+                        if (item == equipment.Equipment_No)
+                        {
+                            selectedInspect.Add(equipment);
+                        }
+                    }
+                }
+
+                dgvRegistered.DataSource = selectedInspect;
+                selectedInspect.ForEach(s => this.equipmentList.Remove(s));
             }
 
             dgvEquipment.DataSource = equipmentList;

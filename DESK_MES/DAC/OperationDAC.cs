@@ -129,6 +129,25 @@ namespace DESK_MES.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 하나의 공정에 대한 설비 리스트 조죄
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <returns></returns>
+        public DataTable GetEquipmentListByOperation(int operNo)
+        {
+            string sql = @"SELECT Equipment_No 
+                            FROM TB_EQUIPMENT_OPERATION_RELATION
+                            WHERE Operation_No = @Operation_No ";
+
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.SelectCommand.Parameters.AddWithValue("@Operation_No", operNo);
+            da.Fill(dt);
+            return dt;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 공정에 대한 검사 데이터 항목 관계 설정
         /// </summary>
         /// <param name="operNo"></param>
@@ -219,9 +238,39 @@ namespace DESK_MES.DAC
             }
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 공정과 관련된 검사 데이터 항목 삭제
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <returns></returns>
         public bool DeleteOIIetm(int operNo)
         {
             string sql = @"DELETE FROM TB_INSPECT_OPERATION_RELEATION
+                            WHERE Operation_No = @Operation_No ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 공정과 관련된 설비 삭제
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <returns></returns>
+        public bool DeleteEOItem(int operNo)
+        {
+            string sql = @"DELETE FROM TB_EQUIPMENT_OPERATION_RELATION
                             WHERE Operation_No = @Operation_No ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);

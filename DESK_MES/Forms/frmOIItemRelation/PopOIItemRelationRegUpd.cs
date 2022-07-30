@@ -51,6 +51,13 @@ namespace DESK_MES
         {
             inspectList = inspectSrv.GetInspectItemList();
 
+            foreach (DataGridView dgv in new DataGridView[] { dgvInspect, dgvRegistered })
+            {
+                DataGridUtil.SetInitGridView(dgv);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목 번호", "Inspect_No", colWidth: 130);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 170);
+            }
+
             // 검사 데이터 항목 수정인 경우
             if (!(bool)lblTitle.Tag)
             {
@@ -69,13 +76,6 @@ namespace DESK_MES
 
                 selectedInspect.ForEach(s => inspectList.Remove(s));
                 dgvRegistered.DataSource = selectedInspect;
-            }
-
-            foreach (DataGridView dgv in new DataGridView[] { dgvInspect, dgvRegistered })
-            {
-                DataGridUtil.SetInitGridView(dgv);
-                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목 번호", "Inspect_No", colWidth: 130);
-                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 170);
             }
 
             dgvInspect.DataSource = inspectList;
