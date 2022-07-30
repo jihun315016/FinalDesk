@@ -59,10 +59,11 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dgvEquipment);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "설비 번호", "Equipment_No");
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "설비명", "Equipment_Name", colWidth: 200);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "검사 데이터 항목명", "Inspect_Name", colWidth: 210);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "타겟값", "Target", colWidth: 160);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "상한값", "USL", colWidth: 160);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "하한값", "LSL", colWidth: 160);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "비가동 여부", "Is_Inoperative", colWidth: 130);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "등록 시간", "Create_Time", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "등록 사용자", "Create_User_Name", colWidth: 130);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "수정 시간", "Update_Time", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "수정 사용자", "Update_User_Name", colWidth: 130);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
