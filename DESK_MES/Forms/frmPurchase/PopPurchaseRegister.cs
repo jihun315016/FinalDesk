@@ -13,6 +13,7 @@ namespace DESK_MES
 {
     public partial class PopPurchaseRegister : Form
     {
+        UserVO user;
         PurchaseService srv = null;
         List<ProductVO> allList; // 전체 품목 리스트
 
@@ -20,13 +21,17 @@ namespace DESK_MES
         {
             InitializeComponent();
             srv = new PurchaseService();
-            txtCreateUSer.Text = user.User_Name;
-            int userNO = user.User_No;
+            this.user = user;
 
         }
 
         private void PopPurchaseRegister_Load(object sender, EventArgs e)
         {
+            List<PurchaseVO> client = srv.GetClientList();
+            cboClient.DisplayMember = "Client_Name";
+            cboClient.ValueMember = "Client_Code";
+            cboClient.DataSource = client;
+
             DataGridUtil.SetInitGridView(dgvAllProduct);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품번", "Product_Code", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품명", "Product_Name", colWidth: 230);
@@ -76,8 +81,6 @@ namespace DESK_MES
 
             LoadData();
         }
-
-
 
         private void LoadData()
         {
@@ -178,10 +181,10 @@ namespace DESK_MES
 
             PurchaseVO purchase = new PurchaseVO
             {
-                Client_Code = cboClient.Text.ToString(),
+                Client_Code = cboClient.SelectedValue.ToString(),
                 Purchase_Date = dtpPurchaseDate.Value.ToShortDateString(),
                 IncomingDue_date = dtpDueDate.Value.ToShortDateString(),
-                Create_Time = dtpCreateTime.Value.ToShortDateString()
+                Create_User_No = user.User_No
             };
 
             bool result = srv.RegisterPurchase(purchase, purchaseList);

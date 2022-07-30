@@ -94,7 +94,7 @@ namespace DESK_MES
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            PopPurchaseModify pop = new PopPurchaseModify();
+            PopPurchaseModify pop = new PopPurchaseModify(purchaseNo, user);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 LoadData();

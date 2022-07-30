@@ -45,6 +45,15 @@ namespace DESK_MES
             return result;
         }
 
+        public List<PurchaseVO> GetClientList()  // 발주 거래처 가져오기
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            List<PurchaseVO> result = dac.GetClientList();
+            dac.Dispose();
+
+            return result;
+        }
+
         public bool RegisterPurchase(PurchaseVO purchase, List<PurchaseDetailVO> purchaseList)
         {
             PurchaseDAC dac = new PurchaseDAC();
@@ -62,6 +71,8 @@ namespace DESK_MES
 
             return result;
         }
+
+
         public PurchaseDetailVO GetIncomingProductInfo(string no)
         {
             PurchaseDAC dac = new PurchaseDAC();
