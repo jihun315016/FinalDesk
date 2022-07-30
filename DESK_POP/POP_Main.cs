@@ -36,8 +36,17 @@ namespace DESK_POP
             }
             #endregion
             int littt = 3; //db에서 가져온 리스트의 갯수/<나중에 삭제>
+            lblCount.Text = littt.ToString();
 
-            ucWorkGroup wg = new ucWorkGroup();
+            for (int i = 0; i < 3; i++)
+            {
+                ucWorkGroup wg = new ucWorkGroup();
+                
+                wg.Name = $"ucWorkGroup{1+i}";
+                wg.Location = new Point(3+(i*342), 5);
+                wg.Size = new Size(342, 338);
+                splitContainer1.Panel2.Controls.Add(wg);
+            }
         }
     }
 }

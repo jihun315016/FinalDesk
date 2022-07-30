@@ -109,6 +109,7 @@ namespace DESK_POP
             this.txtID.PlaceHolder = "";
             this.txtID.Size = new System.Drawing.Size(147, 20);
             this.txtID.TabIndex = 10;
+            this.txtID.Text = "10002";
             this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button2
