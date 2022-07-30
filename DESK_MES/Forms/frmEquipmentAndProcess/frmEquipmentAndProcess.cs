@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,9 @@ namespace DESK_MES
     public partial class frmEquipmentAndProcess : FormStyle_2
     {
         List<OperationVO> operationList;
+        List<EquipmentVO> equipmentList;
         OperationService operationSrv;
-        UserVO user;
+        EquipmentService equipmentSrv;
 
         public frmEquipmentAndProcess()
         {
@@ -27,8 +29,10 @@ namespace DESK_MES
         private void frmEquipmentAndProcess_Load(object sender, EventArgs e)
         {
             operationSrv = new OperationService();
+            equipmentSrv = new EquipmentService();
             operationList = operationSrv.GetOperationList();
-            this.user = ((frmMain)(this.MdiParent)).userInfo;
+            equipmentList = equipmentSrv.SelectEquipmentAllList();
+
             InitControl();
         }
 
@@ -52,9 +56,9 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자", "Update_User_Name", isVisible: false);
 
-            //DataGridUtil.SetInitGridView(dgvEquipment);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "공정 번호", "Operation_No", colWidth: 200);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "검사 데이터 번호", "Inspect_No", colWidth: 200);
+            DataGridUtil.SetInitGridView(dgvEquipment);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "설비 번호", "Equipment_No");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "설비명", "Equipment_Name", colWidth: 200);
             //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "검사 데이터 항목명", "Inspect_Name", colWidth: 210);
             //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "타겟값", "Target", colWidth: 160);
             //DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "상한값", "USL", colWidth: 160);
@@ -107,7 +111,16 @@ namespace DESK_MES
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
             }
 
-            // TODO : 하위 항목 그리드 뷰 조회
+            List<EquipmentVO> list = equipmentSrv.SelectEquipmentByOperation(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
+            dgvEquipment.DataSource = list;
+
+            Debug.WriteLine(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
+            if (list != null)
+            {
+                list.ForEach(l => Debug.WriteLine($"{l.Equipment_No} {l.Equipment_Name}"));
+                Debug.WriteLine("-----");
+            }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

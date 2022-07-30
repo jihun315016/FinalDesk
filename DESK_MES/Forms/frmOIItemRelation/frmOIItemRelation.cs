@@ -15,7 +15,6 @@ namespace DESK_MES
     public partial class frmOIItemRelation : FormStyle_1
     {
         OperationService operationSrv;
-        UserVO user;
         DataSet ds;
 
         public frmOIItemRelation()
@@ -26,8 +25,7 @@ namespace DESK_MES
         private void frmOperationInspectItemRelation_Load(object sender, EventArgs e)
         {
             operationSrv = new OperationService();
-            ds = operationSrv.GetOIRelation(); // 검사 데이터를 등록하는 공정만 조회
-            this.user = ((frmMain)(this.MdiParent)).userInfo;
+            ds = operationSrv.GetOIRelation(); // 검사 데이터를 등록하는 공정만 
             InitControl();
         }
 

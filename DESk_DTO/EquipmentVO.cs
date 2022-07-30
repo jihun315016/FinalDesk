@@ -29,7 +29,8 @@ namespace DESK_DTO
         //
         public string Inoperative_Reason { get; set; }
         public string Action_History { get; set; }
-
+        //
+        public int Operation_No { get; set; }
 
     }
 }

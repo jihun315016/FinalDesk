@@ -41,6 +41,7 @@ namespace DESK_MES
         private void PopEquipmentAndProcessRegUpd_Load(object sender, EventArgs e)
         {
             EquipmentSrv = new EquipmentService();
+            operationSrv = new OperationService();
             selectedInspect = new List<EquipmentVO>();
             InitControl();
         }

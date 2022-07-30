@@ -85,6 +85,41 @@ namespace DESK_MES
                 throw err;
             }
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 주어진 공정에 등록된 설비 리스트 조회
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <returns></returns>
+        public List<EquipmentVO> SelectEquipmentByOperation(int operNo)
+        {
+            string sql = @"SELECT e.Equipment_No, Equipment_Name, Is_Inoperative, e.Create_Time, e.Create_User_No, u.User_Name Create_User_Name
+                            FROM TB_EQUIPMENT e
+                            JOIN (SELECT Equipment_No, Operation_No FROM TB_EQUIPMENT_OPERATION_RELATION WHERE Operation_No = @Operation_No) eo 
+                            ON e.Equipment_No = eo.Equipment_No
+                            LEFT JOIN TB_USER u ON e.Create_User_No = u.User_No
+                            WHERE e.Is_Delete = 'N' ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Operation_No", operNo);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<EquipmentVO> list = new List<EquipmentVO>();
+            while (reader.Read())
+            {
+                list.Add(new EquipmentVO()
+                {
+                    Equipment_No = Convert.ToInt32(reader["Equipment_No"]),
+                    Equipment_Name = reader["Equipment_Name"].ToString(),
+                    Is_Inoperative = reader["Is_Inoperative"].ToString(),
+                    Create_Time = Convert.ToDateTime(reader["Create_Time"]).ToShortDateString(),
+                    Create_User_Name = reader["Create_User_Name"].ToString()
+                });
+            }
+
+            return list;
+        }
+
         /// <summary>
         /// 김준모/설비 등록
         /// </summary>
