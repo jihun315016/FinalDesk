@@ -154,6 +154,28 @@ namespace DESK_MES
             }
         }
 
+        public List<PurchaseVO> GetClientList()
+        {
+            try
+            {
+                List<PurchaseVO> list = new List<PurchaseVO>();
+
+                string sql = @"select Client_Code, Client_Name
+                               from [dbo].[TB_Client]
+                               where Client_Type='VEN'";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    list = DBHelpler.DataReaderMapToList<PurchaseVO>(cmd.ExecuteReader());
+                }
+                return list;
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
         public bool RegisterPurchase(PurchaseVO purchase, List<PurchaseDetailVO> purchaseList) // 발주 등록
         {
             using (SqlCommand cmd = new SqlCommand())

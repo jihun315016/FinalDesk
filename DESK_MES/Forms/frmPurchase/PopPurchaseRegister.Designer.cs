@@ -55,18 +55,12 @@ namespace DESK_MES
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvPurchaseList = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCreateUSer = new System.Windows.Forms.TextBox();
             this.cboClient = new System.Windows.Forms.ComboBox();
-            this.txtPurchaseNo = new System.Windows.Forms.TextBox();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
-            this.dtpCreateTime = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -370,18 +364,12 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtCreateUSer);
             this.groupBox1.Controls.Add(this.cboClient);
-            this.groupBox1.Controls.Add(this.txtPurchaseNo);
             this.groupBox1.Controls.Add(this.dtpDueDate);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.dtpCreateTime);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.dtpPurchaseDate);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(827, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -392,32 +380,18 @@ namespace DESK_MES
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "발주정보";
             // 
-            // txtCreateUSer
-            // 
-            this.txtCreateUSer.Location = new System.Drawing.Point(131, 266);
-            this.txtCreateUSer.Name = "txtCreateUSer";
-            this.txtCreateUSer.Size = new System.Drawing.Size(189, 25);
-            this.txtCreateUSer.TabIndex = 85;
-            // 
             // cboClient
             // 
             this.cboClient.FormattingEnabled = true;
-            this.cboClient.Location = new System.Drawing.Point(131, 102);
+            this.cboClient.Location = new System.Drawing.Point(132, 60);
             this.cboClient.Name = "cboClient";
             this.cboClient.Size = new System.Drawing.Size(189, 25);
             this.cboClient.TabIndex = 83;
             // 
-            // txtPurchaseNo
-            // 
-            this.txtPurchaseNo.Location = new System.Drawing.Point(131, 61);
-            this.txtPurchaseNo.Name = "txtPurchaseNo";
-            this.txtPurchaseNo.Size = new System.Drawing.Size(189, 25);
-            this.txtPurchaseNo.TabIndex = 82;
-            // 
             // dtpDueDate
             // 
             this.dtpDueDate.Enabled = false;
-            this.dtpDueDate.Location = new System.Drawing.Point(131, 184);
+            this.dtpDueDate.Location = new System.Drawing.Point(132, 142);
             this.dtpDueDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(189, 25);
@@ -426,46 +400,11 @@ namespace DESK_MES
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(29, 187);
+            this.label12.Location = new System.Drawing.Point(30, 146);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(73, 17);
             this.label12.TabIndex = 80;
             this.label12.Text = "입고예정일";
-            // 
-            // dtpCreateTime
-            // 
-            this.dtpCreateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpCreateTime.Enabled = false;
-            this.dtpCreateTime.Location = new System.Drawing.Point(131, 225);
-            this.dtpCreateTime.Name = "dtpCreateTime";
-            this.dtpCreateTime.Size = new System.Drawing.Size(189, 25);
-            this.dtpCreateTime.TabIndex = 79;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(29, 228);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 17);
-            this.label15.TabIndex = 78;
-            this.label15.Text = "생성시간";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(29, 269);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 17);
-            this.label14.TabIndex = 76;
-            this.label14.Text = "생성사용자";
             // 
             // label10
             // 
@@ -473,7 +412,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(29, 105);
+            this.label10.Location = new System.Drawing.Point(30, 64);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 17);
             this.label10.TabIndex = 72;
@@ -485,7 +424,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpPurchaseDate.Enabled = false;
-            this.dtpPurchaseDate.Location = new System.Drawing.Point(131, 143);
+            this.dtpPurchaseDate.Location = new System.Drawing.Point(132, 101);
             this.dtpPurchaseDate.Name = "dtpPurchaseDate";
             this.dtpPurchaseDate.Size = new System.Drawing.Size(189, 25);
             this.dtpPurchaseDate.TabIndex = 71;
@@ -496,23 +435,11 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(29, 146);
+            this.label11.Location = new System.Drawing.Point(30, 105);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 17);
             this.label11.TabIndex = 70;
             this.label11.Text = "발주일자";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(29, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 17);
-            this.label9.TabIndex = 68;
-            this.label9.Text = "발주번호";
             // 
             // PopPurchaseRegister
             // 
@@ -577,15 +504,9 @@ namespace DESK_MES
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dtpCreateTime;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtpPurchaseDate;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCreateUSer;
         private System.Windows.Forms.ComboBox cboClient;
-        private System.Windows.Forms.TextBox txtPurchaseNo;
     }
 }
