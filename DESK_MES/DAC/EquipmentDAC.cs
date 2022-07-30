@@ -94,11 +94,14 @@ namespace DESK_MES
         /// <returns></returns>
         public List<EquipmentVO> SelectEquipmentByOperation(int operNo)
         {
-            string sql = @"SELECT e.Equipment_No, Equipment_Name, Is_Inoperative, e.Create_Time, e.Create_User_No, u.User_Name Create_User_Name
+            string sql = @"SELECT e.Equipment_No, Equipment_Name, Is_Inoperative, 
+                                e.Create_Time, u.User_Name Create_User_Name,
+                                e.Update_Time, uu.User_Name Update_User_Name 
                             FROM TB_EQUIPMENT e
                             JOIN (SELECT Equipment_No, Operation_No FROM TB_EQUIPMENT_OPERATION_RELATION WHERE Operation_No = @Operation_No) eo 
                             ON e.Equipment_No = eo.Equipment_No
                             LEFT JOIN TB_USER u ON e.Create_User_No = u.User_No
+                            LEFT JOIN TB_USER uu ON e.Update_User_No = uu.User_No
                             WHERE e.Is_Delete = 'N' ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
@@ -113,7 +116,9 @@ namespace DESK_MES
                     Equipment_Name = reader["Equipment_Name"].ToString(),
                     Is_Inoperative = reader["Is_Inoperative"].ToString(),
                     Create_Time = Convert.ToDateTime(reader["Create_Time"]).ToShortDateString(),
-                    Create_User_Name = reader["Create_User_Name"].ToString()
+                    Create_User_Name = reader["Create_User_Name"].ToString(),
+                    Update_Time = reader["Update_Time"] == DBNull.Value ? null : Convert.ToDateTime(reader["Update_Time"]).ToShortDateString(),
+                    Update_User_Name = reader["Update_User_Name"] == DBNull.Value ? null : reader["Update_User_Name"].ToString()
                 });
             }
 
