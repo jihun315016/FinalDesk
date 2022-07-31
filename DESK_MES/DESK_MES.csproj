@@ -84,6 +84,7 @@
       <DependentUpon>FormStyle_3.cs</DependentUpon>
     </Compile>
     <Compile Include="DAC\ClientDAC.cs" />
+    <Compile Include="DAC\IncomingDAC.cs" />
     <Compile Include="Forms\frmIncoming\frmIncoming.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,6 +473,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EquipmentService.cs" />
+    <Compile Include="Service\IncomingService.cs" />
     <Compile Include="Service\InspectService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MenuService.cs" />

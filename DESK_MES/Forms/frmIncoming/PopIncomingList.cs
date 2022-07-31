@@ -13,12 +13,14 @@ namespace DESK_MES
 {
     public partial class PopIncomingList : Form
     {
-        PurchaseService srv;
+        IncomingService srv;
+         
         List<PurchaseDetailVO> incomingList;
+
         public PopIncomingList()
         {
             InitializeComponent();
-            srv = new PurchaseService();
+            srv = new IncomingService();
         }
 
         private void PopIncomingList_Load(object sender, EventArgs e)
@@ -37,8 +39,8 @@ namespace DESK_MES
         }
         private void LoadData()
         {
-            incomingList = srv.GetIncomingList();
-            dataGridView1.DataSource = incomingList;
+            //incomingList = srv.GetIncomingList();
+            //dataGridView1.DataSource = incomingList;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

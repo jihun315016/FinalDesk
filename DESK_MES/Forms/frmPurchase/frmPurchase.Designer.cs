@@ -75,8 +75,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnIncoming = new System.Windows.Forms.Button();
-            this.btnIncomingList = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -112,22 +110,18 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnIncomingList);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnModify);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.btnIncoming);
             this.groupBox1.Controls.SetChildIndex(this.label2, 0);
             this.groupBox1.Controls.SetChildIndex(this.comboBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.textBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnOpenDetail, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnReset, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnSearch, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnIncoming, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnModify, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnIncomingList, 0);
             // 
             // comboBox1
             // 
@@ -665,38 +659,6 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnIncoming
-            // 
-            this.btnIncoming.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIncoming.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnIncoming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIncoming.ImageIndex = 4;
-            this.btnIncoming.ImageList = this.imageList2;
-            this.btnIncoming.Location = new System.Drawing.Point(738, 30);
-            this.btnIncoming.Name = "btnIncoming";
-            this.btnIncoming.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnIncoming.Size = new System.Drawing.Size(91, 27);
-            this.btnIncoming.TabIndex = 32;
-            this.btnIncoming.Text = "   입고등록";
-            this.btnIncoming.UseVisualStyleBackColor = true;
-            this.btnIncoming.Click += new System.EventHandler(this.btnIncoming_Click);
-            // 
-            // btnIncomingList
-            // 
-            this.btnIncomingList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIncomingList.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnIncomingList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIncomingList.ImageIndex = 1;
-            this.btnIncomingList.ImageList = this.imageList2;
-            this.btnIncomingList.Location = new System.Drawing.Point(835, 30);
-            this.btnIncomingList.Name = "btnIncomingList";
-            this.btnIncomingList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnIncomingList.Size = new System.Drawing.Size(91, 27);
-            this.btnIncomingList.TabIndex = 37;
-            this.btnIncomingList.Text = "   입고목록";
-            this.btnIncomingList.UseVisualStyleBackColor = true;
-            this.btnIncomingList.Click += new System.EventHandler(this.btnIncomingList_Click);
-            // 
             // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -764,7 +726,6 @@ namespace DESK_MES
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnIncoming;
         private System.Windows.Forms.TextBox txtDueDate;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtPurchaseRegiDate;
@@ -775,6 +736,5 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtRegiUser;
         private System.Windows.Forms.TextBox txtRegiDate;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnIncomingList;
     }
 }

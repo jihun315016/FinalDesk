@@ -63,50 +63,6 @@ namespace DESK_MES
             return result;
         }
 
-        public PurchaseDetailVO GetLastID()
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            PurchaseDetailVO result = dac.GetLastID();
-            dac.Dispose();
-
-            return result;
-        }
-
-
-        public PurchaseDetailVO GetIncomingProductInfo(string no)
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            PurchaseDetailVO result = dac.GetIncomingProductInfo(no);
-            dac.Dispose();
-
-            return result;
-        }
-        public List<PurchaseDetailVO> GetEqualWarehouse(string no)
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            List<PurchaseDetailVO> result = dac.GetEqualWarehouse(no);
-            dac.Dispose();
-
-            return result;
-        }
-        public bool RegisterIncomingPurchase(PurchaseVO purchase, List<string> lotIDList, List<PurchaseDetailVO> purchaseList)
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            bool result = dac.RegisterIncomingPurchase(purchase, lotIDList, purchaseList);
-            dac.Dispose();
-
-            return result;
-        }
-
-        public List<PurchaseDetailVO> GetIncomingList()  // 입고목록 가져오기
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            List<PurchaseDetailVO> result = dac.GetIncomingList();
-            dac.Dispose();
-
-            return result;
-        }
-
         public bool UpdatePurchaseInfo(PurchaseVO info)
         {
             PurchaseDAC dac = new PurchaseDAC();

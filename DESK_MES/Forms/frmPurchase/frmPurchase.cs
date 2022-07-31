@@ -100,28 +100,5 @@ namespace DESK_MES
                 LoadData();
             }
         }
-
-        private void btnIncoming_Click(object sender, EventArgs e)
-        {
-            if (purchaseNo != 0)
-            {
-                PopIncomingCreateLot pop = new PopIncomingCreateLot(purchaseNo);
-                if (pop.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
-            }
-            else
-            {
-                MessageBox.Show("입고처리할 발주코드를 선택해주세요");
-                return;
-            }
-        }
-
-        private void btnIncomingList_Click(object sender, EventArgs e)
-        {
-            PopIncomingList pop = new PopIncomingList();
-            pop.ShowDialog();
-        }
     }
 }

@@ -13,7 +13,8 @@ namespace DESK_MES
 {
     public partial class PopIncomingCreateLot : Form
     {
-        PurchaseService srv;
+        IncomingService srv;
+        PurchaseService pursrv;
         int purchaseCode;
         PurchaseDetailVO LastID;
         string productCode;
@@ -23,7 +24,8 @@ namespace DESK_MES
         {
             InitializeComponent();
 
-            srv = new PurchaseService();
+            srv = new IncomingService();
+            pursrv = new PurchaseService();
             purchaseCode = purchaseNo;
             
         }
@@ -45,10 +47,10 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관 창고명", "Warehouse_Name", colWidth: 100);
             
 
-            List<PurchaseDetailVO> detail = srv.GetPurchaseDetailList(purchaseCode);
+            List<PurchaseDetailVO> detail = pursrv.GetPurchaseDetailList(purchaseCode);
             dataGridView1.DataSource = detail;
 
-            PurchaseVO Info = srv.GetPurchaseInfoByPurchaseCode(purchaseCode);
+            PurchaseVO Info = pursrv.GetPurchaseInfoByPurchaseCode(purchaseCode);
             txtPurchaseCode.Text = Info.Purchase_No.ToString();
             txtClientCode.Text = Info.Client_Code.ToString();
             txtClientName.Text = Info.Client_Name.ToString();
