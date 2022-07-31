@@ -2200,6 +2200,7 @@
     <Content Include="plugins\summernote\summernote.js.map" />
     <Content Include="plugins\summernote\summernote.min.js.map" />
     <Content Include="plugins\toastr\toastr.js.map" />
+    <Content Include="Views\Main\GetMenuList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

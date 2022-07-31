@@ -9,7 +9,7 @@ using DESK_WEB.Models;
 
 namespace DESK_WEB.Controllers
 {
-    [RoutePrefix("api/Client")]
+    [RoutePrefix("api/Client")] 
     public class ClientController : ApiController
     {
         //https://localhost:44393/api/Client/Clients

@@ -41,7 +41,7 @@ namespace DESK_POP
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.ucWorkGroup1 = new DESK_POP.ucWorkGroup();
+            //this.ucWorkGroup1 = new DESK_POP.ucWorkGroup();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
