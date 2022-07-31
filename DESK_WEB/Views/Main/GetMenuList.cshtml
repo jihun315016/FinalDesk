@@ -1,18 +1,11 @@
 ﻿@model IEnumerable<DESK_WEB.Models.DTO.MenuVO>
 
-@{
-    Layout = null;
+@foreach(var item in Model)
+{
+    <li class="nav-item">
+        <a href=@Url.Action(item.frmName.Split('/')[1], item.frmName.Split('/')[0], new { }) class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>@item.Function_Name</p>
+        </a>
+    </li>
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetMenuList</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>

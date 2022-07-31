@@ -1,4 +1,5 @@
-﻿using DESK_DTO;
+﻿using DESK_WEB.Models;
+using DESK_WEB.Models.DTO;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
