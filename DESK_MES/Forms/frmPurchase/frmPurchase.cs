@@ -31,17 +31,16 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "발주코드", "Purchase_No", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처번호", "Client_Code", colWidth: 230);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처번호", "Client_Code", colWidth: 120);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 150);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "발주등록일", "Purchase_Date", colWidth: 80);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "발주상태", "Purchase_State", colWidth: 60);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고예정일", "IncomingDue_date", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고상태", "Is_Incoming", colWidth: 60);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고일", "Incoming_Date", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "등록일자", "Create_Time", colWidth: 60);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "등록사용자", "Create_User_No", colWidth: 80);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정일자", "Update_Time", colWidth: 60);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_No", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고상태", "Is_Incoming", colWidth: 60, isVisible:false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "등록일자", "Create_Time", colWidth: 120);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "등록사용자", "Create_User_Name", colWidth: 80);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정일자", "Update_Time", colWidth: 120);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_Name", colWidth: 60);
 
             DataGridUtil.SetInitGridView(dataGridView2);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "발주코드", "Purchase_No", colWidth: 120);
@@ -76,9 +75,11 @@ namespace DESK_MES
             txtPurchaseState.Text = dataGridView1["Purchase_State", e.RowIndex].Value.ToString();
             txtDueDate.Text = dataGridView1["IncomingDue_date", e.RowIndex].Value.ToString();
             txtIncomingState.Text = dataGridView1["Is_Incoming", e.RowIndex].Value.ToString();
-            //txtIncomingDate.Text = dataGridView1["Incoming_Date", e.RowIndex].Value.ToString();
-            txtRegiDate.Text = dataGridView1["Create_Time", e.RowIndex].Value.ToString();
-            //txtRegiUser.Text = dataGridView1["Create_User_No", e.RowIndex].Value.ToString();
+            txtRegiDate.Text = (dataGridView1["Create_Time", e.RowIndex].Value ?? string.Empty).ToString();
+            txtRegiUser.Text = (dataGridView1["Create_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
+            txtModifydate.Text = (dataGridView1["Update_Time", e.RowIndex].Value ?? string.Empty).ToString();
+            txtModifyName.Text = (dataGridView1["Update_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
+
 
             purchaseDetailList = srv.GetPurchaseDetailList(purchaseNo);
             dataGridView2.DataSource = purchaseDetailList;

@@ -18,8 +18,10 @@ namespace DESK_DTO
         public string Incoming_Date { get; set; }
         public string Create_Time { get; set; }
         public int Create_User_No { get; set; }
+        public string Create_User_Name { get; set; }
         public string Update_Time { get; set; }
         public int Update_User_No { get; set; }
+        public string Update_User_Name { get; set; }
         public string Warehouse_Code { get; set; }
     }
 }

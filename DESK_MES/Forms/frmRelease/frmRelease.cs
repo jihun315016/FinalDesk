@@ -13,6 +13,7 @@ namespace DESK_MES
 {
     public partial class frmRelease : FormStyle_1
     {
+        UserVO user;
         ReleaseService srv;
         int orderNo = 0;
         List<ReleaseVO> releaseList;
@@ -27,6 +28,7 @@ namespace DESK_MES
         private void frmRelease_Load(object sender, EventArgs e)
         {
             srv = new ReleaseService();
+            this.user = ((frmMain)(this.MdiParent)).userInfo;
 
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "주문번호", "Order_No", colWidth: 120);
@@ -57,11 +59,7 @@ namespace DESK_MES
             dataGridView1.DataSource = releaseList;
         }
 
-        private void btnProductList_Click(object sender, EventArgs e)
-        {
-            PopReleaseProduct pop = new PopReleaseProduct();
-            pop.ShowDialog();
-        }
+
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -79,6 +77,24 @@ namespace DESK_MES
 
             orderDetailList = srv.GetOrderDetailList(orderNo);
             dataGridView2.DataSource = orderDetailList;
+        }
+
+        private void btnReleaseAdd_Click(object sender, EventArgs e)
+        {
+            PopReleaseRegister pop = new PopReleaseRegister(user);
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
+
+        private void btnBarcord_Click(object sender, EventArgs e)
+        {
+            PopBarcode pop = new PopBarcode();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
     }
 }
