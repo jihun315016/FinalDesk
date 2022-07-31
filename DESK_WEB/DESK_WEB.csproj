@@ -2206,7 +2206,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Lot\" />
-    <Folder Include="Views\Warehouse\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DESk_DTO\DESK_DTO.csproj">
