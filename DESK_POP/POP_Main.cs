@@ -40,12 +40,12 @@ namespace DESK_POP
 
             for (int i = 0; i < 3; i++)
             {
-                //ucWorkGroup wg = new ucWorkGroup(PopVO pop);
+                ucWorkGroup wg = new ucWorkGroup(userInfo, i);
 
-                //wg.Name = $"ucWorkGroup{1 + i}";
-                //wg.Location = new Point(3 + (i * 342), 5);
-                //wg.Size = new Size(342, 338);
-                //splitContainer1.Panel2.Controls.Add(wg);
+                wg.Name = $"ucWorkGroup{1 + i}";
+                wg.Location = new Point(3 + (i * 342), 5);
+                wg.Size = new Size(342, 338);
+                splitContainer1.Panel2.Controls.Add(wg);
             }
         }
     }
