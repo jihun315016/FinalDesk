@@ -13,5 +13,10 @@ namespace DESK_WEB.Controllers
         {
             return View();
         }
+
+        public ActionResult GetMenuList()
+        {
+            return View();
+        }
     }
 }
