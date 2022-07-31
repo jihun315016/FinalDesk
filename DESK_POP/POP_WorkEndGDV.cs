@@ -10,12 +10,10 @@ using System.Windows.Forms;
 
 namespace DESK_POP
 {
-    public partial class Lot_Add : Form
+    public partial class POP_WorkEndGDV : Form
     {
-        string oCode;
-        public Lot_Add(string orderCode)
+        public POP_WorkEndGDV()
         {
-            oCode = orderCode;
             InitializeComponent();
         }
     }

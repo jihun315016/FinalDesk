@@ -12,8 +12,10 @@ namespace DESK_POP
 {
     public partial class POP_Detail : Form
     {
-        public POP_Detail()
+        string oCode;
+        public POP_Detail(string orderCode)
         {
+            oCode = orderCode;
             InitializeComponent();
         }
     }

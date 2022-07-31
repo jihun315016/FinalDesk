@@ -188,6 +188,7 @@ namespace DESK_POP
             this.button2.TabIndex = 0;
             this.button2.Text = "진행하기";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ucWorkGroup
             // 
@@ -198,6 +199,7 @@ namespace DESK_POP
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "ucWorkGroup";
             this.Size = new System.Drawing.Size(342, 338);
+            this.Load += new System.EventHandler(this.ucWorkGroup_Load);
             this.gBox.ResumeLayout(false);
             this.gBox.PerformLayout();
             this.ResumeLayout(false);

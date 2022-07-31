@@ -40,7 +40,7 @@ namespace DESK_POP
 
             for (int i = 0; i < 3; i++)
             {
-                ucWorkGroup wg = new ucWorkGroup();
+                ucWorkGroup wg = new ucWorkGroup(PopVO pop);
                 
                 wg.Name = $"ucWorkGroup{1+i}";
                 wg.Location = new Point(3+(i*342), 5);

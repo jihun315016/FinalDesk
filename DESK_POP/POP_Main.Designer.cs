@@ -41,6 +41,7 @@ namespace DESK_POP
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.ucWorkGroup1 = new DESK_POP.ucWorkGroup();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@ namespace DESK_POP
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.ucWorkGroup1 = new DESK_POP.ucWorkGroup();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -187,6 +187,15 @@ namespace DESK_POP
             this.label5.TabIndex = 2;
             this.label5.Text = "작업지시현황";
             // 
+            // ucWorkGroup1
+            // 
+            this.ucWorkGroup1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ucWorkGroup1.Location = new System.Drawing.Point(3, 5);
+            this.ucWorkGroup1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ucWorkGroup1.Name = "ucWorkGroup1";
+            this.ucWorkGroup1.Size = new System.Drawing.Size(342, 338);
+            this.ucWorkGroup1.TabIndex = 1;
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
@@ -204,7 +213,7 @@ namespace DESK_POP
             this.groupBox1.Controls.Add(this.textBox12);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Location = new System.Drawing.Point(957, 343);
+            this.groupBox1.Location = new System.Drawing.Point(944, 256);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(281, 278);
             this.groupBox1.TabIndex = 0;
@@ -315,15 +324,6 @@ namespace DESK_POP
             this.button2.TabIndex = 0;
             this.button2.Text = "진행하기";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // ucWorkGroup1
-            // 
-            this.ucWorkGroup1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ucWorkGroup1.Location = new System.Drawing.Point(3, 5);
-            this.ucWorkGroup1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.ucWorkGroup1.Name = "ucWorkGroup1";
-            this.ucWorkGroup1.Size = new System.Drawing.Size(342, 338);
-            this.ucWorkGroup1.TabIndex = 1;
             // 
             // POP_Main
             // 

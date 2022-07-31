@@ -19,6 +19,7 @@ namespace DESK_DTO
         public string Production_No { get; set; }
         public string Work_Code { get; set; }
         public int Operation_Code { get; set; }
+        public string Operation_Name { get; set; } //쿼리문에서 오더 명 찾기
         public string Work_Status { get; set; }
         public int Planned_Qty { get; set; }
         public int Work_Qty { get; set; }
@@ -30,6 +31,9 @@ namespace DESK_DTO
         public string Update_Time { get; set; }
         public int Update_User_No { get; set; }
         public int Work_UserGroup_No { get; set; }
+        //설비정보
+        public int Equipment_No { get; set; }
+        public string Equipment_Name { get; set; }
 
     }
 }
