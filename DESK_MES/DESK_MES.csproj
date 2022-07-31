@@ -84,6 +84,12 @@
       <DependentUpon>FormStyle_3.cs</DependentUpon>
     </Compile>
     <Compile Include="DAC\ClientDAC.cs" />
+    <Compile Include="Forms\frmIncoming\frmIncoming.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmIncoming\frmIncoming.Designer.cs">
+      <DependentUpon>frmIncoming.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\ClientService.cs" />
     <Compile Include="Controls\ccTabControl.cs">
       <SubType>Component</SubType>
@@ -234,10 +240,10 @@
     <Compile Include="Forms\frmPurchaseStatus\frmPurchaseStatus.Designer.cs">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPurchase\PopIncomingList.cs">
+    <Compile Include="Forms\frmIncoming\PopIncomingList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPurchase\PopIncomingList.Designer.cs">
+    <Compile Include="Forms\frmIncoming\PopIncomingList.Designer.cs">
       <DependentUpon>PopIncomingList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmRelease\frmRelease.cs">
@@ -457,10 +463,10 @@
     <Compile Include="Forms\frmWarehouse\PopWarehouseProduct.Designer.cs">
       <DependentUpon>PopWarehouseProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPurchase\PopIncomingCreateLot.cs">
+    <Compile Include="Forms\frmIncoming\PopIncomingCreateLot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPurchase\PopIncomingCreateLot.Designer.cs">
+    <Compile Include="Forms\frmIncoming\PopIncomingCreateLot.Designer.cs">
       <DependentUpon>PopIncomingCreateLot.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -525,6 +531,9 @@
     <EmbeddedResource Include="Forms\frmEquipmentStop\frmEquipmentStop.resx">
       <DependentUpon>frmEquipmentStop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmIncoming\frmIncoming.resx">
+      <DependentUpon>frmIncoming.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmInspectItem\frmInspectItem.resx">
       <DependentUpon>frmInspectItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -561,10 +570,10 @@
     <EmbeddedResource Include="Forms\frmPurchaseStatus\frmPurchaseStatus.resx">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPurchase\PopIncomingCreateLot.resx">
+    <EmbeddedResource Include="Forms\frmIncoming\PopIncomingCreateLot.resx">
       <DependentUpon>PopIncomingCreateLot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPurchase\PopIncomingList.resx">
+    <EmbeddedResource Include="Forms\frmIncoming\PopIncomingList.resx">
       <DependentUpon>PopIncomingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRelease\frmRelease.resx">

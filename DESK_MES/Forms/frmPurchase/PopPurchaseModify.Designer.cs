@@ -43,6 +43,7 @@ namespace DESK_MES
             this.btnClose = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -52,7 +53,6 @@ namespace DESK_MES
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -216,6 +216,13 @@ namespace DESK_MES
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(195, 63);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(189, 25);
+            this.textBox2.TabIndex = 99;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -233,7 +240,6 @@ namespace DESK_MES
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Enabled = false;
             this.dateTimePicker2.Location = new System.Drawing.Point(195, 145);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -307,13 +313,6 @@ namespace DESK_MES
             this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 86;
             this.label9.Text = "발주번호";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(195, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(189, 25);
-            this.textBox2.TabIndex = 99;
             // 
             // PopPurchaseModify
             // 

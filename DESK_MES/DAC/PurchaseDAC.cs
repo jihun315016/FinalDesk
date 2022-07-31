@@ -398,5 +398,36 @@ namespace DESK_MES
                 return null;
             }
         }
+
+        public bool UpdatePurchaseInfo(PurchaseVO info)
+        {
+            string sql = @"update [dbo].[TB_PURCHASE]
+                           set IncomingDue_date = @IncomingDue_date, 
+                           Purchase_State = @Purchase_State,
+                           Update_Time = Update_Time,
+                           Update_User_No = Update_User_No
+                           where Purchase_No = @Purchase_No";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IncomingDue_date", info.IncomingDue_date);
+                    cmd.Parameters.AddWithValue("@Purchase_State", info.Purchase_State);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", info.Update_User_No);
+                    cmd.Parameters.AddWithValue("@Purchase_No", info.Purchase_No);
+
+                    int iRowAffect = cmd.ExecuteNonQuery();
+                    if (iRowAffect < 1)
+                        throw new Exception("해당 발주 정보가 없습니다.");
+                }
+                return true;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
     }
 }

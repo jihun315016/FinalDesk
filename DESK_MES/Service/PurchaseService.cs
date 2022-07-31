@@ -106,5 +106,14 @@ namespace DESK_MES
 
             return result;
         }
+
+        public bool UpdatePurchaseInfo(PurchaseVO info)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            bool result = dac.UpdatePurchaseInfo(info);
+            dac.Dispose();
+
+            return result;
+        }
     }
 }
