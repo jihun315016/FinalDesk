@@ -91,6 +91,12 @@
     <Compile Include="Forms\frmIncoming\frmIncoming.Designer.cs">
       <DependentUpon>frmIncoming.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmRelease\PopBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRelease\PopBarcode.Designer.cs">
+      <DependentUpon>PopBarcode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\ClientService.cs" />
     <Compile Include="Controls\ccTabControl.cs">
       <SubType>Component</SubType>
@@ -241,12 +247,6 @@
     <Compile Include="Forms\frmPurchaseStatus\frmPurchaseStatus.Designer.cs">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmIncoming\PopIncomingList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmIncoming\PopIncomingList.Designer.cs">
-      <DependentUpon>PopIncomingList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmRelease\frmRelease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,11 +295,11 @@
     <Compile Include="Forms\frmOrder\PopOrderRegister.Designer.cs">
       <DependentUpon>PopOrderRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRelease\PopReleaseProduct.cs">
+    <Compile Include="Forms\frmRelease\PopReleaseRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmRelease\PopReleaseProduct.Designer.cs">
-      <DependentUpon>PopReleaseProduct.cs</DependentUpon>
+    <Compile Include="Forms\frmRelease\PopReleaseRegister.Designer.cs">
+      <DependentUpon>PopReleaseRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUser\PopUserModify.cs">
       <SubType>Form</SubType>
@@ -575,8 +575,8 @@
     <EmbeddedResource Include="Forms\frmIncoming\PopIncomingCreateLot.resx">
       <DependentUpon>PopIncomingCreateLot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmIncoming\PopIncomingList.resx">
-      <DependentUpon>PopIncomingList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmRelease\PopBarcode.resx">
+      <DependentUpon>PopBarcode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRelease\frmRelease.resx">
       <DependentUpon>frmRelease.cs</DependentUpon>
@@ -605,8 +605,8 @@
     <EmbeddedResource Include="Forms\frmOrder\PopOrderRegister.resx">
       <DependentUpon>PopOrderRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmRelease\PopReleaseProduct.resx">
-      <DependentUpon>PopReleaseProduct.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmRelease\PopReleaseRegister.resx">
+      <DependentUpon>PopReleaseRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUser\PopUserModify.resx">
       <DependentUpon>PopUserModify.cs</DependentUpon>

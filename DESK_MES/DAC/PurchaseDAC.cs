@@ -40,15 +40,19 @@ namespace DESK_MES
                                       Client_Name,
                                       convert(varchar(10), Purchase_Date, 23) Purchase_Date,
                                       Purchase_State,
-                                      convert(varchar(10), Incoming_Date, 23) Incoming_Date,
+                                      convert(varchar(10), IncomingDue_date, 23) IncomingDue_date,
                                       Is_Incoming,
-                                      convert(varchar(10), P.Create_Time, 23) Create_Time,
+									  convert(varchar(10), P.Create_Time, 23) Create_Time,
                                       P.Create_User_No,
+									  U.User_Name AS Create_User_Name,
                                       convert(varchar(10), P.Update_Time, 23) Update_Time,
                                       P.Update_User_No,
+									  UU.User_Name AS Update_User_Name,
                                       convert(varchar(10), IncomingDue_date, 23) IncomingDue_date
                                from [dbo].[TB_PURCHASE] P
-                               INNER JOIN [dbo].[TB_Client] C ON P.Client_Code=C.Client_Code";
+                               INNER JOIN [dbo].[TB_Client] C ON P.Client_Code=C.Client_Code
+							   LEFT JOIN [dbo].[TB_USER] U ON C.Create_User_No=U.User_No
+							   LEFT JOIN [dbo].[TB_USER] UU ON C.Update_User_No=UU.User_No";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {

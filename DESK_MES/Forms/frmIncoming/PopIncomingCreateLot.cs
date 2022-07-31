@@ -57,7 +57,6 @@ namespace DESK_MES
 
 
             LastID = srv.GetLastID(); //"ROH_20220726_00000"; //GetLastID
-            textBox2.Text = LastID.Lot_Code.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

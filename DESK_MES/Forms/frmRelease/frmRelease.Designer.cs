@@ -69,8 +69,8 @@ namespace DESK_MES
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnProductList = new System.Windows.Forms.Button();
+            this.btnReleaseAdd = new System.Windows.Forms.Button();
+            this.btnBarcode = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -103,18 +103,18 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnProductList);
+            this.groupBox1.Controls.Add(this.btnBarcode);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.btnReleaseAdd);
             this.groupBox1.Controls.SetChildIndex(this.label2, 0);
             this.groupBox1.Controls.SetChildIndex(this.comboBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.textBox1, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnSearch, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnOpenDetail, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnReset, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button6, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnReleaseAdd, 0);
             this.groupBox1.Controls.SetChildIndex(this.button3, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnProductList, 0);
+            this.groupBox1.Controls.SetChildIndex(this.btnBarcode, 0);
             // 
             // comboBox1
             // 
@@ -558,36 +558,37 @@ namespace DESK_MES
             this.imageList2.Images.SetKeyName(4, "check.png");
             this.imageList2.Images.SetKeyName(5, "목록.png");
             // 
-            // button6
+            // btnReleaseAdd
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.ImageIndex = 4;
-            this.button6.ImageList = this.imageList2;
-            this.button6.Location = new System.Drawing.Point(986, 30);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(104, 27);
-            this.button6.TabIndex = 32;
-            this.button6.Text = "   출고등록";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnReleaseAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReleaseAdd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnReleaseAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReleaseAdd.ImageIndex = 4;
+            this.btnReleaseAdd.ImageList = this.imageList2;
+            this.btnReleaseAdd.Location = new System.Drawing.Point(986, 30);
+            this.btnReleaseAdd.Name = "btnReleaseAdd";
+            this.btnReleaseAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnReleaseAdd.Size = new System.Drawing.Size(104, 27);
+            this.btnReleaseAdd.TabIndex = 32;
+            this.btnReleaseAdd.Text = "   출고등록";
+            this.btnReleaseAdd.UseVisualStyleBackColor = true;
+            this.btnReleaseAdd.Click += new System.EventHandler(this.btnReleaseAdd_Click);
             // 
-            // btnProductList
+            // btnBarcode
             // 
-            this.btnProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProductList.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnProductList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductList.ImageIndex = 5;
-            this.btnProductList.ImageList = this.imageList2;
-            this.btnProductList.Location = new System.Drawing.Point(876, 30);
-            this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnProductList.Size = new System.Drawing.Size(104, 27);
-            this.btnProductList.TabIndex = 36;
-            this.btnProductList.Text = "   바코드출력";
-            this.btnProductList.UseVisualStyleBackColor = true;
-            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
+            this.btnBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBarcode.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnBarcode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBarcode.ImageIndex = 5;
+            this.btnBarcode.ImageList = this.imageList2;
+            this.btnBarcode.Location = new System.Drawing.Point(876, 30);
+            this.btnBarcode.Name = "btnBarcode";
+            this.btnBarcode.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnBarcode.Size = new System.Drawing.Size(104, 27);
+            this.btnBarcode.TabIndex = 36;
+            this.btnBarcode.Text = "   바코드출력";
+            this.btnBarcode.UseVisualStyleBackColor = true;
+            this.btnBarcode.Click += new System.EventHandler(this.btnBarcord_Click);
             // 
             // frmRelease
             // 
@@ -645,10 +646,10 @@ namespace DESK_MES
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnProductList;
+        private System.Windows.Forms.Button btnBarcode;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnReleaseAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label12;

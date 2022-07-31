@@ -42,9 +42,9 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고완료일", "Incoming_Date", colWidth: 60);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고상태", "Is_Incoming", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "등록일자", "Create_Time", colWidth: 60);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "등록사용자", "Create_User_No", colWidth: 80);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정일자", "Update_Time", colWidth: 60);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_No", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "등록사용자", "Create_User_Name", colWidth: 80);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정일자", "Update_Time", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_Name", colWidth: 60);
 
             DataGridUtil.SetInitGridView(dataGridView2);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "발주코드", "Purchase_No", colWidth: 120);
@@ -75,10 +75,12 @@ namespace DESK_MES
             txtClientCode.Text = dataGridView1["Client_Code", e.RowIndex].Value.ToString();
             txtClientName.Text = dataGridView1["Client_Name", e.RowIndex].Value.ToString();
             txtDueDate.Text = dataGridView1["IncomingDue_date", e.RowIndex].Value.ToString();
-            txtIncomingDate.Text = dataGridView1["Incoming_Date", e.RowIndex].Value.ToString();
+            txtIncomingDate.Text = (dataGridView1["Incoming_Date", e.RowIndex].Value ?? string.Empty).ToString();
             txtIncomingState.Text = dataGridView1["Is_Incoming", e.RowIndex].Value.ToString();
-            txtRegiDate.Text = dataGridView1["Create_Time", e.RowIndex].Value.ToString();
-            txtRegiUser.Text = dataGridView1["Create_User_No", e.RowIndex].Value.ToString();
+            txtRegiDate.Text = (dataGridView1["Create_Time", e.RowIndex].Value ?? string.Empty).ToString();
+            txtRegiUser.Text = (dataGridView1["Create_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
+            txtModidate.Text = (dataGridView1["Update_Time", e.RowIndex].Value ?? string.Empty).ToString();
+            txtModiname.Text = (dataGridView1["Update_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
 
             purchaseDetailList = pursrv.GetPurchaseDetailList(purchaseNo);
             dataGridView2.DataSource = purchaseDetailList;

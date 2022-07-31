@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DESK_DTO;
 
 namespace DESK_MES
 {
-    public partial class PopReleaseProduct : Form
+    public partial class PopReleaseRegister : Form
     {
-        public PopReleaseProduct()
+        public PopReleaseRegister(UserVO user)
         {
             InitializeComponent();
         }
