@@ -66,10 +66,6 @@ namespace DESK_MES
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +73,18 @@ namespace DESK_MES
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -90,9 +98,14 @@ namespace DESK_MES
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.Size = new System.Drawing.Size(1184, 861);
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.tableLayoutPanel1);
+            this.panel7.Size = new System.Drawing.Size(1184, 619);
             // 
             // panel6
             // 
@@ -204,11 +217,19 @@ namespace DESK_MES
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 419);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 619);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.dateTimePicker5);
+            this.groupBox4.Controls.Add(this.textBox16);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.dateTimePicker4);
+            this.groupBox4.Controls.Add(this.textBox17);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.textBox14);
             this.groupBox4.Controls.Add(this.textBox13);
             this.groupBox4.Controls.Add(this.textBox12);
@@ -236,7 +257,7 @@ namespace DESK_MES
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(834, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(347, 413);
+            this.groupBox4.Size = new System.Drawing.Size(347, 613);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
@@ -252,6 +273,7 @@ namespace DESK_MES
             this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(177, 25);
             this.textBox14.TabIndex = 40;
+            this.textBox14.Text = "미정 / 확정";
             // 
             // textBox13
             // 
@@ -300,6 +322,7 @@ namespace DESK_MES
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(177, 25);
             this.textBox6.TabIndex = 36;
+            this.textBox6.Text = "생산대기 / 생산중 / 생산완료";
             // 
             // label13
             // 
@@ -309,9 +332,9 @@ namespace DESK_MES
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(25, 386);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 17);
+            this.label13.Size = new System.Drawing.Size(96, 17);
             this.label13.TabIndex = 35;
-            this.label13.Text = "수정 사용자";
+            this.label13.Text = "생산 진행 상태";
             // 
             // label16
             // 
@@ -321,9 +344,9 @@ namespace DESK_MES
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(25, 354);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 17);
+            this.label16.Size = new System.Drawing.Size(96, 17);
             this.label16.TabIndex = 33;
-            this.label16.Text = "수정 시간";
+            this.label16.Text = "생산 계획 상태";
             // 
             // textBox9
             // 
@@ -345,9 +368,9 @@ namespace DESK_MES
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(25, 322);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(78, 17);
+            this.label17.Size = new System.Drawing.Size(104, 17);
             this.label17.TabIndex = 31;
-            this.label17.Text = "생성 사용자";
+            this.label17.Text = "생산계획 담당자";
             // 
             // label12
             // 
@@ -357,9 +380,9 @@ namespace DESK_MES
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(25, 162);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 17);
+            this.label12.Size = new System.Drawing.Size(96, 17);
             this.label12.TabIndex = 29;
-            this.label12.Text = "생산 시작일";
+            this.label12.Text = "생산 계획 수량";
             // 
             // textBox5
             // 
@@ -381,9 +404,9 @@ namespace DESK_MES
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(25, 130);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 17);
+            this.label6.Size = new System.Drawing.Size(78, 17);
             this.label6.TabIndex = 27;
-            this.label6.Text = "생산 수량";
+            this.label6.Text = "생산 품목명";
             // 
             // textBox8
             // 
@@ -417,9 +440,9 @@ namespace DESK_MES
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 290);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 17);
+            this.label4.Size = new System.Drawing.Size(78, 17);
             this.label4.TabIndex = 24;
-            this.label4.Text = "생성 시간";
+            this.label4.Text = "생산 완료일";
             // 
             // label3
             // 
@@ -429,9 +452,9 @@ namespace DESK_MES
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 258);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 17);
+            this.label3.Size = new System.Drawing.Size(109, 17);
             this.label3.TabIndex = 22;
-            this.label3.Text = "생산 상태";
+            this.label3.Text = "생산 완료 예정일";
             // 
             // label15
             // 
@@ -441,9 +464,9 @@ namespace DESK_MES
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(25, 194);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(109, 17);
+            this.label15.Size = new System.Drawing.Size(96, 17);
             this.label15.TabIndex = 20;
-            this.label15.Text = "생산 완료 예정일";
+            this.label15.Text = "생산 완료 수량";
             // 
             // textBox7
             // 
@@ -467,7 +490,7 @@ namespace DESK_MES
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 17);
             this.label14.TabIndex = 18;
-            this.label14.Text = "생산 완료일";
+            this.label14.Text = "생산 시작일";
             // 
             // textBox4
             // 
@@ -489,9 +512,9 @@ namespace DESK_MES
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(25, 98);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 17);
+            this.label10.Size = new System.Drawing.Size(91, 17);
             this.label10.TabIndex = 10;
-            this.label10.Text = "계획 수량";
+            this.label10.Text = "생산 품목코드";
             // 
             // label11
             // 
@@ -525,9 +548,9 @@ namespace DESK_MES
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(25, 66);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 17);
+            this.label9.Size = new System.Drawing.Size(73, 17);
             this.label9.TabIndex = 6;
-            this.label9.Text = "생산 품목 코드";
+            this.label9.Text = "주문서코드";
             // 
             // groupBox3
             // 
@@ -535,7 +558,7 @@ namespace DESK_MES
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(815, 413);
+            this.groupBox3.Size = new System.Drawing.Size(815, 613);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "생산 목록";
@@ -556,8 +579,43 @@ namespace DESK_MES
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(809, 389);
+            this.dataGridView1.Size = new System.Drawing.Size(809, 589);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "생산코드";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "생산품목코드";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "계획수량";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "생산수량";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "생산시작일";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "생상완료예정일";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "생산완료일";
+            this.Column7.Name = "Column7";
             // 
             // button3
             // 
@@ -615,46 +673,99 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // Column1
+            // dateTimePicker5
             // 
-            this.Column1.HeaderText = "생산코드";
-            this.Column1.Name = "Column1";
+            this.dateTimePicker5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker5.Location = new System.Drawing.Point(141, 482);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(201, 25);
+            this.dateTimePicker5.TabIndex = 77;
             // 
-            // Column2
+            // textBox16
             // 
-            this.Column2.HeaderText = "생산품목코드";
-            this.Column2.Name = "Column2";
+            this.textBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox16.Location = new System.Drawing.Point(141, 514);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(201, 25);
+            this.textBox16.TabIndex = 76;
             // 
-            // Column3
+            // label18
             // 
-            this.Column3.HeaderText = "계획수량";
-            this.Column3.Name = "Column3";
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(25, 517);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 17);
+            this.label18.TabIndex = 75;
+            this.label18.Text = "변경 사용자";
             // 
-            // Column4
+            // label19
             // 
-            this.Column4.HeaderText = "생산수량";
-            this.Column4.Name = "Column4";
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(25, 485);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 17);
+            this.label19.TabIndex = 74;
+            this.label19.Text = "변경 시간";
             // 
-            // Column5
+            // dateTimePicker4
             // 
-            this.Column5.HeaderText = "생산시작일";
-            this.Column5.Name = "Column5";
+            this.dateTimePicker4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker4.Location = new System.Drawing.Point(141, 418);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(201, 25);
+            this.dateTimePicker4.TabIndex = 73;
             // 
-            // Column6
+            // textBox17
             // 
-            this.Column6.HeaderText = "생상완료예정일";
-            this.Column6.Name = "Column6";
+            this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox17.Location = new System.Drawing.Point(141, 450);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(201, 25);
+            this.textBox17.TabIndex = 72;
             // 
-            // Column7
+            // label20
             // 
-            this.Column7.HeaderText = "생산완료일";
-            this.Column7.Name = "Column7";
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(25, 453);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 17);
+            this.label20.TabIndex = 71;
+            this.label20.Text = "생성 사용자";
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(25, 421);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 17);
+            this.label21.TabIndex = 70;
+            this.label21.Text = "생성 시간";
             // 
             // frmManufacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 861);
             this.Name = "frmManufacture";
             this.Text = "frmManufacture";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -725,5 +836,13 @@ namespace DESK_MES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }
