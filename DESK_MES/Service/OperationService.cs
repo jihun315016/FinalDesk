@@ -48,6 +48,19 @@ namespace DESK_MES.Service
             return list;
         }
 
+        public List<string> GetProductListByOperation(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            DataTable dt = dac.GetProductListByOperation(operNo);
+            List<string> list = new List<string>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(dr["Product_Code"].ToString());
+            }
+            dac.Dispose();
+            return list;
+        }
+
         public List<int> GetEquipmentListByOperation(int operNo)
         {
             OperationDAC dac = new OperationDAC();
@@ -65,6 +78,14 @@ namespace DESK_MES.Service
         {
             OperationDAC dac = new OperationDAC();
             bool result = dac.SaveOIRelation(operNo, inspectList);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool SaveOPRelation(int operNo, List<ProductVO> productList)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.SaveOPRelation(operNo, productList);
             dac.Dispose();
             return result;
         }
@@ -89,6 +110,14 @@ namespace DESK_MES.Service
         {
             OperationDAC dac = new OperationDAC();
             bool result = dac.DeleteEOItem(operNo);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool DeleteOPIetm(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.DeleteOPIetm(operNo);
             dac.Dispose();
             return result;
         }
