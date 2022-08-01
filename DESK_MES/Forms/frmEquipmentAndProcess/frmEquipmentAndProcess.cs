@@ -22,14 +22,13 @@ namespace DESK_MES
         public frmEquipmentAndProcess()
         {
             InitializeComponent();
-            label1.Text = "설비-공정 관계 설정";
         }
 
         private void frmEquipmentAndProcess_Load(object sender, EventArgs e)
         {
             operationSrv = new OperationService();
-            equipmentSrv = new EquipmentService();
             operationList = operationSrv.GetOperationList();
+            equipmentSrv = new EquipmentService();
 
             InitControl();
         }

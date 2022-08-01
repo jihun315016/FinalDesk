@@ -57,9 +57,9 @@ namespace DESK_MES
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -117,12 +117,17 @@ namespace DESK_MES
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(350, 30);
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.Images.SetKeyName(0, "새로고침.png");
             this.imageList1.Images.SetKeyName(1, "검색_1.png");
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -418,6 +423,7 @@ namespace DESK_MES
             this.dgvOperation.RowTemplate.Height = 23;
             this.dgvOperation.Size = new System.Drawing.Size(801, 356);
             this.dgvOperation.TabIndex = 0;
+            this.dgvOperation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperation_CellClick);
             // 
             // groupBox5
             // 
@@ -455,6 +461,16 @@ namespace DESK_MES
             this.btnDelete.Text = "   삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "생성.png");
+            this.imageList2.Images.SetKeyName(1, "변경.png");
+            this.imageList2.Images.SetKeyName(2, "삭제.png");
+            this.imageList2.Images.SetKeyName(3, "엑셀.png");
+            this.imageList2.Images.SetKeyName(4, "check.png");
+            // 
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -469,6 +485,7 @@ namespace DESK_MES
             this.btnUpdate.TabIndex = 37;
             this.btnUpdate.Text = "   변경";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -484,16 +501,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 36;
             this.btnAdd.Text = "   생성";
             this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "생성.png");
-            this.imageList2.Images.SetKeyName(1, "변경.png");
-            this.imageList2.Images.SetKeyName(2, "삭제.png");
-            this.imageList2.Images.SetKeyName(3, "엑셀.png");
-            this.imageList2.Images.SetKeyName(4, "check.png");
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmOPitemRelation
             // 

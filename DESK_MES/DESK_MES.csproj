@@ -106,6 +106,12 @@
     <Compile Include="Forms\frmIncoming\frmIncoming.Designer.cs">
       <DependentUpon>frmIncoming.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmOPitemRelation\PopOPitemRelationRegUpd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOPitemRelation\PopOPitemRelationRegUpd.Designer.cs">
+      <DependentUpon>PopOPitemRelationRegUpd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmRelease\PopBarcode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -580,6 +586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOperation\frmOperation.resx">
       <DependentUpon>frmOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOPitemRelation\PopOPitemRelationRegUpd.resx">
+      <DependentUpon>PopOPitemRelationRegUpd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOrder\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
