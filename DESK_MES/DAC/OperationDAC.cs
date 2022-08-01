@@ -194,6 +194,51 @@ namespace DESK_MES.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 공정에 대한 품목 관계 설정
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <param name="productList"></param>
+        /// <returns></returns>
+        public bool SaveOPRelation(int operNo, List<ProductVO> productList)
+        {
+            SqlTransaction tran = conn.BeginTransaction();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Transaction = tran;
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = @"DELETE FROM TB_PRODUCT_OPERATION_RELATION 
+                                    WHERE Operation_No=@Operation_No ";
+
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = @"INSERT INTO TB_PRODUCT_OPERATION_RELATION
+                                    (Product_Code, Operation_No)
+                                    VALUES
+                                    (@Product_Code, @Operation_No) ";
+
+                cmd.Parameters.Add("@Product_Code", SqlDbType.NVarChar);
+
+                foreach (ProductVO item in productList)
+                {
+                    cmd.Parameters["@Product_Code"].Value = item.Product_Code;
+                    cmd.ExecuteNonQuery();
+                }
+
+                tran.Commit();
+                return true;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 공정에 대한 설비 관계 설정
         /// </summary>
         /// <param name="operNo"></param>

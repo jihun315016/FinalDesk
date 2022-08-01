@@ -69,6 +69,14 @@ namespace DESK_MES.Service
             return result;
         }
 
+        public bool SaveOPRelation(int operNo, List<ProductVO> productList)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.SaveOPRelation(operNo, productList);
+            dac.Dispose();
+            return result;
+        }
+
         public bool SaveOERelation(int operNo, List<EquipmentVO> equipmentList)
         {
             OperationDAC dac = new OperationDAC();

@@ -51,11 +51,11 @@ namespace DESK_MES
         {
             productList = productSrv.GetProductList().Where(p => Array.IndexOf(new string[] { "FERT", "HALB" }, p.Product_Type) > -1).ToList();
 
-            foreach (DataGridView dgv in new DataGridView[] { dgvInspect, dgvRegistered })
+            foreach (DataGridView dgv in new DataGridView[] { dgvProduct, dgvRegistered })
             {
                 DataGridUtil.SetInitGridView(dgv);
-                //DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목 번호", "Inspect_No", colWidth: 130);
-                //DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 170);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "품번", "Product_Code", colWidth: 120);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "품명", "Product_Name", colWidth: 210);
             }
 
             // 품목 관계 수정인 경우
@@ -65,28 +65,84 @@ namespace DESK_MES
             //    foreach (int item in inspectItems)
             //    {
 
-            //        foreach (InspectItemVO inspect in inspectList)
+            //        foreach (ProductVO product in productList)
             //        {
-            //            if (item == inspect.Inspect_No)
+            //            if (item == product.Product_Code)
             //            {
-            //                selectedInspect.Add(inspect);
+            //                selectedInspect.Add(product);
             //            }
             //        }
             //    }
             //}
 
-            //selectedInspect.ForEach(s => inspectList.Remove(s));
-            //dgvRegistered.DataSource = selectedInspect;
+            selectedInspect.ForEach(s => productList.Remove(s));
+            dgvRegistered.DataSource = selectedInspect;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            dgvProduct.DataSource = null;
+            dgvProduct.DataSource = productList.Where(p => p.Product_Name.Contains(txtName.Text.Trim())).ToList();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            productList = productSrv.GetProductList().Where(p => Array.IndexOf(new string[] { "FERT", "HALB" }, p.Product_Type) > -1).ToList();
+            dgvProduct.DataSource = null;
+            dgvProduct.DataSource = productList;
+            txtName.Text = string.Empty;
+        }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (dgvProduct.CurrentCell != null)
+            {
+                ProductVO item = productList.Where(p => p.Product_Code == dgvProduct["Product_Code", dgvProduct.CurrentCell.RowIndex].Value).FirstOrDefault();
+                selectedInspect.Add(item);
+                productList.Remove(item);
+
+                dgvProduct.DataSource = null;
+                dgvRegistered.DataSource = null;
+                dgvProduct.DataSource = productList;
+                dgvRegistered.DataSource = selectedInspect;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvRegistered.CurrentCell == null) return;
+
+            ProductVO item = selectedInspect.Where(s => s.Product_Code == dgvRegistered["Product_Code", dgvRegistered.CurrentCell.RowIndex].Value).FirstOrDefault();
+            if (item != null)
+            {
+                productList.Add(item);
+                selectedInspect.Remove(item);
+
+                dgvProduct.DataSource = null;
+                dgvRegistered.DataSource = null;
+                dgvProduct.DataSource = productList;
+                dgvRegistered.DataSource = selectedInspect;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //bool result = (operationSrv.SaveOIRelation(Convert.ToInt32(lblOperationName.Tag), selectedInspect));
+            //string msg = (bool)lblTitle.Tag ? "등록" : "수정";
+            //if (result)
+            //{
+            //    MessageBox.Show($"공정 - 품목 관계가 {msg}되었습니다.");
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show($"{msg}에 실패했습니다.");
+            //}
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
