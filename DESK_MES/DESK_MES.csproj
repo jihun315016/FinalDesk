@@ -112,6 +112,12 @@
     <Compile Include="Forms\frmRelease\PopBarcode.Designer.cs">
       <DependentUpon>PopBarcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmOPitemRelation\frmOPitemRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOPitemRelation\frmOPitemRelation.Designer.cs">
+      <DependentUpon>frmOPitemRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\ClientService.cs" />
     <Compile Include="Controls\ccTabControl.cs">
       <SubType>Component</SubType>
@@ -700,6 +706,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOPitemRelation\frmOPitemRelation.resx">
+      <DependentUpon>frmOPitemRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
