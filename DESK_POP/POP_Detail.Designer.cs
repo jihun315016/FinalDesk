@@ -29,31 +29,40 @@ namespace DESK_POP
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label5 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblNowTime = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -61,20 +70,14 @@ namespace DESK_POP
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,20 +98,20 @@ namespace DESK_POP
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
             this.splitContainer6.Panel1.SuspendLayout();
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
             this.splitContainer7.Panel1.SuspendLayout();
             this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -122,7 +125,7 @@ namespace DESK_POP
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.splitContainer1.Panel1.Controls.Add(this.label5);
-            this.splitContainer1.Panel1.Controls.Add(this.label10);
+            this.splitContainer1.Panel1.Controls.Add(this.lblNowTime);
             // 
             // splitContainer1.Panel2
             // 
@@ -134,21 +137,22 @@ namespace DESK_POP
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 27);
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(16, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.Size = new System.Drawing.Size(213, 37);
             this.label5.TabIndex = 0;
-            this.label5.Text = "업체명";
+            this.label5.Text = "WalnutSolution";
             // 
-            // label10
+            // lblNowTime
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(910, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(172, 25);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "2022-07-13 01:58";
+            this.lblNowTime.AutoSize = true;
+            this.lblNowTime.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblNowTime.Location = new System.Drawing.Point(910, 9);
+            this.lblNowTime.Name = "lblNowTime";
+            this.lblNowTime.Size = new System.Drawing.Size(172, 25);
+            this.lblNowTime.TabIndex = 1;
+            this.lblNowTime.Text = "2022-07-13 01:58";
             // 
             // splitContainer2
             // 
@@ -226,6 +230,170 @@ namespace DESK_POP
             this.splitContainer5.SplitterDistance = 378;
             this.splitContainer5.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.textBox12);
+            this.panel1.Controls.Add(this.textBox14);
+            this.panel1.Controls.Add(this.textBox13);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(378, 176);
+            this.panel1.TabIndex = 1;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox12.Location = new System.Drawing.Point(140, 65);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(181, 39);
+            this.textBox12.TabIndex = 1;
+            this.textBox12.Text = "ASW_0002";
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox14.Location = new System.Drawing.Point(140, 120);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(222, 39);
+            this.textBox14.TabIndex = 1;
+            this.textBox14.Text = "부품ABC_500mm";
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox13.Location = new System.Drawing.Point(140, 10);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(181, 39);
+            this.textBox13.TabIndex = 1;
+            this.textBox13.Text = "최종 조립장";
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(20, 123);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(111, 32);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "작업품목";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(20, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 32);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "설비";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(20, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 32);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "작업장";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.textBox6);
+            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.textBox5);
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(375, 176);
+            this.panel3.TabIndex = 2;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox6.Location = new System.Drawing.Point(181, 10);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(182, 39);
+            this.textBox6.TabIndex = 2;
+            this.textBox6.Text = "OD_0001";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox4.Location = new System.Drawing.Point(181, 120);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(182, 39);
+            this.textBox4.TabIndex = 1;
+            this.textBox4.Text = "Emp_0001";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(16, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(159, 32);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "작업지시번호";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox5.Location = new System.Drawing.Point(181, 65);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(182, 39);
+            this.textBox5.TabIndex = 1;
+            this.textBox5.Text = "김준워";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label19.Location = new System.Drawing.Point(16, 123);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(112, 32);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "작업자ID";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(16, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 32);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "작업자";
+            // 
             // splitContainer6
             // 
             this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -242,94 +410,6 @@ namespace DESK_POP
             this.splitContainer6.Size = new System.Drawing.Size(757, 287);
             this.splitContainer6.SplitterDistance = 274;
             this.splitContainer6.TabIndex = 2;
-            // 
-            // splitContainer7
-            // 
-            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer7.Name = "splitContainer7";
-            // 
-            // splitContainer7.Panel1
-            // 
-            this.splitContainer7.Panel1.Controls.Add(this.panel7);
-            // 
-            // splitContainer7.Panel2
-            // 
-            this.splitContainer7.Panel2.Controls.Add(this.panel6);
-            this.splitContainer7.Size = new System.Drawing.Size(479, 287);
-            this.splitContainer7.SplitterDistance = 252;
-            this.splitContainer7.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(333, 467);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "작업 메모";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 30);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(327, 433);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button4.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.ForeColor = System.Drawing.Color.Lime;
-            this.button4.Location = new System.Drawing.Point(368, 17);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 46);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "작업시작";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(534, 17);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(142, 46);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "작업중지";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Desktop;
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.button2.Location = new System.Drawing.Point(818, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(252, 46);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "실적저장(작업종료)";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Desktop;
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(12, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 46);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "돌아가기";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -391,6 +471,23 @@ namespace DESK_POP
             this.label12.TabIndex = 0;
             this.label12.Text = "현재작업량";
             // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer7.Name = "splitContainer7";
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.panel7);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.panel6);
+            this.splitContainer7.Size = new System.Drawing.Size(479, 287);
+            this.splitContainer7.SplitterDistance = 252;
+            this.splitContainer7.TabIndex = 0;
+            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -404,6 +501,30 @@ namespace DESK_POP
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(252, 287);
             this.panel7.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBox3.Location = new System.Drawing.Point(30, 190);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(181, 93);
+            this.textBox3.TabIndex = 1;
+            this.textBox3.Text = "21%";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.textBox2.Location = new System.Drawing.Point(30, 50);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(181, 93);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "347";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
             // 
@@ -426,30 +547,6 @@ namespace DESK_POP
             this.label14.Size = new System.Drawing.Size(104, 30);
             this.label14.TabIndex = 0;
             this.label14.Text = "오더 잔량";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.textBox2.Location = new System.Drawing.Point(30, 50);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 93);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "347";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox3.Location = new System.Drawing.Point(30, 190);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(181, 93);
-            this.textBox3.TabIndex = 1;
-            this.textBox3.Text = "21%";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel6
             // 
@@ -533,169 +630,91 @@ namespace DESK_POP
             this.label18.TabIndex = 0;
             this.label18.Text = "공정가동시간";
             // 
-            // panel3
+            // groupBox1
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.textBox6);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(375, 176);
-            this.panel3.TabIndex = 2;
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(333, 467);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "작업 메모";
             // 
-            // textBox4
+            // textBox1
             // 
-            this.textBox4.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(181, 120);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 39);
-            this.textBox4.TabIndex = 1;
-            this.textBox4.Text = "Emp_0001";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 30);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(327, 433);
+            this.textBox1.TabIndex = 0;
             // 
-            // textBox5
+            // button4
             // 
-            this.textBox5.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox5.Location = new System.Drawing.Point(181, 65);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(182, 39);
-            this.textBox5.TabIndex = 1;
-            this.textBox5.Text = "김준워";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.button4.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.button4.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button4.ForeColor = System.Drawing.Color.Lime;
+            this.button4.Location = new System.Drawing.Point(368, 17);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(142, 46);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "작업시작";
+            this.button4.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // button3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(16, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 32);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "작업자";
+            this.button3.BackColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button3.ForeColor = System.Drawing.Color.Red;
+            this.button3.Location = new System.Drawing.Point(534, 17);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(142, 46);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "작업중지";
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // button2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(16, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(159, 32);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "작업지시번호";
+            this.button2.BackColor = System.Drawing.SystemColors.Desktop;
+            this.button2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.button2.Location = new System.Drawing.Point(818, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(252, 46);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "실적저장(작업종료)";
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // button1
             // 
-            this.textBox6.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox6.Location = new System.Drawing.Point(181, 10);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(182, 39);
-            this.textBox6.TabIndex = 2;
-            this.textBox6.Text = "OD_0001";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.button1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(12, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 46);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "돌아가기";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // timer1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.textBox12);
-            this.panel1.Controls.Add(this.textBox14);
-            this.panel1.Controls.Add(this.textBox13);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 176);
-            this.panel1.TabIndex = 1;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // textBox12
+            // label1
             // 
-            this.textBox12.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox12.Location = new System.Drawing.Point(140, 65);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(181, 39);
-            this.textBox12.TabIndex = 1;
-            this.textBox12.Text = "ASW_0002";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox13.Location = new System.Drawing.Point(140, 10);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(181, 39);
-            this.textBox13.TabIndex = 1;
-            this.textBox13.Text = "최종 조립장";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(20, 68);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 32);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "설비";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(20, 13);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 32);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "작업장";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(20, 123);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(111, 32);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "작업품목";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox14.Location = new System.Drawing.Point(140, 120);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(222, 39);
-            this.textBox14.TabIndex = 1;
-            this.textBox14.Text = "부품ABC_500mm";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label19.Location = new System.Drawing.Point(16, 123);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(112, 32);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "작업자ID";
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(34, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(275, 163);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "작업장 없음,생산량은 계산으로 진행\r\n가동시간은 공정에서 계속 추가되는것\r\n시작시간은 now로 기입\r\n화면 후방에 놓고 돌리는거하면됨\r\n";
             // 
             // POP_Detail
             // 
@@ -707,6 +726,7 @@ namespace DESK_POP
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "POP_Detail";
             this.Text = "작업내용";
+            this.Load += new System.EventHandler(this.POP_Detail_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -728,26 +748,26 @@ namespace DESK_POP
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.splitContainer6.Panel1.ResumeLayout(false);
             this.splitContainer6.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.splitContainer7.Panel1.ResumeLayout(false);
             this.splitContainer7.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
             this.splitContainer7.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -762,7 +782,7 @@ namespace DESK_POP
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblNowTime;
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.Button button4;
@@ -800,5 +820,7 @@ namespace DESK_POP
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
     }
 }
