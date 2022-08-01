@@ -410,9 +410,9 @@ namespace DESK_MES
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(25, 150);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 17);
+            this.label6.Size = new System.Drawing.Size(78, 17);
             this.label6.TabIndex = 27;
-            this.label6.Text = "상태";
+            this.label6.Text = "비가동 여부";
             // 
             // txtEquipNo
             // 

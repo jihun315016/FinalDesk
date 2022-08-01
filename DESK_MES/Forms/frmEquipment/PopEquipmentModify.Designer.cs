@@ -479,9 +479,9 @@ namespace DESK_MES
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(64, 106);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 17);
+            this.label10.Size = new System.Drawing.Size(78, 17);
             this.label10.TabIndex = 32;
-            this.label10.Text = "유형";
+            this.label10.Text = "비가동 여부";
             // 
             // label11
             // 
