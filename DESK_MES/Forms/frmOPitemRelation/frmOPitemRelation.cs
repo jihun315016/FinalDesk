@@ -50,6 +50,21 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자", "Update_User_Name", isVisible: false);
+
+            DataGridUtil.SetInitGridView(dgvProduct);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품번", "Product_Code", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품명", "Product_Name", colWidth: 300);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "유형", "Product_Type");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "가격", "Price");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "단위", "Unit");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 시간", "Create_Time", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 사용자", "Create_User_Name", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 시간", "Update_Time", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 사용자", "Update_User_Name", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 사용자 번호", "Create_User_No", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 사용자 번호", "Update_User_No", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "이미지 여부", "Is_Image", isVisible: false);
+            dgvProduct.Columns["Price"].DefaultCellStyle.Format = "###,##0";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -142,6 +157,33 @@ namespace DESK_MES
                 dtpUpdateTime.Format = dtpCreateTime.Format;
                 dtpUpdateTime.Value = oper.Update_Time;
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
+            }
+
+            //List<ProductVO> list = productSrv.SelectEquipmentByOperation(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
+            //dgvEquipment.DataSource = list;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+
+            if (MessageBox.Show("공정에 해당하는 품목을 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool result = operationSrv.DeleteOIIetm(Convert.ToInt32(txtOperNoDetail.Text));
+                if (result)
+                {
+                    MessageBox.Show("삭제되었습니다.");
+                    btnReset_Click(this, null);
+                    btnSearch_Click(this, null);
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
             }
         }
     }

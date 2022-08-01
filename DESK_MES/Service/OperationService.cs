@@ -48,6 +48,19 @@ namespace DESK_MES.Service
             return list;
         }
 
+        public List<string> GetProductListByOperation(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            DataTable dt = dac.GetInspectListByOperation(operNo);
+            List<string> list = new List<string>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(dr["Product_Code"].ToString());
+            }
+            dac.Dispose();
+            return list;
+        }
+
         public List<int> GetEquipmentListByOperation(int operNo)
         {
             OperationDAC dac = new OperationDAC();

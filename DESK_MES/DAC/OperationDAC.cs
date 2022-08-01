@@ -129,6 +129,25 @@ namespace DESK_MES.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 하나의 공정에 대한 품목 리스트 조회
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <returns></returns>
+        public DataTable GetProductListByOperation(int operNo)
+        {
+            string sql = @"SELECT Product_Code 
+                            FROM TB_PRODUCT_OPERATION_RELATION 
+                            WHERE Operation_No=@Operation_No ";
+
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.SelectCommand.Parameters.AddWithValue("@Operation_No", operNo);
+            da.Fill(dt);
+            return dt;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 하나의 공정에 대한 설비 리스트 조죄
         /// </summary>
         /// <param name="operNo"></param>

@@ -59,24 +59,25 @@ namespace DESK_MES
             }
 
             // 품목 관계 수정인 경우
-            //if (!(bool)lblTitle.Tag)
-            //{
-            //    List<int> inspectItems = operationSrv.GetInspectListByOperation(Convert.ToInt32(lblOperationName.Tag));
-            //    foreach (int item in inspectItems)
-            //    {
+            if (!(bool)lblTitle.Tag)
+            {
+                List<string> productItems = operationSrv.GetProductListByOperation(Convert.ToInt32(lblOperationName.Tag));
+                foreach (string item in productItems)
+                {
 
-            //        foreach (ProductVO product in productList)
-            //        {
-            //            if (item == product.Product_Code)
-            //            {
-            //                selectedInspect.Add(product);
-            //            }
-            //        }
-            //    }
-            //}
+                    foreach (ProductVO product in productList)
+                    {
+                        if (item == product.Product_Code)
+                        {
+                            selectedInspect.Add(product);
+                        }
+                    }
+                }
+                selectedInspect.ForEach(s => productList.Remove(s));
+                dgvRegistered.DataSource = selectedInspect;
+            }
 
-            selectedInspect.ForEach(s => productList.Remove(s));
-            dgvRegistered.DataSource = selectedInspect;
+            dgvProduct.DataSource = productList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -127,17 +128,17 @@ namespace DESK_MES
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //bool result = (operationSrv.SaveOIRelation(Convert.ToInt32(lblOperationName.Tag), selectedInspect));
-            //string msg = (bool)lblTitle.Tag ? "등록" : "수정";
-            //if (result)
-            //{
-            //    MessageBox.Show($"공정 - 품목 관계가 {msg}되었습니다.");
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show($"{msg}에 실패했습니다.");
-            //}
+            bool result = (operationSrv.SaveOPRelation(Convert.ToInt32(lblOperationName.Tag), selectedInspect));
+            string msg = (bool)lblTitle.Tag ? "등록" : "수정";
+            if (result)
+            {
+                MessageBox.Show($"공정 - 품목 관계가 {msg}되었습니다.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show($"{msg}에 실패했습니다.");
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

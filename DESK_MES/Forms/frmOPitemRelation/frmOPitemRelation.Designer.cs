@@ -460,6 +460,7 @@ namespace DESK_MES
             this.btnDelete.TabIndex = 38;
             this.btnDelete.Text = "   삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // imageList2
             // 
