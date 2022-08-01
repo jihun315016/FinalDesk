@@ -33,8 +33,11 @@ namespace DESK_MES.DAC
         /// Author : 강지훈
         /// 모든 제품, 재공품, 원자재 리스트 조회
         /// </summary>
+        /// <param name="code"></param>
+        /// <param name="isBom"></param>
+        /// <param name="operNo"></param>
         /// <returns></returns>
-        public List<ProductVO> GetProductList(string code, bool isBom)
+        public List<ProductVO> GetProductList(string code, bool isBom, int operNo)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -52,15 +55,18 @@ namespace DESK_MES.DAC
             if (isBom)
                 sb.Append(" WHERE Product_Code NOT IN (SELECT Parent_Product_Code FROM TB_BOM) ");
 
+            if (operNo > 0)
+                sb.Append(" WHERE Product_Code IN (SELECT Product_Code FROM TB_PRODUCT_OPERATION_RELATION WHERE Operation_No=@Operation_No) ");
+
             string sql = sb.ToString();            
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@code", code);
+            cmd.Parameters.AddWithValue("@Operation_No", operNo);
             SqlDataReader reader = cmd.ExecuteReader();
             List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
             reader.Close();
             return list;
         }
-
 
         /// <summary>
         /// Author : 강지훈

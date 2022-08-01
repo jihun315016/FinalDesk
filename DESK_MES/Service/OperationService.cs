@@ -51,7 +51,7 @@ namespace DESK_MES.Service
         public List<string> GetProductListByOperation(int operNo)
         {
             OperationDAC dac = new OperationDAC();
-            DataTable dt = dac.GetInspectListByOperation(operNo);
+            DataTable dt = dac.GetProductListByOperation(operNo);
             List<string> list = new List<string>();
             foreach (DataRow dr in dt.Rows)
             {
@@ -110,6 +110,14 @@ namespace DESK_MES.Service
         {
             OperationDAC dac = new OperationDAC();
             bool result = dac.DeleteEOItem(operNo);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool DeleteOPIetm(int operNo)
+        {
+            OperationDAC dac = new OperationDAC();
+            bool result = dac.DeleteOPIetm(operNo);
             dac.Dispose();
             return result;
         }

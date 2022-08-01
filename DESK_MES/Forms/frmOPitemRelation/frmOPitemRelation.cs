@@ -159,8 +159,8 @@ namespace DESK_MES
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
             }
 
-            //List<ProductVO> list = productSrv.SelectEquipmentByOperation(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
-            //dgvEquipment.DataSource = list;
+            List<ProductVO> list = productSrv.GetProductList(operNo: Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
+            dgvProduct.DataSource = list;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -173,7 +173,7 @@ namespace DESK_MES
 
             if (MessageBox.Show("공정에 해당하는 품목을 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                bool result = operationSrv.DeleteOIIetm(Convert.ToInt32(txtOperNoDetail.Text));
+                bool result = operationSrv.DeleteOPIetm(Convert.ToInt32(txtOperNoDetail.Text));
                 if (result)
                 {
                     MessageBox.Show("삭제되었습니다.");

@@ -326,6 +326,24 @@ namespace DESK_MES.DAC
             }
         }
 
+        public bool DeleteOPIetm(int operNo)
+        {
+            string sql = @"DELETE FROM TB_PRODUCT_OPERATION_RELATION 
+                            WHERE Operation_No = @Operation_No ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// Author : 강지훈
         /// 공정과 관련된 설비 삭제
