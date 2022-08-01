@@ -121,7 +121,6 @@ namespace DESK_POP
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.ucWorkGroup1);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(1250, 652);
             this.splitContainer1.SplitterDistance = 90;
@@ -186,15 +185,7 @@ namespace DESK_POP
             this.label5.Size = new System.Drawing.Size(159, 32);
             this.label5.TabIndex = 2;
             this.label5.Text = "작업지시현황";
-            // 
-            // ucWorkGroup1
-            // 
-            this.ucWorkGroup1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ucWorkGroup1.Location = new System.Drawing.Point(3, 5);
-            this.ucWorkGroup1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.ucWorkGroup1.Name = "ucWorkGroup1";
-            this.ucWorkGroup1.Size = new System.Drawing.Size(342, 338);
-            this.ucWorkGroup1.TabIndex = 1;
+            
             // 
             // groupBox1
             // 
