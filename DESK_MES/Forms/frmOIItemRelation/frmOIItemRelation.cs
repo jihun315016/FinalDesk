@@ -56,6 +56,9 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "타겟값", "Target", colWidth: 160);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "상한값", "USL", colWidth: 160);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "하한값", "LSL", colWidth: 160);
+            dgvInspectItem.Columns["Target"].DefaultCellStyle.Format = "###,##0";
+            dgvInspectItem.Columns["USL"].DefaultCellStyle.Format = "###,##0";
+            dgvInspectItem.Columns["LSL"].DefaultCellStyle.Format = "###,##0";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -129,6 +129,25 @@ namespace DESK_MES.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 하나의 공정에 대한 품목 리스트 조회
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <returns></returns>
+        public DataTable GetProductListByOperation(int operNo)
+        {
+            string sql = @"SELECT Product_Code 
+                            FROM TB_PRODUCT_OPERATION_RELATION 
+                            WHERE Operation_No=@Operation_No ";
+
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.SelectCommand.Parameters.AddWithValue("@Operation_No", operNo);
+            da.Fill(dt);
+            return dt;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 하나의 공정에 대한 설비 리스트 조죄
         /// </summary>
         /// <param name="operNo"></param>
@@ -179,6 +198,51 @@ namespace DESK_MES.DAC
                 foreach (InspectItemVO item in inspectList)
                 {
                     cmd.Parameters["@Inspect_No"].Value = item.Inspect_No;
+                    cmd.ExecuteNonQuery();
+                }
+
+                tran.Commit();
+                return true;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 공정에 대한 품목 관계 설정
+        /// </summary>
+        /// <param name="operNo"></param>
+        /// <param name="productList"></param>
+        /// <returns></returns>
+        public bool SaveOPRelation(int operNo, List<ProductVO> productList)
+        {
+            SqlTransaction tran = conn.BeginTransaction();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Transaction = tran;
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = @"DELETE FROM TB_PRODUCT_OPERATION_RELATION 
+                                    WHERE Operation_No=@Operation_No ";
+
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = @"INSERT INTO TB_PRODUCT_OPERATION_RELATION
+                                    (Product_Code, Operation_No)
+                                    VALUES
+                                    (@Product_Code, @Operation_No) ";
+
+                cmd.Parameters.Add("@Product_Code", SqlDbType.NVarChar);
+
+                foreach (ProductVO item in productList)
+                {
+                    cmd.Parameters["@Product_Code"].Value = item.Product_Code;
                     cmd.ExecuteNonQuery();
                 }
 
@@ -247,6 +311,24 @@ namespace DESK_MES.DAC
         public bool DeleteOIIetm(int operNo)
         {
             string sql = @"DELETE FROM TB_INSPECT_OPERATION_RELEATION
+                            WHERE Operation_No = @Operation_No ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                cmd.Parameters.AddWithValue("@Operation_No", operNo);
+                int iRow = cmd.ExecuteNonQuery();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteOPIetm(int operNo)
+        {
+            string sql = @"DELETE FROM TB_PRODUCT_OPERATION_RELATION 
                             WHERE Operation_No = @Operation_No ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);

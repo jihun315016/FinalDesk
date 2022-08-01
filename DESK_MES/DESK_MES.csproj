@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>게시\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -91,11 +106,23 @@
     <Compile Include="Forms\frmIncoming\frmIncoming.Designer.cs">
       <DependentUpon>frmIncoming.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmOPitemRelation\PopOPitemRelationRegUpd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOPitemRelation\PopOPitemRelationRegUpd.Designer.cs">
+      <DependentUpon>PopOPitemRelationRegUpd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmRelease\PopBarcode.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmRelease\PopBarcode.Designer.cs">
       <DependentUpon>PopBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOPitemRelation\frmOPitemRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOPitemRelation\frmOPitemRelation.Designer.cs">
+      <DependentUpon>frmOPitemRelation.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\ClientService.cs" />
     <Compile Include="Controls\ccTabControl.cs">
@@ -560,6 +587,9 @@
     <EmbeddedResource Include="Forms\frmOperation\frmOperation.resx">
       <DependentUpon>frmOperation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOPitemRelation\PopOPitemRelationRegUpd.resx">
+      <DependentUpon>PopOPitemRelationRegUpd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOrder\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -686,6 +716,9 @@
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOPitemRelation\frmOPitemRelation.resx">
+      <DependentUpon>frmOPitemRelation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -751,6 +784,17 @@
   <ItemGroup>
     <None Include="Resources\close-red.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,29 +12,28 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class frmEquipmentAndProcess : FormStyle_2
+    public partial class frmOPitemRelation : FormStyle_1
     {
         List<OperationVO> operationList;
         OperationService operationSrv;
-        EquipmentService equipmentSrv;
+        ProductService productSrv;
 
-        public frmEquipmentAndProcess()
+        public frmOPitemRelation()
         {
             InitializeComponent();
         }
 
-        private void frmEquipmentAndProcess_Load(object sender, EventArgs e)
+        private void frmOPitemRelation_Load(object sender, EventArgs e)
         {
             operationSrv = new OperationService();
             operationList = operationSrv.GetOperationList();
-            equipmentSrv = new EquipmentService();
-
+            productSrv = new ProductService();
             InitControl();
         }
 
-        private void InitControl()
+        void InitControl()
         {
-            label1.Text = "공정 - 설비 관리";
+            label1.Text = "공정 - 품목 관리";
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
@@ -53,14 +51,20 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자", "Update_User_Name", isVisible: false);
 
-            DataGridUtil.SetInitGridView(dgvEquipment);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "설비 번호", "Equipment_No");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "설비명", "Equipment_Name", colWidth: 200);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "비가동 여부", "Is_Inoperative", colWidth: 130);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "등록 시간", "Create_Time", colWidth: 200);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "등록 사용자", "Create_User_Name", colWidth: 130);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "수정 시간", "Update_Time", colWidth: 200);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "수정 사용자", "Update_User_Name", colWidth: 130);
+            DataGridUtil.SetInitGridView(dgvProduct);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품번", "Product_Code", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품명", "Product_Name", colWidth: 300);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "유형", "Product_Type");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "가격", "Price");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "단위", "Unit");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 시간", "Create_Time", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 사용자", "Create_User_Name", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 시간", "Update_Time", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 사용자", "Update_User_Name", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 사용자 번호", "Create_User_No", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 사용자 번호", "Update_User_No", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "이미지 여부", "Is_Image", isVisible: false);
+            dgvProduct.Columns["Price"].DefaultCellStyle.Format = "###,##0";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -83,7 +87,45 @@ namespace DESK_MES
             operationList = operationSrv.GetOperationList();
             comboBox1.Enabled = textBox1.Enabled = true;
             dgvOperation.DataSource = null;
-            dgvEquipment.DataSource = null;
+            dgvProduct.DataSource = null;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+
+            if (dgvProduct.Rows.Count > 0)
+            {
+                MessageBox.Show("이미 공정에 품목이 있습니다.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+            PopOPitemRelationRegUpd pop = new PopOPitemRelationRegUpd(oper, true);
+            pop.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
+            {
+                MessageBox.Show("공정을 선택해주세요.");
+                return;
+            }
+
+            if (dgvProduct.Rows.Count < 1)
+            {
+                MessageBox.Show("공정에 등록된 품목이 없습니다.");
+                return;
+            }
+
+            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
+            PopOPitemRelationRegUpd pop = new PopOPitemRelationRegUpd(oper, false);
+            pop.ShowDialog();
         }
 
         private void dgvOperation_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -117,46 +159,8 @@ namespace DESK_MES
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
             }
 
-            List<EquipmentVO> list = equipmentSrv.SelectEquipmentByOperation(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
-            dgvEquipment.DataSource = list;
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
-            {
-                MessageBox.Show("공정을 선택해주세요.");
-                return;
-            }
-
-            if (dgvEquipment.Rows.Count > 0)
-            {
-                MessageBox.Show("이미 공정에 등록된 검사 데이터 항목이 있습니다.");
-                return;
-            }
-
-            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
-            PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd(oper, true);
-            pop.ShowDialog();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtOperNoDetail.Text))
-            {
-                MessageBox.Show("공정을 선택해주세요.");
-                return;
-            }
-
-            if (dgvEquipment.Rows.Count < 1)
-            {
-                MessageBox.Show("공정에 등록된 설비가 없습니다.");
-                return;
-            }
-
-            OperationVO oper = operationSrv.GetOperationList(Convert.ToInt32(txtOperNoDetail.Text)).FirstOrDefault();
-            PopEquipmentAndProcessRegUpd pop = new PopEquipmentAndProcessRegUpd(oper, false);
-            pop.ShowDialog();
+            List<ProductVO> list = productSrv.GetProductList(operNo: Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
+            dgvProduct.DataSource = list;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -166,10 +170,10 @@ namespace DESK_MES
                 MessageBox.Show("공정을 선택해주세요.");
                 return;
             }
-            
-            if (MessageBox.Show("공정에 해당하는 설비를 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+            if (MessageBox.Show("공정에 해당하는 품목을 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                bool result = operationSrv.DeleteEOItem(Convert.ToInt32(txtOperNoDetail.Text));
+                bool result = operationSrv.DeleteOPIetm(Convert.ToInt32(txtOperNoDetail.Text));
                 if (result)
                 {
                     MessageBox.Show("삭제되었습니다.");
