@@ -41,7 +41,6 @@ namespace DESK_POP
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            //this.ucWorkGroup1 = new DESK_POP.ucWorkGroup();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -130,7 +129,7 @@ namespace DESK_POP
             // 
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCount.Location = new System.Drawing.Point(674, 35);
+            this.lblCount.Location = new System.Drawing.Point(918, 35);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(16, 17);
             this.lblCount.TabIndex = 3;
@@ -140,7 +139,7 @@ namespace DESK_POP
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(572, 35);
+            this.label6.Location = new System.Drawing.Point(816, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 17);
             this.label6.TabIndex = 3;
@@ -153,7 +152,7 @@ namespace DESK_POP
             this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.button3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(965, 22);
+            this.button3.Location = new System.Drawing.Point(1127, 28);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(89, 30);
             this.button3.TabIndex = 0;
@@ -168,7 +167,7 @@ namespace DESK_POP
             this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(819, 22);
+            this.button1.Location = new System.Drawing.Point(981, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 30);
             this.button1.TabIndex = 0;
@@ -179,13 +178,12 @@ namespace DESK_POP
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(37, 22);
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(487, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 32);
+            this.label5.Size = new System.Drawing.Size(191, 40);
             this.label5.TabIndex = 2;
             this.label5.Text = "작업지시현황";
-            
             // 
             // groupBox1
             // 
@@ -204,7 +202,7 @@ namespace DESK_POP
             this.groupBox1.Controls.Add(this.textBox12);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Location = new System.Drawing.Point(944, 256);
+            this.groupBox1.Location = new System.Drawing.Point(944, 254);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(281, 278);
             this.groupBox1.TabIndex = 0;

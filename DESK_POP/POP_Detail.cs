@@ -18,5 +18,15 @@ namespace DESK_POP
             oCode = orderCode;
             InitializeComponent();
         }
+
+        private void POP_Detail_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblNowTime.Text = DateTime.Now.ToString();
+        }
     }
 }
