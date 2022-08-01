@@ -46,6 +46,10 @@ namespace DESK_MES
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtModifyName = new System.Windows.Forms.TextBox();
+            this.txtModifydate = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtIncomingState = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtRegiUser = new System.Windows.Forms.TextBox();
@@ -73,10 +77,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtModifyName = new System.Windows.Forms.TextBox();
-            this.txtModifydate = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -304,6 +304,54 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // txtModifyName
+            // 
+            this.txtModifyName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtModifyName.Enabled = false;
+            this.txtModifyName.Location = new System.Drawing.Point(124, 389);
+            this.txtModifyName.Name = "txtModifyName";
+            this.txtModifyName.ReadOnly = true;
+            this.txtModifyName.Size = new System.Drawing.Size(189, 25);
+            this.txtModifyName.TabIndex = 36;
+            // 
+            // txtModifydate
+            // 
+            this.txtModifydate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtModifydate.Enabled = false;
+            this.txtModifydate.Location = new System.Drawing.Point(124, 354);
+            this.txtModifydate.Name = "txtModifydate";
+            this.txtModifydate.ReadOnly = true;
+            this.txtModifydate.Size = new System.Drawing.Size(189, 25);
+            this.txtModifydate.TabIndex = 35;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 392);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 17);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "수정사용자";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(22, 357);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 17);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "수정일자";
             // 
             // txtIncomingState
             // 
@@ -550,6 +598,7 @@ namespace DESK_MES
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
@@ -636,54 +685,6 @@ namespace DESK_MES
             this.btnAdd.Text = "   생성";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtModifyName
-            // 
-            this.txtModifyName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtModifyName.Enabled = false;
-            this.txtModifyName.Location = new System.Drawing.Point(124, 389);
-            this.txtModifyName.Name = "txtModifyName";
-            this.txtModifyName.ReadOnly = true;
-            this.txtModifyName.Size = new System.Drawing.Size(189, 25);
-            this.txtModifyName.TabIndex = 36;
-            // 
-            // txtModifydate
-            // 
-            this.txtModifydate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtModifydate.Enabled = false;
-            this.txtModifydate.Location = new System.Drawing.Point(124, 354);
-            this.txtModifydate.Name = "txtModifydate";
-            this.txtModifydate.ReadOnly = true;
-            this.txtModifydate.Size = new System.Drawing.Size(189, 25);
-            this.txtModifydate.TabIndex = 35;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 392);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 17);
-            this.label12.TabIndex = 34;
-            this.label12.Text = "수정사용자";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(22, 357);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 17);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "수정일자";
             // 
             // frmPurchase
             // 
