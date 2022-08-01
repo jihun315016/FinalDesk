@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace DESK_MES
 {
-    public partial class frmOPitemRelation : Form
+    public partial class frmOPitemRelation : FormStyle_1
     {
         public frmOPitemRelation()
         {
             InitializeComponent();
+        }
+
+        private void frmOPitemRelation_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        void InitControl()
+        {
+
         }
     }
 }

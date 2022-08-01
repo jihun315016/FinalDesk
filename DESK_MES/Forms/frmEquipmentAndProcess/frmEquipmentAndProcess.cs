@@ -16,7 +16,6 @@ namespace DESK_MES
     public partial class frmEquipmentAndProcess : FormStyle_2
     {
         List<OperationVO> operationList;
-        List<EquipmentVO> equipmentList;
         OperationService operationSrv;
         EquipmentService equipmentSrv;
 
@@ -31,7 +30,6 @@ namespace DESK_MES
             operationSrv = new OperationService();
             equipmentSrv = new EquipmentService();
             operationList = operationSrv.GetOperationList();
-            equipmentList = equipmentSrv.SelectEquipmentAllList();
 
             InitControl();
         }
