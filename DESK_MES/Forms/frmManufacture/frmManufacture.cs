@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DESK_DTO;
 
 namespace DESK_MES
 {
     public partial class frmManufacture : FormStyle_2
     {
+        ManufactureService srv;
+        int purchaseNo = 0;
+        UserVO user;
+
         public frmManufacture()
         {
             InitializeComponent();
@@ -20,7 +25,7 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopManufactureRegister pop = new PopManufactureRegister();
+            PopManufactureRegister pop = new PopManufactureRegister(user);
             pop.ShowDialog();
         }
 
@@ -28,6 +33,12 @@ namespace DESK_MES
         {
             PopManufactureModify pop = new PopManufactureModify();
             pop.ShowDialog();
+        }
+
+        private void frmManufacture_Load(object sender, EventArgs e)
+        {
+            this.user = ((frmMain)(this.MdiParent)).userInfo;
+            srv = new ManufactureService();
         }
     }
 }
