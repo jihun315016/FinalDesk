@@ -38,8 +38,8 @@ namespace DESK_POP
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblCount = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnGrd = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -113,8 +113,8 @@ namespace DESK_POP
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.splitContainer1.Panel1.Controls.Add(this.lblCount);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnLogOut);
+            this.splitContainer1.Panel1.Controls.Add(this.btnGrd);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             // 
             // splitContainer1.Panel2
@@ -145,35 +145,35 @@ namespace DESK_POP
             this.label6.TabIndex = 3;
             this.label6.Text = "전체 잔여 작업";
             // 
-            // button3
+            // btnLogOut
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(1127, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 30);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "로그아웃";
-            this.toolTip1.SetToolTip(this.button3, "로그아웃");
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnLogOut.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnLogOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnLogOut.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnLogOut.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLogOut.Location = new System.Drawing.Point(1127, 28);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(89, 30);
+            this.btnLogOut.TabIndex = 0;
+            this.btnLogOut.Text = "로그아웃";
+            this.toolTip1.SetToolTip(this.btnLogOut, "로그아웃");
+            this.btnLogOut.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnGrd
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(981, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "완료된 작업 현황";
-            this.toolTip1.SetToolTip(this.button1, "닫기");
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnGrd.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGrd.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnGrd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnGrd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnGrd.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGrd.Location = new System.Drawing.Point(981, 28);
+            this.btnGrd.Name = "btnGrd";
+            this.btnGrd.Size = new System.Drawing.Size(140, 30);
+            this.btnGrd.TabIndex = 0;
+            this.btnGrd.Text = "완료된 작업 현황";
+            this.toolTip1.SetToolTip(this.btnGrd, "닫기");
+            this.btnGrd.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -202,7 +202,7 @@ namespace DESK_POP
             this.groupBox1.Controls.Add(this.textBox12);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 18);
+            this.groupBox1.Location = new System.Drawing.Point(946, 247);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(281, 278);
             this.groupBox1.TabIndex = 0;
@@ -347,8 +347,8 @@ namespace DESK_POP
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnGrd;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblCount;

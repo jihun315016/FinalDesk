@@ -30,11 +30,11 @@ namespace DESK_POP
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -52,7 +52,7 @@ namespace DESK_POP
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            this.splitContainer1.Panel1.Controls.Add(this.btnBack);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.lblUserName);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -64,6 +64,27 @@ namespace DESK_POP
             this.splitContainer1.SplitterDistance = 118;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnBack.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(145, 46);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "돌아가기";
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(666, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(323, 30);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "그리드는 작업지시 내역에서 완료만 가지고옴(조회만 가능)\r\n돌아기는 이거 Close 하고 전에있는거 show 하기\r\n";
             // 
             // lblUserName
             // 
@@ -96,27 +117,6 @@ namespace DESK_POP
             this.dataGridView1.Size = new System.Drawing.Size(1014, 478);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(666, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(323, 30);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "그리드는 작업지시 내역에서 완료만 가지고옴(조회만 가능)\r\n돌아기는 이거 Close 하고 전에있는거 show 하기\r\n";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Desktop;
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 46);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "돌아가기";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // POP_WorkEndGDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -144,6 +144,6 @@ namespace DESK_POP
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBack;
     }
 }
