@@ -14,6 +14,7 @@ namespace DESK_MES
         {
             InitializeComponent();
             this.user = user;
+            int k = int.Parse("h");
             InitControl(oper);
         }
 

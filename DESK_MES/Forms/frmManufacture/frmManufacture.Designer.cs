@@ -40,6 +40,14 @@ namespace DESK_MES
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -77,14 +85,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -261,6 +261,98 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker5.Enabled = false;
+            this.dateTimePicker5.Location = new System.Drawing.Point(141, 482);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(176, 25);
+            this.dateTimePicker5.TabIndex = 77;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox16.Enabled = false;
+            this.textBox16.Location = new System.Drawing.Point(141, 514);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(176, 25);
+            this.textBox16.TabIndex = 76;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(25, 517);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 17);
+            this.label18.TabIndex = 75;
+            this.label18.Text = "변경 사용자";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(25, 485);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 17);
+            this.label19.TabIndex = 74;
+            this.label19.Text = "변경 시간";
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker4.Enabled = false;
+            this.dateTimePicker4.Location = new System.Drawing.Point(141, 418);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(176, 25);
+            this.dateTimePicker4.TabIndex = 73;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox17.Enabled = false;
+            this.textBox17.Location = new System.Drawing.Point(141, 450);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(176, 25);
+            this.textBox17.TabIndex = 72;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(25, 453);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 17);
+            this.label20.TabIndex = 71;
+            this.label20.Text = "생성 사용자";
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(25, 421);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 17);
+            this.label21.TabIndex = 70;
+            this.label21.Text = "생성 시간";
             // 
             // textBox14
             // 
@@ -673,94 +765,6 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker5.Location = new System.Drawing.Point(141, 482);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(201, 25);
-            this.dateTimePicker5.TabIndex = 77;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox16.Location = new System.Drawing.Point(141, 514);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(201, 25);
-            this.textBox16.TabIndex = 76;
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(25, 517);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 17);
-            this.label18.TabIndex = 75;
-            this.label18.Text = "변경 사용자";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(25, 485);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 17);
-            this.label19.TabIndex = 74;
-            this.label19.Text = "변경 시간";
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker4.Location = new System.Drawing.Point(141, 418);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(201, 25);
-            this.dateTimePicker4.TabIndex = 73;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox17.Location = new System.Drawing.Point(141, 450);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(201, 25);
-            this.textBox17.TabIndex = 72;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(25, 453);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(78, 17);
-            this.label20.TabIndex = 71;
-            this.label20.Text = "생성 사용자";
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(25, 421);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(65, 17);
-            this.label21.TabIndex = 70;
-            this.label21.Text = "생성 시간";
-            // 
             // frmManufacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -769,6 +773,7 @@ namespace DESK_MES
             this.Name = "frmManufacture";
             this.Text = "frmManufacture";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmManufacture_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

@@ -43,26 +43,21 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboOrderCode = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtManuPlanUser = new System.Windows.Forms.TextBox();
+            this.dtpFinishDueDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.txtManufacturePlanCount = new System.Windows.Forms.TextBox();
+            this.cboProductCode = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -71,6 +66,8 @@ namespace DESK_MES
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList2
@@ -89,7 +86,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 511);
+            this.panel1.Size = new System.Drawing.Size(484, 471);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -107,7 +104,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(484, 511);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(484, 471);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -150,13 +147,14 @@ namespace DESK_MES
             // 
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 454);
+            this.panel3.Location = new System.Drawing.Point(3, 414);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(478, 54);
             this.panel3.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -180,6 +178,7 @@ namespace DESK_MES
             this.button3.TabIndex = 27;
             this.button3.Text = "   닫기";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnAdd
             // 
@@ -195,6 +194,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 26;
             this.btnAdd.Text = "   등록";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel4
             // 
@@ -202,146 +202,20 @@ namespace DESK_MES
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(478, 375);
+            this.panel4.Size = new System.Drawing.Size(478, 335);
             this.panel4.TabIndex = 2;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTimePicker4);
-            this.groupBox2.Controls.Add(this.dateTimePicker3);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.panel6);
+            this.groupBox2.Controls.Add(this.panel5);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(478, 375);
+            this.groupBox2.Size = new System.Drawing.Size(478, 335);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(88, 326);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(78, 17);
-            this.label17.TabIndex = 55;
-            this.label17.Text = "생성 사용자";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(88, 166);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 17);
-            this.label12.TabIndex = 54;
-            this.label12.Text = "생산 시작일";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 17);
-            this.label6.TabIndex = 52;
-            this.label6.Text = "생산 수량";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(88, 294);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 17);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "생성 시간";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(88, 262);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 17);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "생산 상태";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(88, 198);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(109, 17);
-            this.label15.TabIndex = 47;
-            this.label15.Text = "생산 완료 예정일";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(88, 230);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 17);
-            this.label14.TabIndex = 45;
-            this.label14.Text = "생산 완료일";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(88, 102);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 17);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "계획 수량";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(88, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 17);
-            this.label11.TabIndex = 42;
-            this.label11.Text = "생산코드";
             // 
             // label9
             // 
@@ -349,89 +223,160 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(88, 70);
+            this.label9.Location = new System.Drawing.Point(85, 14);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 17);
+            this.label9.Size = new System.Drawing.Size(73, 17);
             this.label9.TabIndex = 40;
-            this.label9.Text = "생산 품목 코드";
+            this.label9.Text = "주문서코드";
             // 
-            // comboBox1
+            // cboOrderCode
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(204, 67);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 25);
-            this.comboBox1.TabIndex = 56;
+            this.cboOrderCode.FormattingEnabled = true;
+            this.cboOrderCode.Location = new System.Drawing.Point(210, 11);
+            this.cboOrderCode.Name = "cboOrderCode";
+            this.cboOrderCode.Size = new System.Drawing.Size(177, 25);
+            this.cboOrderCode.TabIndex = 60;
             // 
-            // textBox1
+            // checkBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(204, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 25);
-            this.textBox1.TabIndex = 57;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(208, 22);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(97, 21);
+            this.checkBox1.TabIndex = 67;
+            this.checkBox1.Text = "주문서 선택";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // textBox2
+            // panel5
             // 
-            this.textBox2.Location = new System.Drawing.Point(204, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(201, 25);
-            this.textBox2.TabIndex = 58;
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.cboOrderCode);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(3, 21);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(472, 42);
+            this.panel5.TabIndex = 67;
             // 
-            // textBox3
+            // panel6
             // 
-            this.textBox3.Location = new System.Drawing.Point(204, 131);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(201, 25);
-            this.textBox3.TabIndex = 59;
+            this.panel6.Controls.Add(this.txtManuPlanUser);
+            this.panel6.Controls.Add(this.dtpFinishDueDate);
+            this.panel6.Controls.Add(this.dtpStartDate);
+            this.panel6.Controls.Add(this.txtManufacturePlanCount);
+            this.panel6.Controls.Add(this.cboProductCode);
+            this.panel6.Controls.Add(this.label17);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(3, 63);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(472, 254);
+            this.panel6.TabIndex = 68;
             // 
-            // comboBox2
+            // txtManuPlanUser
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(204, 259);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 25);
-            this.comboBox2.TabIndex = 60;
+            this.txtManuPlanUser.Location = new System.Drawing.Point(210, 179);
+            this.txtManuPlanUser.Name = "txtManuPlanUser";
+            this.txtManuPlanUser.Size = new System.Drawing.Size(177, 25);
+            this.txtManuPlanUser.TabIndex = 78;
             // 
-            // textBox4
+            // dtpFinishDueDate
             // 
-            this.textBox4.Location = new System.Drawing.Point(204, 323);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(201, 25);
-            this.textBox4.TabIndex = 61;
+            this.dtpFinishDueDate.Location = new System.Drawing.Point(210, 136);
+            this.dtpFinishDueDate.Name = "dtpFinishDueDate";
+            this.dtpFinishDueDate.Size = new System.Drawing.Size(177, 25);
+            this.dtpFinishDueDate.TabIndex = 77;
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(204, 163);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(201, 25);
-            this.dateTimePicker1.TabIndex = 62;
+            this.dtpStartDate.Location = new System.Drawing.Point(210, 93);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(177, 25);
+            this.dtpStartDate.TabIndex = 76;
             // 
-            // dateTimePicker2
+            // txtManufacturePlanCount
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(204, 195);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(201, 25);
-            this.dateTimePicker2.TabIndex = 63;
+            this.txtManufacturePlanCount.Location = new System.Drawing.Point(210, 50);
+            this.txtManufacturePlanCount.Name = "txtManufacturePlanCount";
+            this.txtManufacturePlanCount.Size = new System.Drawing.Size(177, 25);
+            this.txtManufacturePlanCount.TabIndex = 75;
             // 
-            // dateTimePicker3
+            // cboProductCode
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(204, 227);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(201, 25);
-            this.dateTimePicker3.TabIndex = 64;
+            this.cboProductCode.FormattingEnabled = true;
+            this.cboProductCode.Location = new System.Drawing.Point(210, 10);
+            this.cboProductCode.Name = "cboProductCode";
+            this.cboProductCode.Size = new System.Drawing.Size(177, 25);
+            this.cboProductCode.TabIndex = 74;
             // 
-            // dateTimePicker4
+            // label17
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(204, 291);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(201, 25);
-            this.dateTimePicker4.TabIndex = 65;
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(85, 182);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(104, 17);
+            this.label17.TabIndex = 72;
+            this.label17.Text = "생산계획 담당자";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(85, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 17);
+            this.label12.TabIndex = 71;
+            this.label12.Text = "생산 계획 수량";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(85, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 17);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "생산 완료 예정일";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(85, 96);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 17);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "생산 시작일";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(85, 13);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 17);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "생산 품목명";
             // 
             // PopManufactureRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 511);
+            this.ClientSize = new System.Drawing.Size(484, 471);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -440,15 +385,20 @@ namespace DESK_MES
             this.Name = "PopManufactureRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "생산계획 등록";
+            this.Load += new System.EventHandler(this.PopManufactureRegister_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -467,25 +417,20 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cboOrderCode;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtManuPlanUser;
+        private System.Windows.Forms.DateTimePicker dtpFinishDueDate;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.TextBox txtManufacturePlanCount;
+        private System.Windows.Forms.ComboBox cboProductCode;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel5;
     }
 }
