@@ -288,7 +288,7 @@ namespace DESK_MES
             // 
             this.button2.Location = new System.Drawing.Point(197, 172);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 30);
             this.button2.TabIndex = 58;
             this.button2.Text = "선택 완료";
             this.button2.UseVisualStyleBackColor = true;
@@ -298,7 +298,7 @@ namespace DESK_MES
             // 
             this.button1.Location = new System.Drawing.Point(278, 172);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 57;
             this.button1.Text = "선택 취소";
             this.button1.UseVisualStyleBackColor = true;

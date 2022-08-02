@@ -166,6 +166,10 @@ namespace DESK_MES
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            cboWarehouse.DataSource = null;
+            cboWarehouse.Text = null;
+            cboWarehouse.Items.Clear();
+
             productCode = dataGridView1[0, e.RowIndex].Value.ToString();
             PurchaseDetailVO incomingProductInfo = srv.GetIncomingProductInfo(productCode);
             WareHouseInfo = srv.GetEqualWarehouse(productCode);

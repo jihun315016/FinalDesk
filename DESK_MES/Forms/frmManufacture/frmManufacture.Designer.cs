@@ -40,47 +40,40 @@ namespace DESK_MES
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.dtpModifyTime = new System.Windows.Forms.DateTimePicker();
+            this.txtModifyUserName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.dtpCreateTime = new System.Windows.Forms.DateTimePicker();
+            this.txtCreateUserName = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtPlanState = new System.Windows.Forms.TextBox();
+            this.txtStartDueDate = new System.Windows.Forms.TextBox();
+            this.txtFinishQty = new System.Windows.Forms.TextBox();
+            this.txtPlanQty = new System.Windows.Forms.TextBox();
+            this.txtManufactuerState = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtFinishDate = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtProductName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtManufactureCode = new System.Windows.Forms.TextBox();
+            this.txtPlanUser = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtStartDate = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtOrderCode = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
@@ -222,37 +215,37 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dateTimePicker5);
-            this.groupBox4.Controls.Add(this.textBox16);
+            this.groupBox4.Controls.Add(this.dtpModifyTime);
+            this.groupBox4.Controls.Add(this.txtModifyUserName);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Controls.Add(this.dateTimePicker4);
-            this.groupBox4.Controls.Add(this.textBox17);
+            this.groupBox4.Controls.Add(this.dtpCreateTime);
+            this.groupBox4.Controls.Add(this.txtCreateUserName);
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.label21);
-            this.groupBox4.Controls.Add(this.textBox14);
-            this.groupBox4.Controls.Add(this.textBox13);
-            this.groupBox4.Controls.Add(this.textBox12);
-            this.groupBox4.Controls.Add(this.textBox11);
-            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.txtPlanState);
+            this.groupBox4.Controls.Add(this.txtStartDueDate);
+            this.groupBox4.Controls.Add(this.txtFinishQty);
+            this.groupBox4.Controls.Add(this.txtPlanQty);
+            this.groupBox4.Controls.Add(this.txtManufactuerState);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.textBox9);
+            this.groupBox4.Controls.Add(this.txtFinishDate);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.textBox5);
+            this.groupBox4.Controls.Add(this.txtProductName);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.textBox8);
-            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Controls.Add(this.txtManufactureCode);
+            this.groupBox4.Controls.Add(this.txtPlanUser);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Controls.Add(this.txtStartDate);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.txtProductCode);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.txtOrderCode);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(834, 3);
@@ -262,27 +255,27 @@ namespace DESK_MES
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
             // 
-            // dateTimePicker5
+            // dtpModifyTime
             // 
-            this.dateTimePicker5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtpModifyTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker5.Enabled = false;
-            this.dateTimePicker5.Location = new System.Drawing.Point(141, 482);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(176, 25);
-            this.dateTimePicker5.TabIndex = 77;
+            this.dtpModifyTime.Enabled = false;
+            this.dtpModifyTime.Location = new System.Drawing.Point(141, 482);
+            this.dtpModifyTime.Name = "dtpModifyTime";
+            this.dtpModifyTime.Size = new System.Drawing.Size(176, 25);
+            this.dtpModifyTime.TabIndex = 77;
             // 
-            // textBox16
+            // txtModifyUserName
             // 
-            this.textBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtModifyUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox16.Enabled = false;
-            this.textBox16.Location = new System.Drawing.Point(141, 514);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(176, 25);
-            this.textBox16.TabIndex = 76;
+            this.txtModifyUserName.Enabled = false;
+            this.txtModifyUserName.Location = new System.Drawing.Point(141, 514);
+            this.txtModifyUserName.Name = "txtModifyUserName";
+            this.txtModifyUserName.Size = new System.Drawing.Size(176, 25);
+            this.txtModifyUserName.TabIndex = 76;
             // 
             // label18
             // 
@@ -308,27 +301,27 @@ namespace DESK_MES
             this.label19.TabIndex = 74;
             this.label19.Text = "변경 시간";
             // 
-            // dateTimePicker4
+            // dtpCreateTime
             // 
-            this.dateTimePicker4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtpCreateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker4.Enabled = false;
-            this.dateTimePicker4.Location = new System.Drawing.Point(141, 418);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(176, 25);
-            this.dateTimePicker4.TabIndex = 73;
+            this.dtpCreateTime.Enabled = false;
+            this.dtpCreateTime.Location = new System.Drawing.Point(141, 418);
+            this.dtpCreateTime.Name = "dtpCreateTime";
+            this.dtpCreateTime.Size = new System.Drawing.Size(176, 25);
+            this.dtpCreateTime.TabIndex = 73;
             // 
-            // textBox17
+            // txtCreateUserName
             // 
-            this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtCreateUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox17.Enabled = false;
-            this.textBox17.Location = new System.Drawing.Point(141, 450);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(176, 25);
-            this.textBox17.TabIndex = 72;
+            this.txtCreateUserName.Enabled = false;
+            this.txtCreateUserName.Location = new System.Drawing.Point(141, 450);
+            this.txtCreateUserName.Name = "txtCreateUserName";
+            this.txtCreateUserName.Size = new System.Drawing.Size(176, 25);
+            this.txtCreateUserName.TabIndex = 72;
             // 
             // label20
             // 
@@ -354,67 +347,67 @@ namespace DESK_MES
             this.label21.TabIndex = 70;
             this.label21.Text = "생성 시간";
             // 
-            // textBox14
+            // txtPlanState
             // 
-            this.textBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPlanState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox14.Enabled = false;
-            this.textBox14.Location = new System.Drawing.Point(140, 350);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(177, 25);
-            this.textBox14.TabIndex = 40;
-            this.textBox14.Text = "미정 / 확정";
+            this.txtPlanState.Enabled = false;
+            this.txtPlanState.Location = new System.Drawing.Point(140, 350);
+            this.txtPlanState.Name = "txtPlanState";
+            this.txtPlanState.ReadOnly = true;
+            this.txtPlanState.Size = new System.Drawing.Size(177, 25);
+            this.txtPlanState.TabIndex = 40;
+            this.txtPlanState.Text = "미정 / 확정";
             // 
-            // textBox13
+            // txtStartDueDate
             // 
-            this.textBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtStartDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox13.Enabled = false;
-            this.textBox13.Location = new System.Drawing.Point(140, 254);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(177, 25);
-            this.textBox13.TabIndex = 39;
+            this.txtStartDueDate.Enabled = false;
+            this.txtStartDueDate.Location = new System.Drawing.Point(140, 254);
+            this.txtStartDueDate.Name = "txtStartDueDate";
+            this.txtStartDueDate.ReadOnly = true;
+            this.txtStartDueDate.Size = new System.Drawing.Size(177, 25);
+            this.txtStartDueDate.TabIndex = 39;
             // 
-            // textBox12
+            // txtFinishQty
             // 
-            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtFinishQty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(140, 190);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(177, 25);
-            this.textBox12.TabIndex = 38;
+            this.txtFinishQty.Enabled = false;
+            this.txtFinishQty.Location = new System.Drawing.Point(140, 190);
+            this.txtFinishQty.Name = "txtFinishQty";
+            this.txtFinishQty.ReadOnly = true;
+            this.txtFinishQty.Size = new System.Drawing.Size(177, 25);
+            this.txtFinishQty.TabIndex = 38;
             // 
-            // textBox11
+            // txtPlanQty
             // 
-            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPlanQty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(140, 158);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(177, 25);
-            this.textBox11.TabIndex = 37;
+            this.txtPlanQty.Enabled = false;
+            this.txtPlanQty.Location = new System.Drawing.Point(140, 158);
+            this.txtPlanQty.Name = "txtPlanQty";
+            this.txtPlanQty.ReadOnly = true;
+            this.txtPlanQty.Size = new System.Drawing.Size(177, 25);
+            this.txtPlanQty.TabIndex = 37;
             // 
-            // textBox6
+            // txtManufactuerState
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtManufactuerState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(140, 382);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(177, 25);
-            this.textBox6.TabIndex = 36;
-            this.textBox6.Text = "생산대기 / 생산중 / 생산완료";
+            this.txtManufactuerState.Enabled = false;
+            this.txtManufactuerState.Location = new System.Drawing.Point(140, 382);
+            this.txtManufactuerState.Name = "txtManufactuerState";
+            this.txtManufactuerState.ReadOnly = true;
+            this.txtManufactuerState.Size = new System.Drawing.Size(177, 25);
+            this.txtManufactuerState.TabIndex = 36;
+            this.txtManufactuerState.Text = "생산대기 / 생산중 / 생산완료";
             // 
             // label13
             // 
@@ -440,17 +433,17 @@ namespace DESK_MES
             this.label16.TabIndex = 33;
             this.label16.Text = "생산 계획 상태";
             // 
-            // textBox9
+            // txtFinishDate
             // 
-            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtFinishDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(140, 286);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(177, 25);
-            this.textBox9.TabIndex = 32;
+            this.txtFinishDate.Enabled = false;
+            this.txtFinishDate.Location = new System.Drawing.Point(140, 286);
+            this.txtFinishDate.Name = "txtFinishDate";
+            this.txtFinishDate.ReadOnly = true;
+            this.txtFinishDate.Size = new System.Drawing.Size(177, 25);
+            this.txtFinishDate.TabIndex = 32;
             // 
             // label17
             // 
@@ -476,17 +469,17 @@ namespace DESK_MES
             this.label12.TabIndex = 29;
             this.label12.Text = "생산 계획 수량";
             // 
-            // textBox5
+            // txtProductName
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(140, 126);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(177, 25);
-            this.textBox5.TabIndex = 28;
+            this.txtProductName.Enabled = false;
+            this.txtProductName.Location = new System.Drawing.Point(140, 126);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.ReadOnly = true;
+            this.txtProductName.Size = new System.Drawing.Size(177, 25);
+            this.txtProductName.TabIndex = 28;
             // 
             // label6
             // 
@@ -500,29 +493,29 @@ namespace DESK_MES
             this.label6.TabIndex = 27;
             this.label6.Text = "생산 품목명";
             // 
-            // textBox8
+            // txtManufactureCode
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtManufactureCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(140, 30);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(177, 25);
-            this.textBox8.TabIndex = 26;
+            this.txtManufactureCode.Enabled = false;
+            this.txtManufactureCode.Location = new System.Drawing.Point(140, 30);
+            this.txtManufactureCode.Name = "txtManufactureCode";
+            this.txtManufactureCode.ReadOnly = true;
+            this.txtManufactureCode.Size = new System.Drawing.Size(177, 25);
+            this.txtManufactureCode.TabIndex = 26;
             // 
-            // textBox2
+            // txtPlanUser
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPlanUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(140, 318);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(177, 25);
-            this.textBox2.TabIndex = 25;
+            this.txtPlanUser.Enabled = false;
+            this.txtPlanUser.Location = new System.Drawing.Point(140, 318);
+            this.txtPlanUser.Name = "txtPlanUser";
+            this.txtPlanUser.ReadOnly = true;
+            this.txtPlanUser.Size = new System.Drawing.Size(177, 25);
+            this.txtPlanUser.TabIndex = 25;
             // 
             // label4
             // 
@@ -560,17 +553,17 @@ namespace DESK_MES
             this.label15.TabIndex = 20;
             this.label15.Text = "생산 완료 수량";
             // 
-            // textBox7
+            // txtStartDate
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(140, 222);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(177, 25);
-            this.textBox7.TabIndex = 19;
+            this.txtStartDate.Enabled = false;
+            this.txtStartDate.Location = new System.Drawing.Point(140, 222);
+            this.txtStartDate.Name = "txtStartDate";
+            this.txtStartDate.ReadOnly = true;
+            this.txtStartDate.Size = new System.Drawing.Size(177, 25);
+            this.txtStartDate.TabIndex = 19;
             // 
             // label14
             // 
@@ -584,17 +577,17 @@ namespace DESK_MES
             this.label14.TabIndex = 18;
             this.label14.Text = "생산 시작일";
             // 
-            // textBox4
+            // txtProductCode
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtProductCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(140, 94);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(177, 25);
-            this.textBox4.TabIndex = 15;
+            this.txtProductCode.Enabled = false;
+            this.txtProductCode.Location = new System.Drawing.Point(140, 94);
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.ReadOnly = true;
+            this.txtProductCode.Size = new System.Drawing.Size(177, 25);
+            this.txtProductCode.TabIndex = 15;
             // 
             // label10
             // 
@@ -620,17 +613,17 @@ namespace DESK_MES
             this.label11.TabIndex = 8;
             this.label11.Text = "생산코드";
             // 
-            // textBox3
+            // txtOrderCode
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtOrderCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(140, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(177, 25);
-            this.textBox3.TabIndex = 7;
+            this.txtOrderCode.Enabled = false;
+            this.txtOrderCode.Location = new System.Drawing.Point(140, 62);
+            this.txtOrderCode.Name = "txtOrderCode";
+            this.txtOrderCode.ReadOnly = true;
+            this.txtOrderCode.Size = new System.Drawing.Size(177, 25);
+            this.txtOrderCode.TabIndex = 7;
             // 
             // label9
             // 
@@ -657,57 +650,14 @@ namespace DESK_MES
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(809, 589);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "생산코드";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "생산품목코드";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "계획수량";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "생산수량";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "생산시작일";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "생상완료예정일";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "생산완료일";
-            this.Column7.Name = "Column7";
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // button3
             // 
@@ -803,30 +753,28 @@ namespace DESK_MES
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtPlanState;
+        private System.Windows.Forms.TextBox txtStartDueDate;
+        private System.Windows.Forms.TextBox txtFinishQty;
+        private System.Windows.Forms.TextBox txtPlanQty;
+        private System.Windows.Forms.TextBox txtManufactuerState;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtFinishDate;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtManufactureCode;
+        private System.Windows.Forms.TextBox txtPlanUser;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtStartDate;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtProductCode;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox15;
@@ -834,20 +782,15 @@ namespace DESK_MES
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.DateTimePicker dtpModifyTime;
+        private System.Windows.Forms.TextBox txtModifyUserName;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.DateTimePicker dtpCreateTime;
+        private System.Windows.Forms.TextBox txtCreateUserName;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtOrderCode;
+        private System.Windows.Forms.Label label9;
     }
 }

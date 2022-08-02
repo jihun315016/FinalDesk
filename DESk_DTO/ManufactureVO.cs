@@ -8,9 +8,10 @@ namespace DESK_DTO
 {
     public class ManufactureVO
     {
+        public int Production_Code { get; set; } // 생산번호
         public int Order_No { get; set; } // 주문코드
-        public string Production_Code { get; set; } // 생산코드
         public string Product_Code { get; set; } // 생산제품코드
+        public string Product_Name { get; set; } // 생산제품명
         public int Planned_Qty { get; set; } // 생산 계획 수량
         public int Production_Qty { get; set; } // 생산 완료 수량
         public string Start_Date { get; set; }  // 생산 시작일

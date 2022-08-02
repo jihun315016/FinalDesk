@@ -28,6 +28,31 @@ namespace DESK_MES
 
             return result;
         }
+        public List<ManufactureVO> GetProductListByType(string type)
+        {
+            ManufactuerDAC dac = new ManufactuerDAC();
+            List<ManufactureVO> result = dac.GetProductListByType(type);
+            dac.Dispose();
 
+            return result;
+        }
+
+        public bool RegisterManufacturePlan(ManufactureVO plan)
+        {
+            ManufactuerDAC dac = new ManufactuerDAC();
+            bool result = dac.RegisterManufacturePlan(plan);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public List<ManufactureVO> GetmanufactureList()  // 생산 정보 가져오기
+        {
+            ManufactuerDAC dac = new ManufactuerDAC();
+            List<ManufactureVO> result = dac.GetmanufactureList();
+            dac.Dispose();
+
+            return result;
+        }
     }
 }
