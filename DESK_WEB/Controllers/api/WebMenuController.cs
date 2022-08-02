@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace DESK_WEB.Controllers.api
 {
     [RoutePrefix("api/Menu")]
-    public class MenuController : ApiController
+    public class WebMenuController : ApiController
     {
         // https://localhost:44393/api/Menu/Menu
         [Route("Menu")]
@@ -39,7 +39,6 @@ namespace DESK_WEB.Controllers.api
 
                 return Ok(res);
             }
-
         }
     }
 }
