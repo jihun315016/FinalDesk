@@ -1,9 +1,11 @@
 ﻿using DESK_DTO;
 using DESK_MES.Service;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Http;
 using System.Windows.Forms;
 
 namespace DESK_MES
@@ -206,6 +208,25 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string url = "https://localhost:44393/api/log/writeLog?errMsg=Hel";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage resMsg = client.GetAsync(url).Result;
+            if (resMsg.IsSuccessStatusCode)
+            {
+                string resStr = resMsg.Content.ReadAsStringAsync().Result;
+                ResMessage<string> res = JsonConvert.DeserializeObject<ResMessage<string>>(resStr);
+
+                MessageBox.Show("!!");
+            }
+            else
+            {
+                MessageBox.Show("??");
+            }
+            return;
         }
     }
 }

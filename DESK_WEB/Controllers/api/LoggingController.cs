@@ -20,12 +20,18 @@ namespace DESK_WEB.Controllers.api
             _log = new LoggingUtility(DateTime.Now.ToString("yyyyMMdd"), log4net.Core.Level.Info, 30);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("writeLog")]
         public IHttpActionResult WriteLog(string errMsg)
         {
             _log.WriteError(errMsg);
             return Ok();
         }
+    }
+
+    class temp
+    {
+        public string Name { get; set; }
+        public string ErrMsg { get; set; }
     }
 }
