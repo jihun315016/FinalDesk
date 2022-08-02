@@ -60,13 +60,13 @@ namespace DESK_MES
             this.dtpUpdate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.cboInoper = new System.Windows.Forms.ComboBox();
-            this.cbotype = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpInoper = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtOPQty = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -231,6 +231,7 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtOPQty);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.txtHistory);
             this.groupBox2.Controls.Add(this.label7);
@@ -239,7 +240,6 @@ namespace DESK_MES
             this.groupBox2.Controls.Add(this.txtNo);
             this.groupBox2.Controls.Add(this.panel5);
             this.groupBox2.Controls.Add(this.cboInoper);
-            this.groupBox2.Controls.Add(this.cbotype);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.dtpInoper);
             this.groupBox2.Controls.Add(this.label2);
@@ -431,14 +431,6 @@ namespace DESK_MES
             this.cboInoper.TabIndex = 51;
             this.cboInoper.SelectedIndexChanged += new System.EventHandler(this.cboInoper_SelectedIndexChanged);
             // 
-            // cbotype
-            // 
-            this.cbotype.FormattingEnabled = true;
-            this.cbotype.Location = new System.Drawing.Point(179, 104);
-            this.cbotype.Name = "cbotype";
-            this.cbotype.Size = new System.Drawing.Size(221, 25);
-            this.cbotype.TabIndex = 50;
-            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -447,9 +439,9 @@ namespace DESK_MES
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(64, 142);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 17);
+            this.label6.Size = new System.Drawing.Size(78, 17);
             this.label6.TabIndex = 43;
-            this.label6.Text = "상태";
+            this.label6.Text = "비가동 여부";
             // 
             // dtpInoper
             // 
@@ -470,18 +462,6 @@ namespace DESK_MES
             this.label2.Size = new System.Drawing.Size(91, 17);
             this.label2.TabIndex = 36;
             this.label2.Text = "최종 다운시간";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(64, 106);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 17);
-            this.label10.TabIndex = 32;
-            this.label10.Text = "비가동 여부";
             // 
             // label11
             // 
@@ -506,6 +486,29 @@ namespace DESK_MES
             this.label9.Size = new System.Drawing.Size(47, 17);
             this.label9.TabIndex = 29;
             this.label9.Text = "설비명";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(64, 106);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 17);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "초당 생산량";
+            // 
+            // txtOPQty
+            // 
+            this.txtOPQty.isNumeric = false;
+            this.txtOPQty.isRequired = true;
+            this.txtOPQty.Location = new System.Drawing.Point(179, 103);
+            this.txtOPQty.Name = "txtOPQty";
+            this.txtOPQty.PlaceHolder = null;
+            this.txtOPQty.Size = new System.Drawing.Size(221, 25);
+            this.txtOPQty.TabIndex = 53;
+            this.txtOPQty.Tag = "설비명";
             // 
             // PopEquipmentModify
             // 
@@ -552,7 +555,6 @@ namespace DESK_MES
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cboInoper;
-        private System.Windows.Forms.ComboBox cbotype;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpUpdate;
@@ -560,7 +562,6 @@ namespace DESK_MES
         private System.Windows.Forms.DateTimePicker dtpCreate;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtpInoper;
@@ -574,5 +575,7 @@ namespace DESK_MES
         private ccTextBox txtNo;
         private ccTextBox txtUpdate;
         private ccTextBox txtCreate;
+        private ccTextBox txtOPQty;
+        private System.Windows.Forms.Label label10;
     }
 }

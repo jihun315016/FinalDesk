@@ -95,6 +95,12 @@
     <Compile Include="POP_Login.Designer.cs">
       <DependentUpon>POP_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pop_MDIMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pop_MDIMain.Designer.cs">
+      <DependentUpon>Pop_MDIMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="POP_WorkEndGDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POP_Login.resx">
       <DependentUpon>POP_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pop_MDIMain.resx">
+      <DependentUpon>Pop_MDIMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POP_WorkEndGDV.resx">
       <DependentUpon>POP_WorkEndGDV.cs</DependentUpon>

@@ -32,7 +32,6 @@ namespace DESK_POP
             this.label13 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.label11 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@ namespace DESK_POP
             this.panel3 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnEnd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,12 +96,12 @@ namespace DESK_POP
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(501, 33);
+            this.label13.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Location = new System.Drawing.Point(475, 37);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(208, 37);
+            this.label13.Size = new System.Drawing.Size(279, 40);
             this.label13.TabIndex = 12;
-            this.label13.Text = "작업 종료(저장)";
+            this.label13.Text = "작업 종료(실적저장)";
             // 
             // splitContainer1
             // 
@@ -113,7 +113,7 @@ namespace DESK_POP
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.splitContainer1.Panel1.Controls.Add(this.label13);
             // 
             // splitContainer1.Panel2
@@ -137,24 +137,11 @@ namespace DESK_POP
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btnEnd);
             this.splitContainer2.Panel2.Controls.Add(this.label12);
-            this.splitContainer2.Panel2.Controls.Add(this.button1);
             this.splitContainer2.Size = new System.Drawing.Size(1249, 557);
             this.splitContainer2.SplitterDistance = 475;
             this.splitContainer2.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ForeColor = System.Drawing.Color.LawnGreen;
-            this.button1.Location = new System.Drawing.Point(573, 3);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 62);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "저장(종료)";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // splitContainer3
             // 
@@ -202,6 +189,7 @@ namespace DESK_POP
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -235,6 +223,7 @@ namespace DESK_POP
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Controls.Add(this.panel1);
@@ -273,6 +262,7 @@ namespace DESK_POP
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox3.Controls.Add(this.numericUpDown1);
             this.groupBox3.Controls.Add(this.comboBox3);
             this.groupBox3.Controls.Add(this.dateTimePicker1);
@@ -302,7 +292,7 @@ namespace DESK_POP
             this.numericUpDown1.Location = new System.Drawing.Point(192, 320);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(242, 33);
+            this.numericUpDown1.Size = new System.Drawing.Size(267, 33);
             this.numericUpDown1.TabIndex = 79;
             // 
             // comboBox3
@@ -312,17 +302,18 @@ namespace DESK_POP
             this.comboBox3.Location = new System.Drawing.Point(193, 161);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(242, 33);
+            this.comboBox3.Size = new System.Drawing.Size(267, 33);
             this.comboBox3.TabIndex = 78;
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             this.dateTimePicker1.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(192, 215);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(242, 33);
+            this.dateTimePicker1.Size = new System.Drawing.Size(267, 33);
             this.dateTimePicker1.TabIndex = 77;
             // 
             // textBox4
@@ -331,7 +322,7 @@ namespace DESK_POP
             this.textBox4.Location = new System.Drawing.Point(192, 267);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(241, 33);
+            this.textBox4.Size = new System.Drawing.Size(267, 33);
             this.textBox4.TabIndex = 76;
             // 
             // textBox6
@@ -340,7 +331,7 @@ namespace DESK_POP
             this.textBox6.Location = new System.Drawing.Point(192, 385);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(241, 33);
+            this.textBox6.Size = new System.Drawing.Size(267, 33);
             this.textBox6.TabIndex = 75;
             // 
             // textBox3
@@ -349,7 +340,7 @@ namespace DESK_POP
             this.textBox3.Location = new System.Drawing.Point(193, 109);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(241, 33);
+            this.textBox3.Size = new System.Drawing.Size(267, 33);
             this.textBox3.TabIndex = 74;
             // 
             // textBox1
@@ -358,7 +349,7 @@ namespace DESK_POP
             this.textBox1.Location = new System.Drawing.Point(193, 56);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(241, 33);
+            this.textBox1.Size = new System.Drawing.Size(267, 33);
             this.textBox1.TabIndex = 73;
             // 
             // label8
@@ -530,6 +521,18 @@ namespace DESK_POP
             this.label17.TabIndex = 81;
             this.label17.Text = "불량";
             // 
+            // btnEnd
+            // 
+            this.btnEnd.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnEnd.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnEnd.ForeColor = System.Drawing.Color.DarkOrange;
+            this.btnEnd.Location = new System.Drawing.Point(482, 11);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(259, 55);
+            this.btnEnd.TabIndex = 43;
+            this.btnEnd.Text = "작업종료(실적저장)";
+            this.btnEnd.UseVisualStyleBackColor = false;
+            // 
             // Lot_end
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -539,7 +542,7 @@ namespace DESK_POP
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Lot_end";
-            this.Text = "작업 종료(저장)";
+            this.Text = "작업 종료(실적저장)";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -581,7 +584,6 @@ namespace DESK_POP
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.SplitContainer splitContainer4;
@@ -616,5 +618,6 @@ namespace DESK_POP
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnEnd;
     }
 }

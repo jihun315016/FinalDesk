@@ -33,8 +33,6 @@ namespace DESK_MES
             if (srv == null)
                 srv = new EquipmentService();
             //
-            List< EquipmentVO> equ= srv.SelectOperationTypeList().FindAll((f) => f.Catagory.Equals("설비유형"));
-            ComboBoxUtil.ComboBinding<EquipmentVO>(comboBox1, equ, "Name", "Code");
 
             dateTimePicker3.Format = DateTimePickerFormat.Custom;
             dateTimePicker3.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
@@ -71,7 +69,6 @@ namespace DESK_MES
             EquipmentVO eq = new EquipmentVO
             {
                 Equipment_Name = txtName.Text,
-                Operation_Type_No = Convert.ToInt32(comboBox1.SelectedValue),
                 Create_User_No = user.User_No
             };
 

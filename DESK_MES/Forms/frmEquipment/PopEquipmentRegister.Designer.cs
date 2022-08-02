@@ -43,16 +43,14 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtUser = new DESK_MES.ccTextBox();
+            this.txtName = new DESK_MES.ccTextBox();
+            this.txtCode = new DESK_MES.ccTextBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCode = new DESK_MES.ccTextBox();
-            this.txtName = new DESK_MES.ccTextBox();
-            this.txtUser = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -79,7 +77,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 361);
+            this.panel1.Size = new System.Drawing.Size(434, 315);
             this.panel1.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -97,7 +95,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 361);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 315);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -140,7 +138,7 @@ namespace DESK_MES
             // 
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 304);
+            this.panel3.Location = new System.Drawing.Point(3, 258);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(428, 54);
             this.panel3.TabIndex = 1;
@@ -194,7 +192,7 @@ namespace DESK_MES
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(428, 225);
+            this.panel4.Size = new System.Drawing.Size(428, 179);
             this.panel4.TabIndex = 2;
             // 
             // groupBox2
@@ -202,33 +200,54 @@ namespace DESK_MES
             this.groupBox2.Controls.Add(this.txtUser);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.txtCode);
-            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.dateTimePicker3);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(428, 225);
+            this.groupBox2.Size = new System.Drawing.Size(428, 179);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
             // 
-            // comboBox1
+            // txtUser
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(182, 100);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 25);
-            this.comboBox1.TabIndex = 38;
+            this.txtUser.isNumeric = false;
+            this.txtUser.isRequired = false;
+            this.txtUser.Location = new System.Drawing.Point(182, 136);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.PlaceHolder = null;
+            this.txtUser.Size = new System.Drawing.Size(177, 25);
+            this.txtUser.TabIndex = 42;
+            // 
+            // txtName
+            // 
+            this.txtName.isNumeric = false;
+            this.txtName.isRequired = true;
+            this.txtName.Location = new System.Drawing.Point(182, 62);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceHolder = null;
+            this.txtName.Size = new System.Drawing.Size(177, 25);
+            this.txtName.TabIndex = 41;
+            this.txtName.Tag = "설비명";
+            // 
+            // txtCode
+            // 
+            this.txtCode.isNumeric = false;
+            this.txtCode.isRequired = false;
+            this.txtCode.Location = new System.Drawing.Point(182, 27);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.PlaceHolder = null;
+            this.txtCode.Size = new System.Drawing.Size(177, 25);
+            this.txtCode.TabIndex = 40;
             // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.Enabled = false;
-            this.dateTimePicker3.Location = new System.Drawing.Point(182, 141);
+            this.dateTimePicker3.Location = new System.Drawing.Point(182, 101);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(177, 25);
             this.dateTimePicker3.TabIndex = 35;
@@ -239,7 +258,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(67, 144);
+            this.label15.Location = new System.Drawing.Point(67, 104);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 17);
             this.label15.TabIndex = 34;
@@ -251,23 +270,11 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(67, 179);
+            this.label14.Location = new System.Drawing.Point(67, 139);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 17);
             this.label14.TabIndex = 32;
             this.label14.Text = "생성사용자";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(71, 103);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 17);
-            this.label10.TabIndex = 30;
-            this.label10.Text = "유형";
             // 
             // label11
             // 
@@ -293,42 +300,11 @@ namespace DESK_MES
             this.label9.TabIndex = 27;
             this.label9.Text = "설비명";
             // 
-            // txtCode
-            // 
-            this.txtCode.isNumeric = false;
-            this.txtCode.isRequired = false;
-            this.txtCode.Location = new System.Drawing.Point(182, 27);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.PlaceHolder = null;
-            this.txtCode.Size = new System.Drawing.Size(177, 25);
-            this.txtCode.TabIndex = 40;
-            // 
-            // txtName
-            // 
-            this.txtName.isNumeric = false;
-            this.txtName.isRequired = true;
-            this.txtName.Location = new System.Drawing.Point(182, 62);
-            this.txtName.Name = "txtName";
-            this.txtName.PlaceHolder = null;
-            this.txtName.Size = new System.Drawing.Size(177, 25);
-            this.txtName.TabIndex = 41;
-            this.txtName.Tag = "설비명";
-            // 
-            // txtUser
-            // 
-            this.txtUser.isNumeric = false;
-            this.txtUser.isRequired = false;
-            this.txtUser.Location = new System.Drawing.Point(182, 176);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.PlaceHolder = null;
-            this.txtUser.Size = new System.Drawing.Size(177, 25);
-            this.txtUser.TabIndex = 42;
-            // 
             // PopEquipmentRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 361);
+            this.ClientSize = new System.Drawing.Size(434, 315);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -365,11 +341,9 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private ccTextBox txtUser;

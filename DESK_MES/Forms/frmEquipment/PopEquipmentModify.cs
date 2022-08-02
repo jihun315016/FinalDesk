@@ -42,8 +42,6 @@ namespace DESK_MES
             txtUpdate.Enabled = false;
 
             selectEqui= srv.SelectEquipmentNoList(eqNo);
-            List<EquipmentVO> equ = srv.SelectOperationTypeList().FindAll((f) => f.Catagory.Equals("설비유형"));
-            ComboBoxUtil.ComboBinding<EquipmentVO>(cbotype, equ, "Name", "Code");
             List<EquipmentVO> ino = new List<EquipmentVO>
             {
                 new EquipmentVO{Is_Inoperative ="N"},
@@ -61,7 +59,6 @@ namespace DESK_MES
             txtUpdate.Text = userV.User_Name;
 
 
-            cbotype.SelectedValue = selectEqui.Operation_Type_No;
             cboInoper.SelectedValue = selectEqui.Is_Inoperative;
             if (selectEqui.Is_Inoperative_Date != null)
             {
@@ -150,12 +147,12 @@ namespace DESK_MES
             {
                 Equipment_No = Convert.ToInt32(txtNo.Text),
                 Equipment_Name = txtName.Text,
-                Operation_Type_No = Convert.ToInt32(cbotype.SelectedValue),
                 Is_Inoperative = cboInoper.SelectedValue.ToString(),
                 Inoperative_Reason = txtReason.Text,
                 Action_History = txtHistory.Text,
                 Update_User_No = userV.User_No,
-                Is_Inoperative_Date = selectEqui.Is_Inoperative_Date
+                Is_Inoperative_Date = selectEqui.Is_Inoperative_Date,
+                Output_Qty = 0                                          //여기 받을때 수정
             };
             if (equi.Is_Inoperative_Date == null)
             {

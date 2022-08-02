@@ -433,7 +433,6 @@ namespace DESK_POP
             this.txtWorking.Location = new System.Drawing.Point(46, 185);
             this.txtWorking.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWorking.Name = "txtWorking";
-            this.txtWorking.ReadOnly = true;
             this.txtWorking.Size = new System.Drawing.Size(181, 93);
             this.txtWorking.TabIndex = 1;
             this.txtWorking.Text = "153";
@@ -446,7 +445,6 @@ namespace DESK_POP
             this.txtWorkQty.Location = new System.Drawing.Point(48, 39);
             this.txtWorkQty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWorkQty.Name = "txtWorkQty";
-            this.txtWorkQty.ReadOnly = true;
             this.txtWorkQty.Size = new System.Drawing.Size(181, 93);
             this.txtWorkQty.TabIndex = 1;
             this.txtWorkQty.Text = "500";
@@ -512,7 +510,6 @@ namespace DESK_POP
             this.txtProgress.Location = new System.Drawing.Point(34, 185);
             this.txtProgress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProgress.Name = "txtProgress";
-            this.txtProgress.ReadOnly = true;
             this.txtProgress.Size = new System.Drawing.Size(181, 93);
             this.txtProgress.TabIndex = 1;
             this.txtProgress.Text = "21%";
@@ -525,7 +522,6 @@ namespace DESK_POP
             this.txtRemainQtc.Location = new System.Drawing.Point(34, 45);
             this.txtRemainQtc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRemainQtc.Name = "txtRemainQtc";
-            this.txtRemainQtc.ReadOnly = true;
             this.txtRemainQtc.Size = new System.Drawing.Size(181, 93);
             this.txtRemainQtc.TabIndex = 1;
             this.txtRemainQtc.Text = "347";

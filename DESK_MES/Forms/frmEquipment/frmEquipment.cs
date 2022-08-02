@@ -46,7 +46,7 @@ namespace DESK_MES
         {
             txtEquipNo.Text = "";
             txtName.Text = "";
-            txtType.Text = "";
+            txtOPQty.Text = "";
             txtInoper.Text = "";
             dtpInoper.Value = DateTime.Now; //여기 정보 기입
             dtpCreate.Value = DateTime.Now;
@@ -62,7 +62,6 @@ namespace DESK_MES
             comboBox1.SelectedIndex = 0;
             cboUpInoper.SelectedIndex = 0;
             cboDate.SelectedIndex = 0;
-            cboUpType.SelectedIndex = 0;
             textBox1.Text = "";
             dateTimePicker1.Value = DateTime.Now.AddDays(-1);
             dateTimePicker2.Value = DateTime.Now;
@@ -103,7 +102,7 @@ namespace DESK_MES
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비번호", "Equipment_No"); //0
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name"); //1
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "유형", "Operation_Type_Name"); //2
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "초당 생산량", "Output_Qty"); //2           //초당 생산량으로 변경
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "상태", "Is_Inoperative"); //3
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "최근다운시간", "Is_Inoperative_Date"); //4
 
@@ -113,13 +112,10 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경자", "Update_User_Name"); //8
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "삭제 여부", "Is_Delete", isVisible: false); //9
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "유형 번호", "Operation_Type_No", isVisible: false); //10
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자ID", "Create_User_No", isVisible: false); //11
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경자ID", "Update_User_No", isVisible: false); //12
 
             //바인딩
-            List<EquipmentVO> equ = srv.SelectOperationTypeList().FindAll((f) => f.Catagory.Equals("설비유형"));
-            ComboBoxUtil.ComboBinding<EquipmentVO>(cboUpType, equ, "Name", "Code", blank: true);
             ResetDetail();
             UpbarReset();
             BindingGdv();
@@ -161,7 +157,7 @@ namespace DESK_MES
             txtName.Text = dgvMain[1, e.RowIndex].Value.ToString();
             if (dgvMain[2, e.RowIndex].Value != null)
             {
-                txtType.Text = dgvMain[2, e.RowIndex].Value.ToString();
+                txtOPQty.Text = dgvMain[2, e.RowIndex].Value.ToString();
             }
             txtInoper.Text = dgvMain[3, e.RowIndex].Value.ToString();
             if (dgvMain[4, e.RowIndex].Value != null)
@@ -215,10 +211,10 @@ namespace DESK_MES
             List<EquipmentVO> list = dgvMain.DataSource as List<EquipmentVO>;
 
             ExcelUtil excel = new ExcelUtil();
-            List<EquipmentVO> orders = list;
+            List<EquipmentVO> orders = list; //type 부분 초당으로 변경
 
-            string[] columnImport = { "Equipment_No", "Equipment_Name", "Operation_Type_Name", "Is_Inoperative", "Is_Inoperative_Date", "Create_Time", "Create_User_Name", "Update_Time", "Update_User_Name", "Is_Delete" };
-            string[] columnName = { "설비번호", "설비명", "유형", "상태", "최근다운시간", "생성시간", "생성자", "변경시간", "변경자", "삭제여부" };
+            string[] columnImport = { "Equipment_No", "Equipment_Name",  "Is_Inoperative", "Is_Inoperative_Date", "Create_Time", "Create_User_Name", "Update_Time", "Update_User_Name", "Is_Delete" };
+            string[] columnName = { "설비번호", "설비명", "상태", "최근다운시간", "생성시간", "생성자", "변경시간", "변경자", "삭제여부" };
 
             if (excel.ExportList(orders, saveFileName, columnImport, columnName))
             {
@@ -243,16 +239,12 @@ namespace DESK_MES
             {                
                 StringBuilder sb = new StringBuilder();
                 saveList = allList;
-                ComboBox[] cbo = new ComboBox[] { cboUpType, cboUpInoper, cboDate };
+                ComboBox[] cbo = new ComboBox[] { cboUpInoper, cboDate }; //type 업생기
                 foreach (ComboBox item in cbo)
                 {
                     if (item.SelectedIndex != 0)
                     {
-                        if (item.Name == "cboUpType")
-                        {
-                            saveList = saveList.FindAll((f) => f.Operation_Type_Name == item.Text);
-                        }
-                        else if (item.Name == "cboUpInoper")
+                        if (item.Name == "cboUpInoper")
                         {
                             saveList = saveList.FindAll((f) => f.Is_Inoperative == item.Text);
                         }
@@ -330,7 +322,6 @@ namespace DESK_MES
                 //일반검색
                 textBox1.Enabled = true;
                 comboBox1.Enabled = true;
-                cboUpType.SelectedIndex = 0;
                 cboUpInoper.SelectedIndex = 0;
                 cboDate.SelectedIndex = 0;
             }
