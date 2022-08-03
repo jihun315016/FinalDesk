@@ -17,6 +17,7 @@ namespace DESK_MES
         public PopProductsModify(ProductVO prd, UserVO user)
         {
             InitializeComponent();
+            this.user = user;
             InitControl(prd);
         }
 
@@ -106,7 +107,7 @@ namespace DESK_MES
                 Product_Type = cboType.SelectedValue.ToString().Split('_')[1],
                 Price = Convert.ToInt32(txtPrice.Text),
                 Unit = Convert.ToInt32(txtUnit.Text),
-                Client_Code = cboClient.SelectedValue.ToString(),
+                Client_Code = string.IsNullOrWhiteSpace(cboClient.Text) ? null : cboClient.SelectedValue.ToString(),
                 Update_User_No = user.User_No
             };
 

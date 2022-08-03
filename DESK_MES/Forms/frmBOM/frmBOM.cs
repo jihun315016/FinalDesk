@@ -152,9 +152,15 @@ namespace DESK_MES
         private void btnReset_Click(object sender, EventArgs e)
         {
             isBomProductList = productSrv.GetBomList();
+            comboBox1.SelectedIndex = 0;
+            textBox1.Text = string.Empty;
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
             dgvProductList.DataSource = dgvChild.DataSource = dgvParent.DataSource = null;
+
+            txtCodeDetail.Text = txtNameDetail.Text = txtTypeDetail.Text = string.Empty;
+            dtpCreateTime.CustomFormat = dtpUpdateTime.CustomFormat = " ";
+            txtCreateUserDetail.Text = txtUpdateUserDetail.Text = string.Empty;            
         }
 
         private void btnOpenDetail_Click(object sender, EventArgs e)
@@ -167,6 +173,12 @@ namespace DESK_MES
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtCodeDetail.Text))
+            {
+                MessageBox.Show("품목을 선택해주세요.");
+                return;
+            }
+
             if (txtTypeDetail.Text == "ROH")
             {
                 MessageBox.Show("부품은 삭제할 수 없습니다.");
@@ -186,6 +198,8 @@ namespace DESK_MES
                 if (result)
                 {
                     MessageBox.Show("삭제되었습니다.");
+                    btnReset_Click(this, null);
+                    btnSearch_Click(this, null);
                 }
                 else
                 {

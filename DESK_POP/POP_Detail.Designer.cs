@@ -71,6 +71,7 @@ namespace DESK_POP
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMemo = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
@@ -78,7 +79,6 @@ namespace DESK_POP
             this.btnEnd = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -647,6 +647,15 @@ namespace DESK_POP
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "작업 메모";
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(34, 269);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(275, 163);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "작업종료 : 누르면 Y/N ms박스 => 작업중지됨 => 다음창";
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -701,6 +710,7 @@ namespace DESK_POP
             this.btnEnd.TabIndex = 2;
             this.btnEnd.Text = "작업종료(실적저장)";
             this.btnEnd.UseVisualStyleBackColor = false;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // btnBack
             // 
@@ -718,15 +728,6 @@ namespace DESK_POP
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(34, 269);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(275, 163);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "작업종료 : 누르면 Y/N ms박스 => 작업중지됨 => 다음창";
             // 
             // POP_Detail
             // 

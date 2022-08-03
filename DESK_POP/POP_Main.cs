@@ -38,12 +38,13 @@ namespace DESK_POP
             int littt = 3; //db에서 가져온 리스트의 갯수/<나중에 삭제>
             lblCount.Text = littt.ToString();
             int hinum=340;
-            for (int i = 1; i < littt+1; i++)
+            for (int i = 1; i < littt+1; i++)// 1. foreach로 변경
             {
-                ucWorkGroup wg = new ucWorkGroup(userInfo, i);
+                ucWorkGroup wg = new ucWorkGroup(userInfo);
 
                 wg.Size = new Size(342, 338);
-                wg.Name = $"ucWorkGroup{i}";
+                wg.Name = $"ucWorkGroup{i}";        //해당 부분 지역변수로 int 줘서 하나씩 ++ 해주며 넣기
+                wg.OrderCount = i;
                 if (i%3==0)
                 {
 
