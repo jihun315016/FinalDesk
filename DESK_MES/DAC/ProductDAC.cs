@@ -267,7 +267,10 @@ namespace DESK_MES.DAC
                 cmd.Parameters.AddWithValue("@Is_Image", prd.Is_Image);
                 cmd.Parameters.AddWithValue("@Price", prd.Price);
                 cmd.Parameters.AddWithValue("@Unit", prd.Unit);
-                cmd.Parameters.AddWithValue("@Client_Code", prd.Client_Code);
+                if (prd.Client_Code == null) 
+                    cmd.Parameters.AddWithValue("@Client_Code", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Client_Code", prd.Client_Code);
                 cmd.Parameters.AddWithValue("@Update_User_No", prd.Update_User_No);
                 cmd.Parameters.AddWithValue("@Product_Code", prd.Product_Code);
 

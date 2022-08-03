@@ -155,7 +155,7 @@ namespace DESK_MES
         {
             if (string.IsNullOrWhiteSpace(txtCodeDetail.Text))
             {
-                MessageBox.Show("품번을 선택하세요.");
+                MessageBox.Show("품목을 선택하세요.");
                 return;
             }
 
@@ -181,9 +181,15 @@ namespace DESK_MES
         private void btnReset_Click(object sender, EventArgs e)
         {
             prdList = productSrv.GetProductList();
+            comboBox1.SelectedIndex = 0;
+            textBox1.Text = string.Empty;
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
             dgvList.DataSource = null;
+
+            txtCodeDetail.Text = txtNameDetail.Text = txtTypeDetail.Text = string.Empty;
+            dtpCreateTime.CustomFormat = dtpUpdateTime.CustomFormat = " ";
+            txtCreateUserDetail.Text = txtUpdateUserDetail.Text = string.Empty;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
