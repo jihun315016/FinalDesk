@@ -14,18 +14,17 @@ namespace DESK_POP
     public partial class ucWorkGroup : UserControl
     {
         PopVO orderDetail;
-        int cnt;
+        int cnt; //안써도 될듯
         public int OrderCount { get; set; }
-        public ucWorkGroup(PopVO order, int count)
+        public ucWorkGroup(PopVO order)
         {            
             orderDetail = order;
-            cnt = count;
             InitializeComponent();
         }
 
         private void ucWorkGroup_Load(object sender, EventArgs e)
         {
-            gBox.Text = $"작업{cnt}";
+            gBox.Text = $"작업{OrderCount}";
             txtWkCode.Text = orderDetail.Work_Code;
             txtOperation.Text = orderDetail.Operation_Name;
             txtEquipment.Text = orderDetail.Equipment_Name;

@@ -1,7 +1,7 @@
 ﻿
 namespace DESK_POP
 {
-    partial class Lot_end
+    partial class Lot_End
     {
         /// <summary>
         /// Required designer variable.
