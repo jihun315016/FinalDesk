@@ -101,6 +101,7 @@
     <Compile Include="DAC\ClientDAC.cs" />
     <Compile Include="DAC\IncomingDAC.cs" />
     <Compile Include="DAC\ManufactuerDAC.cs" />
+    <Compile Include="DAC\WorkOrderDAC.cs" />
     <Compile Include="Forms\frmIncoming\frmIncoming.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -514,6 +515,7 @@
     <Compile Include="Service\UserGroupService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\WarehouseService.cs" />
+    <Compile Include="Service\WorkOrderService.cs" />
     <Compile Include="Utility\ComboBoxUtil.cs" />
     <Compile Include="Utility\DataGridUtil.cs" />
     <Compile Include="Utility\ExcelUtil.cs" />

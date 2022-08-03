@@ -93,7 +93,7 @@ namespace DESK_MES
                 PopIncomingCreateLot pop = new PopIncomingCreateLot(purchaseNo);
                 if (pop.ShowDialog() == DialogResult.OK)
                 {
-                    //LoadData();
+                    LoadData();
                 }
             }
             else
