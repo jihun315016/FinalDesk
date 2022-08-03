@@ -213,8 +213,8 @@ namespace DESK_MES
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/api/log/writeLog?errMsg=Hel";
-            url = "https://localhost:44393/api/log/writeLog?errMsg=Hel";
+            string url = "http://localhost/api/log/writeErrLog?errMsg=Hel";
+            //url = "https://localhost:44393/api/log/writeErrLog?errMsg=Hel";
             HttpClient client = new HttpClient();
             HttpResponseMessage resMsg = client.GetAsync(url).Result;
             if (resMsg.IsSuccessStatusCode)
