@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DESK_DTO;
+using DESK_MES.Utility;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -17,16 +19,34 @@ namespace DESK_MES
         {
             Application.ThreadException += (s, e) =>
             {
-                string msg = e.Exception.Message;
-                Debug.WriteLine($"예외 : {msg}");
-                // TODO : WEB api에 예외 메세지 전송
+                Exception err = e.Exception;
+                Debug.WriteLine($"예외 : {err.Message}");
+
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
+                MessageBox.Show("오류가 발생했습니다.");
             };
 
             AppDomain.CurrentDomain.UnhandledException += (s, e) =>
             {
-                string msg = ((Exception)e.ExceptionObject).Message;
-                Debug.WriteLine($"예외 : {msg}");
-                // TODO : WEB api에 예외 메세지 전송
+                Exception err = ((Exception)e.ExceptionObject);
+                Debug.WriteLine($"예외 : {err.Message}");
+
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
+                MessageBox.Show("오류가 발생했습니다.");
             };
 
             Application.EnableVisualStyles();

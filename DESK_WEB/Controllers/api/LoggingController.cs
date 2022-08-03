@@ -24,11 +24,11 @@ namespace DESK_WEB.Controllers.api
             log = LogManager.GetLogger(typeof(LoggingController));
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("writeErrLog")]
-        public IHttpActionResult WriteLog(string errMsg)
+        public IHttpActionResult WriteLog(LoggingMsgVO errMsg)
         {
-            log.Error(errMsg);
+            log.Error($"{errMsg.Msg}{Environment.NewLine}{errMsg.StackTrace}{Environment.NewLine}{errMsg.Source}");
             return Ok();
         }
     }

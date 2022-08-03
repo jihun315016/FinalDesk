@@ -68,7 +68,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -96,7 +95,6 @@ namespace DESK_MES
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnExcel);
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnAdd);
@@ -109,7 +107,6 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.btnAdd, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnUpdate, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnExcel, 0);
-            this.groupBox1.Controls.SetChildIndex(this.button1, 0);
             // 
             // btnSearch
             // 
@@ -576,16 +573,6 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(525, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -653,6 +640,5 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtMaterialDetail;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtIsDeffectDetail;
-        private System.Windows.Forms.Button button1;
     }
 }
