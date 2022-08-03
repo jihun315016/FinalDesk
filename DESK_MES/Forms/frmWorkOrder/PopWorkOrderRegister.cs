@@ -79,6 +79,7 @@ namespace DESK_MES
             productCode = dataGridView1[0, e.RowIndex].Value.ToString();
             txtProductNameInfo.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             baseQty = Convert.ToInt32(dataGridView1[7, e.RowIndex].Value);
+            //생산 예정 수량 입력해라
 
             int planQty = Convert.ToInt32(txtPlanQty.Text);
             int workQty = baseQty * planQty;
