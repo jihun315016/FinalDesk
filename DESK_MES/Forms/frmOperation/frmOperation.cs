@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Windows.Forms;
@@ -212,7 +213,8 @@ namespace DESK_MES
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string url = "https://localhost:44393/api/log/writeLog?errMsg=Hel";
+            string url = "http://localhost/api/log/writeLog?errMsg=Hel";
+            url = "https://localhost:44393/api/log/writeLog?errMsg=Hel";
             HttpClient client = new HttpClient();
             HttpResponseMessage resMsg = client.GetAsync(url).Result;
             if (resMsg.IsSuccessStatusCode)
