@@ -2,9 +2,11 @@
 using DESK_WEB.Utility;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 
 namespace DESK_WEB.Controllers.api
@@ -25,6 +27,11 @@ namespace DESK_WEB.Controllers.api
         public IHttpActionResult WriteLog(string errMsg)
         {
             _log.WriteError(errMsg);
+            _log.WriteInfo(errMsg);
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\GDC9\Documents\test.log", true, Encoding.UTF8))
+            {
+                sw.WriteLine(System.Environment.CurrentDirectory);
+            }
             return Ok();
         }
     }

@@ -6,6 +6,7 @@ using log4net.Repository;
 using log4net.Repository.Hierarchy;
 using System;
 using System.IO;
+using System.Text;
 
 namespace DESK_WEB.Utility
 {
@@ -228,10 +229,21 @@ namespace DESK_WEB.Utility
         {
             string tempFolder = GetLoggingFolder();
 
+            //try
+            //{
             if (!Directory.Exists(tempFolder))
             {
                 Directory.CreateDirectory(tempFolder);
             }
+            //}
+            //catch (Exception err)
+            //{
+            //    using (StreamWriter sw = new StreamWriter(@"C:\Users\GDC9\Documents\test.log", true, Encoding.UTF8))
+            //    {
+            //        sw.WriteLine(err.Message);
+            //        sw.WriteLine(System.Environment.CurrentDirectory);
+            //    }
+            //}
         }
 
         /// <summary>
