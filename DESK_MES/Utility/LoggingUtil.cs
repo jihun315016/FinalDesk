@@ -14,23 +14,17 @@ namespace DESK_MES.Utility
     {
         static string baseUrl = ConfigurationManager.AppSettings["apiURL"];
 
+        /// <summary>
+        /// Author : 강지훈
+        /// Web api를 통한 에러 로깅
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public static bool LoggingError(LoggingMsgVO msg)
         {
             string url = $"{baseUrl}api/log/writeErrLog";
             HttpClient client = new HttpClient();
             HttpResponseMessage resMsg = client.PostAsJsonAsync(url, msg).Result;
-
-            if (resMsg.IsSuccessStatusCode)
-                return true;
-            else
-                return false;
-        }
-
-        public static bool LoggingInfo(string msg)
-        {
-            string url = $"{baseUrl}api/log/writeInfoLog?errMsg={msg}";
-            HttpClient client = new HttpClient();
-            HttpResponseMessage resMsg = client.GetAsync(url).Result;
 
             if (resMsg.IsSuccessStatusCode)
                 return true;
