@@ -24,6 +24,12 @@ namespace DESK_WEB.Controllers.api
             log = LogManager.GetLogger(typeof(LoggingController));
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 에러 로그 Write
+        /// </summary>
+        /// <param name="errMsg"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("writeErrLog")]
         public IHttpActionResult WriteLog(LoggingMsgVO errMsg)
