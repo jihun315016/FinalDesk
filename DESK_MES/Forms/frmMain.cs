@@ -51,7 +51,7 @@ namespace DESK_MES
 
             //최상위 메뉴 버튼 초기화
             var list = menuList.FindAll(m => m.Parent_Function_No == 0);
-            for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 Button btn = new Button();
                 btn.Text = list[i].Function_Name;
