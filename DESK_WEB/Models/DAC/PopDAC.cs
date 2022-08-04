@@ -28,7 +28,7 @@ namespace DESK_WEB.Models
                     cmd.Parameters.AddWithValue(@"@_UsID", id);
 
                     cmd.Connection.Open();
-                    List<PopVO> list = Helper.DataReaderMapToList<PopVO>(cmd.ExecuteReader());
+                    List<PopVO> list = DBHelper.DataReaderMapToList<PopVO>(cmd.ExecuteReader());
                     cmd.Connection.Close();
 
                     return list[0];
