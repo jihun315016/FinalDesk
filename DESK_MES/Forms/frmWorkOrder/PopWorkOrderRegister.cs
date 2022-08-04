@@ -69,10 +69,13 @@ namespace DESK_MES
                 txtPlanQty.Text = info.Planned_Qty.ToString();
                 dtpPlanDate.Value = Convert.ToDateTime(info.Start_Date);
             }
+
+            groupBox4.Visible = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            groupBox4.Visible = true;
 
             if (e.RowIndex < 0) return;
             productCode = null;
