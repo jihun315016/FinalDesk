@@ -16,6 +16,7 @@ namespace DESK_MES
         UserGroupService srv;
         List<UserGroupVO> allList;
         List<UserGroupVO> saveList;
+        UserVO userV;
         int selectUser=0;
         string user;
         string saveFileName;
@@ -64,6 +65,8 @@ namespace DESK_MES
             if (srv == null)
                 srv = new UserGroupService();
 
+            userV = ((frmMain)this.MdiParent).userInfo;
+
             dtpCreate.Format = DateTimePickerFormat.Custom;
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpUpdate.Format = DateTimePickerFormat.Custom;
@@ -103,7 +106,7 @@ namespace DESK_MES
         //등록
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopUserGroupRegister pop = new PopUserGroupRegister();
+            PopUserGroupRegister pop = new PopUserGroupRegister(userV);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 BindingGdv();
@@ -115,7 +118,7 @@ namespace DESK_MES
         {
             if (selectUser != 0)
             {
-                PopUserGroupModify pop = new PopUserGroupModify(selectUser, user);
+                PopUserGroupModify pop = new PopUserGroupModify(selectUser, userV);
                 if (pop.ShowDialog() == DialogResult.OK)
                 {
                     BindingGdv();

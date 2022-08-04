@@ -14,13 +14,14 @@ namespace DESK_MES
     public partial class PopUserGroupModify : Form
     {
         UserGroupService srv;
+        UserVO userVV;
         int selectUserG;
         string userName;
-        public PopUserGroupModify(int select,string user)
+        public PopUserGroupModify(int select, UserVO userV)
         {
             InitializeComponent();
             selectUserG = select;
-            userName= user;
+            userVV = userV;
         }
         private void ComboBinding(ComboBox cbo, List<UserGroupVO> list)
         {
@@ -59,7 +60,7 @@ namespace DESK_MES
             dtpCreate.Value = Convert.ToDateTime(user.Create_Time);
             txtCreateName.Text = user.Create_User_Name;
             dtpUpdate.Value = DateTime.Now;
-            txtUpdateName.Text = userName;
+            txtUpdateName.Text = userVV.User_Name;
         }
 
         //수정버튼
@@ -77,7 +78,8 @@ namespace DESK_MES
                 User_Group_Name = txtName.Text,
                 User_Group_Type = Convert.ToInt32(cboType.SelectedValue),
                 Update_Time = dtpUpdate.Value.ToString(),
-                Update_User_Name = txtUpdateName.Text
+                Update_User_Name = userVV.User_Name,
+                Update_User_No = userVV.User_No
             };
             if (srv.UpdateUserGroup(user))
             {               
