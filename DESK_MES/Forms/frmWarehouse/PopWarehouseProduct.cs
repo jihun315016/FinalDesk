@@ -14,7 +14,6 @@ namespace DESK_MES
 {
     public partial class PopWarehouseProduct : Form
     {
-        ServiceHelper service = null;
         WarehouseService srv = null;
         List<ProductVO> allList; // 전체 품목 리스트
 
@@ -22,18 +21,14 @@ namespace DESK_MES
         {
             InitializeComponent();
 
-            service = new ServiceHelper("api/Warehouse");
             srv = new WarehouseService();
 
-            ResMessage<WarehouseVO> resResult = service.GetAsyncT<ResMessage<WarehouseVO>>(warehouseCode);
+            WarehouseVO info = srv.GetWarehouseInfoByCode(warehouseCode);
 
-            if (resResult.ErrCode == 0)
-            {
-                txtCode.Text = resResult.Data.Warehouse_Code.ToString();
-                txtName.Text = resResult.Data.Warehouse_Name.ToString();
-                txtType.Text = resResult.Data.Warehouse_Type.ToString();
-                txtAdress.Text = resResult.Data.Warehouse_Address.ToString();
-            }
+            txtCode.Text = info.Warehouse_Code;
+            txtName.Text = info.Warehouse_Name;
+            txtType.Text = info.Warehouse_Type;
+            txtAdress.Text = info.Warehouse_Address;
         }
 
         private void PopWarehouseProduct_Load(object sender, EventArgs e)
@@ -85,7 +80,11 @@ namespace DESK_MES
 
             LoadData();
         }
-
+        private void LoadData()
+        {
+            allList = srv.GetProductListForWarehouse();
+            dgvProduct.DataSource = allList;
+        }
         private void DgvDeleteSelectedProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -101,11 +100,7 @@ namespace DESK_MES
             }
         }
 
-        private void LoadData()
-        {
-            allList = srv.GetProductListForWarehouse();
-            dgvProduct.DataSource = allList;
-        }
+
 
         private void DgvProductADD_CellClick(object sender, DataGridViewCellEventArgs e)
         {

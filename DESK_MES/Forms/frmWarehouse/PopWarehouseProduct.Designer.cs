@@ -58,14 +58,6 @@ namespace DESK_MES
             this.txtType = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.txtModifyUser = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpModifyTime = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpCreateTime = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtCreateUser = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -376,14 +368,6 @@ namespace DESK_MES
             this.groupBox1.Controls.Add(this.txtType);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtCode);
-            this.groupBox1.Controls.Add(this.txtModifyUser);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dtpModifyTime);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dtpCreateTime);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.txtCreateUser);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtAdress);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label11);
@@ -434,100 +418,6 @@ namespace DESK_MES
             this.txtCode.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(177, 25);
             this.txtCode.TabIndex = 42;
-            // 
-            // txtModifyUser
-            // 
-            this.txtModifyUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtModifyUser.Enabled = false;
-            this.txtModifyUser.Location = new System.Drawing.Point(142, 306);
-            this.txtModifyUser.Name = "txtModifyUser";
-            this.txtModifyUser.ReadOnly = true;
-            this.txtModifyUser.Size = new System.Drawing.Size(177, 25);
-            this.txtModifyUser.TabIndex = 41;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 309);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 17);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "변경사용자";
-            // 
-            // dtpModifyTime
-            // 
-            this.dtpModifyTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpModifyTime.Enabled = false;
-            this.dtpModifyTime.Location = new System.Drawing.Point(142, 271);
-            this.dtpModifyTime.Name = "dtpModifyTime";
-            this.dtpModifyTime.Size = new System.Drawing.Size(177, 25);
-            this.dtpModifyTime.TabIndex = 39;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 274);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 38;
-            this.label3.Text = "변경시간";
-            // 
-            // dtpCreateTime
-            // 
-            this.dtpCreateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpCreateTime.Enabled = false;
-            this.dtpCreateTime.Location = new System.Drawing.Point(142, 201);
-            this.dtpCreateTime.Name = "dtpCreateTime";
-            this.dtpCreateTime.Size = new System.Drawing.Size(177, 25);
-            this.dtpCreateTime.TabIndex = 37;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(27, 204);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 17);
-            this.label15.TabIndex = 36;
-            this.label15.Text = "생성시간";
-            // 
-            // txtCreateUser
-            // 
-            this.txtCreateUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCreateUser.Enabled = false;
-            this.txtCreateUser.Location = new System.Drawing.Point(142, 236);
-            this.txtCreateUser.Name = "txtCreateUser";
-            this.txtCreateUser.ReadOnly = true;
-            this.txtCreateUser.Size = new System.Drawing.Size(177, 25);
-            this.txtCreateUser.TabIndex = 35;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(27, 239);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 17);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "생성사용자";
             // 
             // txtAdress
             // 
@@ -655,14 +545,6 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCode;
-        private System.Windows.Forms.TextBox txtModifyUser;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpModifyTime;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpCreateTime;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtCreateUser;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtAdress;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
