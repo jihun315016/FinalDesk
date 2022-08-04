@@ -33,7 +33,7 @@ namespace DESK_WEB.Models.DAC
         /// <param name="endDate"></param>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public List<WebPurchaseVO> GetPurchaseList(string startDate, string endDate, string keyword = "")
+        public List<WebPurchaseVO> GetPurchaseList(string startDate, string endDate, string keyword)
         {
             string sql = @"SELECT 
 	                            pd.Purchase_No, p.Purchase_Date, p.Incoming_Date, Client_Name, 
@@ -43,14 +43,14 @@ namespace DESK_WEB.Models.DAC
                             JOIN TB_Client c ON p.Client_Code = c.Client_Code
                             JOIN TB_PRODUCT pr ON pd.Product_Code = pr.Product_Code
                             WHERE p.Is_Incoming = 'Y'
-                            AND p.Purchase_Date <= @startDate
-                            AND p.Purchase_Date >= @endDate
-                            AND Client_Name LIKE %keywork ";
+                            AND p.Purchase_Date >= @startDate
+                            AND p.Purchase_Date <= @endDate
+                            AND Client_Name LIKE @keyword ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@startDate", startDate);
             cmd.Parameters.AddWithValue("@endDate", endDate);
-            cmd.Parameters.AddWithValue("@keywork", $"%{keyword}%");
+            cmd.Parameters.AddWithValue("@keyword", $"%{keyword}%");
             SqlDataReader reader = cmd.ExecuteReader();
             List<WebPurchaseVO> list = DBHelper.DataReaderMapToList<WebPurchaseVO>(reader);
             return list;

@@ -1,6 +1,7 @@
 ﻿using DESK_WEB.Models;
 using DESK_WEB.Models.DAC;
 using DESK_WEB.Models.DTO;
+using DESK_WEB.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,17 @@ using System.Web.Http;
 
 namespace DESK_WEB.Controllers.api
 {
+    [RoutePrefix("api/Trade")]
     public class TradeApiController : ApiController
     {
-        public IHttpActionResult GetPurchaseList()
+        //https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
+        [Route("Purchase")]
+        public IHttpActionResult GetPurchaseList(string startDate, string endDate, string keyword = "")
         {
-            string startDate = "2022-07-01";
-            string endDate = "2022-08-04";
             try
             {
                 TradeDAC dac = new TradeDAC();
-                List<WebPurchaseVO> list = dac.GetPurchaseList(startDate, endDate);
+                List<WebPurchaseVO> list = dac.GetPurchaseList(startDate, endDate, keyword);
 
                 ResMessage<List<WebPurchaseVO>> result = new ResMessage<List<WebPurchaseVO>>()
                 {
@@ -32,6 +34,14 @@ namespace DESK_WEB.Controllers.api
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return Ok(new ResMessage()
                 {
                     ErrCode = -9,
