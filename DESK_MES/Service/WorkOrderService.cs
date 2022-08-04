@@ -10,6 +10,15 @@ namespace DESK_MES
 {
     public class WorkOrderService
     {
+        public List<PurchaseDetailVO> GetProductionSaveWarehouse(string code)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            List<PurchaseDetailVO> result = dac.GetProductionSaveWarehouse(code);
+            dac.Dispose();
+
+            return result;
+        }
+
         public List<OperationVO> GetOperationList(string code)
         {
             WorkOrderDAC dac = new WorkOrderDAC();
@@ -29,10 +38,18 @@ namespace DESK_MES
             return result;
         }
 
-        public List<PurchaseDetailVO> GetOutputWarehouse(string no)
+        public List<PurchaseDetailVO> GetOutputWarehouse()
         {
             WorkOrderDAC dac = new WorkOrderDAC();
-            List<PurchaseDetailVO> result = dac.GetOutputWarehouse(no);
+            List<PurchaseDetailVO> result = dac.GetOutputWarehouse();
+            dac.Dispose();
+
+            return result;
+        }
+        public List<UserGroupVO> GetWorkGroupList()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            List<UserGroupVO> result = dac.GetWorkGroupList();
             dac.Dispose();
 
             return result;
@@ -42,6 +59,14 @@ namespace DESK_MES
         {
             WorkOrderDAC dac = new WorkOrderDAC();
             List<PurchaseDetailVO> result = dac.GetMetarialLotList(no);
+            dac.Dispose();
+
+            return result;
+        }
+        public List<PurchaseDetailVO> GetInputWarehouse(string no)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            List<PurchaseDetailVO> result = dac.GetInputWarehouse(no);
             dac.Dispose();
 
             return result;

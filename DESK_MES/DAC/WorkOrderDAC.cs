@@ -77,7 +77,74 @@ namespace DESK_MES
             }
         }
 
-        public List<PurchaseDetailVO> GetOutputWarehouse(string no) // 자재창고 콤보박스
+        public List<PurchaseDetailVO> GetProductionSaveWarehouse(string code) // 생산품 저장 창고 콤보박스
+        {
+            try
+            {
+                List<PurchaseDetailVO> list = new List<PurchaseDetailVO>();
+
+                string sql = @"SELECT W.Warehouse_Code, Warehouse_Name 
+                               FROM TB_WAREHOUSE W
+                               inner join TB_WAREHOUSE_PRODUCT_RELATION WP on w.Warehouse_Code=WP.Warehouse_Code
+                               where Product_Code=@Product_Code";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("Product_Code", code);
+                    list = DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+                }
+                return list;
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
+        public List<PurchaseDetailVO> GetOutputWarehouse() // 자재 투입 창고 콤보박스
+        {
+            try
+            {
+                List<PurchaseDetailVO> list = new List<PurchaseDetailVO>();
+
+                string sql = @"SELECT Warehouse_Code, Warehouse_Name 
+                               FROM TB_WAREHOUSE
+                               WHERE Warehouse_Type='자재'";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    list = DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+                }
+                return list;
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
+        public List<UserGroupVO> GetWorkGroupList() // 작업 담당팀 창고 콤보박스
+        {
+            try
+            {
+                List<UserGroupVO> list = new List<UserGroupVO>();
+
+                string sql = @"SELECT User_Group_No, User_Group_Name 
+                               FROM TB_USER_GROUP";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    list = DBHelpler.DataReaderMapToList<UserGroupVO>(cmd.ExecuteReader());
+                }
+                return list;
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
+        public List<PurchaseDetailVO> GetInputWarehouse(string no) // 반제품 보관 창고 콤보박스
         {
             try
             {
@@ -106,15 +173,14 @@ namespace DESK_MES
             {
                 List<PurchaseDetailVO> list = new List<PurchaseDetailVO>();
 
-                string sql = @"select Lot_Code, P.Product_Name as Product_Name
-                               from [dbo].[TB_WAREHOUSE_PRODUCT_RELATION] WP
-                               left join [dbo].[TB_MATERIAL_LOT] ML on ML.Warehouse_Code=WP.Warehouse_Code
-                               left join [dbo].[TB_PRODUCT] P on ML.Product_Code=P.Product_Code
-                               where WP.Warehouse_Code='WRHS_0001'";
+                string sql = @"select Lot_Code, Product_Name
+                               from [dbo].[TB_MATERIAL_LOT] ML
+                               INNER join [dbo].[TB_PRODUCT] P on ML.Product_Code=P.Product_Code
+                               WHERE Warehouse_Code=@Warehouse_Code";
                                
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    //cmd.Parameters.AddWithValue("Warehouse_Code", no);
+                    cmd.Parameters.AddWithValue("Warehouse_Code", no);
                     list = DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
                 }
                 return list;
