@@ -50,14 +50,16 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재Lot코드", "Input_Material_Code", colWidth: 200);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "투입 자재명", "Input_Material_Name", colWidth: 200);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "품목 구성 수량", "Qty", colWidth: 120); // bom
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재 투입 수량", "Input_Material_Qty", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 예상 수량", "Production_Qty", colWidth: 120);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "원자재 투입 수량", "Input_Material_Qty", colWidth: 120);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "재공품 사용 수량", "Production_Qty", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹명", "Work_Group_Name", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관창고명", "Input_Warehouse_Name", colWidth: 150, isVisible: false);
 
             // 해당 품목에 대한 BOM 정보 불러오기
-            List<ProductVO> bomList = productSrv.GetChildParentProductList(productCode).Where(p => p.Product_Type != "ROH").ToList();
-            dataGridView1.DataSource = bomList.Where(b => b.Bom_Type == "자품목").ToList();
+            List<ProductVO> bomList = productSrv.GetChildParentProductList(productCode);
+            //List<ProductVO> bomList = productSrv.GetChildParentProductList(productCode).Where(p => p.Product_Type != "ROH").ToList();
+            //dataGridView1.DataSource = bomList.Where(b => b.Bom_Type == "자품목").ToList();
+            dataGridView1.DataSource = bomList;
 
             // 해당 생산계획코드에 대한 정보 불러오기
             manufactureInfo = mSrv.GetmanufactureList().Where(p => p.Production_Code == ProductionCode).ToList();
@@ -67,7 +69,7 @@ namespace DESK_MES
                 txtProductCode.Text = info.Product_Code.ToString();
                 txtProductName.Text = info.Product_Name.ToString();
                 txtPlanQty.Text = info.Planned_Qty.ToString();
-                dtpPlanDate.Value = Convert.ToDateTime(info.Start_Date);
+                //dtpPlanDate.Value = Convert.ToDateTime(info.Start_Date);
             }
 
             groupBox4.Visible = false;

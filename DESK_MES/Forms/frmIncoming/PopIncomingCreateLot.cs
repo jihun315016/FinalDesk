@@ -57,15 +57,14 @@ namespace DESK_MES
 
 
             //LastID = "ROH_20220726_00000";
-            //LastID = srv.GetLastID();
+            LastID = srv.GetLastID();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             List<PurchaseDetailVO> lotList = new List<PurchaseDetailVO>();
 
-            string id = "ROH_20220726_00001";
-            //string id = LastID.Lot_Code.ToString();
+            string id = LastID.Lot_Code.ToString();
             string[] search = id.Split(new char[] { '_' });
             string prodcode = search[0];
             string getDate = search[1];
@@ -113,7 +112,8 @@ namespace DESK_MES
                         Product_Code = item.Cells[0].Value.ToString(),
                         Lot_Qty = Convert.ToInt32(item.Cells[6].Value),
                         Cur_Qty = Convert.ToInt32(item.Cells[6].Value),
-                        Client_Code = txtClientCode.Text
+                        Client_Code = txtClientCode.Text,
+                        Warehouse_Code = item.Cells[8].Value.ToString()
                     };
                     lotList.Add(purchaseItem);
                 }

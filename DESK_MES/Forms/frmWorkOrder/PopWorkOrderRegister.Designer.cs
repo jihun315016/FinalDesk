@@ -64,8 +64,6 @@ namespace DESK_MES
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.nmrWorkQty = new System.Windows.Forms.NumericUpDown();
             this.dtpWorkEndDueDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpPlanDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.dtpWorkStartDueDate = new System.Windows.Forms.DateTimePicker();
             this.dtpWorkOrderDate = new System.Windows.Forms.DateTimePicker();
             this.txtManufactureCode = new System.Windows.Forms.TextBox();
@@ -283,7 +281,7 @@ namespace DESK_MES
             // 
             this.panel6.Controls.Add(this.groupBox4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 328);
+            this.panel6.Location = new System.Drawing.Point(0, 298);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(364, 311);
             this.panel6.TabIndex = 60;
@@ -471,8 +469,6 @@ namespace DESK_MES
             // 
             this.groupBox2.Controls.Add(this.nmrWorkQty);
             this.groupBox2.Controls.Add(this.dtpWorkEndDueDate);
-            this.groupBox2.Controls.Add(this.dtpPlanDate);
-            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.dtpWorkStartDueDate);
             this.groupBox2.Controls.Add(this.dtpWorkOrderDate);
             this.groupBox2.Controls.Add(this.txtManufactureCode);
@@ -492,7 +488,7 @@ namespace DESK_MES
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(364, 328);
+            this.groupBox2.Size = new System.Drawing.Size(364, 298);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "작업 등록";
@@ -505,7 +501,7 @@ namespace DESK_MES
             0,
             0,
             0});
-            this.nmrWorkQty.Location = new System.Drawing.Point(144, 156);
+            this.nmrWorkQty.Location = new System.Drawing.Point(144, 154);
             this.nmrWorkQty.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -521,39 +517,17 @@ namespace DESK_MES
             this.dtpWorkEndDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpWorkEndDueDate.Location = new System.Drawing.Point(144, 286);
+            this.dtpWorkEndDueDate.Location = new System.Drawing.Point(144, 253);
             this.dtpWorkEndDueDate.Name = "dtpWorkEndDueDate";
             this.dtpWorkEndDueDate.Size = new System.Drawing.Size(187, 25);
             this.dtpWorkEndDueDate.TabIndex = 61;
-            // 
-            // dtpPlanDate
-            // 
-            this.dtpPlanDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpPlanDate.Location = new System.Drawing.Point(144, 187);
-            this.dtpPlanDate.Name = "dtpPlanDate";
-            this.dtpPlanDate.Size = new System.Drawing.Size(187, 25);
-            this.dtpPlanDate.TabIndex = 60;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 191);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 17);
-            this.label6.TabIndex = 59;
-            this.label6.Text = "생산 계획일";
             // 
             // dtpWorkStartDueDate
             // 
             this.dtpWorkStartDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpWorkStartDueDate.Location = new System.Drawing.Point(144, 253);
+            this.dtpWorkStartDueDate.Location = new System.Drawing.Point(144, 220);
             this.dtpWorkStartDueDate.Name = "dtpWorkStartDueDate";
             this.dtpWorkStartDueDate.Size = new System.Drawing.Size(187, 25);
             this.dtpWorkStartDueDate.TabIndex = 58;
@@ -563,7 +537,7 @@ namespace DESK_MES
             this.dtpWorkOrderDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpWorkOrderDate.Location = new System.Drawing.Point(144, 220);
+            this.dtpWorkOrderDate.Location = new System.Drawing.Point(144, 187);
             this.dtpWorkOrderDate.Name = "dtpWorkOrderDate";
             this.dtpWorkOrderDate.Size = new System.Drawing.Size(187, 25);
             this.dtpWorkOrderDate.TabIndex = 57;
@@ -586,7 +560,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 290);
+            this.label10.Location = new System.Drawing.Point(24, 257);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 17);
             this.label10.TabIndex = 53;
@@ -610,7 +584,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 257);
+            this.label14.Location = new System.Drawing.Point(24, 224);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(109, 17);
             this.label14.TabIndex = 50;
@@ -682,7 +656,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(23, 224);
+            this.label16.Location = new System.Drawing.Point(23, 191);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 17);
             this.label16.TabIndex = 43;
@@ -811,8 +785,6 @@ namespace DESK_MES
         private System.Windows.Forms.ComboBox cboMaterialLotName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpWorkEndDueDate;
-        private System.Windows.Forms.DateTimePicker dtpPlanDate;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nmrWorkQty;
     }
 }
