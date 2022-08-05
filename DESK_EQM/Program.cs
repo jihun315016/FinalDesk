@@ -11,60 +11,68 @@ namespace DESK_EQM
     {
         static void Main(string[] args)
         {
-            //넘겨받은 해당 값으로 DB에 조회
-            //
-            
+            //넘겨받은 해당 값으로 DB에 조회            
+            bool flag = true; // 작업이 있는지 유무
+            Service srv = new Service();
+
+            if (flag == true) // 작업이 있는 설비
+            {
+                Console.WriteLine($"작업 : 작업설비명");
+                Console.WriteLine($"작업 시작 : {DateTime.Now}");
+                srv.Starttimer("작업 코드"); //시작하기
+                Console.ReadLine();
+            }
+            else              // 작업이 없는 설비
+            {
+                
+            }
         }
     }
     public class Service
     {
-        string workCode;
-        Timer timerCount;
-        Timer searchSave;
-        public Service(string code)
+        static string workCode; //가져온 작업 코드
+        static  Timer timerCount; //삭제 예정
+        static Timer searchSave;
+        public string MyProperty { get; set; }
+
+        /// <summary>
+        /// 타이머 시작
+        /// </summary>
+        /// <param name="code"></param>
+        public void Starttimer(string code)
         {
             workCode = code;
-        }
-        private void StartSearch(string code)
-        {
             searchSave = new Timer(1000);
             searchSave.Elapsed += SearchSave_Elapsed;
             searchSave.AutoReset = true;
             searchSave.Enabled = true; //시작
+            //searchSave.Start();
         }
-
+        public void Stoptimer(string code)          //이거 필요한가?
+        {
+            //DB 에 저장
+        }
+        /// <summary>
+        /// 초당 DB 업로드, 숫자 더하기, 화면표시
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchSave_Elapsed(object sender, ElapsedEventArgs e)
         {
-            //DB에서 설비 켜져있는지 조회
-
-            //현재 재고량 저장
-        }
-
-        private void StartCount(string code)
-        {
-            int dbNum = 0;
-            if (dbNum==0) //코드로 DB 조회 = 설비 정지중 + 새로운 작업
+            if (true) //설비 켜져있으면
             {
-                timerCount = new Timer(1000);
-                timerCount.Elapsed += Timer1_Elapsed;
-                timerCount.AutoReset = true;
-                timerCount.Enabled = true; //시작
-                //DB에 현재 시간 찍기//
+                //db에 저장
+
+                Console.WriteLine($"작업숫자 표시 : {DateTime.Now}");
+
+                //숫자 ++
             }
-            else if (dbNum == 1) //코드 조회 = 설비 진행중
+            else
             {
-
+                //db 저장
+                //타이머 stop
+                //종료
             }
-
-        }
-
-        private void Timer1_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            //초당 갯수 증가
-
-            
-
-            //DB 찍기
         }
     }
 }

@@ -74,7 +74,7 @@ namespace DESK_MES
 
             if (srv.InsertEquipmentList(eq))
             {
-                if (MessageBox.Show("설비 등록 완료", "설비 등록", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("설비 등록 완료", "설비 등록", MessageBoxButtons.OK) == DialogResult.OK)
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
