@@ -15,14 +15,12 @@ namespace DESK_WEB.Controllers
         // GET: Trade
         public ActionResult Index()
         {
-            string url = $"{baseUrl}api/Trade/Purchase";
-            HttpClient client = new HttpClient();
-            HttpResponseMessage resMsg = client.GetAsync(url).Result;
             return View();
         }
 
         public ActionResult Purchase()
         {
+            ViewBag.Url = baseUrl;
             return View();
         }
 
