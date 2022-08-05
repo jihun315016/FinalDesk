@@ -10,7 +10,8 @@ namespace DESK_WEB.Controllers
 {
     public class TradeController : Controller
     {
-        static string baseUrl = ConfigurationManager.AppSettings["apiURL"];
+        // localURL은 임시로 사용하는 url
+        static string baseUrl = ConfigurationManager.AppSettings["localURL"];
 
         // GET: Trade
         public ActionResult Index()

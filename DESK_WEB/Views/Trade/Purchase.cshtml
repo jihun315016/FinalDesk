@@ -81,8 +81,8 @@
     
     function find() {
         var btnSearch = $('.btnSearch').val();
+        // 임시 url
         // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
-
         $.getJSON(url + 'api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04')
             .done((data) => {
                 $.each(data, (key, item) => {                   
