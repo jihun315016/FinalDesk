@@ -125,7 +125,7 @@ namespace DESK_MES
             bool result = productSrv.UpdateProduct(prd);
             if (result)
             {
-                if (prd.Is_Image == 1)
+                if (prd.Is_Image == 1 && ptbProduct.Tag != null)
                 {
                     int lastIndex = ptbProduct.Tag.ToString().LastIndexOf('\\');
                     string path = ptbProduct.Tag.ToString().Substring(0, lastIndex);

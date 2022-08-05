@@ -211,6 +211,8 @@ namespace DESK_MES
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvChildList.CurrentCell == null)
+                return;
             string childCode = dgvChildList["Child_Product_Code", dgvChildList.CurrentCell.RowIndex].Value.ToString();
             BomVO item = selectedList.Where(s => s.Child_Product_Code == childCode).FirstOrDefault();
             selectedList.Remove(item);
