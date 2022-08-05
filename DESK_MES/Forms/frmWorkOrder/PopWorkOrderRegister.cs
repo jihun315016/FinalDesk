@@ -54,6 +54,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "원자재 투입 수량", "Input_Material_Qty", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "재공품 사용 수량", "Halb_Material_Qty", colWidth: 120);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹코드", "Work_Group_Code", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹명", "Work_Group_Name", colWidth: 150);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "반제품 보관창고코드", "Halb_Save_Warehouse_Code", colWidth: 150);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산품 보관창고코드", "Production_Save_WareHouse_Code", colWidth: 150);
             // 해당 품목에 대한 BOM 정보 불러오기
@@ -77,6 +78,7 @@ namespace DESK_MES
             cboProductWarehouse.DisplayMember = "Warehouse_Name";
             cboProductWarehouse.ValueMember = "Warehouse_Code";
             cboProductWarehouse.DataSource = saveWarehouse;
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -87,10 +89,8 @@ namespace DESK_MES
             productCode = null;
             productCode = dataGridView1[0, e.RowIndex].Value.ToString();
             txtProductNameInfo.Text = dataGridView1[1, e.RowIndex].Value.ToString();
-            //baseQty = Convert.ToInt32(dataGridView1[7, e.RowIndex].Value);
-            //int planQty = Convert.ToInt32(txtPlanQty.Text);
-            //int workQty = baseQty * planQty;
-            //dataGridView1["Input_Material_Qty", e.RowIndex].Value = workQty.ToString();
+            
+            baseQty = Convert.ToInt32(dataGridView1[7, e.RowIndex].Value); // bom 구성수량
 
             if (productCode.Contains("HALB"))
             {
@@ -163,12 +163,23 @@ namespace DESK_MES
             cboMaterialLotName.DataSource = materialLot;
         }
 
+        private void nmrWorkQty_ValueChanged(object sender, EventArgs e)
+        {
+            DataGridViewRow cRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+            int planQty = Convert.ToInt32(nmrWorkQty.Text);
+            int workQty = baseQty * planQty;
+            cRow.Cells[8].Value = workQty;
+            cRow.Cells[9].Value = workQty;
+        }
+
         private void btnAddInfo_Click(object sender, EventArgs e)
         {
             string operationCode = (cboOperation.SelectedValue == null) ? "": cboOperation.SelectedValue.ToString();
             string equipmentCode = (cboEquipment.SelectedValue == null) ? "" : cboEquipment.SelectedValue.ToString();
             string inputMaterialCode = (cboMaterialLotName.SelectedValue == null) ? "" : cboMaterialLotName.SelectedValue.ToString();
+            string inputMaterialName = (cboMaterialLotName.Text == null) ? "" : cboMaterialLotName.Text.ToString();
             string wrokGroupCode = (cboWorkGroup.SelectedValue == null) ? "" : cboWorkGroup.SelectedValue.ToString();
+            string wrokGroupName = (cboWorkGroup.Text == null) ? "" : cboWorkGroup.Text.ToString();
             string halbMaterialCode = (cboInputWarehouse.SelectedValue == null) ? "" : cboInputWarehouse.SelectedValue.ToString();
             string productionSaveCode = cboProductWarehouse.SelectedValue.ToString();
 
@@ -176,9 +187,13 @@ namespace DESK_MES
             cRow.Cells[2].Value = operationCode;
             cRow.Cells[3].Value = equipmentCode;
             cRow.Cells[5].Value = inputMaterialCode;
+            cRow.Cells[6].Value = inputMaterialName;
             cRow.Cells[10].Value = wrokGroupCode;
-            cRow.Cells[11].Value = halbMaterialCode;
-            cRow.Cells[12].Value = productionSaveCode;
+            cRow.Cells[11].Value = wrokGroupName;
+            cRow.Cells[12].Value = halbMaterialCode;
+            cRow.Cells[13].Value = productionSaveCode;
+
+            groupBox4.Visible = false;
         }
 
         private void btnInfoClose_Click(object sender, EventArgs e)
@@ -188,12 +203,111 @@ namespace DESK_MES
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ///작업 번호 생성
+            List<WorkOrderVO> workList = new List<WorkOrderVO>();
+
+            // 작업번호 
+            string WorkID = "WORK_20220805_00001";
+            //WorkID = srv.GetWorkID();
+            //작업 번호 생성
+            string id = WorkID;
+            //string id = WorkID.Lot_Code.ToString();
+            string[] search = id.Split(new char[] { '_' });
+            string prodcode = search[0];
+            string getDate = search[1];
+            string date = DateTime.Now.ToString("yyyyMMdd");
+
+            List<string> idlist = new List<string>();
+
+            if (getDate.Equals(date))
+            {
+                int addID = int.Parse(search[2]);
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    addID++;
+                    string newid = addID.ToString().PadLeft(4, '0');
+                    idlist.Add(prodcode + '_' + date + '_' + newid);
+                }
+
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    WorkOrderVO work = new WorkOrderVO
+                    {
+                        Production_No = Convert.ToInt32(txtManufactureCode.Text),
+                        Product_Code = item.Cells[0].Value.ToString(),
+                        Production_Operation_Code = Convert.ToInt32(item.Cells[2].Value),
+                        Production_Equipment_Code = Convert.ToInt32(item.Cells[3].Value),
+                        Input_Material_Code = item.Cells[5].Value.ToString(),
+                        Input_Material_Qty = Convert.ToInt32(item.Cells[8].Value),
+                        Halb_Material_Qty = Convert.ToInt32(item.Cells[9].Value),
+                        Work_Group_Code = Convert.ToInt32(item.Cells[10].Value),
+                        Halb_Save_Warehouse_Code = item.Cells[12].Value.ToString(),
+                        Production_Save_WareHouse_Code = item.Cells[13].Value.ToString(),
+                        Work_Plan_Qty = Convert.ToInt32(nmrWorkQty.Value),
+                        Work_Date = dtpWorkOrderDate.Value.ToShortDateString(),
+                        Start_Due_Date = dtpWorkStartDueDate.Value.ToShortDateString(),
+                        Complete_Due_Date = dtpWorkEndDueDate.Value.ToShortDateString(),
+                        Work_State = "미정",
+                        Create_User_No = user.User_No
+                    };
+                    workList.Add(work);
+                }
+            }
+            else
+            {
+                int addID = 0;
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    addID++;
+                    string newid = addID.ToString().PadLeft(4, '0');
+                    idlist.Add(prodcode + '_' + date + '_' + newid);
+                }
+
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    WorkOrderVO work = new WorkOrderVO
+                    {
+                        Production_No = Convert.ToInt32(txtManufactureCode.Text),
+                        Product_Code = item.Cells[0].Value.ToString(),
+                        Production_Operation_Code = Convert.ToInt32(item.Cells[2].Value),
+                        Production_Equipment_Code = Convert.ToInt32(item.Cells[3].Value),
+                        Input_Material_Code = item.Cells[5].Value.ToString(),
+                        Input_Material_Qty = Convert.ToInt32(item.Cells[8].Value),
+                        Halb_Material_Qty = Convert.ToInt32(item.Cells[9].Value),
+                        Work_Group_Code = Convert.ToInt32(item.Cells[10].Value),
+                        Halb_Save_Warehouse_Code = item.Cells[12].Value.ToString(),
+                        Production_Save_WareHouse_Code = item.Cells[13].Value.ToString(),
+                        Work_Plan_Qty = Convert.ToInt32(nmrWorkQty.Value),
+                        Work_Date = dtpWorkOrderDate.Value.ToShortDateString(),
+                        Start_Due_Date = dtpWorkStartDueDate.Value.ToShortDateString(),
+                        Complete_Due_Date = dtpWorkEndDueDate.Value.ToShortDateString(),
+                        Work_State = "미정",
+                        Create_User_No = user.User_No
+                    };
+                    workList.Add(work);
+                }
+            }
+
+            //bool result = workSrv.RegisterWorkOrderList(workList, idlist);
+            //if (result)
+            //{
+            //    MessageBox.Show($"입고처리 되었습니다.");
+            //    this.DialogResult = DialogResult.OK;
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("입고처리 중 오류가 발생했습니다. 다시 시도하여 주십시오.");
+            //}
         }
+
+
+
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

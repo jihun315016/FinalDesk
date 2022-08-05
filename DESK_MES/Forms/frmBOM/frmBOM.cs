@@ -63,8 +63,8 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "유형", "Product_Type");
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "가격", "Price");
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "단위", "Unit");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 시간", "Create_Time", colWidth: 270);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 사용자", "Create_User_Name", colWidth: 130);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 시간", "Create_Time", colWidth: 270, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 사용자", "Create_User_Name", colWidth: 130, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 사용자", "Update_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 사용자 번호", "Create_User_No", isVisible: false);

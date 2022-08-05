@@ -107,18 +107,18 @@ namespace DESK_MES
             rdtWork.Checked = true;
 
             DataGridUtil.SetInitGridView(dgvMain);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사번", "User_No"); //0
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자명", "User_Name"); //1
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹명", "User_Group_Name"); //2
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "비밀번호", "User_Pwd"); //3
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "권한", "Auth_Name"); //4
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사번", "User_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자명", "User_Name", colWidth: 400, alignContent: DataGridViewContentAlignment.MiddleCenter); //1
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹명", "User_Group_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //2
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "비밀번호", "User_Pwd", isVisible: false); //3
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "권한", "Auth_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //4
 
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time"); //5
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자", "Create_User_Name"); //6
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경시간", "Update_Time"); //7
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경사용자", "Update_User_Name"); //8
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time", isVisible: false); //5
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자", "Create_User_Name", isVisible: false); //6
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경시간", "Update_Time", isVisible: false); //7
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경사용자", "Update_User_Name", isVisible: false); //8
 
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "퇴사여부", "Is_Delete"); //9
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "퇴사여부", "Is_Delete", isVisible: false); //9
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹유형코드", "User_Group_Type", isVisible: false); //10
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자ID", "Create_User_No", isVisible: false);

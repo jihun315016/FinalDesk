@@ -190,5 +190,48 @@ namespace DESK_MES
                 return null;
             }
         }
+
+
+        //public bool RegisterWorkOrderList(List<WorkOrderVO> workList, List<string> workIDList) //작업지시 등록
+        //{
+        //    using (SqlCommand cmd = new SqlCommand())
+        //    {
+        //        SqlTransaction trans = conn.BeginTransaction();
+        //        try
+        //        {
+        //            cmd.CommandText = @"INSERT INTO [dbo].[TB_MATERIAL_LOT] (Lot_Code, Product_Code, Client_Code, Lot_Time, Lot_Qty, Cur_Qty, Warehouse_Code, Create_Time)
+        //                                VALUES (@Lot_Code, @Product_Code, @Client_Code, @Lot_Time, @Lot_Qty, @Cur_Qty, @Warehouse_Code, @Create_Time)";
+
+        //            cmd.Parameters.Add("@Lot_Code", System.Data.SqlDbType.NVarChar);
+        //            cmd.Parameters.Add("@Product_Code", System.Data.SqlDbType.NVarChar);
+        //            cmd.Parameters.AddWithValue("@Client_Code", System.Data.SqlDbType.NVarChar);
+        //            cmd.Parameters.AddWithValue("@Lot_Time", DateTime.Now);
+        //            cmd.Parameters.Add("@Lot_Qty", System.Data.SqlDbType.Int);
+        //            cmd.Parameters.Add("@Cur_Qty", System.Data.SqlDbType.Int);
+        //            cmd.Parameters.AddWithValue("@Warehouse_Code", System.Data.SqlDbType.NVarChar);
+        //            cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
+
+        //            for (int i = 0; i < workIDList.Count; i++)
+        //            {
+        //                //cmd.Parameters["@Lot_Code"].Value = workIDList[i];
+        //                //cmd.Parameters["@Product_Code"].Value = workList[i].Product_Code;
+        //                //cmd.Parameters["@Client_Code"].Value = workList[i].Client_Code;
+        //                //cmd.Parameters["@Warehouse_Code"].Value = workList[i].Warehouse_Code;
+        //                //cmd.Parameters["@Lot_Qty"].Value = workList[i].Lot_Qty;
+        //                //cmd.Parameters["@Cur_Qty"].Value = workList[i].Cur_Qty;
+
+        //                cmd.ExecuteNonQuery();
+        //            }
+
+        //            trans.Commit();
+        //            return true;
+        //        }
+        //        catch (Exception err)
+        //        {
+        //            trans.Rollback();
+        //            return false;
+        //        }
+        //    }
+        //}
     }
 }

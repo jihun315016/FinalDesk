@@ -48,6 +48,9 @@ namespace DESK_MES
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cboWorkGroup = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnInfoClose = new System.Windows.Forms.Button();
             this.cboMaterialLotName = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cboEquipment = new System.Windows.Forms.ComboBox();
@@ -62,6 +65,8 @@ namespace DESK_MES
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboProductWarehouse = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.nmrWorkQty = new System.Windows.Forms.NumericUpDown();
             this.dtpWorkEndDueDate = new System.Windows.Forms.DateTimePicker();
             this.dtpWorkStartDueDate = new System.Windows.Forms.DateTimePicker();
@@ -80,11 +85,6 @@ namespace DESK_MES
             this.label17 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
-            this.cboProductWarehouse = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnInfoClose = new System.Windows.Forms.Button();
-            this.cboWorkGroup = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -288,15 +288,16 @@ namespace DESK_MES
             // 
             this.panel6.Controls.Add(this.groupBox4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 329);
+            this.panel6.Location = new System.Drawing.Point(0, 299);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(364, 311);
+            this.panel6.Size = new System.Drawing.Size(364, 344);
             this.panel6.TabIndex = 60;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.cboWorkGroup);
             this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.nmrWorkQty);
             this.groupBox4.Controls.Add(this.btnInfoClose);
             this.groupBox4.Controls.Add(this.cboMaterialLotName);
             this.groupBox4.Controls.Add(this.label5);
@@ -307,6 +308,7 @@ namespace DESK_MES
             this.groupBox4.Controls.Add(this.btnAddInfo);
             this.groupBox4.Controls.Add(this.cboOutputWarehouse);
             this.groupBox4.Controls.Add(this.txtProductNameInfo);
+            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label7);
@@ -314,10 +316,44 @@ namespace DESK_MES
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(364, 311);
+            this.groupBox4.Size = new System.Drawing.Size(364, 344);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 입력";
+            // 
+            // cboWorkGroup
+            // 
+            this.cboWorkGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboWorkGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboWorkGroup.FormattingEnabled = true;
+            this.cboWorkGroup.Location = new System.Drawing.Point(149, 156);
+            this.cboWorkGroup.Name = "cboWorkGroup";
+            this.cboWorkGroup.Size = new System.Drawing.Size(187, 25);
+            this.cboWorkGroup.TabIndex = 81;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(28, 160);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(109, 17);
+            this.label9.TabIndex = 80;
+            this.label9.Text = "작업 담당팀 선택";
+            // 
+            // btnInfoClose
+            // 
+            this.btnInfoClose.Location = new System.Drawing.Point(262, 302);
+            this.btnInfoClose.Name = "btnInfoClose";
+            this.btnInfoClose.Size = new System.Drawing.Size(75, 30);
+            this.btnInfoClose.TabIndex = 79;
+            this.btnInfoClose.Text = "닫기";
+            this.btnInfoClose.UseVisualStyleBackColor = true;
+            this.btnInfoClose.Click += new System.EventHandler(this.btnInfoClose_Click);
             // 
             // cboMaterialLotName
             // 
@@ -326,7 +362,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMaterialLotName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMaterialLotName.FormattingEnabled = true;
-            this.cboMaterialLotName.Location = new System.Drawing.Point(150, 201);
+            this.cboMaterialLotName.Location = new System.Drawing.Point(150, 228);
             this.cboMaterialLotName.Name = "cboMaterialLotName";
             this.cboMaterialLotName.Size = new System.Drawing.Size(187, 25);
             this.cboMaterialLotName.TabIndex = 78;
@@ -337,7 +373,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 205);
+            this.label5.Location = new System.Drawing.Point(29, 232);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 17);
             this.label5.TabIndex = 77;
@@ -350,7 +386,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboEquipment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEquipment.FormattingEnabled = true;
-            this.cboEquipment.Location = new System.Drawing.Point(149, 93);
+            this.cboEquipment.Location = new System.Drawing.Point(149, 120);
             this.cboEquipment.Name = "cboEquipment";
             this.cboEquipment.Size = new System.Drawing.Size(187, 25);
             this.cboEquipment.TabIndex = 76;
@@ -362,7 +398,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboOperation.FormattingEnabled = true;
-            this.cboOperation.Location = new System.Drawing.Point(149, 57);
+            this.cboOperation.Location = new System.Drawing.Point(149, 84);
             this.cboOperation.Name = "cboOperation";
             this.cboOperation.Size = new System.Drawing.Size(187, 25);
             this.cboOperation.TabIndex = 75;
@@ -375,7 +411,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboInputWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboInputWarehouse.FormattingEnabled = true;
-            this.cboInputWarehouse.Location = new System.Drawing.Point(150, 237);
+            this.cboInputWarehouse.Location = new System.Drawing.Point(150, 264);
             this.cboInputWarehouse.Name = "cboInputWarehouse";
             this.cboInputWarehouse.Size = new System.Drawing.Size(187, 25);
             this.cboInputWarehouse.TabIndex = 74;
@@ -386,7 +422,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 241);
+            this.label4.Location = new System.Drawing.Point(29, 268);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 17);
             this.label4.TabIndex = 73;
@@ -394,7 +430,7 @@ namespace DESK_MES
             // 
             // btnAddInfo
             // 
-            this.btnAddInfo.Location = new System.Drawing.Point(181, 275);
+            this.btnAddInfo.Location = new System.Drawing.Point(181, 302);
             this.btnAddInfo.Name = "btnAddInfo";
             this.btnAddInfo.Size = new System.Drawing.Size(75, 30);
             this.btnAddInfo.TabIndex = 72;
@@ -409,7 +445,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboOutputWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboOutputWarehouse.FormattingEnabled = true;
-            this.cboOutputWarehouse.Location = new System.Drawing.Point(149, 165);
+            this.cboOutputWarehouse.Location = new System.Drawing.Point(149, 192);
             this.cboOutputWarehouse.Name = "cboOutputWarehouse";
             this.cboOutputWarehouse.Size = new System.Drawing.Size(187, 25);
             this.cboOutputWarehouse.TabIndex = 70;
@@ -433,7 +469,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 169);
+            this.label2.Location = new System.Drawing.Point(28, 196);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 17);
             this.label2.TabIndex = 68;
@@ -445,7 +481,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 97);
+            this.label3.Location = new System.Drawing.Point(28, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 67;
@@ -457,7 +493,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 61);
+            this.label7.Location = new System.Drawing.Point(28, 88);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 17);
             this.label7.TabIndex = 66;
@@ -479,7 +515,6 @@ namespace DESK_MES
             // 
             this.groupBox2.Controls.Add(this.cboProductWarehouse);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.nmrWorkQty);
             this.groupBox2.Controls.Add(this.dtpWorkEndDueDate);
             this.groupBox2.Controls.Add(this.dtpWorkStartDueDate);
             this.groupBox2.Controls.Add(this.dtpWorkOrderDate);
@@ -489,7 +524,6 @@ namespace DESK_MES
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.txtPlanQty);
             this.groupBox2.Controls.Add(this.txtProductName);
-            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label16);
@@ -500,10 +534,34 @@ namespace DESK_MES
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(364, 329);
+            this.groupBox2.Size = new System.Drawing.Size(364, 299);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "작업 등록";
+            // 
+            // cboProductWarehouse
+            // 
+            this.cboProductWarehouse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboProductWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProductWarehouse.FormattingEnabled = true;
+            this.cboProductWarehouse.Location = new System.Drawing.Point(144, 254);
+            this.cboProductWarehouse.Name = "cboProductWarehouse";
+            this.cboProductWarehouse.Size = new System.Drawing.Size(187, 25);
+            this.cboProductWarehouse.TabIndex = 92;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(23, 258);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 17);
+            this.label6.TabIndex = 91;
+            this.label6.Text = "생산품 보관 창고";
             // 
             // nmrWorkQty
             // 
@@ -513,7 +571,7 @@ namespace DESK_MES
             0,
             0,
             0});
-            this.nmrWorkQty.Location = new System.Drawing.Point(144, 154);
+            this.nmrWorkQty.Location = new System.Drawing.Point(149, 52);
             this.nmrWorkQty.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -523,13 +581,14 @@ namespace DESK_MES
             this.nmrWorkQty.Size = new System.Drawing.Size(187, 25);
             this.nmrWorkQty.TabIndex = 90;
             this.nmrWorkQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nmrWorkQty.ValueChanged += new System.EventHandler(this.nmrWorkQty_ValueChanged);
             // 
             // dtpWorkEndDueDate
             // 
             this.dtpWorkEndDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpWorkEndDueDate.Location = new System.Drawing.Point(144, 253);
+            this.dtpWorkEndDueDate.Location = new System.Drawing.Point(144, 223);
             this.dtpWorkEndDueDate.Name = "dtpWorkEndDueDate";
             this.dtpWorkEndDueDate.Size = new System.Drawing.Size(187, 25);
             this.dtpWorkEndDueDate.TabIndex = 61;
@@ -539,7 +598,7 @@ namespace DESK_MES
             this.dtpWorkStartDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpWorkStartDueDate.Location = new System.Drawing.Point(144, 220);
+            this.dtpWorkStartDueDate.Location = new System.Drawing.Point(144, 190);
             this.dtpWorkStartDueDate.Name = "dtpWorkStartDueDate";
             this.dtpWorkStartDueDate.Size = new System.Drawing.Size(187, 25);
             this.dtpWorkStartDueDate.TabIndex = 58;
@@ -549,7 +608,7 @@ namespace DESK_MES
             this.dtpWorkOrderDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpWorkOrderDate.Location = new System.Drawing.Point(144, 187);
+            this.dtpWorkOrderDate.Location = new System.Drawing.Point(144, 157);
             this.dtpWorkOrderDate.Name = "dtpWorkOrderDate";
             this.dtpWorkOrderDate.Size = new System.Drawing.Size(187, 25);
             this.dtpWorkOrderDate.TabIndex = 57;
@@ -572,7 +631,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 257);
+            this.label10.Location = new System.Drawing.Point(24, 227);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 17);
             this.label10.TabIndex = 53;
@@ -596,7 +655,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 224);
+            this.label14.Location = new System.Drawing.Point(24, 194);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(109, 17);
             this.label14.TabIndex = 50;
@@ -632,7 +691,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(23, 158);
+            this.label13.Location = new System.Drawing.Point(28, 56);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(96, 17);
             this.label13.TabIndex = 46;
@@ -668,7 +727,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(23, 191);
+            this.label16.Location = new System.Drawing.Point(23, 161);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 17);
             this.label16.TabIndex = 43;
@@ -711,64 +770,6 @@ namespace DESK_MES
             this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList3.Images.SetKeyName(0, "새로고침.png");
             this.imageList3.Images.SetKeyName(1, "검색_1.png");
-            // 
-            // cboProductWarehouse
-            // 
-            this.cboProductWarehouse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboProductWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboProductWarehouse.FormattingEnabled = true;
-            this.cboProductWarehouse.Location = new System.Drawing.Point(144, 284);
-            this.cboProductWarehouse.Name = "cboProductWarehouse";
-            this.cboProductWarehouse.Size = new System.Drawing.Size(187, 25);
-            this.cboProductWarehouse.TabIndex = 92;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 288);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 17);
-            this.label6.TabIndex = 91;
-            this.label6.Text = "생산품 보관 창고";
-            // 
-            // btnInfoClose
-            // 
-            this.btnInfoClose.Location = new System.Drawing.Point(262, 275);
-            this.btnInfoClose.Name = "btnInfoClose";
-            this.btnInfoClose.Size = new System.Drawing.Size(75, 30);
-            this.btnInfoClose.TabIndex = 79;
-            this.btnInfoClose.Text = "닫기";
-            this.btnInfoClose.UseVisualStyleBackColor = true;
-            this.btnInfoClose.Click += new System.EventHandler(this.btnInfoClose_Click);
-            // 
-            // cboWorkGroup
-            // 
-            this.cboWorkGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboWorkGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboWorkGroup.FormattingEnabled = true;
-            this.cboWorkGroup.Location = new System.Drawing.Point(149, 129);
-            this.cboWorkGroup.Name = "cboWorkGroup";
-            this.cboWorkGroup.Size = new System.Drawing.Size(187, 25);
-            this.cboWorkGroup.TabIndex = 81;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 133);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 17);
-            this.label9.TabIndex = 80;
-            this.label9.Text = "작업 담당팀 선택";
             // 
             // PopWorkOrderRegister
             // 

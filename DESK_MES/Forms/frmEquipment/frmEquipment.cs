@@ -106,10 +106,10 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "상태", "Is_Inoperative"); //3
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "최근다운시간", "Is_Inoperative_Date"); //4
 
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time"); //5
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자", "Create_User_Name"); //6
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경시간", "Update_Time"); //7
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경자", "Update_User_Name"); //8
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time", isVisible: false); //5
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자", "Create_User_Name", isVisible: false); //6
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경시간", "Update_Time", isVisible: false); //7
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "변경자", "Update_User_Name", isVisible: false); //8
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "삭제 여부", "Is_Delete", isVisible: false); //9
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자ID", "Create_User_No", isVisible: false); //11

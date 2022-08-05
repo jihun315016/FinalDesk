@@ -71,5 +71,14 @@ namespace DESK_MES
 
             return result;
         }
+
+        //public bool RegisterWorkOrderList(List<WorkOrderVO> workList, List<string> workIDList)
+        //{
+        //    WorkOrderDAC dac = new WorkOrderDAC();
+        //    bool result = dac.RegisterWorkOrderList(workList, workIDList);
+        //    dac.Dispose();
+
+        //    return result;
+        //}
     }
 }
