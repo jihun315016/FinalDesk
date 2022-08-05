@@ -358,7 +358,6 @@ namespace DESK_MES
             this.txtPlanState.ReadOnly = true;
             this.txtPlanState.Size = new System.Drawing.Size(177, 25);
             this.txtPlanState.TabIndex = 40;
-            this.txtPlanState.Text = "미정 / 확정";
             // 
             // txtStartDueDate
             // 
@@ -407,7 +406,6 @@ namespace DESK_MES
             this.txtManufactuerState.ReadOnly = true;
             this.txtManufactuerState.Size = new System.Drawing.Size(177, 25);
             this.txtManufactuerState.TabIndex = 36;
-            this.txtManufactuerState.Text = "생산대기 / 생산중 / 생산완료";
             // 
             // label13
             // 
