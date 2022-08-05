@@ -35,11 +35,11 @@ namespace DESK_MES
             comboBox1.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvOperation);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정 번호", "Operation_No");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 130);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "불량 체크 여부", "Is_Check_Deffect", colWidth: 180);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 180);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "자재 사용 여부", "Is_Check_Marerial", colWidth: 180);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정 번호", "Operation_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "불량 체크 여부", "Is_Check_Deffect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "자재 사용 여부", "Is_Check_Marerial", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "등록 시간", "Create_Time", colWidth: 200, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "등록 사용자", "Create_User_Name", colWidth: 120, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "등록 사용자 번호", "Create_User_No", isVisible: false);
@@ -48,13 +48,13 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "수정 사용자", "Update_User_Name", isVisible: false);
 
             DataGridUtil.SetInitGridView(dgvProduct);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품번", "Product_Code", colWidth: 150);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품명", "Product_Name", colWidth: 300);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "유형", "Product_Type");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "가격", "Price");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "단위", "Unit");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 시간", "Create_Time", colWidth: 200);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 사용자", "Create_User_Name", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품번", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "유형", "Product_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "단위", "Unit", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 시간", "Create_Time", colWidth: 200, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 사용자", "Create_User_Name", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 사용자", "Update_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "등록 사용자 번호", "Create_User_No", isVisible: false);

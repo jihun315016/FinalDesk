@@ -32,22 +32,22 @@ namespace DESK_MES
             srv = new WarehouseService();
 
             DataGridUtil.SetInitGridView(dataGridView1);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고코드", "Warehouse_Code", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고명", "Warehouse_Name", colWidth: 230);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고유형", "Warehouse_Type", colWidth: 60);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고주소", "Warehouse_Address", colWidth: 80);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고코드", "Warehouse_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고명", "Warehouse_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고유형", "Warehouse_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고주소", "Warehouse_Address", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성일자", "Create_Time", colWidth: 60, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성사용자", "Create_User_Name", colWidth: 80, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정일자", "Update_Time", colWidth: 60, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_Name", colWidth: 60, isVisible: false);
 
             DataGridUtil.SetInitGridView(dataGridView2);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "창고코드", "Warehouse_Code", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "창고명", "Warehouse_Name", colWidth: 230);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "제품코드", "Product_Code", colWidth: 60);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "제품명", "Product_Name", colWidth: 80);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "보관수량", "Product_Quantity", colWidth: 90);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "안전재고수량", "Safe_Stock", colWidth: 90);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "창고코드", "Warehouse_Code", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "창고명", "Warehouse_Name", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "제품코드", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "제품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "보관수량", "Product_Quantity", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "안전재고수량", "Safe_Stock", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
 
             LoadData();
         }

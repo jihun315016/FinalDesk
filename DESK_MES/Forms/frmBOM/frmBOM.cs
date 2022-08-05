@@ -58,11 +58,11 @@ namespace DESK_MES
             isBomProductList = productSrv.GetBomList();
 
             DataGridUtil.SetInitGridView(dgvProductList);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품번", "Product_Code", colWidth: 130);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품명", "Product_Name", colWidth: 270);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "유형", "Product_Type");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "가격", "Price");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "단위", "Unit");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품번", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "유형", "Product_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "단위", "Unit", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 시간", "Create_Time", colWidth: 270, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "등록 사용자", "Create_User_Name", colWidth: 130, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "수정 시간", "Update_Time", isVisible: false);
