@@ -1,4 +1,5 @@
 ﻿using DESK_DTO;
+using DESK_MES.Utility;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -104,6 +105,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -206,6 +215,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 tran.Rollback();
                 return false;
             }
@@ -251,6 +268,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 tran.Rollback();
                 return false;
             }
@@ -297,6 +322,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 tran.Rollback();
                 return false;
             }
@@ -322,6 +355,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -340,6 +381,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -364,6 +413,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -398,6 +455,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -420,6 +485,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }

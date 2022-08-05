@@ -113,6 +113,7 @@
     <Compile Include="Utility\DataGridUtil.cs" />
     <Compile Include="Utility\DBHelper.cs" />
     <Compile Include="Utility\ExcelUtil.cs" />
+    <Compile Include="Utility\LoggingUtil.cs" />
     <Compile Include="Utility\ServiceHelper.cs" />
     <Compile Include="Utility\TextBoxUtil.cs" />
     <EmbeddedResource Include="Controls\ccTextBox.resx">
