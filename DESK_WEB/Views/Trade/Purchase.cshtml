@@ -55,15 +55,15 @@
                     </tr>
 
                     <tr>
-                        <td>10017</td>
-                        <td>2022-07-17</td>
-                        <td>2022-07-18</td>
-                        <td>(주)LG전자</td>
-                        <td>ABD0005</td>
-                        <td>가성비 책상</td>
-                        <td>5</td>
-                        <td>120,000</td>
-                        <td>600,000</td>
+                        <td class="purchaseNo">10017</td>
+                        <td class="purchaseDate">2022-07-17</td>
+                        <td class="incomingDate">2022-07-18</td>
+                        <td class="client">(주)LG전자</td>
+                        <td class="productNo">ABD0005</td>
+                        <td class="productName">가성비 책상</td>
+                        <td class="qty">5</td>
+                        <td class="price">120,000</td>
+                        <td class="total">600,000</td>
                     </tr>
 
                 </tbody>
@@ -75,9 +75,23 @@
 </div>
 <!-- /.content-wrapper -->
 
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 <script>
+    var url = '@ViewBag.Url';
+    alert(url);
+    
     function find() {
-
+        var btnSearch = $('.btnSearch').val();
+        // 임시 url
+        // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
+        $.getJSON(url + 'api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04')
+            .done((data) => {
+                $.each(data, (key, item) => {                   
+                    console.log(key + ' ' + item);
+                })
+            })
+            .fail((jqXHR, textStatus, err) => {
+                console.log('fail...');
+                console.log(err);
+            })
     }
 </script>
