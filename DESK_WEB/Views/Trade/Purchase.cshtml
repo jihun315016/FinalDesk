@@ -11,9 +11,9 @@
             <div class="col-sm-12">
                 <h3>매입 현황</h3>
 
-                <input type="date" style="width:150px; height:28px" /> ~
-                <input type="date" style="width:150px; height:28px" />
-                <input type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" />
+                <input id="startDate" type="date" style="width:150px; height:28px" /> ~
+                <input id="endDate" type="date" style="width:150px; height:28px" />
+                <input id="search" type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" />
                 <input class="btnSearch" type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" onclick="find();" />
 
             </div><!-- /.col -->
@@ -25,7 +25,6 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-
             <table class="table text-center">
                 <thead class="thead-dark">
                     <tr>
@@ -41,7 +40,6 @@
                     </tr>
                 </thead>
                 <tbody id="tbodyPurchase">
-
                 </tbody>
             </table>
 
@@ -53,15 +51,19 @@
 
 <script>
     var url = '@ViewBag.Url';
-    alert(url);
+
+    // 날짜 범위는 최근 한 달
+    var today = new Date();
+    document.getElementById('startDate').value = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate()).toISOString().substring(0, 10);
+    document.getElementById('endDate').value = new Date().toISOString().substring(0, 10);
     
     function find() {
         // 임시 url
         // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
         var btnSearch = $('.btnSearch').val();
-        $.getJSON(url + 'api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04')
+        $.getJSON(url + 'api/Trade/Purchase?startDate=' + $('#startDate').val() + '&endDate=' + $('#endDate').val() + '&keyword=' + $('#search').val())
             .done((data) => {
-                console.log(data["Data"].length)
+                $('#tbodyPurchase').empty();
                 var tRow = '';
                 for (var i = 0; i < data["Data"].length; i++) {
                     tRow = '<tr>'
@@ -77,7 +79,6 @@
                     tRow += '<tr>'
                     $('#tbodyPurchase').append(tRow);
                 }
-                
             })
             .fail((jqXHR, textStatus, err) => {
                 console.log('fail...');
