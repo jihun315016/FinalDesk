@@ -32,7 +32,7 @@ namespace DESK_DTO
         public int Planned_Qty { get; set; }
         public int Work_Plan_Qty { get; set; } // 작업 등록시 사용
         public int Work_Complete_Qty { get; set; }
-        public string Work_Date { get; set; } // 작업 등록시 사용
+        public string Work_Paln_Date { get; set; } // 작업 등록시 사용
         public string Start_Due_Date { get; set; } // 작업 등록시 사용
         public string Start_Date { get; set; }
         public string Complete_Due_Date { get; set; } // 작업 등록시 사용

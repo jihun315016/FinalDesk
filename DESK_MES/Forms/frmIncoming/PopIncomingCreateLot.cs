@@ -56,12 +56,14 @@ namespace DESK_MES
             txtClientName.Text = Info.Client_Name.ToString();
 
 
-            //LastID = "ROH_20220726_00000";
-            LastID = srv.GetLastID();
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            //LastID = "ROH_20220726_00000";
+            LastID = srv.GetLastID();
+
             List<PurchaseDetailVO> lotList = new List<PurchaseDetailVO>();
 
             string id = LastID.Lot_Code.ToString();

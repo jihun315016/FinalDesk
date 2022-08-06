@@ -55,6 +55,15 @@ namespace DESK_MES
             return result;
         }
 
+        public List<PurchaseDetailVO> GetMetarialList(string no)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            List<PurchaseDetailVO> result = dac.GetMetarialList(no);
+            dac.Dispose();
+
+            return result;
+        }
+
         public List<PurchaseDetailVO> GetMetarialLotList(string no)
         {
             WorkOrderDAC dac = new WorkOrderDAC();
@@ -63,6 +72,7 @@ namespace DESK_MES
 
             return result;
         }
+
         public List<PurchaseDetailVO> GetInputWarehouse(string no)
         {
             WorkOrderDAC dac = new WorkOrderDAC();
@@ -72,13 +82,23 @@ namespace DESK_MES
             return result;
         }
 
-        //public bool RegisterWorkOrderList(List<WorkOrderVO> workList, List<string> workIDList)
-        //{
-        //    WorkOrderDAC dac = new WorkOrderDAC();
-        //    bool result = dac.RegisterWorkOrderList(workList, workIDList);
-        //    dac.Dispose();
+        public WorkOrderVO GetLastID()
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            WorkOrderVO result = dac.GetLastID();
+            dac.Dispose();
 
-        //    return result;
-        //}
+            return result;
+        }
+
+
+        public bool RegisterWorkOrderList(List<WorkOrderVO> workList, List<string> workIDList)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            bool result = dac.RegisterWorkOrderList(workList, workIDList);
+            dac.Dispose();
+
+            return result;
+        }
     }
 }
