@@ -42,30 +42,6 @@
                 </thead>
                 <tbody id="tbodyPurchase">
 
-                    <tr>
-                        <td>10016</td>
-                        <td>2022-07-17</td>
-                        <td>2022-07-18</td>
-                        <td>(주)삼성전자</td>
-                        <td>ABC0001</td>
-                        <td>비싼 책상</td>
-                        <td>10</td>
-                        <td>400,000</td>
-                        <td>4,000,000</td>
-                    </tr>
-
-                    <tr>
-                        <td class="purchaseNo">10017</td>
-                        <td class="purchaseDate">2022-07-17</td>
-                        <td class="incomingDate">2022-07-18</td>
-                        <td class="client">(주)LG전자</td>
-                        <td class="productNo">ABD0005</td>
-                        <td class="productName">가성비 책상</td>
-                        <td class="qty">5</td>
-                        <td class="price">120,000</td>
-                        <td class="total">600,000</td>
-                    </tr>
-
                 </tbody>
             </table>
 
@@ -86,16 +62,20 @@
         $.getJSON(url + 'api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04')
             .done((data) => {
                 console.log(data["Data"].length)
+                var tRow = '';
                 for (var i = 0; i < data["Data"].length; i++) {
-                    console.log(data["Data"][i].Purchase_No + ' ' + data["Data"][i].Client_Name + ' ' + data["Data"][i].Product_Name);
-
-                    var elmTr = document.createElement('tr');
-                    var elmTd = document.createElement('td');
-                    elmTd.innerText = "Hello";
-                    elmTr.appendChild(elmTd);
-
-                    var addressContainer = document.getElementById(".tbodyPurchase");
-                    addressContainer.appendChild(elmTr);
+                    tRow = '<tr>'
+                    tRow = tRow + '<td>' + data["Data"][i].Purchase_No + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].Purchase_Date.split('T')[0] + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].Incoming_Date.split('T')[0] + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].Client_Name + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].Product_Code + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].Product_Name + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].TotalQty + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].Price + '</td>'
+                    tRow = tRow + '<td>' + data["Data"][i].TotalPrice + '</td>'
+                    tRow += '<tr>'
+                    $('#tbodyPurchase').append(tRow);
                 }
                 
             })
