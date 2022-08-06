@@ -40,7 +40,7 @@
                         <th scope="col">총 금액</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbodyPurchase">
 
                     <tr>
                         <td>10016</td>
@@ -80,15 +80,24 @@
     alert(url);
     
     function find() {
-        var btnSearch = $('.btnSearch').val();
         // 임시 url
         // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
+        var btnSearch = $('.btnSearch').val();
         $.getJSON(url + 'api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04')
             .done((data) => {
                 console.log(data["Data"].length)
                 for (var i = 0; i < data["Data"].length; i++) {
                     console.log(data["Data"][i].Purchase_No + ' ' + data["Data"][i].Client_Name + ' ' + data["Data"][i].Product_Name);
+
+                    var elmTr = document.createElement('tr');
+                    var elmTd = document.createElement('td');
+                    elmTd.innerText = "Hello";
+                    elmTr.appendChild(elmTd);
+
+                    var addressContainer = document.getElementById(".tbodyPurchase");
+                    addressContainer.appendChild(elmTr);
                 }
+                
             })
             .fail((jqXHR, textStatus, err) => {
                 console.log('fail...');
