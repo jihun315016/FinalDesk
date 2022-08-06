@@ -48,6 +48,8 @@ namespace DESK_MES
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cboselectMaterialLot = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.cboWorkGroup = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.nmrWorkQty = new System.Windows.Forms.NumericUpDown();
@@ -85,8 +87,6 @@ namespace DESK_MES
             this.label17 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -297,7 +297,7 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.cboselectMaterialLot);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.cboWorkGroup);
             this.groupBox4.Controls.Add(this.label9);
@@ -324,6 +324,30 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 입력";
+            // 
+            // cboselectMaterialLot
+            // 
+            this.cboselectMaterialLot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboselectMaterialLot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboselectMaterialLot.FormattingEnabled = true;
+            this.cboselectMaterialLot.Location = new System.Drawing.Point(150, 261);
+            this.cboselectMaterialLot.Name = "cboselectMaterialLot";
+            this.cboselectMaterialLot.Size = new System.Drawing.Size(187, 25);
+            this.cboselectMaterialLot.TabIndex = 92;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(29, 265);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 17);
+            this.label18.TabIndex = 91;
+            this.label18.Text = "자재 LOT 선택";
             // 
             // cboWorkGroup
             // 
@@ -390,6 +414,7 @@ namespace DESK_MES
             this.cboMaterialLotName.Name = "cboMaterialLotName";
             this.cboMaterialLotName.Size = new System.Drawing.Size(187, 25);
             this.cboMaterialLotName.TabIndex = 78;
+            this.cboMaterialLotName.SelectedIndexChanged += new System.EventHandler(this.cboMaterialLotName_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -775,30 +800,6 @@ namespace DESK_MES
             this.imageList3.Images.SetKeyName(0, "새로고침.png");
             this.imageList3.Images.SetKeyName(1, "검색_1.png");
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(150, 261);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 25);
-            this.comboBox1.TabIndex = 92;
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(29, 265);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(93, 17);
-            this.label18.TabIndex = 91;
-            this.label18.Text = "자재 LOT 선택";
-            // 
             // PopWorkOrderRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -890,7 +891,7 @@ namespace DESK_MES
         private System.Windows.Forms.Button btnInfoClose;
         private System.Windows.Forms.ComboBox cboWorkGroup;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboselectMaterialLot;
         private System.Windows.Forms.Label label18;
     }
 }
