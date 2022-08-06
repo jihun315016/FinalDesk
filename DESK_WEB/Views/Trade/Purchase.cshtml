@@ -85,10 +85,10 @@
         // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
         $.getJSON(url + 'api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04')
             .done((data) => {
-                console.log(data.Data)
-                $.each(data, (key, item) => {                   
-                    console.log(data.Data.PurchaseNo);
-                })
+                console.log(data["Data"].length)
+                for (var i = 0; i < data["Data"].length; i++) {
+                    console.log(data["Data"][i].Purchase_No + ' ' + data["Data"][i].Client_Name + ' ' + data["Data"][i].Product_Name);
+                }
             })
             .fail((jqXHR, textStatus, err) => {
                 console.log('fail...');
