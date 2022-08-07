@@ -23,7 +23,7 @@ namespace DESK_POP
         private void POP_Login_Load(object sender, EventArgs e)
         {
             //초기설정
-            serv = new ServiceHelper("api/Pop");
+            serv = new ServiceHelper("api/Pop/Login");
             txtID.Text = "";
             lblChk.Visible = false;
             this.ActiveControl = txtID;

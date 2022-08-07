@@ -13,7 +13,7 @@ namespace DESK_WEB.Controllers
     {
         //https://localhost:44393/api/Pop/{id}
         [HttpGet]               //이 메서드? 쓰려면 타입을 이걸루 해라
-        [Route("{id}")]         // 이 메서드 쓰려면 뒤에 input값 적어라
+        [Route("Login/{id}")]         // 이 메서드 쓰려면 뒤에 input값 적어라
         public IHttpActionResult GetUserLogin(int id)
         {
             PopDAC db = new PopDAC(); //대충 DB에서 사람 있는지 조회하는 코드
