@@ -50,7 +50,8 @@ namespace DESK_MES
                                from [dbo].[TB_PURCHASE] P
                                INNER JOIN [dbo].[TB_Client] C ON P.Client_Code=C.Client_Code
 							   LEFT JOIN [dbo].[TB_USER] U ON C.Create_User_No=U.User_No
-							   LEFT JOIN [dbo].[TB_USER] UU ON C.Update_User_No=UU.User_No";
+							   LEFT JOIN [dbo].[TB_USER] UU ON C.Update_User_No=UU.User_No
+                               WHERE Purchase_State='DT'";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {

@@ -35,7 +35,7 @@ namespace DESK_WEB.Models
                                     where Is_Delete='N'";
 
                 cmd.Connection.Open();
-                List<ClientVO> list = Helper.DataReaderMapToList<ClientVO>(cmd.ExecuteReader());
+                List<ClientVO> list = DBHelper.DataReaderMapToList<ClientVO>(cmd.ExecuteReader());
                 cmd.Connection.Close();
 
                 return list;
@@ -61,7 +61,7 @@ namespace DESK_WEB.Models
                 cmd.Parameters.AddWithValue("@Client_Code", id);
 
                 cmd.Connection.Open();
-                List<ClientVO> list = Helper.DataReaderMapToList<ClientVO>(cmd.ExecuteReader());
+                List<ClientVO> list = DBHelper.DataReaderMapToList<ClientVO>(cmd.ExecuteReader());
                 cmd.Connection.Close();
 
                 if (list != null && list.Count > 0)
@@ -87,7 +87,7 @@ namespace DESK_WEB.Models
             cmd.Parameters.AddWithValue("@type", type);
             cmd.Connection.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-            List<ClientVO> list = Helper.DataReaderMapToList<ClientVO>(reader);
+            List<ClientVO> list = DBHelper.DataReaderMapToList<ClientVO>(reader);
             reader.Close();
             cmd.Connection.Close();
 

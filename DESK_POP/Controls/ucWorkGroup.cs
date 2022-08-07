@@ -14,18 +14,17 @@ namespace DESK_POP
     public partial class ucWorkGroup : UserControl
     {
         PopVO orderDetail;
-        int cnt;
+        int cnt; //안써도 될듯
         public int OrderCount { get; set; }
-        public ucWorkGroup(PopVO order, int count)
+        public ucWorkGroup(PopVO order)
         {            
             orderDetail = order;
-            cnt = count;
             InitializeComponent();
         }
 
         private void ucWorkGroup_Load(object sender, EventArgs e)
         {
-            gBox.Text = $"작업{cnt}";
+            gBox.Text = $"작업{OrderCount}";
             txtWkCode.Text = orderDetail.Work_Code;
             txtOperation.Text = orderDetail.Operation_Name;
             txtEquipment.Text = orderDetail.Equipment_Name;
@@ -39,7 +38,6 @@ namespace DESK_POP
             if (true) //여긴 데이터 조회 유무로 넘어가기 //작업지시 코드 상태를 조회 => 진행 전이면 add
             {
                 Lot_Add frm = new Lot_Add(orderDetail.Work_Code);
-                this.Hide();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     this.Show();
@@ -48,7 +46,6 @@ namespace DESK_POP
             else //진행 중 => Detail로
             {
                 POP_Detail frm = new POP_Detail(orderDetail.Work_Code);
-                this.Hide();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     this.Show();

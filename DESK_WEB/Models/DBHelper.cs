@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DESK_WEB
 {
-    public static class Helper
+    public static class DBHelper
     {
         /// <summary>
         /// DataReader => List<VO>

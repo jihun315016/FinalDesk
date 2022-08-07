@@ -14,9 +14,11 @@ namespace DESK_MES
     public partial class PopUserGroupRegister : Form
     {
         UserGroupService srv;
+        UserVO userVV;
         int UserNo;
-        public PopUserGroupRegister()
+        public PopUserGroupRegister(UserVO uNo)
         {
+            userVV = uNo;
             InitializeComponent();
         }
 
@@ -27,7 +29,14 @@ namespace DESK_MES
             List<UserGroupVO>list = srv.SelectAuthList();
             ComboBinding(comboBox1, list);
 
-            list.ForEach((f) => txtNO.Text = (f.LastUser_No+1).ToString());
+            if (list == null)
+            {
+                txtNO.Text = "1001";
+            }
+            else
+            {
+                list.ForEach((f) => txtNO.Text = (f.LastUser_No + 1).ToString());
+            }
             txtNO.Enabled = false;
 
             dtpCreate.Format = DateTimePickerFormat.Custom;
@@ -62,7 +71,7 @@ namespace DESK_MES
                 {
                     User_Group_Name = txtName.Text.Trim(),
                     User_Group_Type = Convert.ToInt32(comboBox1.SelectedValue),
-                    Create_User_No = UserNo
+                    Create_User_No = userVV.User_No
                 };
                 bool flag= srv.InsertUserGroup(userG);
                 if (flag)

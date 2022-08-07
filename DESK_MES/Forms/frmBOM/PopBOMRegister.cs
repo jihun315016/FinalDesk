@@ -1,13 +1,10 @@
 ﻿using DESK_DTO;
 using DESK_MES.Service;
+using DESK_MES.Utility;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DESK_MES
@@ -214,6 +211,8 @@ namespace DESK_MES
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvChildList.CurrentCell == null)
+                return;
             string childCode = dgvChildList["Child_Product_Code", dgvChildList.CurrentCell.RowIndex].Value.ToString();
             BomVO item = selectedList.Where(s => s.Child_Product_Code == childCode).FirstOrDefault();
             selectedList.Remove(item);

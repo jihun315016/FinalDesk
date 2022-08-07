@@ -12,7 +12,7 @@ namespace DESK_DTO
         public string Client_Code { get; set; }
         public string Client_Name { get; set; }
         public string Purchase_Date { get; set; }
-        public string Purchase_State { get; set; }
+        public string Purchase_State { get; set; } // UD(미정), DT(확정), CL(취소)
         public string IncomingDue_date { get; set; }
         public string Is_Incoming { get; set; }
         public string Incoming_Date { get; set; }

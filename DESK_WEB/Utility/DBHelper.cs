@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DESK_WEB.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -37,8 +38,13 @@ namespace DESK_WEB.Utility
             }
             catch (Exception err)
             {
-                string msg = err.Message;
-                Debug.WriteLine(msg);
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
                 return null;
             }
         }

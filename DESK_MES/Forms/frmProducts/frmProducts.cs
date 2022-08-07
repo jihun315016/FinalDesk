@@ -2,13 +2,9 @@
 using DESK_MES.Service;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DESK_MES
@@ -55,13 +51,13 @@ namespace DESK_MES
 
             ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboTypeDetailSearch, list, "Category", "Code");
             DataGridUtil.SetInitGridView(dgvList);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "품번", "Product_Code", colWidth: 150);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "품명", "Product_Name", colWidth: 300);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "유형", "Product_Type");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "단위", "Unit");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 시간", "Create_Time", colWidth: 200);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자", "Create_User_Name", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "품번", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "유형", "Product_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "단위", "Unit", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 시간", "Create_Time", colWidth: 200, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자", "Create_User_Name", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자 번호", "Create_User_No", isVisible: false);
@@ -159,7 +155,7 @@ namespace DESK_MES
         {
             if (string.IsNullOrWhiteSpace(txtCodeDetail.Text))
             {
-                MessageBox.Show("품번을 선택하세요.");
+                MessageBox.Show("품목을 선택하세요.");
                 return;
             }
 
@@ -185,9 +181,15 @@ namespace DESK_MES
         private void btnReset_Click(object sender, EventArgs e)
         {
             prdList = productSrv.GetProductList();
+            comboBox1.SelectedIndex = 0;
+            textBox1.Text = string.Empty;
             comboBox1.Enabled = textBox1.Enabled = true;
             panel5.Visible = false;
             dgvList.DataSource = null;
+
+            txtCodeDetail.Text = txtNameDetail.Text = txtTypeDetail.Text = string.Empty;
+            dtpCreateTime.CustomFormat = dtpUpdateTime.CustomFormat = " ";
+            txtCreateUserDetail.Text = txtUpdateUserDetail.Text = string.Empty;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

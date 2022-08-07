@@ -1,4 +1,5 @@
 ﻿using DESK_DTO;
+using DESK_MES.Utility;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -33,8 +34,11 @@ namespace DESK_MES.DAC
         /// Author : 강지훈
         /// 모든 제품, 재공품, 원자재 리스트 조회
         /// </summary>
+        /// <param name="code"></param>
+        /// <param name="isBom"></param>
+        /// <param name="operNo"></param>
         /// <returns></returns>
-        public List<ProductVO> GetProductList(string code, bool isBom)
+        public List<ProductVO> GetProductList(string code, bool isBom, int operNo)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -52,15 +56,18 @@ namespace DESK_MES.DAC
             if (isBom)
                 sb.Append(" WHERE Product_Code NOT IN (SELECT Parent_Product_Code FROM TB_BOM) ");
 
+            if (operNo > 0)
+                sb.Append(" WHERE Product_Code IN (SELECT Product_Code FROM TB_PRODUCT_OPERATION_RELATION WHERE Operation_No=@Operation_No) ");
+
             string sql = sb.ToString();            
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@code", code);
+            cmd.Parameters.AddWithValue("@Operation_No", operNo);
             SqlDataReader reader = cmd.ExecuteReader();
             List<ProductVO> list = DBHelpler.DataReaderMapToList<ProductVO>(reader);
             reader.Close();
             return list;
         }
-
 
         /// <summary>
         /// Author : 강지훈
@@ -185,6 +192,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -231,8 +246,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
-                Console.WriteLine(err.Message);
-                Console.WriteLine($"{Environment.NewLine}DB error : {cmd.Parameters["@err_msg"].Value}");
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return String.Empty;
             }
         }
@@ -261,7 +282,10 @@ namespace DESK_MES.DAC
                 cmd.Parameters.AddWithValue("@Is_Image", prd.Is_Image);
                 cmd.Parameters.AddWithValue("@Price", prd.Price);
                 cmd.Parameters.AddWithValue("@Unit", prd.Unit);
-                cmd.Parameters.AddWithValue("@Client_Code", prd.Client_Code);
+                if (prd.Client_Code == null) 
+                    cmd.Parameters.AddWithValue("@Client_Code", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Client_Code", prd.Client_Code);
                 cmd.Parameters.AddWithValue("@Update_User_No", prd.Update_User_No);
                 cmd.Parameters.AddWithValue("@Product_Code", prd.Product_Code);
 
@@ -270,6 +294,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -293,6 +325,14 @@ namespace DESK_MES.DAC
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 return false;
             }
         }
@@ -326,12 +366,19 @@ namespace DESK_MES.DAC
                     cmd.Parameters["@Qty"].Value = item.Qty;
                     cmd.ExecuteNonQuery();
                 }
-
                 tran.Commit();
                 return true;
             }
             catch (Exception err)
             {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
                 tran.Rollback();   
                 return false;
             }

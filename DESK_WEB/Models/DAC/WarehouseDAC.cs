@@ -34,7 +34,7 @@ namespace DESK_WEB.Models
                                     from TB_WAREHOUSE";
 
                 cmd.Connection.Open();
-                List<WarehouseVO> list = Helper.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
+                List<WarehouseVO> list = DBHelper.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
                 cmd.Connection.Close();
 
                 return list;
@@ -59,7 +59,7 @@ namespace DESK_WEB.Models
                 cmd.Parameters.AddWithValue("@Warehouse_Code", id);
 
                 cmd.Connection.Open();
-                List<WarehouseVO> list = Helper.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
+                List<WarehouseVO> list = DBHelper.DataReaderMapToList<WarehouseVO>(cmd.ExecuteReader());
                 cmd.Connection.Close();
 
                 if (list != null && list.Count > 0)

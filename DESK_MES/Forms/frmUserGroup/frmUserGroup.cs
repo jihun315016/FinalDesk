@@ -16,6 +16,7 @@ namespace DESK_MES
         UserGroupService srv;
         List<UserGroupVO> allList;
         List<UserGroupVO> saveList;
+        UserVO userV;
         int selectUser=0;
         string user;
         string saveFileName;
@@ -64,6 +65,8 @@ namespace DESK_MES
             if (srv == null)
                 srv = new UserGroupService();
 
+            userV = ((frmMain)this.MdiParent).userInfo;
+
             dtpCreate.Format = DateTimePickerFormat.Custom;
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpUpdate.Format = DateTimePickerFormat.Custom;
@@ -83,13 +86,13 @@ namespace DESK_MES
 
 
             DataGridUtil.SetInitGridView(dataGridView1);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹번호", "User_Group_No");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹명", "User_Group_Name");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹유형", "User_Group_TypeName");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성시간", "Create_Time");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성사용자", "Create_User_Name");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경시간", "Update_Time");
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경사용자", "Update_User_Name");
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹번호", "User_Group_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹명", "User_Group_Name", colWidth: 400, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹유형", "User_Group_TypeName", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성시간", "Create_Time", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성사용자", "Create_User_Name", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경시간", "Update_Time", isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경사용자", "Update_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹유형코드", "User_Group_Type", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성사용자ID", "Create_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경사용자ID", "Update_User_No", isVisible: false);
@@ -103,7 +106,7 @@ namespace DESK_MES
         //등록
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopUserGroupRegister pop = new PopUserGroupRegister();
+            PopUserGroupRegister pop = new PopUserGroupRegister(userV);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 BindingGdv();
@@ -115,7 +118,7 @@ namespace DESK_MES
         {
             if (selectUser != 0)
             {
-                PopUserGroupModify pop = new PopUserGroupModify(selectUser, user);
+                PopUserGroupModify pop = new PopUserGroupModify(selectUser, userV);
                 if (pop.ShowDialog() == DialogResult.OK)
                 {
                     BindingGdv();

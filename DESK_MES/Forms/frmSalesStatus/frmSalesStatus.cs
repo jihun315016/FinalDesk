@@ -15,7 +15,7 @@ namespace DESK_MES
         public frmSalesStatus()
         {
             InitializeComponent();
-            label1.Text = "매출 현황";
+            label1.Text = "매입/매출 현황";
         }
     }
 }

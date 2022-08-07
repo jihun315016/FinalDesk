@@ -2,13 +2,8 @@
 using DESK_MES.Service;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DESK_MES
@@ -22,6 +17,7 @@ namespace DESK_MES
         public PopProductsModify(ProductVO prd, UserVO user)
         {
             InitializeComponent();
+            this.user = user;
             InitControl(prd);
         }
 
@@ -111,7 +107,7 @@ namespace DESK_MES
                 Product_Type = cboType.SelectedValue.ToString().Split('_')[1],
                 Price = Convert.ToInt32(txtPrice.Text),
                 Unit = Convert.ToInt32(txtUnit.Text),
-                Client_Code = cboClient.SelectedValue.ToString(),
+                Client_Code = string.IsNullOrWhiteSpace(cboClient.Text) ? null : cboClient.SelectedValue.ToString(),
                 Update_User_No = user.User_No
             };
 
@@ -129,7 +125,7 @@ namespace DESK_MES
             bool result = productSrv.UpdateProduct(prd);
             if (result)
             {
-                if (prd.Is_Image == 1)
+                if (prd.Is_Image == 1 && ptbProduct.Tag != null)
                 {
                     int lastIndex = ptbProduct.Tag.ToString().LastIndexOf('\\');
                     string path = ptbProduct.Tag.ToString().Substring(0, lastIndex);

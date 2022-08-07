@@ -56,13 +56,15 @@ namespace DESK_MES
             txtClientName.Text = Info.Client_Name.ToString();
 
 
-            LastID = srv.GetLastID(); //"ROH_20220726_00000"; //GetLastID
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            List<PurchaseDetailVO> lotList = new List<PurchaseDetailVO>();
+            //LastID = "ROH_20220726_00000";
+            LastID = srv.GetLastID();
 
+            List<PurchaseDetailVO> lotList = new List<PurchaseDetailVO>();
 
             string id = LastID.Lot_Code.ToString();
             string[] search = id.Split(new char[] { '_' });
@@ -112,7 +114,8 @@ namespace DESK_MES
                         Product_Code = item.Cells[0].Value.ToString(),
                         Lot_Qty = Convert.ToInt32(item.Cells[6].Value),
                         Cur_Qty = Convert.ToInt32(item.Cells[6].Value),
-                        Client_Code = txtClientCode.Text
+                        Client_Code = txtClientCode.Text,
+                        Warehouse_Code = item.Cells[8].Value.ToString()
                     };
                     lotList.Add(purchaseItem);
                 }
@@ -166,6 +169,10 @@ namespace DESK_MES
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            cboWarehouse.DataSource = null;
+            cboWarehouse.Text = null;
+            cboWarehouse.Items.Clear();
+
             productCode = dataGridView1[0, e.RowIndex].Value.ToString();
             PurchaseDetailVO incomingProductInfo = srv.GetIncomingProductInfo(productCode);
             WareHouseInfo = srv.GetEqualWarehouse(productCode);
