@@ -12,11 +12,13 @@
             <div class="col-sm-12">
                 <h3>매입 현황</h3>
 
-                <input id="startDate" type="date" style="width:150px; height:28px" /> ~
-                <input id="endDate" type="date" style="width:150px; height:28px" />
-                <input id="search" type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" />
-                <input class="btnSearch" type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" onclick="find();" />
-
+                @using (Html.BeginForm("Purchase", "Trade", FormMethod.Get))
+                {
+                    <input id="startDate" type="date" style="width:150px; height:28px" name="startDate" />
+                    <input id="endDate" type="date" style="width:150px; height:28px" name="endDate" />
+                    <input id="search" type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" name="keyword" />
+                    <input class="btnSearch" type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+                }
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -68,7 +70,7 @@
 <!-- /.content-wrapper -->
 
 <script>
-    var url = '@ViewBag.Url';
+    @*var url = '@ViewBag.Url';
 
     // 날짜 범위는 최근 한 달
     var today = new Date();
@@ -102,5 +104,5 @@
                 console.log('fail...');
                 console.log(err);
             })
-    }
+    }*@
 </script>
