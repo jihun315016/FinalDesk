@@ -13,6 +13,8 @@ namespace DESK_POP
 {
     public partial class POP_Main : Form
     {
+        ServiceHelper serv;
+        List<PopVO> allList;
         public PopVO userInfo { get; set; } //접속자 정보[ User_No, User_Name, u.User_Group_No, User_Group_Name, User_Group_Type, Auth_Name ]
         public POP_Main()
         {
@@ -35,6 +37,8 @@ namespace DESK_POP
                 this.userInfo = pop.userVO;
             }
             #endregion
+            serv = new ServiceHelper("api/Pop/Login");
+
             int littt = 3; //db에서 가져온 리스트의 갯수/<나중에 삭제>
             lblCount.Text = littt.ToString();
             int hinum=340;
@@ -47,14 +51,11 @@ namespace DESK_POP
                 wg.OrderCount = i;
                 if (i%3==0)
                 {
-
                     wg.Location = new Point(3 + ((i - 1) * 342), 5+(hinum*i));
                     hinum++;
-
                 }
                 else
                 {
-
                     wg.Location = new Point(3 + ((i - 1) * 342), 5);
                 }
 

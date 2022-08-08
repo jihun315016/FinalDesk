@@ -36,12 +36,8 @@ namespace DESK_POP
             {
                 txtCopy1.Text = txtID.Text;
                 
-
-                
-                
                 ResMessage<PopVO> resresult= serv.GetAsyncT<ResMessage<PopVO>>(txtID.Text);
-                
-                
+                                
                 if (resresult.ErrCode == 0)
                 {
                     lblChk.Visible = false;
