@@ -2,6 +2,7 @@
 using DESK_WEB.Models.DAC;
 using DESK_WEB.Models.DTO;
 using DESK_WEB.Utility;
+using MvcPaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace DESK_WEB.Controllers.api
         {
             try
             {
-                TradeDAC dac = new TradeDAC();
+                    TradeDAC dac = new TradeDAC();
                 List<WebPurchaseVO> list = dac.GetPurchaseList(startDate, endDate, keyword);
 
                 ResMessage<List<WebPurchaseVO>> result = new ResMessage<List<WebPurchaseVO>>()
@@ -48,6 +49,37 @@ namespace DESK_WEB.Controllers.api
                     ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
                 });
             }
+
+            //try
+            //{
+            //    TradeDAC dac = new TradeDAC();
+            //    List<WebPurchaseVO> list = dac.GetPurchaseList(startDate, endDate, keyword);
+
+            //    ResMessage<List<WebPurchaseVO>> result = new ResMessage<List<WebPurchaseVO>>()
+            //    {
+            //        ErrCode = (list == null) ? -9 : 0,
+            //        ErrMsg = (list == null) ? "조회중 오류발생" : "S",
+            //        Data = list
+            //    };
+
+            //    return Ok(result);
+            //}
+            //catch (Exception err)
+            //{
+            //    LoggingMsgVO msg = new LoggingMsgVO()
+            //    {
+            //        Msg = err.Message,
+            //        StackTrace = err.StackTrace,
+            //        Source = err.Source
+            //    };
+            //    LoggingUtil.LoggingError(msg);
+
+            //    return Ok(new ResMessage()
+            //    {
+            //        ErrCode = -9,
+            //        ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
+            //    });
+            //}
         }
     }
 }
