@@ -40,6 +40,8 @@ namespace DESK_MES
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.dtpModifyTime = new System.Windows.Forms.DateTimePicker();
             this.txtModifyUserName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -215,6 +217,8 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.dtpModifyTime);
             this.groupBox4.Controls.Add(this.txtModifyUserName);
             this.groupBox4.Controls.Add(this.label18);
@@ -254,6 +258,28 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(242, 545);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 27);
+            this.button2.TabIndex = 83;
+            this.button2.Text = "계획 취소";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(161, 545);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 27);
+            this.button4.TabIndex = 82;
+            this.button4.Text = "계획 확정";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dtpModifyTime
             // 
@@ -790,5 +816,7 @@ namespace DESK_MES
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtOrderCode;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
     }
 }
