@@ -102,6 +102,28 @@ namespace DESK_MES
             }
         }
 
+        public List<PurchaseDetailVO> GetLotDetailList(string code)
+        {
+            try
+            {
+                string sql = @"select Lot_Code, Product_Name, Cur_Qty
+                               from TB_MATERIAL_LOT ML
+                               inner join TB_PRODUCT P on ML.Product_Code=P.Product_Code
+                               where ML.Product_Code=@Product_Code";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Product_Code", code);
+
+                    return DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
         public WarehouseVO GetWarehouseInfoByCode(string code)
         {
             try

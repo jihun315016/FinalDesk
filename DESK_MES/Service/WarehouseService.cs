@@ -28,6 +28,15 @@ namespace DESK_MES
             return result;
         }
 
+        public List<PurchaseDetailVO> GetLotDetailList(string code)
+        {
+            WarehouseDAC dac = new WarehouseDAC();
+            List<PurchaseDetailVO> result = dac.GetLotDetailList(code);
+            dac.Dispose();
+
+            return result;
+        }
+
         public WarehouseVO GetWarehouseInfoByCode(string code)  // 선택 창고 상세 정보 가져오기
         {
             WarehouseDAC dac = new WarehouseDAC();
