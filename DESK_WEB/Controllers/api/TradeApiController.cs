@@ -67,7 +67,7 @@ namespace DESK_WEB.Controllers.api
         /// <param name="endDate"></param>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        [Route("Purchase")]
+        [Route("Order")]
         public IHttpActionResult GetOrderList(string startDate, string endDate, string keyword = "")
         {
             try
