@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace DESK_WEB.Models.DAC
 {
@@ -53,6 +51,37 @@ namespace DESK_WEB.Models.DAC
             cmd.Parameters.AddWithValue("@keyword", $"%{keyword}%");
             SqlDataReader reader = cmd.ExecuteReader();
             List<WebPurchaseVO> list = DBHelper.DataReaderMapToList<WebPurchaseVO>(reader);
+            return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 매출 현황 조회
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public List<WebOrderVO> GetOrderList(string startDate, string endDate, string keyword)
+        {
+            string sql = @"SELECT 
+	                            od.Order_No, o.Order_Date, o.Release_Date, Client_Name, 
+	                            od.Product_Code, Product_Name, TotalQty, Price, TotalPrice
+                            FROM TB_ORDER_DETAIL od
+                            JOIN TB_ORDER o ON od.Order_No = o.Order_No
+                            JOIN TB_Client c ON o.Client_Code = c.Client_Code
+                            JOIN TB_PRODUCT pr ON od.Product_Code = pr.Product_Code
+                            WHERE o.Release_State = 'Y'
+                            AND o.Order_No >= @startDate
+                            AND o.Order_No <= @endDate
+                            AND Client_Name LIKE @keyword ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@startDate", startDate);
+            cmd.Parameters.AddWithValue("@endDate", endDate);
+            cmd.Parameters.AddWithValue("@keyword", $"%{keyword}%");
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<WebOrderVO> list = DBHelper.DataReaderMapToList<WebOrderVO>(reader);
             return list;
         }
     }

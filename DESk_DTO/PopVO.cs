@@ -16,7 +16,7 @@ namespace DESK_DTO
         public int User_Group_Type { get; set; }
         public string Auth_Name { get; set; }
         //작업 정보
-        public string Production_No { get; set; }
+        public int Production_No { get; set; }
         public string Work_Code { get; set; }
         public int Operation_Code { get; set; }
         public string Operation_Name { get; set; } //쿼리문에서 오더 명 찾기
@@ -32,8 +32,23 @@ namespace DESK_DTO
         public int Update_User_No { get; set; }
         public int Work_UserGroup_No { get; set; }
         //설비정보
-        public int Equipment_No { get; set; }
+        public int Production_Equipment_Code { get; set; }
         public string Equipment_Name { get; set; }
-
+        public string Start_Due_Date { get; set; }
+        public string Work_State { get; set; }
+        public string Material_Lot_Input_State { get; set; }
+        //pop work All
+        public string Product_Code { get; set; }
+        public int Production_Operation_Code { get; set; }
+        public string Halb_Save_Warehouse_Code { get; set; }
+        public string Input_Material_Code { get; set; }
+        public int Input_Material_Qty { get; set; }
+        public int Halb_Material_Qty { get; set; }
+        public string Production_Save_Warehouse_Code { get; set; }
+        public int Work_Plan_Qty { get; set; }
+        public int Work_Complete_Qty { get; set; }
+        public string Work_Paln_Date { get; set; }
+        public string Complete_Due_Date { get; set; }
+        public string Work_Time { get; set; }
     }
 }
