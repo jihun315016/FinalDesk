@@ -64,6 +64,7 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -196,6 +197,7 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.dtpModifyTime);
             this.groupBox4.Controls.Add(this.dtpCreateTime);
             this.groupBox4.Controls.Add(this.txtPhone);
@@ -515,6 +517,15 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(25, 372);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(176, 17);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "CUS : 매출처 / VEN : 매입처";
+            // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -577,5 +588,6 @@ namespace DESK_MES
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtpModifyTime;
         private System.Windows.Forms.DateTimePicker dtpCreateTime;
+        private System.Windows.Forms.Label label13;
     }
 }

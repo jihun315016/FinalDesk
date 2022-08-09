@@ -45,7 +45,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료일", "Complete_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 상태", "Production_Plan_Status", colWidth: 60, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산계획 담당자", "Production_Plan_User_Name", colWidth: 60, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 진행 상태", "Production_Status", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 진행 상태", "Production_Status", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성 시간", "Create_Time", colWidth: 60, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성 사용자", "Create_User_Name", colWidth: 80, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경 시간", "Update_Time", colWidth: 60, isVisible: false);

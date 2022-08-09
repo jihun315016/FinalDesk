@@ -29,6 +29,9 @@ namespace DESK_MES
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             srv = new PurchaseService();
 
+            button1.Visible = false;
+            button2.Visible = false;
+
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "발주코드", "Purchase_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처번호", "Client_Code", isVisible: false);
@@ -48,7 +51,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "유형", "Product_Type", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "단가", "Price", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleRight);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "주문단위", "Unit", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "주문단위", "Unit", colWidth: 90, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "수량 입력", "Qty_PerUnit", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총 구매수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총액", "TotalPrice", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleRight);
@@ -83,6 +86,17 @@ namespace DESK_MES
 
             purchaseDetailList = srv.GetPurchaseDetailList(purchaseNo);
             dataGridView2.DataSource = purchaseDetailList;
+
+            if (txtPurchaseState.Text == "UD")
+            {
+                button1.Visible = true;
+                button2.Visible = true;
+            }
+            else
+            {
+                button1.Visible = false;
+                button2.Visible = false;
+            }
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -100,6 +114,16 @@ namespace DESK_MES
             {
                 LoadData();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

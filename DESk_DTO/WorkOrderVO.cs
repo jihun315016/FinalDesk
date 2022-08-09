@@ -38,7 +38,9 @@ namespace DESK_DTO
         public string Complete_Due_Date { get; set; } // 작업 등록시 사용
         public string Complete_Date { get; set; }
         public string Work_Time { get; set; }
-        public string Work_State { get; set; } // 작업 등록시 사용
+        public string Work_Order_State { get; set; } // 작업 지시 상태
+        public string Work_State { get; set; } // 작업 진행 상태
+
         public string Material_Lot_Input_State { get; set; } 
         public string Create_Time { get; set; } // 작업 등록시 사용
         public int Create_User_No { get; set; } // 작업 등록시 사용

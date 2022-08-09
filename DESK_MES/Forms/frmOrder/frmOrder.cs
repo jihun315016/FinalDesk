@@ -30,6 +30,9 @@ namespace DESK_MES
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             srv = new OrderService();
 
+            button1.Visible = false;
+            button2.Visible = false;
+
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "주문번호", "Order_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처코드", "Client_Code", isVisible: false);
@@ -81,6 +84,17 @@ namespace DESK_MES
             orderDetailList = srv.GetOrderDetailList(orderNo);
             dataGridView2.DataSource = orderDetailList;
 
+            if(txtOrderState.Text == "UD")
+            {
+                button1.Visible = true;
+                button2.Visible = true;
+            }
+            else
+            {
+                button1.Visible = false;
+                button2.Visible = false;
+            }
+
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -106,6 +120,16 @@ namespace DESK_MES
                 MessageBox.Show("변경하실 항목을 선택해주세요");
                 return;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 주문 확정 처리
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 주문 취소 처리
         }
     }
 }

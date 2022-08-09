@@ -29,6 +29,9 @@ namespace DESK_MES
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             srv = new ManufactureService();
 
+            button4.Visible = true;
+            button2.Visible = true;
+
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산코드", "Production_Code", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "주문서코드", "Order_No", isVisible: false);
@@ -91,6 +94,27 @@ namespace DESK_MES
             dtpModifyTime.Text = (dataGridView1["Update_Time", e.RowIndex].Value ?? string.Empty).ToString();
             txtModifyUserName.Text = (dataGridView1["Update_User_Name", e.RowIndex].Value ?? string.Empty).ToString();
 
+            if (txtPlanState.Text == "미정")
+            {
+                button4.Visible = true;
+                button2.Visible = true;
+            }
+            else
+            {
+                button4.Visible = false;
+                button2.Visible = false;
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // 생산계획 확정
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 생산계획 취소
         }
     }
 }

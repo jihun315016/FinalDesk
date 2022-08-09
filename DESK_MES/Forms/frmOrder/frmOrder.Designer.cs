@@ -46,6 +46,9 @@ namespace DESK_MES
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtModifyDate = new System.Windows.Forms.TextBox();
@@ -278,6 +281,9 @@ namespace DESK_MES
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.txtClientName);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.txtModifyDate);
@@ -305,6 +311,37 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(241, 402);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 27);
+            this.button2.TabIndex = 79;
+            this.button2.Text = "주문 취소";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(160, 402);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 27);
+            this.button1.TabIndex = 78;
+            this.button1.Text = "주문 확정";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 460);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 17);
+            this.label7.TabIndex = 77;
+            this.label7.Text = "UD : 미확정 / DT : 확정";
             // 
             // txtClientName
             // 
@@ -740,5 +777,8 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtCreateDate;
         private System.Windows.Forms.TextBox txtReleaseDate;
         private System.Windows.Forms.TextBox txtOrderRegiDate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
