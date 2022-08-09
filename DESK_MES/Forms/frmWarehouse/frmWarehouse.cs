@@ -16,9 +16,11 @@ namespace DESK_MES
         UserVO user;
         WarehouseService srv;
         string warehouseCode = null;
+        string productCode = null;
         List<WarehouseVO> warehouseList;
         List<WarehouseProductVO> warehouseDetailList;
-        
+        List<PurchaseDetailVO> lotDetailList;
+
 
 
         public frmWarehouse()
@@ -49,6 +51,11 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "보관수량", "Product_Quantity", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "안전재고수량", "Safe_Stock", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
 
+            DataGridUtil.SetInitGridView(dataGridView3);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "자재 Lot 코드", "Lot_Code", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "제품명", "Product_Name", colWidth: 215, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "수량", "Cur_Qty", colWidth: 65, alignContent: DataGridViewContentAlignment.MiddleCenter);
+
             LoadData();
         }
         private void LoadData()
@@ -74,6 +81,16 @@ namespace DESK_MES
 
             warehouseDetailList = srv.GetWarehouseDetailList(warehouseCode);
             dataGridView2.DataSource = warehouseDetailList;
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            productCode = dataGridView2[2, e.RowIndex].Value.ToString();
+
+            lotDetailList = srv.GetLotDetailList(productCode);
+            dataGridView3.DataSource = lotDetailList;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -118,5 +135,7 @@ namespace DESK_MES
                 return;
             }
         }
+
+
     }
 }

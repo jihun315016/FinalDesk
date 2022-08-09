@@ -22,7 +22,16 @@ namespace DESK_WEB.Controllers
             return View();
         }
 
-        // 
+        public ActionResult Login()
+        {
+            return PartialView();
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 메뉴 리스트 동적 할당
+        /// </summary>
+        /// <returns></returns>
         public ActionResult GetMenuList()
         {
             string url = $"{baseUrl}api/Menu/Menu";

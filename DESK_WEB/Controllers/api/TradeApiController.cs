@@ -15,19 +15,27 @@ namespace DESK_WEB.Controllers.api
     [RoutePrefix("api/Trade")]
     public class TradeApiController : ApiController
     {
+        /// <summary>
+        /// Author : 강지훈
+        /// DB에서 매입 데이터 조회 후 요청 대상에 응답 데이터 전달
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
         //https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
         [Route("Purchase")]
         public IHttpActionResult GetPurchaseList(string startDate, string endDate, string keyword = "")
         {
             try
             {
-                    TradeDAC dac = new TradeDAC();
+                TradeDAC dac = new TradeDAC();
                 List<WebPurchaseVO> list = dac.GetPurchaseList(startDate, endDate, keyword);
 
                 ResMessage<List<WebPurchaseVO>> result = new ResMessage<List<WebPurchaseVO>>()
                 {
                     ErrCode = (list == null) ? -9 : 0,
-                    ErrMsg = (list == null) ? "조회중 오류발생" : "S",
+                    ErrMsg = (list == null) ? "조회중 오류 발생" : "S",
                     Data = list
                 };
 
@@ -49,37 +57,49 @@ namespace DESK_WEB.Controllers.api
                     ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
                 });
             }
+        }
 
-            //try
-            //{
-            //    TradeDAC dac = new TradeDAC();
-            //    List<WebPurchaseVO> list = dac.GetPurchaseList(startDate, endDate, keyword);
+        /// <summary>
+        /// Author : 강지훈
+        /// DB에서 매입 데이터 조회 후 요청 대상에 응답 데이터 전달
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        [Route("Order")]
+        public IHttpActionResult GetOrderList(string startDate, string endDate, string keyword = "")
+        {
+            try
+            {
+                TradeDAC dac = new TradeDAC();
+                List<WebOrderVO> list = dac.GetOrderList(startDate, endDate, keyword);
 
-            //    ResMessage<List<WebPurchaseVO>> result = new ResMessage<List<WebPurchaseVO>>()
-            //    {
-            //        ErrCode = (list == null) ? -9 : 0,
-            //        ErrMsg = (list == null) ? "조회중 오류발생" : "S",
-            //        Data = list
-            //    };
+                ResMessage<List<WebOrderVO>> result = new ResMessage<List<WebOrderVO>>()
+                {
+                    ErrCode = (list == null) ? -9 : 0,
+                    ErrMsg = (list == null) ? "조회중 오류 발생" : "S",
+                    Data = list
+                };
 
-            //    return Ok(result);
-            //}
-            //catch (Exception err)
-            //{
-            //    LoggingMsgVO msg = new LoggingMsgVO()
-            //    {
-            //        Msg = err.Message,
-            //        StackTrace = err.StackTrace,
-            //        Source = err.Source
-            //    };
-            //    LoggingUtil.LoggingError(msg);
+                return Ok(result);
+            }
+            catch (Exception err)
+            {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
 
-            //    return Ok(new ResMessage()
-            //    {
-            //        ErrCode = -9,
-            //        ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
-            //    });
-            //}
+                return Ok(new ResMessage()
+                {
+                    ErrCode = -9,
+                    ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
+                });
+            }
         }
     }
 }
