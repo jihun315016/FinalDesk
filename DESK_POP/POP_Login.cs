@@ -42,6 +42,7 @@ namespace DESK_POP
                 {
                     lblChk.Visible = false;
                     userVO = resresult.Data;
+                    ((POP_Main)this.Owner).userInfo = userVO;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -55,23 +56,30 @@ namespace DESK_POP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Hi", "hii", MessageBoxButtons.OK) == DialogResult.OK)
+            try
             {
-                txtID.Text = txtCopy1.Text = "";
-            }
-            ResMessage<PopVO> resresult = serv.GetAsyncT<ResMessage<PopVO>>(txtID.Text);
+                if (MessageBox.Show("Hi", "hii", MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    txtID.Text = txtCopy1.Text = "";
+                }
+                ResMessage<PopVO> resresult = serv.GetAsyncT<ResMessage<PopVO>>(txtID.Text);
 
-            if (resresult.ErrCode == 0)
-            {
-                lblChk.Visible = false;
-                userVO = resresult.Data;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                if (resresult.ErrCode == 0)
+                {
+                    lblChk.Visible = false;
+                    userVO = resresult.Data;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    txtID.Text = txtCopy1.Text = "";
+                    lblChk.Visible = true;
+                }
             }
-            else
+            catch(Exception err)
             {
-                txtID.Text = txtCopy1.Text = "";
-                lblChk.Visible = true;
+                throw err;
             }
         }
 

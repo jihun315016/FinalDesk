@@ -677,6 +677,7 @@ namespace DESK_POP
             // 
             // btnStart
             // 
+            this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnStart.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnStart.ForeColor = System.Drawing.Color.Lime;
@@ -689,6 +690,7 @@ namespace DESK_POP
             // 
             // btnStop
             // 
+            this.btnStop.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnStop.BackColor = System.Drawing.SystemColors.ControlText;
             this.btnStop.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnStop.ForeColor = System.Drawing.Color.Red;
@@ -701,6 +703,7 @@ namespace DESK_POP
             // 
             // btnEnd
             // 
+            this.btnEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnd.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnEnd.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnEnd.ForeColor = System.Drawing.Color.DarkOrange;

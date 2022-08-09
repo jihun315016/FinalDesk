@@ -41,6 +41,8 @@ namespace DESK_WEB.Models
         public int Create_User_No { get; set; }
         public string Update_Time { get; set; }
         public int Update_User_No { get; set; }
+        //추가(쿼리로)
+        public string Operation_Name { get; set; }
 
     }
 }

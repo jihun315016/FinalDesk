@@ -14,6 +14,8 @@ namespace DESK_POP
     public partial class ucWorkGroup : UserControl
     {
         PopVO orderDetail;
+        PopVO workDetail;
+        ServiceHelper serv;
         int cnt; //안써도 될듯
         public int OrderCount { get; set; }
         public ucWorkGroup(PopVO order)
@@ -26,11 +28,24 @@ namespace DESK_POP
         {
             gBox.Text = $"작업{OrderCount}";
             txtWkCode.Text = orderDetail.Work_Code;
+            //DB
+            serv = new ServiceHelper("api/Pop/Detail");
+            ResMessage<PopVO> resresult = serv.GetAsyncT<ResMessage<PopVO>>(orderDetail.Work_Code);
+            if (resresult.ErrCode == 0)
+            {
+                workDetail = resresult.Data;
+
+            }
+            else
+            {
+                MessageBox.Show(resresult.ErrMsg);
+            }
+            //
             txtOperation.Text = orderDetail.Operation_Name;
-            txtEquipment.Text = orderDetail.Equipment_Name;
-            dtpWork.Value = DateTime.Now;
-            txtWStatus.Text = orderDetail.Work_Status;
-            txtProductYN.Text = ""; //이거 테이블 확인해보기
+            txtEquipment.Text = orderDetail.Equipment_Name; //이건 있음
+            dtpWork.Value = Convert.ToDateTime(orderDetail.Start_Due_Date);
+            txtWStatus.Text = orderDetail.Work_State;
+            txtProductYN.Text = orderDetail.Material_Lot_Input_State; //이거 테이블 확인해보기
         }
         //해당 작업 검색후 진행 화면으로 전송하기
         private void button2_Click(object sender, EventArgs e)
