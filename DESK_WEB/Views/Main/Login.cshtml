@@ -6,7 +6,7 @@
             <td><input type="text" size="7" style="margin-right: 10px; height: 23px" /></td>
             <td style="width: 30px">PW</td>
             <td><input type="text" size="7" style="margin-right: 10px; height: 23px" /></td>
-            <td><input type="submit" value="로그인" style="height: 23px; padding-top: 0px" /></td>
+            <td><input type="submit" value="로그인" style="height: 23px; padding-top: 0px" onclick="checkLogin();" /></td>
         </tr>
     </table>
 }
@@ -14,3 +14,10 @@ else
 {
     <h2>Session["user"]</h2>
 }
+
+<script>
+    function checkLogin() {
+        alert("Hello");
+        // 로그인 체크 컨트롤러를 호출하여 결과에 따라 세션 저장
+    }
+</script>
