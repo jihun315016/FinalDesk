@@ -2062,6 +2062,7 @@
     <Compile Include="Models\DTO\PopVO.cs" />
     <Compile Include="Models\DTO\ResMessage.cs" />
     <Compile Include="Models\DTO\WarehouseVO.cs" />
+    <Compile Include="Models\DTO\WebOrderVO.cs" />
     <Compile Include="Models\DTO\WebPurchaseVO.cs" />
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
