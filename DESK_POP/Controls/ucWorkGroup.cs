@@ -44,8 +44,8 @@ namespace DESK_POP
             txtOperation.Text = orderDetail.Operation_Name;
             txtEquipment.Text = orderDetail.Equipment_Name; //이건 있음
             dtpWork.Value = Convert.ToDateTime(orderDetail.Start_Due_Date);
-            txtWStatus.Text = orderDetail.Work_State;
-            txtProductYN.Text = orderDetail.Material_Lot_Input_State; //이거 테이블 확인해보기
+            txtWStatus.Text = orderDetail.Work_State.ToString();
+            txtProductYN.Text = orderDetail.Material_Lot_Input_State.ToString(); //이거 테이블 확인해보기
         }
         //해당 작업 검색후 진행 화면으로 전송하기
         private void button2_Click(object sender, EventArgs e)
