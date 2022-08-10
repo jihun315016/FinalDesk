@@ -23,8 +23,25 @@ namespace DESK_WEB.Controllers
             return View();
         }
 
-        public ActionResult CheckLogin(int User_No, string User_Pwd)
+        public ActionResult CheckLogin(UserVO user)
         {
+            string url = $"{baseUrl}api/Menu/Login";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage resMsg = client.PostAsJsonAsync(url, user).Result;
+            if (resMsg.IsSuccessStatusCode)
+            {
+                string resStr = resMsg.Content.ReadAsStringAsync().Result;
+                ResMessage<bool> res = JsonConvert.DeserializeObject<ResMessage<bool>>(resStr);
+
+                if (res.Data)
+                {
+                    // 로그인 성공, 리다이렉션
+                }
+                else
+                {
+                    // 로그인 실패 처리
+                }
+            }
             return View();
         }
 

@@ -1,4 +1,4 @@
-﻿using DESK_DTO;
+﻿using DESK_WEB.Models.DTO;
 using DESK_WEB.Utility;
 using System;
 using System.Collections.Generic;
@@ -52,15 +52,15 @@ namespace DESK_WEB.Models.DAC
         /// <param name="userNo"></param>
         /// <param name="userPwd"></param>
         /// <returns></returns>
-        public bool CheckLogin(string userNo, string userPwd)
+        public bool CheckLogin(UserVO user)
         {
             string sql = @"SELECT count(*)
                             FROM TB_USER
                             WHERE User_No=@User_No AND User_Pwd=@User_Pwd AND User_Group_No='1001' ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@User_No", userNo);
-            cmd.Parameters.AddWithValue("@User_Pwd", userPwd);
+            cmd.Parameters.AddWithValue("@User_No", user.User_No);
+            cmd.Parameters.AddWithValue("@User_Pwd", user.User_Pwd);
             int iRow = Convert.ToInt32(cmd.ExecuteScalar());
             return iRow > 0;
         }
