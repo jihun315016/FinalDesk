@@ -44,5 +44,25 @@ namespace DESK_WEB.Models.DAC
             reader.Close();
             return list;
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 로그인 체크 후 결과 반환
+        /// </summary>
+        /// <param name="userNo"></param>
+        /// <param name="userPwd"></param>
+        /// <returns></returns>
+        public bool CheckLogin(string userNo, string userPwd)
+        {
+            string sql = @"SELECT count(*)
+                            FROM TB_USER
+                            WHERE User_No=@User_No AND User_Pwd=@User_Pwd AND User_Group_No='1001' ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@User_No", userNo);
+            cmd.Parameters.AddWithValue("@User_Pwd", userPwd);
+            int iRow = Convert.ToInt32(cmd.ExecuteScalar());
+            return iRow > 0;
+        }
     }
 }   
