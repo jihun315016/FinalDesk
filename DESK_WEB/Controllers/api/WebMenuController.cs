@@ -59,11 +59,11 @@ namespace DESK_WEB.Controllers.api
             try
             {
                 bool result = dac.CheckLogin(user);
-                ResMessage<bool> res = new ResMessage<bool>()
+                ResMessage<UserVO> res = new ResMessage<UserVO>()
                 {
-                    ErrCode = result ? -9 : 0,
-                    ErrMsg = result ? "조회 중 오류 발생" : "S",
-                    Data = result
+                    ErrCode = !result ? -9 : 0,
+                    ErrMsg = !result ? "조회 중 오류 발생" : "S",
+                    Data = user
                 };
                 return Ok(res);
             }

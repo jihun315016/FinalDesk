@@ -31,11 +31,11 @@ namespace DESK_WEB.Controllers
             if (resMsg.IsSuccessStatusCode)
             {
                 string resStr = resMsg.Content.ReadAsStringAsync().Result;
-                ResMessage<bool> res = JsonConvert.DeserializeObject<ResMessage<bool>>(resStr);
+                ResMessage<UserVO> res = JsonConvert.DeserializeObject<ResMessage<UserVO>>(resStr);
 
-                if (res.Data)
+                if (res.ErrCode == 0)
                 {
-                    // 로그인 성공, 리다이렉션
+                    return Redirect("index");
                 }
                 else
                 {
