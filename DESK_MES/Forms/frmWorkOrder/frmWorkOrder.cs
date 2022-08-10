@@ -68,6 +68,7 @@ namespace DESK_MES
 
             LoadData();
 
+            groupBoxW.Visible = false;
         }
         private void LoadData()
         {
@@ -80,6 +81,8 @@ namespace DESK_MES
             if (e.RowIndex < 0) return;
             ProductionCode = Convert.ToInt32(dataGridView1[0, e.RowIndex].Value);
             productCode = dataGridView1[2, e.RowIndex].Value.ToString();
+
+            groupBoxW.Visible = false;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -94,6 +97,9 @@ namespace DESK_MES
             pop.ShowDialog();
         }
 
-
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            groupBoxW.Visible = true;
+        }
     }
 }

@@ -283,10 +283,10 @@ namespace DESK_MES
             this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(28, 336);
+            this.dataGridView3.Location = new System.Drawing.Point(28, 338);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(289, 380);
+            this.dataGridView3.Size = new System.Drawing.Size(289, 365);
             this.dataGridView3.TabIndex = 29;
             // 
             // txtType

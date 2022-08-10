@@ -29,6 +29,39 @@ namespace DESK_MES
             }
         }
 
+        public List<ProductVO> GetBomListForRegisert(string code) // BOM 정보 가져오기(등록용)
+        {
+            try
+            {
+                List<ProductVO> list = new List<ProductVO>();
+
+                string sql = @"WITH BOM AS
+                               (
+                                    SELECT Product_Code, Product_Name, '1' as Qty
+                                    FROM [dbo].[TB_PRODUCT]
+                                    WHERE Product_Code = @Product_Code
+                                    UNION ALL
+                                    SELECT B.Child_Product_Code AS Product_Code, P.Product_Name, Qty
+                                    FROM TB_BOM B
+                                    INNER JOIN [dbo].[TB_PRODUCT] P ON B.Child_Product_Code=P.Product_Code
+                                    WHERE Parent_Product_Code = @Product_Code
+                               )
+                               select * from BOM";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("Product_Code", code);
+                    list = DBHelpler.DataReaderMapToList<ProductVO>(cmd.ExecuteReader());
+                }
+                return list;
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
+
         public List<OperationVO> GetOperationList(string code) // 공정 콤보박스
         {
             try

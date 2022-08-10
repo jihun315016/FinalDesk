@@ -19,6 +19,15 @@ namespace DESK_MES
             return result;
         }
 
+        public List<ProductVO> GetBomListForRegisert(string code)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            List<ProductVO> result = dac.GetBomListForRegisert(code);
+            dac.Dispose();
+
+            return result;
+        }
+
         public List<OperationVO> GetOperationList(string code)
         {
             WorkOrderDAC dac = new WorkOrderDAC();

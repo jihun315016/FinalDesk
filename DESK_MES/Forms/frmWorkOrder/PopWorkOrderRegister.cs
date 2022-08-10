@@ -22,7 +22,7 @@ namespace DESK_MES
         string productCode;
         int baseQty;
 
-        List<ProductVO> isBomProductList;
+        List<ProductVO> BomProductList;
         List<ManufactureVO> manufactureInfo;
 
 
@@ -59,11 +59,11 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "반제품 보관창고코드", "Halb_Save_Warehouse_Code", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산품 보관창고코드", "Production_Save_WareHouse_Code", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업수량", "Work_Plan_Qty", colWidth: 150, isVisible: false);
+
             // 해당 품목에 대한 BOM 정보 불러오기
-            //List<ProductVO> bomList = productSrv.GetChildParentProductList(productCode);
-            List<ProductVO> bomList = productSrv.GetChildParentProductList(productCode).Where(p => p.Product_Type != "ROH").ToList();
-            dataGridView1.DataSource = bomList.Where(b => b.Bom_Type == "자품목").ToList();
-            //dataGridView1.DataSource = bomList;
+
+            BomProductList = workSrv.GetBomListForRegisert(productCode);
+            dataGridView1.DataSource = BomProductList;
 
             // 해당 생산계획코드에 대한 정보 불러오기
             manufactureInfo = mSrv.GetmanufactureList().Where(p => p.Production_Code == ProductionCode).ToList();
@@ -94,7 +94,33 @@ namespace DESK_MES
             
             baseQty = Convert.ToInt32(dataGridView1[7, e.RowIndex].Value); // bom 구성수량
 
-            if (productCode.Contains("HALB"))
+            if(productCode.Contains("FERT"))
+            {
+                List<OperationVO> operation = workSrv.GetOperationList(productCode);
+                cboOperation.DisplayMember = "Operation_Name";
+                cboOperation.ValueMember = "Operation_No";
+                cboOperation.DataSource = operation;
+
+                // 작업 그룹 정보
+                List<UserGroupVO> workGroup = workSrv.GetWorkGroupList();
+                cboWorkGroup.DisplayMember = "User_Group_Name";
+                cboWorkGroup.ValueMember = "User_Group_No";
+                cboWorkGroup.DataSource = workGroup;
+
+                cboMaterialLotName.DataSource = null;
+                cboMaterialLotName.Enabled = false;
+
+                cboselectMaterialLot.DataSource = null;
+                cboselectMaterialLot.Enabled = false;
+
+                cboOutputWarehouse.DataSource = null;
+                cboOutputWarehouse.Enabled = false;
+
+                cboInputWarehouse.DataSource = null;
+                cboInputWarehouse.Enabled = false;
+            }
+
+            else if (productCode.Contains("HALB"))
             {
                 // 공정(반제품이 아닐 시 선택 불가)
                 List<OperationVO> operation = workSrv.GetOperationList(productCode);
@@ -114,6 +140,12 @@ namespace DESK_MES
                 cboInputWarehouse.DisplayMember = "Warehouse_Name";
                 cboInputWarehouse.ValueMember = "Warehouse_Code";
                 cboInputWarehouse.DataSource = InputWarehouse;
+
+                // 자재창고 콤보박스
+                List<PurchaseDetailVO> OutWarehouse = workSrv.GetOutputWarehouse();
+                cboOutputWarehouse.DisplayMember = "Warehouse_Name";
+                cboOutputWarehouse.ValueMember = "Warehouse_Code";
+                cboOutputWarehouse.DataSource = OutWarehouse;
             }
             else
             {
@@ -129,12 +161,6 @@ namespace DESK_MES
                 cboInputWarehouse.DataSource = null;
                 cboInputWarehouse.Enabled = false;
             }
-            
-            // 자재창고 콤보박스
-            List<PurchaseDetailVO> OutWarehouse = workSrv.GetOutputWarehouse();
-            cboOutputWarehouse.DisplayMember = "Warehouse_Name";
-            cboOutputWarehouse.ValueMember = "Warehouse_Code";
-            cboOutputWarehouse.DataSource = OutWarehouse;
 
 
         }
