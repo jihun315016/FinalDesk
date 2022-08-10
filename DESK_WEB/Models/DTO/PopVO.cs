@@ -19,8 +19,8 @@ namespace DESK_WEB.Models
         public int Production_Equipment_Code { get; set; }
         public string Equipment_Name { get; set; }
         public string Start_Due_Date { get; set; }
-        public string Work_State { get; set; }
-        public string Material_Lot_Input_State { get; set; }
+        public int Work_State { get; set; }
+        public int Material_Lot_Input_State { get; set; }
         //pop work All
         public string Work_Code { get; set; }
         public string Product_Code { get; set; }
@@ -43,6 +43,13 @@ namespace DESK_WEB.Models
         public int Update_User_No { get; set; }
         //추가(쿼리로)
         public string Operation_Name { get; set; }
+        //추가
+        //public int Work_State { get; set; } int 로 변경
+        //public int Material_Lot_Input_State { get; set; } int 변경
+        public string Work_State_Name { get; set; }
+        public int Work_Order_State { get; set; }
+        public string Work_Order_State_Name { get; set; }
+        public string Material_Lot_Input_State_Name { get; set; }
 
     }
 }

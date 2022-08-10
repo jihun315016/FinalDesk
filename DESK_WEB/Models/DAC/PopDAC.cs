@@ -93,19 +93,27 @@ Work_State,c1.Name as Work_State_Name,Work_Order_State,c2.Name as Work_Order_Sta
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(strConn);
-                    cmd.CommandText = @"select Production_No, Work_Code, Product_Code, Production_Operation_Code, Production_Equipment_Code, Halb_Save_Warehouse_Code,
-		                                        Input_Material_Code, Input_Material_Qty, Halb_Material_Qty, Work_Group_Code, Production_Save_Warehouse_Code, Work_Plan_Qty, 
+                    cmd.CommandText = @"select Production_No, Work_Code, w.Product_Code,p1.Product_Name, Production_Operation_Code,Operation_Name, Production_Equipment_Code,Equipment_Name, Halb_Save_Warehouse_Code,
+		                                        Input_Material_Code,p2.Product_Name, Input_Material_Qty, Halb_Material_Qty, Work_Group_Code as User_Group_No, [User_Group_Name],Production_Save_Warehouse_Code, Work_Plan_Qty, 
 		                                        Work_Complete_Qty, convert(nvarchar(20),
 Work_Paln_Date,20)as Work_Paln_Date, convert(nvarchar(20),
 Start_Due_Date,20)as Start_Due_Date, convert(nvarchar(20),
 Start_Date,20)as Start_Date, convert(nvarchar(20),
 Complete_Due_Date,20)as Complete_Due_Date, convert(nvarchar(20),
 Complete_Date,20)as Complete_Date, convert(nvarchar(20),
-Work_Time,20)as Work_Time, Work_State, 
-		                                        Material_Lot_Input_State, convert(nvarchar(20),
-Create_Time,20)as Create_Time, Create_User_No, convert(nvarchar(20),
-Update_Time,20)as Update_Time, Update_User_No
-                                        from [dbo].[TB_WORK]
+Work_Time,20)as Work_Time, Work_State,c1.Name as Work_State_Name,Work_Order_State,c2.Name as Work_Order_State_Name, Material_Lot_Input_State,c3.Name as Material_Lot_Input_State_Name,
+convert(nvarchar(20),
+w.Create_Time,20)as Create_Time, w.Create_User_No, convert(nvarchar(20),
+w.Update_Time,20)as Update_Time, w.Update_User_No
+                                        from [dbo].[TB_WORK] w left join TB_COMMON_CODE c1 on w.Work_State = c1.Code
+													   left join TB_COMMON_CODE c2 on w.Work_Order_State = c2.Code
+													   left join TB_COMMON_CODE c3 on w.Material_Lot_Input_State = c3.Code
+													   inner join [dbo].[TB_USER_GROUP] ug on w.[Work_Group_Code]=ug.User_Group_No
+                                                       inner join [dbo].[TB_EQUIPMENT] eq on w.Production_Equipment_Code = eq.[Equipment_No]
+													   inner join TB_OPERATION o on w.Production_Operation_Code = o.Operation_No
+													   left join TB_PRODUCT p1 on w.Product_Code = p1.Product_Code
+													   left join TB_MATERIAL_LOT m on w.Input_Material_Code = m.Lot_Code
+													   inner join TB_PRODUCT p2 on m.Product_Code = p2.Product_Code
                                         where Work_Code = @Work_Code";
                     cmd.Parameters.AddWithValue("@Work_Code", workCode);
                     cmd.Connection.Open();
