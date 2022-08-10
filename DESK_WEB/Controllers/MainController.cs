@@ -14,7 +14,8 @@ namespace DESK_WEB.Controllers
 {
     public class MainController : Controller
     {
-        string baseUrl = ConfigurationManager.AppSettings["apiURL"];
+        //string baseUrl = ConfigurationManager.AppSettings["apiURL"];
+        static string baseUrl = ConfigurationManager.AppSettings["localURL"];
 
         // GET: Main
         public ActionResult Index()
@@ -24,6 +25,7 @@ namespace DESK_WEB.Controllers
 
         public ActionResult Login()
         {
+            ViewBag.Url = baseUrl;
             return PartialView();
         }
 
