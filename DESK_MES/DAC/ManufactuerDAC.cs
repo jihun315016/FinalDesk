@@ -173,5 +173,32 @@ namespace DESK_MES
                 return null;
             }
         }
+
+        public bool UpdateManufactureState(ManufactureVO plan)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = @"Update [dbo].[TB_RPODUCTION] set Production_Plan_Status=@Production_Plan_Status,
+                                        Update_Time=@Update_Time,
+                                        Update_User_No=@Update_User_No
+                                        where Production_Code=@Production_Code";
+
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@Production_Code", plan.Production_Code);
+                    cmd.Parameters.AddWithValue("@Production_Plan_Status", plan.Production_Plan_Status);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", plan.Update_User_No);
+                    cmd.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

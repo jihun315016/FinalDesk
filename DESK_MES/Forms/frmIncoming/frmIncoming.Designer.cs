@@ -35,6 +35,7 @@ namespace DESK_MES
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.txtModiname = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtModidate = new System.Windows.Forms.TextBox();
@@ -94,6 +95,7 @@ namespace DESK_MES
             this.panel7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -118,7 +120,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1184, 661);
+            this.panel1.Size = new System.Drawing.Size(1184, 761);
             this.panel1.TabIndex = 2;
             // 
             // panel7
@@ -129,7 +131,7 @@ namespace DESK_MES
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(1184, 389);
+            this.panel7.Size = new System.Drawing.Size(1184, 489);
             this.panel7.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -145,11 +147,12 @@ namespace DESK_MES
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1181, 389);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1181, 489);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.dataGridView3);
             this.groupBox4.Controls.Add(this.txtModiname);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.txtModidate);
@@ -173,10 +176,21 @@ namespace DESK_MES
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(832, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(346, 383);
+            this.groupBox4.Size = new System.Drawing.Size(346, 483);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(27, 402);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 23;
+            this.dataGridView3.Size = new System.Drawing.Size(289, 305);
+            this.dataGridView3.TabIndex = 93;
             // 
             // txtModiname
             // 
@@ -428,7 +442,7 @@ namespace DESK_MES
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(813, 383);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(813, 483);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // groupBox3
@@ -437,7 +451,7 @@ namespace DESK_MES
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(807, 180);
+            this.groupBox3.Size = new System.Drawing.Size(807, 230);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "입고 목록";
@@ -449,7 +463,7 @@ namespace DESK_MES
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(801, 156);
+            this.dataGridView1.Size = new System.Drawing.Size(801, 206);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -457,9 +471,9 @@ namespace DESK_MES
             // 
             this.groupBox5.Controls.Add(this.dataGridView2);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(3, 199);
+            this.groupBox5.Location = new System.Drawing.Point(3, 249);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(807, 181);
+            this.groupBox5.Size = new System.Drawing.Size(807, 231);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "입고 상세";
@@ -471,8 +485,9 @@ namespace DESK_MES
             this.dataGridView2.Location = new System.Drawing.Point(3, 21);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(801, 157);
+            this.dataGridView2.Size = new System.Drawing.Size(801, 207);
             this.dataGridView2.TabIndex = 2;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // panel6
             // 
@@ -561,9 +576,9 @@ namespace DESK_MES
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.Size = new System.Drawing.Size(60, 17);
             this.label6.TabIndex = 42;
-            this.label6.Text = "고객사";
+            this.label6.Text = "거래처명";
             // 
             // textBox2
             // 
@@ -667,6 +682,7 @@ namespace DESK_MES
             this.button3.TabIndex = 38;
             this.button3.Text = "   엑셀";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // imageList2
             // 
@@ -708,6 +724,7 @@ namespace DESK_MES
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "   검색";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // imageList1
             // 
@@ -728,6 +745,7 @@ namespace DESK_MES
             this.btnReset.Size = new System.Drawing.Size(27, 27);
             this.btnReset.TabIndex = 11;
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnOpenDetail
             // 
@@ -795,7 +813,7 @@ namespace DESK_MES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -807,6 +825,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -885,5 +904,6 @@ namespace DESK_MES
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtModidate;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }

@@ -33,6 +33,9 @@ namespace DESK_MES
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             srv = new WarehouseService();
 
+            comboBox1.Items.AddRange(new string[] { "선택", "창고명", "창고유형" });
+            comboBox1.SelectedIndex = 0;
+
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고코드", "Warehouse_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고명", "Warehouse_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -136,6 +139,81 @@ namespace DESK_MES
             }
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            List<WarehouseVO> list = warehouseList.Where(p => 1 == 1).ToList();
+            // 상세 검색으로 필터링
+            if (panel5.Visible)
+            {
+                //if (!string.IsNullOrWhiteSpace(txtOrderCode.Text.Trim()))
+                //    list = list.Where(p => p.Client_Code.Contains(txtClientCode.Text.ToLower())).ToList();
 
+                //if (!string.IsNullOrWhiteSpace(txtClientName.Text.Trim()))
+                //    list = list.Where(p => p.Client_Name.ToLower().Contains(txtClientName.Text.ToLower())).ToList();
+
+                //if (cboOrderState.SelectedIndex > 0)
+                //    list = list.Where(p => p.Order_State == cboOrderState.SelectedValue.ToString().Split('_')[1]).ToList();
+            }
+            // 일반 검색으로 필터링
+            else
+            {
+                // 거래처코드 검색
+                if (comboBox1.SelectedIndex == 1)
+                    list = list.Where(p => p.Warehouse_Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+
+                // 창고유형 검색
+                else if (comboBox1.SelectedIndex == 2)
+                    list = list.Where(p => p.Warehouse_Type.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+            }
+
+            dataGridView1.DataSource = list;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            warehouseList = srv.GetAllWarehouse();
+            comboBox1.SelectedIndex = 0;
+            textBox1.Text = string.Empty;
+            comboBox1.Enabled = textBox1.Enabled = true;
+            panel5.Visible = false;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = warehouseList;
+
+            dataGridView2.DataSource = null;
+            dataGridView3.DataSource = null;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //엑셀
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "Execl Files(*.xls)|*.xls";
+            dlg.Title = "엑셀파일로 내보내기";
+
+            List<WarehouseVO> list = dataGridView1.DataSource as List<WarehouseVO>;
+            if (list == null)
+            {
+                MessageBox.Show("조회 항목이 없습니다.");
+                return;
+            }
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                ExcelUtil excel = new ExcelUtil();
+                List<WarehouseVO> output = list;
+
+                string[] columnImport = { "Warehouse_Code", "Warehouse_Name", "Warehouse_Type", "Warehouse_Address"};
+                string[] columnName = { "창고코드", "창고명", "창고유형", "창고주소" };
+
+                if (excel.ExportList(output, dlg.FileName, columnImport, columnName))
+                {
+                    MessageBox.Show("엑셀 다운로드 완료");
+                }
+                else
+                {
+                    MessageBox.Show("엑셀 다운 실패");
+                }
+            }
+        }
     }
 }

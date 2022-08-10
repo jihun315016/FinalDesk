@@ -24,7 +24,7 @@ namespace DESK_MES
 
             // CUS : 매출처(제품)
             // VEN : 매입처(원자재)
-            string[] type = new string[] { "CUS", "VEN" };
+            string[] type = new string[] { "선택", "CUS", "VEN" };
             comboBox1.Items.AddRange(type);
             comboBox1.SelectedIndex = 0;
         }

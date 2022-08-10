@@ -54,5 +54,14 @@ namespace DESK_MES
 
             return result;
         }
+
+        public bool UpdateManufactureState(ManufactureVO plan)
+        {
+            ManufactuerDAC dac = new ManufactuerDAC();
+            bool result = dac.UpdateManufactureState(plan);
+            dac.Dispose();
+
+            return result;
+        }
     }
 }

@@ -30,14 +30,16 @@ namespace DESK_MES
 
             textBox1.Text = info.Client_Code;
             textBox2.Text = info.Client_Name;
-            textBox3.Text = info.Client_Type;
+            comboBox1.Text = info.Client_Type;
             textBox5.Text = info.Client_Number;
             textBox6.Text = info.Client_Phone;
+
+ 
 
         }
         private void PopClientModify_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace DESK_MES
             {
                 Client_Code = textBox1.Text,
                 Client_Name = textBox2.Text,
-                Client_Type = textBox3.Text,
+                Client_Type = comboBox1.Text,
                 Client_Phone = textBox6.Text,
                 Update_User_No = user.User_No
             };

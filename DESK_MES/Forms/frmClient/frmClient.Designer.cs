@@ -32,14 +32,15 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClient));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtClientCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
+            this.cboClientType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.dtpModifyTime = new System.Windows.Forms.DateTimePicker();
             this.dtpCreateTime = new System.Windows.Forms.DateTimePicker();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -105,6 +105,14 @@ namespace DESK_MES
             this.groupBox1.Controls.SetChildIndex(this.btnModify, 0);
             this.groupBox1.Controls.SetChildIndex(this.btnExcel, 0);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
@@ -117,10 +125,10 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.txtClientCode);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.txtClientName);
+            this.groupBox2.Controls.Add(this.cboClientType);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -130,12 +138,12 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // textBox10
+            // txtClientCode
             // 
-            this.textBox10.Location = new System.Drawing.Point(91, 24);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 25);
-            this.textBox10.TabIndex = 32;
+            this.txtClientCode.Location = new System.Drawing.Point(91, 24);
+            this.txtClientCode.Name = "txtClientCode";
+            this.txtClientCode.Size = new System.Drawing.Size(100, 25);
+            this.txtClientCode.TabIndex = 32;
             // 
             // label5
             // 
@@ -146,20 +154,20 @@ namespace DESK_MES
             this.label5.TabIndex = 31;
             this.label5.Text = "거래처코드";
             // 
-            // textBox9
+            // txtClientName
             // 
-            this.textBox9.Location = new System.Drawing.Point(279, 24);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 25);
-            this.textBox9.TabIndex = 30;
+            this.txtClientName.Location = new System.Drawing.Point(279, 24);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(100, 25);
+            this.txtClientName.TabIndex = 30;
             // 
-            // comboBox3
+            // cboClientType
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(485, 24);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(108, 25);
-            this.comboBox3.TabIndex = 27;
+            this.cboClientType.FormattingEnabled = true;
+            this.cboClientType.Location = new System.Drawing.Point(485, 24);
+            this.cboClientType.Name = "cboClientType";
+            this.cboClientType.Size = new System.Drawing.Size(108, 25);
+            this.cboClientType.TabIndex = 27;
             // 
             // label7
             // 
@@ -223,6 +231,15 @@ namespace DESK_MES
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "상세 정보";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(25, 372);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(176, 17);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "CUS : 매출처 / VEN : 매입처";
             // 
             // dtpModifyTime
             // 
@@ -517,15 +534,6 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 372);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(176, 17);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "CUS : 매출처 / VEN : 매입처";
-            // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -556,10 +564,10 @@ namespace DESK_MES
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtClientCode;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox txtClientName;
+        private System.Windows.Forms.ComboBox cboClientType;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

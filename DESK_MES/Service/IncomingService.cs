@@ -18,6 +18,14 @@ namespace DESK_MES
             return result;
         }
 
+        public List<PurchaseDetailVO> GetLotDetailList(string code)
+        {
+            IncomingDAC dac = new IncomingDAC();
+            List<PurchaseDetailVO> result = dac.GetLotDetailList(code);
+            dac.Dispose();
+
+            return result;
+        }
 
         public PurchaseDetailVO GetLastID()
         {

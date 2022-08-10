@@ -68,5 +68,13 @@ namespace DESK_MES
 
             return result;
         }
+        public bool UpdateOrderState(OrderVO order)
+        {
+            OrderDAC dac = new OrderDAC();
+            bool result = dac.UpdateOrderState(order);
+            dac.Dispose();
+
+            return result;
+        }
     }
 }

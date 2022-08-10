@@ -65,6 +65,29 @@ namespace DESK_MES
             }
         }
 
+        public List<PurchaseDetailVO> GetLotDetailList(string code)
+        {
+            try
+            {
+                string sql = @"select Lot_Code, Product_Name, Warehouse_Name
+                               from TB_MATERIAL_LOT ML
+                               inner join TB_PRODUCT P on ML.Product_Code=P.Product_Code
+                               inner join TB_WAREHOUSE W on ML.Warehouse_Code=W.Warehouse_Code
+                               where ML.Product_Code=@Product_Code";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Product_Code", code);
+
+                    return DBHelpler.DataReaderMapToList<PurchaseDetailVO>(cmd.ExecuteReader());
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
 
         public PurchaseDetailVO GetLastID() // 새롭게 등록할 LotID 가져오기
         {

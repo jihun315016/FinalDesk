@@ -33,11 +33,11 @@ namespace DESK_MES
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
             this.panel9 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cboOrderState = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboClientName = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtOrderCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -136,11 +136,19 @@ namespace DESK_MES
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
             // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.Images.SetKeyName(0, "새로고침.png");
             this.imageList1.Images.SetKeyName(1, "검색_1.png");
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel9
             // 
@@ -153,11 +161,11 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.cboOrderState);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cboClientName);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtOrderCode);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
@@ -170,13 +178,14 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox4
+            // cboOrderState
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(287, 61);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(108, 25);
-            this.comboBox4.TabIndex = 11;
+            this.cboOrderState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboOrderState.FormattingEnabled = true;
+            this.cboOrderState.Location = new System.Drawing.Point(287, 61);
+            this.cboOrderState.Name = "cboOrderState";
+            this.cboOrderState.Size = new System.Drawing.Size(108, 25);
+            this.cboOrderState.TabIndex = 11;
             // 
             // label8
             // 
@@ -187,13 +196,14 @@ namespace DESK_MES
             this.label8.TabIndex = 10;
             this.label8.Text = "||  확정여부";
             // 
-            // comboBox2
+            // cboClientName
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(91, 61);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(108, 25);
-            this.comboBox2.TabIndex = 7;
+            this.cboClientName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboClientName.FormattingEnabled = true;
+            this.cboClientName.Location = new System.Drawing.Point(91, 61);
+            this.cboClientName.Name = "cboClientName";
+            this.cboClientName.Size = new System.Drawing.Size(108, 25);
+            this.cboClientName.TabIndex = 7;
             // 
             // label6
             // 
@@ -204,12 +214,12 @@ namespace DESK_MES
             this.label6.TabIndex = 6;
             this.label6.Text = "거래처명";
             // 
-            // textBox2
+            // txtOrderCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(108, 25);
-            this.textBox2.TabIndex = 5;
+            this.txtOrderCode.Location = new System.Drawing.Point(91, 30);
+            this.txtOrderCode.Name = "txtOrderCode";
+            this.txtOrderCode.Size = new System.Drawing.Size(108, 25);
+            this.txtOrderCode.TabIndex = 5;
             // 
             // label5
             // 
@@ -664,6 +674,7 @@ namespace DESK_MES
             this.button3.TabIndex = 31;
             this.button3.Text = "   엑셀";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnModify
             // 
@@ -736,11 +747,11 @@ namespace DESK_MES
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cboOrderState;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboClientName;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtOrderCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;

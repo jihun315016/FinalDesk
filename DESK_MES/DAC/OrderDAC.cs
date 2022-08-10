@@ -290,5 +290,32 @@ namespace DESK_MES
                 }
             }
         }
+
+        public bool UpdateOrderState(OrderVO order)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = @"Update [dbo].[TB_ORDER] set Order_State=@Order_State,
+                                                                    Update_Time=@Update_Time,
+                                                                    Update_User_No=@Update_User_No
+                                        where Order_No=@Order_No";
+
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@Order_No", order.Order_No);
+                    cmd.Parameters.AddWithValue("@Order_State", order.Order_State);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", order.Update_User_No);
+                    cmd.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

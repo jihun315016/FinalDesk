@@ -71,5 +71,23 @@ namespace DESK_MES
 
             return result;
         }
+
+        public bool UpdatePurchaseOK(PurchaseVO order)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            bool result = dac.UpdatePurchaseOK(order);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool UpdatePurchaseCancle(PurchaseVO order)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            bool result = dac.UpdatePurchaseCancle(order);
+            dac.Dispose();
+
+            return result;
+        }
     }
 }

@@ -262,5 +262,62 @@ namespace DESK_MES
                 return false;
             }
         }
+
+
+        public bool UpdatePurchaseOK(PurchaseVO order)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = @"Update [dbo].[TB_PURCHASE] set Purchase_State=@Purchase_State,
+                                        Is_Incoming=@Is_Incoming,
+                                        Update_Time=@Update_Time,
+                                        Update_User_No=@Update_User_No
+                                        where Purchase_No=@Purchase_No";
+
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@Purchase_No", order.Purchase_No);
+                    cmd.Parameters.AddWithValue("@Purchase_State", order.Purchase_State);
+                    cmd.Parameters.AddWithValue("@Is_Incoming", order.Is_Incoming);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", order.Update_User_No);
+                    cmd.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    return false;
+                }
+            }
+
+        }
+        public bool UpdatePurchaseCancle(PurchaseVO order)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = @"Update [dbo].[TB_PURCHASE] set Purchase_State=@Purchase_State,
+                                            Update_Time=@Update_Time,
+                                            Update_User_No=@Update_User_No
+                                            where Purchase_No=@Purchase_No";
+
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@Purchase_No", order.Purchase_No);
+                    cmd.Parameters.AddWithValue("@Is_Incoming", order.Is_Incoming);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", order.Update_User_No);
+                    cmd.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
