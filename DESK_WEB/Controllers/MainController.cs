@@ -23,6 +23,11 @@ namespace DESK_WEB.Controllers
             return View();
         }
 
+        public ActionResult CheckLogin(int User_No, string User_Pwd)
+        {
+            return View();
+        }
+
         public ActionResult Login()
         {
             ViewBag.Url = baseUrl;

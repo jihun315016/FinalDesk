@@ -1,14 +1,17 @@
 ﻿@if(Session["user"] == null)
 {
-    <table>
-        <tr style="font-size: 15px">
-            <td style="width: 30px">ID</td>
-            <td><input type="text" size="8" style="margin-right: 10px; height: 23px" /></td>
-            <td style="width: 30px">PW</td>
-            <td><input type="password" size="8" style="margin-right: 10px; height: 23px" /></td>
-            <td><input type="submit" value="로그인" style="height: 23px; padding-top: 0px" onclick="checkLogin();" /></td>
-        </tr>
-    </table>
+    @using (Html.BeginForm("Index", "Main"))
+    {
+        <table>
+            <tr style="font-size: 15px">
+                <td style="width: 30px">ID</td>
+                <td><input type="text" name="id" size="8" style="margin-right: 10px; height: 23px" /></td>
+                <td style="width: 30px">PW</td>
+                <td><input type="password" name="pwd" size="8" style="margin-right: 10px; height: 23px" /></td>
+                <td><input type="submit" value="로그인" style="height: 23px; padding-top: 0px" onclick="checkLogin();" /></td>
+            </tr>
+        </table>
+    }
 }
 else
 {

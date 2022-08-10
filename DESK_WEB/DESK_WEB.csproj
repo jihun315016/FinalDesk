@@ -2061,6 +2061,7 @@
     <Compile Include="Models\DTO\MenuVO.cs" />
     <Compile Include="Models\DTO\PopVO.cs" />
     <Compile Include="Models\DTO\ResMessage.cs" />
+    <Compile Include="Models\DTO\UserVO.cs" />
     <Compile Include="Models\DTO\WarehouseVO.cs" />
     <Compile Include="Models\DTO\WebOrderVO.cs" />
     <Compile Include="Models\DTO\WebPurchaseVO.cs" />
