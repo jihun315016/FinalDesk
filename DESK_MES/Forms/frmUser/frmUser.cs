@@ -21,6 +21,7 @@ namespace DESK_MES
         string userName;
         string saveFileName;
         int selectUser;
+        int lastNum;
         bool flag = false;
         public frmUser()
         {
@@ -34,9 +35,10 @@ namespace DESK_MES
         {
             rdtWork.Checked = true;
             List<UserVO> list = srv.SelectUserList();
-            saveList = allList = list;
+            saveList = allList = list; 
+            deleteUserList = allList.FindAll((f) => f.Is_Delete.Equals("N"));
             dgvMain.DataSource = null;
-            dgvMain.DataSource = allList;
+            dgvMain.DataSource = deleteUserList;
         }
         /// <summary>
         /// 김준모/콤보박스 바인딩 메서드(UserVO)
@@ -82,6 +84,10 @@ namespace DESK_MES
             if (srv == null)
                 srv = new UserService();
             UserGroupService srvG = new UserGroupService();
+
+            UserVO userr = ((frmMain)this.MdiParent).userInfo;
+            userNO = userr.User_No;
+            userName = userr.User_Name;
 
             dtpCreate.Format = DateTimePickerFormat.Custom;
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
@@ -174,7 +180,11 @@ namespace DESK_MES
         //등록
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            PopUserResister pop = new PopUserResister(userNO, userName);
+            if (allList != null)
+                lastNum = allList.Last().User_No + 1;
+            else
+                lastNum = 0;
+            PopUserResister pop = new PopUserResister(lastNum, userNO, userName);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 BindingGdv();
@@ -484,8 +494,9 @@ namespace DESK_MES
             }
             else
             {
+                deleteUserList = allList.FindAll((f) => f.Is_Delete.Equals("N"));
                 dgvMain.DataSource = null;
-                dgvMain.DataSource = allList;
+                dgvMain.DataSource = deleteUserList;
             }
         }
     }

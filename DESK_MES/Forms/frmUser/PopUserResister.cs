@@ -18,8 +18,10 @@ namespace DESK_MES
         List<UserGroupVO> gList; //그룹 리스트
         int userNo; //유저
         string userName;
-        public PopUserResister(int userno, string username)
+        int lastNum;
+        public PopUserResister(int lastnum ,int userno, string username)
         {
+            lastNum = lastnum;
             userNo = userno;
             userName = username;
             InitializeComponent();
@@ -33,8 +35,11 @@ namespace DESK_MES
             gList = srvG.SelectGroupList();
 
             //var list =gList.GroupBy((f) => f.Auth_Name) as List<UserGroupVO>;
-
-            txtNo.Text = "";
+            if (lastNum == 0)
+                txtNo.Text = 10001.ToString();
+            else
+                txtNo.Text = lastNum.ToString();    
+            //사번
             txtNo.Enabled = false;
             txtName.Text = "";
             ComboBinding<UserGroupVO>(cboGroup, gList, "User_Group_Name", "User_Group_No");
