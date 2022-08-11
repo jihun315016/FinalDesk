@@ -36,24 +36,23 @@ namespace DESK_POP
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtWkCode = new System.Windows.Forms.TextBox();
+            this.dtpWorkStartDue = new System.Windows.Forms.DateTimePicker();
+            this.dtpWorkEndDue = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEquipment = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtOperation = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtQtyDue = new System.Windows.Forms.TextBox();
+            this.txtOutput = new System.Windows.Forms.TextBox();
+            this.txtInputMaterialCode = new System.Windows.Forms.TextBox();
+            this.txtWorkUserGroup = new System.Windows.Forms.TextBox();
+            this.txtWorkUserName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@ namespace DESK_POP
             this.btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtWorkState = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,7 +96,7 @@ namespace DESK_POP
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1314, 680);
+            this.splitContainer1.Size = new System.Drawing.Size(1448, 680);
             this.splitContainer1.SplitterDistance = 117;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
@@ -105,7 +105,7 @@ namespace DESK_POP
             // 
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(445, 11);
+            this.panel1.Location = new System.Drawing.Point(561, 10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(395, 100);
             this.panel1.TabIndex = 13;
@@ -149,7 +149,7 @@ namespace DESK_POP
             this.splitContainer2.Panel2.Controls.Add(this.btnBack);
             this.splitContainer2.Panel2.Controls.Add(this.label5);
             this.splitContainer2.Panel2.Controls.Add(this.label14);
-            this.splitContainer2.Size = new System.Drawing.Size(1314, 558);
+            this.splitContainer2.Size = new System.Drawing.Size(1448, 558);
             this.splitContainer2.SplitterDistance = 459;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -166,21 +166,21 @@ namespace DESK_POP
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer3.Size = new System.Drawing.Size(1314, 459);
-            this.splitContainer3.SplitterDistance = 708;
+            this.splitContainer3.Size = new System.Drawing.Size(1448, 459);
+            this.splitContainer3.SplitterDistance = 741;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.txtWkCode);
+            this.groupBox1.Controls.Add(this.dtpWorkStartDue);
+            this.groupBox1.Controls.Add(this.dtpWorkEndDue);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtWorkState);
+            this.groupBox1.Controls.Add(this.txtEquipment);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtOperation);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label2);
@@ -190,51 +190,41 @@ namespace DESK_POP
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(708, 459);
+            this.groupBox1.Size = new System.Drawing.Size(741, 459);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "작업 및 설비";
             // 
-            // comboBox1
+            // txtWkCode
             // 
-            this.comboBox1.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(282, 387);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(393, 48);
-            this.comboBox1.TabIndex = 80;
+            this.txtWkCode.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtWkCode.Location = new System.Drawing.Point(282, 47);
+            this.txtWkCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtWkCode.Name = "txtWkCode";
+            this.txtWkCode.Size = new System.Drawing.Size(418, 46);
+            this.txtWkCode.TabIndex = 76;
             // 
-            // textBox1
+            // dtpWorkStartDue
             // 
-            this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(282, 47);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(393, 46);
-            this.textBox1.TabIndex = 76;
+            this.dtpWorkStartDue.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            this.dtpWorkStartDue.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dtpWorkStartDue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpWorkStartDue.Location = new System.Drawing.Point(282, 251);
+            this.dtpWorkStartDue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpWorkStartDue.Name = "dtpWorkStartDue";
+            this.dtpWorkStartDue.Size = new System.Drawing.Size(418, 46);
+            this.dtpWorkStartDue.TabIndex = 79;
             // 
-            // dateTimePicker2
+            // dtpWorkEndDue
             // 
-            this.dateTimePicker2.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
-            this.dateTimePicker2.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(282, 251);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(393, 46);
-            this.dateTimePicker2.TabIndex = 79;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
-            this.dateTimePicker1.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(282, 319);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(393, 46);
-            this.dateTimePicker1.TabIndex = 79;
+            this.dtpWorkEndDue.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            this.dtpWorkEndDue.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dtpWorkEndDue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpWorkEndDue.Location = new System.Drawing.Point(282, 319);
+            this.dtpWorkEndDue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpWorkEndDue.Name = "dtpWorkEndDue";
+            this.dtpWorkEndDue.Size = new System.Drawing.Size(418, 46);
+            this.dtpWorkEndDue.TabIndex = 79;
             // 
             // label1
             // 
@@ -246,14 +236,14 @@ namespace DESK_POP
             this.label1.TabIndex = 75;
             this.label1.Text = "작업코드";
             // 
-            // textBox3
+            // txtEquipment
             // 
-            this.textBox3.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.Location = new System.Drawing.Point(282, 183);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(393, 46);
-            this.textBox3.TabIndex = 78;
+            this.txtEquipment.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtEquipment.Location = new System.Drawing.Point(282, 183);
+            this.txtEquipment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEquipment.Name = "txtEquipment";
+            this.txtEquipment.Size = new System.Drawing.Size(418, 46);
+            this.txtEquipment.TabIndex = 78;
             // 
             // label3
             // 
@@ -261,18 +251,18 @@ namespace DESK_POP
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(27, 118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 40);
+            this.label3.Size = new System.Drawing.Size(104, 40);
             this.label3.TabIndex = 74;
-            this.label3.Text = "설비";
+            this.label3.Text = "공정명";
             // 
-            // textBox2
+            // txtOperation
             // 
-            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(282, 115);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(393, 46);
-            this.textBox2.TabIndex = 77;
+            this.txtOperation.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtOperation.Location = new System.Drawing.Point(282, 115);
+            this.txtOperation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOperation.Name = "txtOperation";
+            this.txtOperation.Size = new System.Drawing.Size(418, 46);
+            this.txtOperation.TabIndex = 77;
             // 
             // label15
             // 
@@ -292,7 +282,7 @@ namespace DESK_POP
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 40);
             this.label10.TabIndex = 73;
-            this.label10.Text = "작업장";
+            this.label10.Text = "설비명";
             // 
             // label2
             // 
@@ -318,11 +308,11 @@ namespace DESK_POP
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txtQtyDue);
+            this.groupBox2.Controls.Add(this.txtOutput);
+            this.groupBox2.Controls.Add(this.txtInputMaterialCode);
+            this.groupBox2.Controls.Add(this.txtWorkUserGroup);
+            this.groupBox2.Controls.Add(this.txtWorkUserName);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
@@ -332,55 +322,55 @@ namespace DESK_POP
             this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(602, 459);
+            this.groupBox2.Size = new System.Drawing.Size(703, 459);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "제품 및 작업자";
             // 
-            // textBox8
+            // txtQtyDue
             // 
-            this.textBox8.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox8.Location = new System.Drawing.Point(319, 217);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(249, 46);
-            this.textBox8.TabIndex = 67;
+            this.txtQtyDue.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtQtyDue.Location = new System.Drawing.Point(319, 217);
+            this.txtQtyDue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtQtyDue.Name = "txtQtyDue";
+            this.txtQtyDue.Size = new System.Drawing.Size(348, 46);
+            this.txtQtyDue.TabIndex = 67;
             // 
-            // textBox5
+            // txtOutput
             // 
-            this.textBox5.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox5.Location = new System.Drawing.Point(319, 132);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(249, 46);
-            this.textBox5.TabIndex = 66;
+            this.txtOutput.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtOutput.Location = new System.Drawing.Point(319, 132);
+            this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.Size = new System.Drawing.Size(348, 46);
+            this.txtOutput.TabIndex = 66;
             // 
-            // textBox4
+            // txtInputMaterialCode
             // 
-            this.textBox4.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(319, 47);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(249, 46);
-            this.textBox4.TabIndex = 68;
+            this.txtInputMaterialCode.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtInputMaterialCode.Location = new System.Drawing.Point(319, 47);
+            this.txtInputMaterialCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtInputMaterialCode.Name = "txtInputMaterialCode";
+            this.txtInputMaterialCode.Size = new System.Drawing.Size(348, 46);
+            this.txtInputMaterialCode.TabIndex = 68;
             // 
-            // textBox7
+            // txtWorkUserGroup
             // 
-            this.textBox7.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox7.Location = new System.Drawing.Point(319, 387);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(249, 46);
-            this.textBox7.TabIndex = 65;
+            this.txtWorkUserGroup.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtWorkUserGroup.Location = new System.Drawing.Point(319, 387);
+            this.txtWorkUserGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtWorkUserGroup.Name = "txtWorkUserGroup";
+            this.txtWorkUserGroup.Size = new System.Drawing.Size(348, 46);
+            this.txtWorkUserGroup.TabIndex = 65;
             // 
-            // textBox6
+            // txtWorkUserName
             // 
-            this.textBox6.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox6.Location = new System.Drawing.Point(319, 302);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(249, 46);
-            this.textBox6.TabIndex = 64;
+            this.txtWorkUserName.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtWorkUserName.Location = new System.Drawing.Point(319, 302);
+            this.txtWorkUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtWorkUserName.Name = "txtWorkUserName";
+            this.txtWorkUserName.Size = new System.Drawing.Size(348, 46);
+            this.txtWorkUserName.TabIndex = 64;
             // 
             // label11
             // 
@@ -438,7 +428,7 @@ namespace DESK_POP
             this.btnStart.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnStart.ForeColor = System.Drawing.Color.Lime;
-            this.btnStart.Location = new System.Drawing.Point(645, 17);
+            this.btnStart.Location = new System.Drawing.Point(745, 17);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(162, 56);
             this.btnStart.TabIndex = 44;
@@ -450,7 +440,7 @@ namespace DESK_POP
             this.btnBack.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnBack.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBack.Location = new System.Drawing.Point(474, 17);
+            this.btnBack.Location = new System.Drawing.Point(574, 17);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(165, 56);
             this.btnBack.TabIndex = 43;
@@ -475,11 +465,20 @@ namespace DESK_POP
             this.label14.TabIndex = 42;
             this.label14.Text = "작업(오더받은거)";
             // 
+            // txtWorkState
+            // 
+            this.txtWorkState.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtWorkState.Location = new System.Drawing.Point(282, 387);
+            this.txtWorkState.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtWorkState.Name = "txtWorkState";
+            this.txtWorkState.Size = new System.Drawing.Size(418, 46);
+            this.txtWorkState.TabIndex = 78;
+            // 
             // Lot_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1314, 680);
+            this.ClientSize = new System.Drawing.Size(1448, 680);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -521,29 +520,29 @@ namespace DESK_POP
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtQtyDue;
+        private System.Windows.Forms.TextBox txtOutput;
+        private System.Windows.Forms.TextBox txtInputMaterialCode;
+        private System.Windows.Forms.TextBox txtWorkUserGroup;
+        private System.Windows.Forms.TextBox txtWorkUserName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtWkCode;
+        private System.Windows.Forms.DateTimePicker dtpWorkEndDue;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtEquipment;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtOperation;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpWorkStartDue;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtWorkState;
     }
 }
