@@ -67,7 +67,7 @@ namespace DESK_MES
             txtPwd.Text = userlist.User_Pwd;
             txtCreate.Text = userlist.Create_User_Name;
             txtCreate.Enabled = false;
-            txtUpdateUser.Text = userlist.Update_User_Name;
+            txtUpdateUser.Text = userName;
             txtUpdateUser.Enabled = false;
 
             List<UserGroupVO> uList = srvG.SelectAuthList(); 

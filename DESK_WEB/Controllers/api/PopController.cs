@@ -68,5 +68,24 @@ namespace DESK_WEB.Controllers
             };
             return Ok(result);
         }
+        //https://localhost:44393/api/Pop/Gdv/{id}
+        //https://localhost:44393/api/Pop/Gdv/1006
+        //http://localhost/api/Pop/Gdv/{id}
+        //http://localhost/api/Pop/Gdv/1006
+        [HttpGet]               //이 메서드? 쓰려면 타입을 이걸루 해라
+        [Route("Gdv/{id}")]         // 이 메서드 쓰려면 뒤에 input값 적어라
+        public IHttpActionResult GetPopWorkGdvList(int id)
+        {
+            PopDAC db = new PopDAC(); //대충 DB에서 사람 있는지 조회하는 코드
+            List<PopVO> list = db.GetWorkGdvList(id);
+
+            ResMessage<List<PopVO>> result = new ResMessage<List<PopVO>>
+            {
+                ErrCode = (list == null) ? -9 : 0,
+                ErrMsg = (list == null) ? "Code와 일치하는 작업이 없습니다." : "S",
+                Data = list
+            };
+            return Ok(result);
+        }
     }
 }

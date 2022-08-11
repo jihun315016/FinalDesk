@@ -22,7 +22,7 @@ namespace DESK_DTO
         public string Operation_Name { get; set; } //쿼리문에서 오더 명 찾기
         public string Work_Status { get; set; }
         public int Planned_Qty { get; set; }
-        public int Work_Qty { get; set; }
+        public int? Work_Qty { get; set; }
         public string Start_Date { get; set; }
         public string Estimated_Date { get; set; }
         public string Complete_Date { get; set; }
@@ -45,8 +45,8 @@ namespace DESK_DTO
         public int Input_Material_Qty { get; set; }
         public int Halb_Material_Qty { get; set; }
         public string Production_Save_Warehouse_Code { get; set; }
-        public int Work_Plan_Qty { get; set; }
-        public int Work_Complete_Qty { get; set; }
+        public int? Work_Plan_Qty { get; set; }
+        public int? Work_Complete_Qty { get; set; }
         public string Work_Paln_Date { get; set; }
         public string Complete_Due_Date { get; set; }
         public string Work_Time { get; set; }
@@ -57,5 +57,6 @@ namespace DESK_DTO
         public int Work_Order_State { get; set; }
         public string Work_Order_State_Name { get; set; }
         public string Material_Lot_Input_State_Name { get; set; }
+        public string Update_User_Name { get; set; }
     }
 }

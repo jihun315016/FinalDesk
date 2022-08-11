@@ -34,12 +34,12 @@ namespace DESK_POP
             this.label2 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMain = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -59,7 +59,7 @@ namespace DESK_POP
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvMain);
             this.splitContainer1.Size = new System.Drawing.Size(1014, 601);
             this.splitContainer1.SplitterDistance = 118;
             this.splitContainer1.SplitterWidth = 5;
@@ -106,16 +106,16 @@ namespace DESK_POP
             this.label1.TabIndex = 0;
             this.label1.Text = "완료된 작업 목록 :";
             // 
-            // dataGridView1
+            // dgvMain
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1014, 478);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMain.Location = new System.Drawing.Point(0, 0);
+            this.dgvMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvMain.Name = "dgvMain";
+            this.dgvMain.RowTemplate.Height = 23;
+            this.dgvMain.Size = new System.Drawing.Size(1014, 478);
+            this.dgvMain.TabIndex = 0;
             // 
             // POP_WorkEndGDV
             // 
@@ -127,12 +127,13 @@ namespace DESK_POP
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "POP_WorkEndGDV";
             this.Text = "완료목록";
+            this.Load += new System.EventHandler(this.POP_WorkEndGDV_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,7 +143,7 @@ namespace DESK_POP
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMain;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBack;
     }

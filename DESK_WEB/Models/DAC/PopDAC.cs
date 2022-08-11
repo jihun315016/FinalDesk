@@ -64,7 +64,7 @@ Work_State,c1.Name as Work_State_Name,Work_Order_State,c2.Name as Work_Order_Sta
 													   left join TB_COMMON_CODE c1 on w.Work_State = c1.Code
 													   left join TB_COMMON_CODE c2 on w.Work_Order_State = c2.Code
 													   left join TB_COMMON_CODE c3 on w.Material_Lot_Input_State = c3.Code
-                                        where [Work_Group_Code] = @Work_Group_Code and Material_Lot_Input_State=8 and Work_State <> 3
+                                        where Work_Group_Code = @Work_Group_Code and Material_Lot_Input_State=8 and Work_State <> 3
                                         order by Work_Code";
                     cmd.Parameters.AddWithValue("@Work_Group_Code", gCode);
 
@@ -121,6 +121,41 @@ w.Update_Time,20)as Update_Time, w.Update_User_No
                     cmd.Connection.Close();
 
                     return list[0];
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+
+        }
+        public List<PopVO> GetWorkGdvList(int gCode)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(strConn);
+                    cmd.CommandText = @"select Production_No, Work_Code,Work_Group_Code as User_Group_No,[User_Group_Name], 
+Production_Equipment_Code,Equipment_Name,Production_Operation_Code,Operation_Name, 
+convert(nvarchar(20), Start_Due_Date,20)as Start_Due_Date,c1.Name as Work_State_Name,convert(nvarchar(20), Start_Date,20)as Start_Date,convert(nvarchar(20), Complete_Date,20)as  Complete_Date,
+convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Name as Update_User_Name
+                                        from [dbo].[TB_WORK] w inner join [dbo].[TB_USER_GROUP] ug on w.[Work_Group_Code]=ug.User_Group_No
+                                                       inner join [dbo].[TB_EQUIPMENT] eq on w.Production_Equipment_Code = eq.[Equipment_No]
+													   inner join TB_OPERATION o on w.Production_Operation_Code = o.Operation_No
+													   left join TB_COMMON_CODE c1 on w.Work_State = c1.Code
+													   left join TB_COMMON_CODE c2 on w.Work_Order_State = c2.Code
+													   left join TB_COMMON_CODE c3 on w.Material_Lot_Input_State = c3.Code
+													   left join TB_USER u on w.Update_User_No = u.User_No
+                                        where Work_Group_Code = @Work_Group_Code and Work_State = 3
+                                        order by Work_Code";
+                    cmd.Parameters.AddWithValue("@Work_Group_Code", gCode);
+
+                    cmd.Connection.Open();
+                    List<PopVO> list = DBHelper.DataReaderMapToList<PopVO>(cmd.ExecuteReader());
+                    cmd.Connection.Close();
+
+                    return list;
                 }
             }
             catch (Exception err)

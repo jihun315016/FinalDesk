@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
@@ -9,20 +8,24 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h2></h2>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
-
 <!-- Main content -->
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <h3></h3>
         </div>
     </div>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+@if (ViewBag.isLoginFail == true)
+{
+    <script>
+        alert("로그인에 실패했습니다.");
+    </script>
+}

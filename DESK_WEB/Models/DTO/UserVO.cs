@@ -9,5 +9,6 @@ namespace DESK_WEB.Models.DTO
     {
         public int User_No { get; set; }
         public string User_Pwd { get; set; }
+        public string User_Name { get; set; }
     }
 }

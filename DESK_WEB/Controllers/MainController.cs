@@ -17,9 +17,16 @@ namespace DESK_WEB.Controllers
         //string baseUrl = ConfigurationManager.AppSettings["apiURL"];
         static string baseUrl = ConfigurationManager.AppSettings["localURL"];
 
-        // GET: Main
-        public ActionResult Index()
+        
+        /// <summary>
+        /// Author : 강지훈
+        /// 웹 메인 화면
+        /// </summary>
+        /// <param name="isLoginFail">로그인 실패 여부</param>
+        /// <returns></returns>
+        public ActionResult Index(bool? isLoginFail)
         {
+            ViewBag.isLoginFail = isLoginFail.HasValue ? isLoginFail.Value : false;
             return View();
         }
 
@@ -35,19 +42,43 @@ namespace DESK_WEB.Controllers
 
                 if (res.ErrCode == 0)
                 {
+                    Session["user"] = res.Data;
                     return Redirect("index");
                 }
                 else
                 {
-                    // 로그인 실패 처리
+                    return Redirect($"{baseUrl}Main/Index?isLoginFail=true");
                 }
             }
             return View();
         }
 
+        public ActionResult UserInfo()
+        {
+            // 로그인이 되지 않은 경우
+            if (Session["user"] == null)
+            {
+                return PartialView();
+            }
+            // 로그인이 된 경우
+            else
+            {
+                UserVO user = Session["user"] as UserVO;
+                if (user != null)
+                    return PartialView(user);
+                else
+                    return PartialView();
+            }
+        }
+
         public ActionResult Login()
         {
             ViewBag.Url = baseUrl;
+
+            // 로그인이 된 않은 경우
+            if (Session["user"] != null)
+                ViewBag.user = Session["user"] as UserVO;
+            
             return PartialView();
         }
 
