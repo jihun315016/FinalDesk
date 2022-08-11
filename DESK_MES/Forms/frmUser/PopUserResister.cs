@@ -122,6 +122,7 @@ namespace DESK_MES
             //vo화
             UserVO uservo = new UserVO
             {
+                User_Name = txtName.Text,
                 User_Pwd = txtPwd.Text,
                 Auth_ID = Convert.ToInt32( cboAuth.SelectedValue),
                 Create_User_No = userNo,

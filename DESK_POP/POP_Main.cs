@@ -62,7 +62,7 @@ namespace DESK_POP
                 wg.Size = new Size(342, 338);
                 wg.Name = $"ucWorkGroup{uCNum}";        //해당 부분 지역변수로 int 줘서 하나씩 ++ 해주며 넣기
                 wg.OrderCount = uCNum;
-                if (uCNum % 3==0)
+                if (uCNum % 4==0)
                 {
                     wg.Location = new Point(3 + ((uCNum - 1) * 342), 5+(hinum* uCNum));
                     hinum++;
@@ -75,6 +75,12 @@ namespace DESK_POP
                 splitContainer1.Panel2.Controls.Add(wg);
                 uCNum++;
             }
+        }
+
+        private void btnGrd_Click(object sender, EventArgs e)
+        {
+            POP_WorkEndGDV frm = new POP_WorkEndGDV(userInfo);
+            frm.Show();
         }
     }
 }

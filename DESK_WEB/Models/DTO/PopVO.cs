@@ -50,6 +50,7 @@ namespace DESK_WEB.Models
         public int Work_Order_State { get; set; }
         public string Work_Order_State_Name { get; set; }
         public string Material_Lot_Input_State_Name { get; set; }
+        public string Update_User_Name { get; set; }
 
     }
 }
