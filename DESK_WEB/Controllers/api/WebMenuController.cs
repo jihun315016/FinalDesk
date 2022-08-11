@@ -58,12 +58,12 @@ namespace DESK_WEB.Controllers.api
             MainDAC dac = new MainDAC();
             try
             {
-                bool result = dac.CheckLogin(user);
+                UserVO newUser = dac.CheckLogin(user);
                 ResMessage<UserVO> res = new ResMessage<UserVO>()
                 {
-                    ErrCode = !result ? -9 : 0,
-                    ErrMsg = !result ? "조회 중 오류 발생" : "S",
-                    Data = user
+                    ErrCode = newUser == null ? -9 : 0,
+                    ErrMsg = newUser == null ? "조회 중 오류 발생" : "S",
+                    Data = newUser
                 };
                 return Ok(res);
             }

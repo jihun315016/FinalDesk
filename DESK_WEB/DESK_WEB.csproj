@@ -2224,6 +2224,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Work\Stats.cshtml" />
     <Content Include="Views\Main\Login.cshtml" />
+    <Content Include="Views\Main\UserInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

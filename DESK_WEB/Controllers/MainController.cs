@@ -35,6 +35,7 @@ namespace DESK_WEB.Controllers
 
                 if (res.ErrCode == 0)
                 {
+                    Session["user"] = res.Data;
                     return Redirect("index");
                 }
                 else
@@ -45,9 +46,32 @@ namespace DESK_WEB.Controllers
             return View();
         }
 
+        public ActionResult UserInfo()
+        {
+            // 로그인이 되지 않은 경우
+            if (Session["user"] == null)
+            {
+                return PartialView();
+            }
+            // 로그인이 된 경우
+            else
+            {
+                UserVO user = Session["user"] as UserVO;
+                if (user != null)
+                    return PartialView(user);
+                else
+                    return PartialView();
+            }
+        }
+
         public ActionResult Login()
         {
             ViewBag.Url = baseUrl;
+
+            // 로그인이 된 않은 경우
+            if (Session["user"] != null)
+                ViewBag.user = Session["user"] as UserVO;
+            
             return PartialView();
         }
 

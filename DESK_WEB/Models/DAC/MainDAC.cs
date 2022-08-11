@@ -52,17 +52,31 @@ namespace DESK_WEB.Models.DAC
         /// <param name="userNo"></param>
         /// <param name="userPwd"></param>
         /// <returns></returns>
-        public bool CheckLogin(UserVO user)
+        public UserVO CheckLogin(UserVO user)
         {
-            string sql = @"SELECT count(*)
+            string sql = @"SELECT User_No, User_Name, User_Pwd
                             FROM TB_USER
                             WHERE User_No=@User_No AND User_Pwd=@User_Pwd AND User_Group_No='1001' ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@User_No", user.User_No);
             cmd.Parameters.AddWithValue("@User_Pwd", user.User_Pwd);
-            int iRow = Convert.ToInt32(cmd.ExecuteScalar());
-            return iRow > 0;
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                UserVO newUser = new UserVO()
+                {
+                    User_No = Convert.ToInt32(reader["User_No"]),
+                    User_Pwd = reader["User_Pwd"].ToString(),
+                    User_Name = reader["User_Name"].ToString()
+                };
+                reader.Close();
+                return newUser;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }   
