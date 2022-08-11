@@ -28,6 +28,74 @@ namespace DESK_MES
                 conn.Close();
             }
         }
+        public List<WorkOrderVO> GetworkList(int code)
+        {
+            try
+            {
+                List<WorkOrderVO> list = new List<WorkOrderVO>();
+
+                string sql = @"select Production_No, 
+                                	  Work_Code, 
+                                	  W.Product_Code AS Product_Code,
+                                	  Product_Name,
+                                	  Production_Operation_Code, 
+                                	  Operation_Name AS Production_Operation_Name,
+                                	  Production_Equipment_Code, 
+                                	  Equipment_Name AS Production_Equipment_Name,
+                                	  Halb_Save_Warehouse_Code,
+                                	  WHA.Warehouse_Name AS Halb_Save_Warehouse_Name,
+                                	  Input_Material_Code, 
+                                	  Input_Material_Qty,
+                                	  Halb_Material_Qty, 
+                                	  Work_Group_Code,
+                                	  User_Group_Name AS Work_Group_Name,
+                                	  Production_Save_Warehouse_Code,
+                                	  WHB.Warehouse_Name AS Production_Save_WareHouse_Name,
+                                	  Work_Plan_Qty, 
+                                	  Work_Complete_Qty,
+                                	  convert(varchar(10), Work_Paln_Date, 23) Work_Paln_Date,
+                                	  convert(varchar(10), Start_Due_Date, 23) Start_Due_Date,
+                                	  convert(varchar(10), Start_Date, 23) Start_Date,
+                                	  convert(varchar(10), Complete_Due_Date, 23) Complete_Due_Date,
+                                	  convert(varchar(10), Complete_Date, 23) Complete_Date,
+                                	  Work_Time, 
+                                	  Work_Order_State, 
+                                	  C.Name AS Work_Order_State_Name,
+                                	  Material_Lot_Input_State,
+                                	  CC.Name AS Material_Lot_Input_Name,
+                                	  convert(varchar(10), W.Create_Time, 23) Create_Time,
+                                	  W.Create_User_No,
+                                      U.User_Name AS Create_User_Name,
+                                      convert(varchar(10), W.Update_Time, 23) Update_Time,
+                                      W.Update_User_No, 
+                                	  UU.User_Name AS Update_User_Name,
+                                	  Work_State
+                               from TB_WORK W
+                               left join TB_PRODUCT P on W.Product_Code=P.Product_Code
+                               LEFT JOIN [dbo].[TB_USER] U ON W.Create_User_No=U.User_No
+                               LEFT JOIN [dbo].[TB_USER] UU ON W.Update_User_No=UU.User_No
+                               LEFT JOIN TB_OPERATION O ON W.Production_Operation_Code=O.Operation_No
+                               LEFT JOIN TB_EQUIPMENT E ON W.Production_Equipment_Code=E.Equipment_No
+                               LEFT JOIN TB_WAREHOUSE WHA ON W.Halb_Save_Warehouse_Code=WHA.Warehouse_Code
+                               LEFT JOIN TB_WAREHOUSE WHB ON W.Halb_Save_Warehouse_Code=WHB.Warehouse_Code
+                               LEFT JOIN TB_USER_GROUP UG ON W.Work_Group_Code=UG.User_Group_No
+                               LEFT JOIN TB_COMMON_CODE C ON W.Work_Order_State=C.Code
+                               LEFT JOIN TB_COMMON_CODE CC ON W.Material_Lot_Input_State=CC.Code
+                               WHERE Production_No=@Production_No";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("Production_No", code);
+                    list = DBHelpler.DataReaderMapToList<WorkOrderVO>(cmd.ExecuteReader());
+                }
+                return list;
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+
 
         public List<ProductVO> GetBomListForRegisert(string code) // BOM 정보 가져오기(등록용)
         {
@@ -163,7 +231,8 @@ namespace DESK_MES
                 List<UserGroupVO> list = new List<UserGroupVO>();
 
                 string sql = @"SELECT User_Group_No, User_Group_Name 
-                               FROM TB_USER_GROUP";
+                               FROM TB_USER_GROUP
+                               where User_Group_Type=103";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
@@ -293,8 +362,7 @@ namespace DESK_MES
                                            Work_Paln_Date, 
                                            Start_Due_Date,
                                            Complete_Due_Date,
-                                           Work_State, 
-                                           Material_Lot_Input_State, 
+                                           Work_Order_State,                                             
                                            Create_Time,
                                            Create_User_No)
                                VALUES (@Production_No, 
@@ -312,8 +380,7 @@ namespace DESK_MES
                                        @Work_Paln_Date, 
                                        @Start_Due_Date,
                                        @Complete_Due_Date,
-                                       @Work_State, 
-                                       @Material_Lot_Input_State, 
+                                       @Work_Order_State,
                                        @Create_Time,
                                        @Create_User_No)";
 
@@ -334,8 +401,7 @@ namespace DESK_MES
                     cmd.Parameters.Add("@Work_Paln_Date", System.Data.SqlDbType.DateTime);
                     cmd.Parameters.Add("@Start_Due_Date", System.Data.SqlDbType.DateTime);
                     cmd.Parameters.Add("@Complete_Due_Date", System.Data.SqlDbType.DateTime);
-                    cmd.Parameters.Add("@Work_State", System.Data.SqlDbType.NVarChar);
-                    cmd.Parameters.Add("@Material_Lot_Input_State", System.Data.SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@Work_Order_State", System.Data.SqlDbType.Int);
                     cmd.Parameters.AddWithValue("@Create_Time", DateTime.Now);
                     cmd.Parameters.AddWithValue("@Create_User_No", System.Data.SqlDbType.Int);
 
@@ -357,7 +423,7 @@ namespace DESK_MES
                         cmd.Parameters["@Work_Paln_Date"].Value = workList[i].Work_Paln_Date;
                         cmd.Parameters["@Start_Due_Date"].Value = workList[i].Start_Due_Date;
                         cmd.Parameters["@Complete_Due_Date"].Value = workList[i].Complete_Due_Date;
-                        cmd.Parameters["@Work_State"].Value = workList[i].Work_State;
+                        cmd.Parameters["@Work_Order_State"].Value = workList[i].Work_Order_State;
                         cmd.Parameters["@Material_Lot_Input_State"].Value = workList[i].Material_Lot_Input_State;
                         cmd.Parameters["@Create_User_No"].Value = workList[i].Create_User_No;
 

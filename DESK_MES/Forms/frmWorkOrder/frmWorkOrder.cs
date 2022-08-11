@@ -20,6 +20,7 @@ namespace DESK_MES
         List<ManufactureVO> manufactureList;
         int ProductionCode;
         string productCode;
+        string manufactureCode;
 
         public frmWorkOrder()
         {
@@ -34,37 +35,27 @@ namespace DESK_MES
             mSrv = new ManufactureService();
 
             DataGridUtil.SetInitGridView(dataGridView1);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산코드", "Production_Code", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산코드", "Production_Code", colWidth: 95, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "주문서코드", "Order_No", colWidth: 60, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목코드", "Product_Code", colWidth: 80, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 수량", "Planned_Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료 수량", "Production_Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 수량", "Planned_Qty", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료 수량", "Production_Qty", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 시작 예정일", "Start_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료 예정일", "Estimated_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료일", "Complete_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 상태", "Production_Plan_Status", colWidth: 60, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산계획 담당자", "Production_Plan_User_Name", colWidth: 60, isVisible: false);
-            //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 진행 상태", "Production_Status", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성 시간", "Create_Time", colWidth: 60, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성 사용자", "Create_User_Name", colWidth: 80, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경 시간", "Update_Time", colWidth: 60, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경 사용자", "Update_User_Name", colWidth: 60, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산계획 담당자", "Production_Plan_User_Name", colWidth: 60, isVisible: false);            
 
             DataGridUtil.SetInitGridView(dataGridView2);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 지시 코드", "Purchase_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 품목명", "Product_Code", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "공정명", "Product_Name", colWidth: 230, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "설비명", "Product_Type", colWidth: 60, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "자재창고명", "Price", colWidth: 80, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "자재Lot코드", "Unit", colWidth: 90, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "품목 구성 수량", "Qty_PerUnit", colWidth: 90, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "자재 투입 수량", "TotalQty", colWidth: 110, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "생산 수량", "TotalPrice", colWidth: 150, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 지시 수량", "Qty_PerUnit", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 완료 수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 지시 상태", "TotalPrice", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "자재불출여부", "TotalPrice", colWidth: 100, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 지시 코드", "Production_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 품목명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "공정명", "Production_Operation_Name", colWidth: 230, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "설비명", "Production_Equipment_Name", colWidth: 60, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 지시 수량", "Work_Plan_Qty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 완료 수량", "Work_Complete_Qty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "작업 지시 상태", "Work_Order_State_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "자재불출여부", "Material_Lot_Input_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
             LoadData();
 
@@ -73,7 +64,7 @@ namespace DESK_MES
         private void LoadData()
         {
             manufactureList = mSrv.GetmanufactureList();
-            dataGridView1.DataSource = manufactureList;
+            dataGridView1.DataSource = manufactureList.Where(e => e.Production_Plan_Status.Contains("확정")).ToList();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -82,13 +73,68 @@ namespace DESK_MES
             ProductionCode = Convert.ToInt32(dataGridView1[0, e.RowIndex].Value);
             productCode = dataGridView1[2, e.RowIndex].Value.ToString();
 
+            workList = wSrv.GetworkList(ProductionCode);
+            dataGridView2.DataSource = workList;
+
             groupBoxW.Visible = false;
+
+
+            manufactureCode = dataGridView1[0, e.RowIndex].Value.ToString();
+
+            txtManufactureCode.Text = dataGridView1["Production_Code", e.RowIndex].Value.ToString();
+            txtOrderCode.Text = Convert.ToInt32(dataGridView1["Order_No", e.RowIndex].Value) == 0 ? "" : dataGridView1["Order_No", e.RowIndex].Value.ToString();
+            txtProductCode.Text = dataGridView1["Product_Code", e.RowIndex].Value.ToString();
+            txtProductName.Text = dataGridView1["Product_Name", e.RowIndex].Value.ToString();
+            txtPlanQty.Text = dataGridView1["Planned_Qty", e.RowIndex].Value.ToString();
+            txtFinishQty.Text = (dataGridView1["Production_Qty", e.RowIndex].Value ?? string.Empty).ToString();
+            txtStartDate.Text = dataGridView1["Start_Date", e.RowIndex].Value.ToString();
+            txtStartDueDate.Text = dataGridView1["Estimated_Date", e.RowIndex].Value.ToString();
+
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            groupBoxW.Visible = true;
+
+            string material_state = dataGridView2[7, e.RowIndex].Value.ToString();
+            string work_state = dataGridView2[6, e.RowIndex].Value.ToString();
+            if ( material_state.Trim().ToString() == "대기")
+            {
+                btnWorkEachOK.Visible = true;
+                btnMaterialEachOut.Visible = true;
+
+                if (work_state.Trim().ToString() == "미정")
+                {
+                    btnWorkEachOK.Visible = true;
+                    btnMaterialEachOut.Visible = true;
+                }
+                else
+                {
+                    btnWorkEachOK.Visible = false;
+                    btnMaterialEachOut.Visible = true;
+                }
+            }
+            else
+            {
+                btnWorkEachOK.Visible = false;
+                btnMaterialEachOut.Visible = false;
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            PopWorkOrderRegister pop = new PopWorkOrderRegister(ProductionCode, productCode, user);
-            pop.ShowDialog();
+            if(productCode!=null &&  dataGridView2.Rows.Count < 1)
+            {
+                PopWorkOrderRegister pop = new PopWorkOrderRegister(ProductionCode, productCode, user);
+                pop.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("이미 작업 지시가 생성되었습니다.");
+                return;
+            }
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -97,9 +143,26 @@ namespace DESK_MES
             pop.ShowDialog();
         }
 
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void btnWorkAllOK_Click(object sender, EventArgs e)
         {
-            groupBoxW.Visible = true;
+
+        }
+
+        private void btnMaterialAllOut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnWorkEachOK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMaterialEachOut_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

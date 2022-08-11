@@ -54,8 +54,6 @@ namespace DESK_MES
             this.txtStartDueDate = new System.Windows.Forms.TextBox();
             this.txtFinishQty = new System.Windows.Forms.TextBox();
             this.txtPlanQty = new System.Windows.Forms.TextBox();
-            this.txtManufactuerState = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtFinishDate = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -239,8 +237,6 @@ namespace DESK_MES
             this.groupBox4.Controls.Add(this.txtStartDueDate);
             this.groupBox4.Controls.Add(this.txtFinishQty);
             this.groupBox4.Controls.Add(this.txtPlanQty);
-            this.groupBox4.Controls.Add(this.txtManufactuerState);
-            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.txtFinishDate);
             this.groupBox4.Controls.Add(this.label17);
@@ -270,7 +266,7 @@ namespace DESK_MES
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(242, 545);
+            this.button2.Location = new System.Drawing.Point(242, 509);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 27);
             this.button2.TabIndex = 83;
@@ -281,7 +277,7 @@ namespace DESK_MES
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(161, 545);
+            this.button4.Location = new System.Drawing.Point(161, 509);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 27);
             this.button4.TabIndex = 82;
@@ -295,7 +291,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpModifyTime.Enabled = false;
-            this.dtpModifyTime.Location = new System.Drawing.Point(141, 482);
+            this.dtpModifyTime.Location = new System.Drawing.Point(141, 446);
             this.dtpModifyTime.Name = "dtpModifyTime";
             this.dtpModifyTime.Size = new System.Drawing.Size(176, 25);
             this.dtpModifyTime.TabIndex = 77;
@@ -306,7 +302,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtModifyUserName.Enabled = false;
-            this.txtModifyUserName.Location = new System.Drawing.Point(141, 514);
+            this.txtModifyUserName.Location = new System.Drawing.Point(141, 478);
             this.txtModifyUserName.Name = "txtModifyUserName";
             this.txtModifyUserName.Size = new System.Drawing.Size(176, 25);
             this.txtModifyUserName.TabIndex = 76;
@@ -317,7 +313,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(25, 517);
+            this.label18.Location = new System.Drawing.Point(25, 482);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 17);
             this.label18.TabIndex = 75;
@@ -329,7 +325,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(25, 485);
+            this.label19.Location = new System.Drawing.Point(25, 450);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 17);
             this.label19.TabIndex = 74;
@@ -341,7 +337,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpCreateTime.Enabled = false;
-            this.dtpCreateTime.Location = new System.Drawing.Point(141, 418);
+            this.dtpCreateTime.Location = new System.Drawing.Point(141, 382);
             this.dtpCreateTime.Name = "dtpCreateTime";
             this.dtpCreateTime.Size = new System.Drawing.Size(176, 25);
             this.dtpCreateTime.TabIndex = 73;
@@ -352,7 +348,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCreateUserName.Enabled = false;
-            this.txtCreateUserName.Location = new System.Drawing.Point(141, 450);
+            this.txtCreateUserName.Location = new System.Drawing.Point(141, 414);
             this.txtCreateUserName.Name = "txtCreateUserName";
             this.txtCreateUserName.Size = new System.Drawing.Size(176, 25);
             this.txtCreateUserName.TabIndex = 72;
@@ -363,7 +359,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(25, 453);
+            this.label20.Location = new System.Drawing.Point(25, 418);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(78, 17);
             this.label20.TabIndex = 71;
@@ -375,7 +371,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(25, 421);
+            this.label21.Location = new System.Drawing.Point(25, 386);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 17);
             this.label21.TabIndex = 70;
@@ -428,30 +424,6 @@ namespace DESK_MES
             this.txtPlanQty.ReadOnly = true;
             this.txtPlanQty.Size = new System.Drawing.Size(177, 25);
             this.txtPlanQty.TabIndex = 37;
-            // 
-            // txtManufactuerState
-            // 
-            this.txtManufactuerState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtManufactuerState.Enabled = false;
-            this.txtManufactuerState.Location = new System.Drawing.Point(140, 382);
-            this.txtManufactuerState.Name = "txtManufactuerState";
-            this.txtManufactuerState.ReadOnly = true;
-            this.txtManufactuerState.Size = new System.Drawing.Size(177, 25);
-            this.txtManufactuerState.TabIndex = 36;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 386);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 17);
-            this.label13.TabIndex = 35;
-            this.label13.Text = "생산 진행 상태";
             // 
             // label16
             // 
@@ -790,8 +762,6 @@ namespace DESK_MES
         private System.Windows.Forms.TextBox txtStartDueDate;
         private System.Windows.Forms.TextBox txtFinishQty;
         private System.Windows.Forms.TextBox txtPlanQty;
-        private System.Windows.Forms.TextBox txtManufactuerState;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtFinishDate;
         private System.Windows.Forms.Label label17;

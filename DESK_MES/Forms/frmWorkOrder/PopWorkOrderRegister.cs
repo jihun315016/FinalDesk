@@ -49,21 +49,28 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 공정코드", "Production_Operation_Code	", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 설비코드", "Production_Equipment_Code ", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재창고명", "Output_Warehouse_Name", colWidth: 150, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재Lot코드", "Input_Material_Code", colWidth: 200);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "투입 자재명", "Input_Material_Name", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재Lot코드", "Input_Material_Code", colWidth: 200, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "투입 자재명", "Input_Material_Name", colWidth: 200, isVisible: false);            
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "품목 구성 수량", "Qty", colWidth: 200); // bom
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업수량", "Work_Plan_Qty", colWidth: 150, isVisible: true);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "원자재 투입 수량", "Input_Material_Qty", colWidth: 200);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "재공품 사용 수량", "Halb_Material_Qty", colWidth: 200);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹코드", "Work_Group_Code", colWidth: 150, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹명", "Work_Group_Name", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹명", "Work_Group_Name", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "반제품 보관창고코드", "Halb_Save_Warehouse_Code", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산품 보관창고코드", "Production_Save_WareHouse_Code", colWidth: 150, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업수량", "Work_Plan_Qty", colWidth: 150, isVisible: false);
+            
 
             // 해당 품목에 대한 BOM 정보 불러오기
-
             BomProductList = workSrv.GetBomListForRegisert(productCode);
-            dataGridView1.DataSource = BomProductList;
+            if(BomProductList.Count < 3)
+            {
+                dataGridView1.DataSource = BomProductList.Where((b) => b.Product_Code.Contains("HALB")).ToList();
+            }
+            else
+            {
+                dataGridView1.DataSource = BomProductList;
+            }
 
             // 해당 생산계획코드에 대한 정보 불러오기
             manufactureInfo = mSrv.GetmanufactureList().Where(p => p.Production_Code == ProductionCode).ToList();
@@ -80,7 +87,7 @@ namespace DESK_MES
             cboProductWarehouse.DisplayMember = "Warehouse_Name";
             cboProductWarehouse.ValueMember = "Warehouse_Code";
             cboProductWarehouse.DataSource = saveWarehouse;
-
+            nmrWorkQty.Value = Convert.ToInt32(txtPlanQty.Text);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -107,20 +114,20 @@ namespace DESK_MES
                 cboWorkGroup.ValueMember = "User_Group_No";
                 cboWorkGroup.DataSource = workGroup;
 
-                cboMaterialLotName.DataSource = null;
-                cboMaterialLotName.Enabled = false;
+                //cboMaterialLotName.DataSource = null;
+                //cboMaterialLotName.Enabled = false;
 
-                cboselectMaterialLot.DataSource = null;
-                cboselectMaterialLot.Enabled = false;
+                //cboselectMaterialLot.DataSource = null;
+                //cboselectMaterialLot.Enabled = false;
 
-                cboOutputWarehouse.DataSource = null;
-                cboOutputWarehouse.Enabled = false;
+                //cboOutputWarehouse.DataSource = null;
+                //cboOutputWarehouse.Enabled = false;
 
-                cboInputWarehouse.DataSource = null;
-                cboInputWarehouse.Enabled = false;
+                //cboInputWarehouse.DataSource = null;
+                //cboInputWarehouse.Enabled = false;
             }
 
-            else if (productCode.Contains("HALB"))
+            if (productCode.Contains("HALB"))
             {
                 // 공정(반제품이 아닐 시 선택 불가)
                 List<OperationVO> operation = workSrv.GetOperationList(productCode);
@@ -135,31 +142,36 @@ namespace DESK_MES
                 cboWorkGroup.DataSource = workGroup;
 
                 // 반제품 작업 후 보관될 반제품 창고
+                cboMaterialLotName.Enabled = true;
                 string inputProduct = productCode;
                 List<PurchaseDetailVO> InputWarehouse = workSrv.GetInputWarehouse(inputProduct);
                 cboInputWarehouse.DisplayMember = "Warehouse_Name";
                 cboInputWarehouse.ValueMember = "Warehouse_Code";
                 cboInputWarehouse.DataSource = InputWarehouse;
 
+                cboselectMaterialLot.Enabled = true;
+                
+
                 // 자재창고 콤보박스
+                cboOutputWarehouse.Enabled = true;
                 List<PurchaseDetailVO> OutWarehouse = workSrv.GetOutputWarehouse();
                 cboOutputWarehouse.DisplayMember = "Warehouse_Name";
                 cboOutputWarehouse.ValueMember = "Warehouse_Code";
                 cboOutputWarehouse.DataSource = OutWarehouse;
             }
-            else
+            if (productCode.Contains("ROH"))
             {
-                cboOperation.DataSource = null;
-                cboOperation.Enabled = false;
+                //cboOperation.DataSource = null;
+                //cboOperation.Enabled = false;
 
-                cboEquipment.DataSource = null;
-                cboEquipment.Enabled = false;
+                //cboEquipment.DataSource = null;
+                //cboEquipment.Enabled = false;
 
-                cboWorkGroup.DataSource = null;
-                cboWorkGroup.Enabled = false;
+                //cboWorkGroup.DataSource = null;
+                //cboWorkGroup.Enabled = false;
 
-                cboInputWarehouse.DataSource = null;
-                cboInputWarehouse.Enabled = false;
+                //cboInputWarehouse.DataSource = null;
+                //cboInputWarehouse.Enabled = false;
             }
 
 
@@ -180,10 +192,6 @@ namespace DESK_MES
 
         private void cboOutputWarehouse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cboMaterialLotName.Enabled = true;
-            //cboMaterialLotName.DataSource = null;
-            //cboMaterialLotName.Items.Clear();
-
             // 자재창고에 보관된 원자재의 자재lot코드와 이름 가져오기
             string warehouseCode = cboOutputWarehouse.SelectedValue.ToString();
             List<PurchaseDetailVO> material = workSrv.GetMetarialList(warehouseCode);
@@ -194,7 +202,7 @@ namespace DESK_MES
 
         private void cboMaterialLotName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboselectMaterialLot.Enabled = true;
+            //cboselectMaterialLot.Enabled = true;
 
             // 창고에 보관된 자재에 해당하는 자재 Lot 목록 가져오기
             string productCode = cboMaterialLotName.SelectedValue.ToString();
@@ -209,7 +217,7 @@ namespace DESK_MES
         private void nmrWorkQty_ValueChanged(object sender, EventArgs e)
         {
             DataGridViewRow cRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
-            int planQty = Convert.ToInt32(nmrWorkQty.Text);
+            int planQty = Convert.ToInt32(nmrWorkQty.Value);
             int workQty = baseQty * planQty;
             cRow.Cells[8].Value = workQty;
             cRow.Cells[9].Value = workQty;
@@ -223,8 +231,12 @@ namespace DESK_MES
             string inputMaterialName = (cboMaterialLotName.Text == null) ? "" : cboMaterialLotName.Text.ToString();
             string wrokGroupCode = (cboWorkGroup.SelectedValue == null) ? "0" : cboWorkGroup.SelectedValue.ToString();
             string wrokGroupName = (cboWorkGroup.Text == null) ? "" : cboWorkGroup.Text.ToString();
-            string halbMaterialCode = (cboInputWarehouse.SelectedValue == null) ? "0" : cboInputWarehouse.SelectedValue.ToString();
-            string productionSaveCode = cboProductWarehouse.SelectedValue.ToString();
+            string halbMaterialCode = (cboInputWarehouse.SelectedValue == null) ? "" : cboInputWarehouse.SelectedValue.ToString();
+            string productionSaveCode = "";
+            if (productCode.Contains("FERT"))
+            {
+                productionSaveCode = cboProductWarehouse.SelectedValue.ToString();
+            }
             string workPalnQty = nmrWorkQty.Value.ToString();
 
             DataGridViewRow cRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
@@ -232,15 +244,22 @@ namespace DESK_MES
             cRow.Cells[3].Value = equipmentCode;
             cRow.Cells[5].Value = inputMaterialCode;
             cRow.Cells[6].Value = inputMaterialName;
-            cRow.Cells[10].Value = wrokGroupCode;
-            cRow.Cells[11].Value = wrokGroupName;
-            cRow.Cells[12].Value = halbMaterialCode;
-            cRow.Cells[13].Value = productionSaveCode;
-            cRow.Cells[14].Value = workPalnQty;
+            cRow.Cells[11].Value = wrokGroupCode;
+            cRow.Cells[12].Value = wrokGroupName;
+            cRow.Cells[13].Value = halbMaterialCode;
+            cRow.Cells[14].Value = productionSaveCode;
+            cRow.Cells[8].Value = workPalnQty;
+            
+
+            if (!productCode.Contains("FERT"))
+            {
+                DataGridViewRow addRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                int planQty = Convert.ToInt32(nmrWorkQty.Value);
+                int workQty = baseQty * planQty;
+                cRow.Cells[8].Value = workQty;
+                cRow.Cells[9].Value = workQty;
+            }
             groupBox4.Visible = false;
-
-            // 클릭하면 콤보박스들 바인딩 초기화
-
         }
 
         private void btnInfoClose_Click(object sender, EventArgs e)
@@ -293,8 +312,7 @@ namespace DESK_MES
                         Work_Paln_Date = dtpWorkOrderDate.Value.ToShortDateString(),
                         Start_Due_Date = dtpWorkStartDueDate.Value.ToShortDateString(),
                         Complete_Due_Date = dtpWorkEndDueDate.Value.ToShortDateString(),
-                        Work_State = "미정",
-                        Material_Lot_Input_State = "대기",
+                        Work_Order_State = 4,
                         Create_User_No = user.User_No
                     };
                     workList.Add(work);
@@ -328,8 +346,7 @@ namespace DESK_MES
                         Work_Paln_Date = dtpWorkOrderDate.Value.ToShortDateString(),
                         Start_Due_Date = dtpWorkStartDueDate.Value.ToShortDateString(),
                         Complete_Due_Date = dtpWorkEndDueDate.Value.ToShortDateString(),
-                        Work_State = "미정",
-                        Material_Lot_Input_State = "대기",
+                        Work_Order_State = 4,
                         Create_User_No = user.User_No
                     };
                     workList.Add(work);

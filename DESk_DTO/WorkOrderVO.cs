@@ -27,8 +27,9 @@ namespace DESK_DTO
         public int Work_Group_Code { get; set; } // 작업 등록시 사용
         public string Work_Group_Name { get; set; } 
         public string Halb_Save_Warehouse_Code { get; set; } // 반제품 보관 창고 // 작업 등록시 사용
-        public string Input_Warehouse_Name { get; set; }
-        public string Production_Save_WareHouse_Code { get; set; } // 생산품(완제품) 보관 창고        
+        public string Halb_Save_Warehouse_Name { get; set; }
+        public string Production_Save_WareHouse_Code { get; set; } // 생산품(완제품) 보관 창고  
+        public string Production_Save_WareHouse_Name { get; set; }
         public int Planned_Qty { get; set; }
         public int Work_Plan_Qty { get; set; } // 작업 등록시 사용
         public int Work_Complete_Qty { get; set; }
@@ -38,10 +39,12 @@ namespace DESK_DTO
         public string Complete_Due_Date { get; set; } // 작업 등록시 사용
         public string Complete_Date { get; set; }
         public string Work_Time { get; set; }
-        public string Work_Order_State { get; set; } // 작업 지시 상태
-        public string Work_State { get; set; } // 작업 진행 상태
+        public int Work_Order_State { get; set; } // 작업 지시 상태
+        public string Work_Order_State_Name { get; set; }
+        public int Work_State { get; set; } // 작업 진행 상태
 
-        public string Material_Lot_Input_State { get; set; } 
+        public int Material_Lot_Input_State { get; set; } // 자재로트 
+        public string Material_Lot_Input_Name { get; set; }
         public string Create_Time { get; set; } // 작업 등록시 사용
         public int Create_User_No { get; set; } // 작업 등록시 사용
         public string Create_User_Name { get; set; }

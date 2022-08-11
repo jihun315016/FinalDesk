@@ -10,6 +10,15 @@ namespace DESK_MES
 {
     public class WorkOrderService
     {
+        public List<WorkOrderVO> GetworkList(int code)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            List<WorkOrderVO> result = dac.GetworkList(code);
+            dac.Dispose();
+
+            return result;
+        }
+
         public List<PurchaseDetailVO> GetProductionSaveWarehouse(string code)
         {
             WorkOrderDAC dac = new WorkOrderDAC();
