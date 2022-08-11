@@ -64,7 +64,7 @@ Work_State,c1.Name as Work_State_Name,Work_Order_State,c2.Name as Work_Order_Sta
 													   left join TB_COMMON_CODE c1 on w.Work_State = c1.Code
 													   left join TB_COMMON_CODE c2 on w.Work_Order_State = c2.Code
 													   left join TB_COMMON_CODE c3 on w.Material_Lot_Input_State = c3.Code
-                                        where [Work_Group_Code] = @Work_Group_Code and Material_Lot_Input_State=8 and Work_State <> 3
+                                        where Work_Group_Code = @Work_Group_Code and Material_Lot_Input_State=8 and Work_State <> 3
                                         order by Work_Code";
                     cmd.Parameters.AddWithValue("@Work_Group_Code", gCode);
 

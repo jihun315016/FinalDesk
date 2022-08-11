@@ -30,8 +30,8 @@ namespace DESK_WEB.Models
         public int Input_Material_Qty { get; set; }
         public int Halb_Material_Qty { get; set; }
         public string Production_Save_Warehouse_Code { get; set; }
-        public int Work_Plan_Qty { get; set; }
-        public int Work_Complete_Qty { get; set; }
+        public int? Work_Plan_Qty { get; set; }
+        public int? Work_Complete_Qty { get; set; }
         public string Work_Paln_Date { get; set; }
         public string Start_Date { get; set; }
         public string Complete_Due_Date { get; set; }
