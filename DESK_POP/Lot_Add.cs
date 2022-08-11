@@ -7,16 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DESK_DTO;
 
 namespace DESK_POP
 {
     public partial class Lot_Add : Form
     {
         string oCode;
-        public Lot_Add(string orderCode)
+        PopVO sTWork;
+        public Lot_Add(PopVO work)
         {
-            oCode = orderCode;
+            sTWork = work;
             InitializeComponent();
+        }
+
+        private void Lot_Add_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

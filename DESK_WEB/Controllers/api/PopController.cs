@@ -50,10 +50,10 @@ namespace DESK_WEB.Controllers
             return Ok(result);
         }
         //https://localhost:44393/api/Pop/Detail/{id}
-        //https://localhost:44393/api/Pop/Detail/WORK_20220806_0003
+        //https://localhost:44393/api/Pop/Detail/WORK_20220806_0006
         //http://localhost/api/Pop/Detail/{id}
-        //http://localhost/api/Pop/Detail/WORK_20220806_0003
-        [HttpGet]               //이 메서드? 쓰려면 타입을 이걸루 해라
+        //http://localhost/api/Pop/Detail/WORK_20220806_0006
+        [HttpGet]                      // 이 메서드? 쓰려면 타입을 이걸루 해라
         [Route("Detail/{id}")]         // 이 메서드 쓰려면 뒤에 input값 적어라
         public IHttpActionResult GetPopWorkDetail(string id)
         {

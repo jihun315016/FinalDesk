@@ -14,7 +14,7 @@ namespace DESK_POP
     public partial class POP_Main : Form
     {
         ServiceHelper serv;
-        List<PopVO> allList;
+        List<PopVO> allList;        
         public PopVO userInfo { get; set; } //접속자 정보[ User_No, User_Name, u.User_Group_No, User_Group_Name, User_Group_Type, Auth_Name ]
         public POP_Main()
         {
@@ -43,8 +43,7 @@ namespace DESK_POP
 
             if (resresult.ErrCode == 0)
             {
-                allList = resresult.Data;
-               
+                allList = resresult.Data;               
             }
             else
             {
