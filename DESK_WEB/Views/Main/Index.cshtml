@@ -13,7 +13,6 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
-
 <!-- Main content -->
 <div class="content">
     <div class="container-fluid">
@@ -23,3 +22,10 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+@if (ViewBag.isLoginFail == true)
+{
+    <script>
+        alert("로그인에 실패했습니다.");
+    </script>
+}
