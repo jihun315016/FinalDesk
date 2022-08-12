@@ -26,6 +26,14 @@ namespace DESK_WEB.Models.DAC
                 conn.Close();
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 설비 비가동 내역 조회
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
         public List<InoperativeEquipmentVO> GetInoperativeEquipmentList(string startDate, string endDate, string keyword)
         {
             string sql = @"SELECT 

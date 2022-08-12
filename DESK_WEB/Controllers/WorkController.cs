@@ -29,6 +29,15 @@ namespace DESK_WEB.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 설비 비가동 내역 조회 웹 api
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="keyword"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
         public ActionResult InoperativeEquipment(string startDate = "", string endDate = "", string keyword = "", int page = 0)
         {
             if (string.IsNullOrWhiteSpace(startDate) || string.IsNullOrWhiteSpace(endDate))
