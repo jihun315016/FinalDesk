@@ -443,6 +443,7 @@ namespace DESK_POP
             this.btnStart.TabIndex = 44;
             this.btnStart.Text = "등록(시작)";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnBack
             // 

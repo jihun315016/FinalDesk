@@ -59,5 +59,7 @@ namespace DESK_DTO
         public string Work_Order_State_Name { get; set; }
         public string Material_Lot_Input_State_Name { get; set; }
         public string Update_User_Name { get; set; }
+        public int Working_Qty { get; set; }
+        public int Output_Qty { get; set; }
     }
 }

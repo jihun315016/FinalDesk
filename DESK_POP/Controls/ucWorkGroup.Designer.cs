@@ -72,6 +72,7 @@ namespace DESK_POP
             // 
             // dtpWork
             // 
+            this.dtpWork.Enabled = false;
             this.dtpWork.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dtpWork.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpWork.Location = new System.Drawing.Point(144, 147);
@@ -141,6 +142,7 @@ namespace DESK_POP
             // 
             // txtEquipment
             // 
+            this.txtEquipment.Enabled = false;
             this.txtEquipment.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtEquipment.Location = new System.Drawing.Point(144, 104);
             this.txtEquipment.Name = "txtEquipment";
@@ -149,6 +151,7 @@ namespace DESK_POP
             // 
             // txtWStatus
             // 
+            this.txtWStatus.Enabled = false;
             this.txtWStatus.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtWStatus.Location = new System.Drawing.Point(144, 190);
             this.txtWStatus.Name = "txtWStatus";
@@ -157,6 +160,7 @@ namespace DESK_POP
             // 
             // txtOperation
             // 
+            this.txtOperation.Enabled = false;
             this.txtOperation.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtOperation.Location = new System.Drawing.Point(144, 61);
             this.txtOperation.Name = "txtOperation";
@@ -165,6 +169,7 @@ namespace DESK_POP
             // 
             // txtProductYN
             // 
+            this.txtProductYN.Enabled = false;
             this.txtProductYN.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtProductYN.Location = new System.Drawing.Point(144, 233);
             this.txtProductYN.Name = "txtProductYN";
@@ -173,6 +178,7 @@ namespace DESK_POP
             // 
             // txtWkCode
             // 
+            this.txtWkCode.Enabled = false;
             this.txtWkCode.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtWkCode.Location = new System.Drawing.Point(144, 18);
             this.txtWkCode.Name = "txtWkCode";

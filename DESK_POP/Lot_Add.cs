@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,16 @@ namespace DESK_POP
             txtWorkUserName.Text = userV.User_Name;
             txtWorkUserGroup.Text = userV.User_Group_Name;
             //생산 제품명 A 그리드 뷰로 표시
+        }
+        int proId;
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            string server = Application.StartupPath + "\\DESK_EQM.exe";
+            if (MessageBox.Show("해당 작업을 시작합니다","작업시작",MessageBoxButtons.OKCancel) == DialogResult.OK) // 시작합니다
+            {
+                Process p = Process.Start(server, txtWkCode.Text);
+                proId = p.Id;
+            }
         }
     }
 }
