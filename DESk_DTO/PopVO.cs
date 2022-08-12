@@ -53,6 +53,7 @@ namespace DESK_DTO
         //추가
         //public int Work_State { get; set; } int 로 변경
         //public int Material_Lot_Input_State { get; set; } int 변경
+        public string Product_Name { get; set; }
         public string Work_State_Name { get; set; }
         public int Work_Order_State { get; set; }
         public string Work_Order_State_Name { get; set; }

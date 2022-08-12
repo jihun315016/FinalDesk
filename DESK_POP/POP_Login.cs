@@ -42,7 +42,7 @@ namespace DESK_POP
                 {
                     lblChk.Visible = false;
                     userVO = resresult.Data;
-                    ((POP_Main)this.Owner).userInfo = userVO;
+                    ((Pop_MDIMain)this.Owner).userInfo = userVO;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

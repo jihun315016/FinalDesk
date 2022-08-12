@@ -43,7 +43,8 @@ namespace DESK_WEB.Models.DAC
                             WHERE p.Is_Incoming = 'Y'
                             AND p.Purchase_Date >= @startDate
                             AND p.Purchase_Date <= @endDate
-                            AND Client_Name LIKE @keyword ";
+                            AND Client_Name LIKE @keyword 
+                            ORDER BY Purchase_Date DESC ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@startDate", startDate);
@@ -74,7 +75,8 @@ namespace DESK_WEB.Models.DAC
                             WHERE o.Release_State = 'Y'
                             AND o.Order_No >= @startDate
                             AND o.Order_No <= @endDate
-                            AND Client_Name LIKE @keyword ";
+                            AND Client_Name LIKE @keyword 
+                            ORDER BY Purchase_Date DESC ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@startDate", startDate);

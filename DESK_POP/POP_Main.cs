@@ -23,21 +23,23 @@ namespace DESK_POP
 
         private void POP_Main_Load(object sender, EventArgs e)
         {
-            #region*로그인
-            this.Hide();
-            POP_Login pop = new POP_Login();
-            if (pop.ShowDialog(this) != DialogResult.OK)
-            {
-                this.Close();
-                return;
-            }
-            else
-            {
-                this.Show();
-                this.userInfo = pop.userVO;
-            }
-            #endregion
+            //#region*로그인
+            //this.Hide();
+            //POP_Login pop = new POP_Login();
+            //if (pop.ShowDialog(this) != DialogResult.OK)
+            //{
+            //    //this.Close();
+            //    return;
+            //}
+            //else
+            //{
+            //    this.Show();
+            //    this.userInfo = pop.userVO;
+            //}
+            //#endregion
             //해당 정보 가져오기
+
+            this.userInfo = ((Pop_MDIMain)this.MdiParent).userInfo;
             serv = new ServiceHelper("api/Pop/Uc");
             ResMessage<List<PopVO>> resresult= serv.GetAsyncT < ResMessage<List<PopVO>>>(userInfo.User_Group_No.ToString());
 

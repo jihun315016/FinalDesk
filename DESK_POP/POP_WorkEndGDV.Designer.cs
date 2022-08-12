@@ -128,6 +128,7 @@ namespace DESK_POP
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "POP_WorkEndGDV";
             this.Text = "완료목록";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POP_WorkEndGDV_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
