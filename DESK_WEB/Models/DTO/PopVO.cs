@@ -45,7 +45,8 @@ namespace DESK_WEB.Models
         public string Operation_Name { get; set; }
         //추가
         //public int Work_State { get; set; } int 로 변경
-        //public int Material_Lot_Input_State { get; set; } int 변경
+        //public int Material_Lot_Input_State { get; set; } int 변경Product_Name
+        public string Product_Name { get; set; }
         public string Work_State_Name { get; set; }
         public int Work_Order_State { get; set; }
         public string Work_Order_State_Name { get; set; }

@@ -13,8 +13,8 @@ namespace DESK_POP
 {
     public partial class Lot_Add : Form
     {
-        string oCode;
         PopVO sTWork;
+        PopVO userV;
         public Lot_Add(PopVO work)
         {
             sTWork = work;
@@ -23,7 +23,19 @@ namespace DESK_POP
 
         private void Lot_Add_Load(object sender, EventArgs e)
         {
-            
+
+            userV = ((Pop_MDIMain)this.MdiParent).userInfo;
+            txtWkCode.Text = sTWork.Work_Code;
+            txtOperation.Text = sTWork.Operation_Name;
+            txtEquipment.Text = sTWork.Equipment_Name;
+            dtpWorkStartDue.Value = Convert.ToDateTime(sTWork.Start_Due_Date);
+            dtpWorkEndDue.Value = Convert.ToDateTime(sTWork.Complete_Due_Date);
+            txtWorkState.Text = sTWork.Work_State_Name;
+            txtOutput.Text = sTWork.Product_Name;
+            txtQtyDue.Text = sTWork.Work_Plan_Qty.ToString();
+            txtWorkUserName.Text = userV.User_Name;
+            txtWorkUserGroup.Text = userV.User_Group_Name;
+            //생산 제품명 A 그리드 뷰로 표시
         }
     }
 }
