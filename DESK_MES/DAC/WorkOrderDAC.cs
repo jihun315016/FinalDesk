@@ -413,7 +413,10 @@ namespace DESK_MES
                         cmd.Parameters["@Product_Code"].Value = workList[i].Product_Code;
                         cmd.Parameters["@Production_Operation_Code"].Value = workList[i].Production_Operation_Code;
                         cmd.Parameters["@Production_Equipment_Code"].Value = workList[i].Production_Equipment_Code;
-                        cmd.Parameters["@Input_Material_Code"].Value = workList[i].Input_Material_Code;
+                        if (string.IsNullOrEmpty(workList[i].Input_Material_Code))
+                            cmd.Parameters["@Input_Material_Code"].Value = DBNull.Value;
+                        else
+                            cmd.Parameters["@Input_Material_Code"].Value = workList[i].Input_Material_Code;
                         cmd.Parameters["@Input_Material_Qty"].Value = workList[i].Input_Material_Qty;
                         cmd.Parameters["@Halb_Material_Qty"].Value = workList[i].Halb_Material_Qty;
                         cmd.Parameters["@Work_Group_Code"].Value = workList[i].Work_Group_Code;
