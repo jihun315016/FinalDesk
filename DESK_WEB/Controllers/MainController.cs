@@ -24,9 +24,10 @@ namespace DESK_WEB.Controllers
         /// </summary>
         /// <param name="isLoginFail">로그인 실패 여부</param>
         /// <returns></returns>
-        public ActionResult Index(bool? isLoginFail)
+        public ActionResult Index(bool? isLoginFail, bool? isNotLogin)
         {
             ViewBag.isLoginFail = isLoginFail.HasValue ? isLoginFail.Value : false;
+            ViewBag.isNotLogin = isNotLogin.HasValue ? isNotLogin.Value : false;
             return View();
         }
 

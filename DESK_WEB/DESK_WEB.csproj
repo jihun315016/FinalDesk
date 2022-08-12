@@ -2043,6 +2043,7 @@
     <Compile Include="Controllers\api\TradeApiController.cs" />
     <Compile Include="Controllers\api\WebMenuController.cs" />
     <Compile Include="Controllers\api\PopController.cs" />
+    <Compile Include="Controllers\api\WebWorkController.cs" />
     <Compile Include="Controllers\LotController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\TradeController.cs" />
@@ -2056,7 +2057,9 @@
     <Compile Include="Models\DAC\PopDAC.cs" />
     <Compile Include="Models\DAC\TradeDAC.cs" />
     <Compile Include="Models\DAC\WarehouseDAC.cs" />
+    <Compile Include="Models\DAC\WorkDAC.cs" />
     <Compile Include="Models\DTO\ClientVO.cs" />
+    <Compile Include="Models\DTO\InoperativeEquipmentVO.cs" />
     <Compile Include="Models\DTO\LoggingMsgVO.cs" />
     <Compile Include="Models\DTO\MenuVO.cs" />
     <Compile Include="Models\DTO\PopVO.cs" />
