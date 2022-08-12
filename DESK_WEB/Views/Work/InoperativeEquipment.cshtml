@@ -45,13 +45,20 @@
 
                     @foreach (var item in Model)
                     {
-                        <tr>
+                        <tr class="inoperInfo">
                             <td>@item.Equipment_No</td>
                             <td>@item.Equipment_Name</td>
                             <td>@item.Inoperative_Start_Time</td>
                             <td>@item.Inoperative_End_Time</td>
                             <td>@item.MinuiteDiff</td>
                             <td>@item.User_Name</td>
+                        </tr>
+
+                        <tr class="detailInfo hide" style="font-size: 14px; background-color: beige">
+                            <td style="font-weight: bold;">비가동 사유</td>
+                            <td colspan="2">@item.Inoperative_Reason</td>
+                            <td style="font-weight: bold;">조치 내역</td>
+                            <td colspan="2">@item.Action_History</td>
                         </tr>
                     }
 
@@ -65,3 +72,11 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->  
+
+<script>
+    $(document).ready(function() {
+        $(".inoperInfo").click(function () {
+            $(this).next(".detailInfo").toggleClass("hide");
+        })
+    })
+</script>
