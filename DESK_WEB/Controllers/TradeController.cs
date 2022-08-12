@@ -16,7 +16,8 @@ namespace DESK_WEB.Controllers
     public class TradeController : Controller
     {
         // localURL은 임시로 사용하는 url
-        static string baseUrl = ConfigurationManager.AppSettings["localURL"];
+        string baseUrl = ConfigurationManager.AppSettings["localURL"];
+        int pageSize = Convert.ToInt32(ConfigurationManager.AppSettings["pageSize"]);
 
         // GET: Trade
         public ActionResult Index()
@@ -33,7 +34,7 @@ namespace DESK_WEB.Controllers
                 startDate = DateTime.Now.AddMonths(-1).ToShortDateString();
                 endDate = DateTime.Now.ToShortDateString();
             }
-            int curIndex = page > 0 ? page = 1 : 0;
+            int curIndex = page > 0 ? page - 1 : 0;
 
             // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04&keyword=
             string url = $"{baseUrl}api/Trade/Purchase?startDate={startDate}&endDate={endDate}&keyword={keyword}";
@@ -43,7 +44,7 @@ namespace DESK_WEB.Controllers
             {
                 string resStr = resMsg.Content.ReadAsStringAsync().Result;
                 ResMessage<List<WebPurchaseVO>> res = JsonConvert.DeserializeObject<ResMessage<List<WebPurchaseVO>>>(resStr);
-                var list = res.Data.ToPagedList(curIndex, 10);
+                var list = res.Data.ToPagedList(curIndex, pageSize);
                 return View(list);
             }
             return View();
