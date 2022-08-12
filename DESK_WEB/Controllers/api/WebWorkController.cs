@@ -16,10 +16,10 @@ namespace DESK_WEB.Controllers.api
     {
         // https://localhost:44393/api/Work/inoperative
         [Route("inoperative")]
-        public IHttpActionResult GetAllInoperativeEquipmentList()
+        public IHttpActionResult GetInoperativeEquipmentList(string startDate, string endDate, string keyword = "")
         {
             WorkDAC dac = new WorkDAC();
-            List<InoperativeEquipmentVO> list = dac.GetAllInoperativeEquipmentList();
+            List<InoperativeEquipmentVO> list = dac.GetInoperativeEquipmentList(startDate, endDate, keyword);
 
             try
             {

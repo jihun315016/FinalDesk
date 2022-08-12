@@ -26,7 +26,7 @@ namespace DESK_WEB.Models.DAC
                 conn.Close();
         }
 
-        public List<InoperativeEquipmentVO> GetAllInoperativeEquipmentList()
+        public List<InoperativeEquipmentVO> GetInoperativeEquipmentList(string startDate, string endDate, string keyword)
         {
             string sql = @"SELECT 
 	                            ie.Equipment_No, Equipment_Name, Inoperative_Start_Time, Inoperative_End_Time, 
@@ -34,9 +34,15 @@ namespace DESK_WEB.Models.DAC
 	                            Inoperative_Reason, Action_History
                             FROM TB_INOPERATIVE_EQUIPMENT ie
                             JOIN TB_EQUIPMENT e ON ie.Equipment_No = e.Equipment_No
-                            JOIN TB_USER u ON ie.Inoperative_User_No = u.User_No ";
+                            JOIN TB_USER u ON ie.Inoperative_User_No = u.User_No 
+                            WHERE Inoperative_Start_Time >= @startDate
+                            AND Inoperative_Start_Time <= @endDate
+                            AND Equipment_Name LIKE @keyword ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@startDate", startDate);
+            cmd.Parameters.AddWithValue("@endDate", endDate);
+            cmd.Parameters.AddWithValue("@keyword", $"%{keyword}%");
             SqlDataReader reader = cmd.ExecuteReader();
             List<InoperativeEquipmentVO> list = DBHelpler.DataReaderMapToList<InoperativeEquipmentVO>(reader);
             reader.Close();
