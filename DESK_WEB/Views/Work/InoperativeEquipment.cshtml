@@ -1,4 +1,4 @@
-﻿
+﻿@model IPagedList<DESK_WEB.Models.DTO.InoperativeEquipmentVO>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
@@ -11,10 +11,14 @@
             <div class="col-sm-12">
                 <h3>설비 비가동 이력</h3>
 
-                <input type="date" style="width:150px; height:28px" /> ~
-                <input type="date" style="width:150px; height:28px" />
-                <input type="text" placeholder="설비명을 입력하세요." style="width:170px; height:28px" />
-                <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+                @using (Html.BeginForm("InoperativeEquipment", "Work", FormMethod.Get))
+                {
+                    <input id="startDate" type="date" style="width:150px; height:28px" name="startDate" />
+                    <input id="endDate" type="date" style="width:150px; height:28px" name="endDate" />
+                    <input id="search" type="text" placeholder="설비명을 입력하세요." style="width:170px; height:28px" name="keyword" />
+                    <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+                }
+
 
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,27 +43,23 @@
                 </thead>
                 <tbody>
 
-                    <tr>
-                        <td>21063</td>
-                        <td>UDPN0001</td>
-                        <td>2022-07-18 09:30:21</td>
-                        <td>2022-07-18 10:11:47</td>
-                        <td>41</td>
-                        <td>김철수</td>
-                    </tr>
-
-                    <tr>
-                        <td>10437</td>
-                        <td>HDTJ0008</td>
-                        <td>2022-07-19 16:30:21</td>
-                        <td>2022-07-19 16:43:47</td>
-                        <td>13</td>
-                        <td>김영희</td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Equipment_No</td>
+                            <td>@item.Equipment_Name</td>
+                            <td>@item.Inoperative_Start_Time</td>
+                            <td>@item.Inoperative_End_Time</td>
+                            <td>@item.MinuiteDiff</td>
+                            <td>@item.User_Name</td>
+                        </tr>
+                    }
 
                 </tbody>
             </table>
-
+            <div class="pager">
+                @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+            </div>
         </div>
     </div>
     <!-- /.content -->

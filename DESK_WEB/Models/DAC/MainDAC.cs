@@ -55,8 +55,10 @@ namespace DESK_WEB.Models.DAC
         public UserVO CheckLogin(UserVO user)
         {
             string sql = @"SELECT User_No, User_Name, User_Pwd
-                            FROM TB_USER
-                            WHERE User_No=@User_No AND User_Pwd=@User_Pwd AND User_Group_No='1001' ";
+                            FROM TB_USER u
+                            JOIN TB_USER_GROUP ug ON u.User_Group_No = ug.User_Group_No
+                            JOIN TB_AUTHORTY a ON ug.User_Group_Type = a.Auth_ID
+                            WHERE User_No=@User_No AND User_Pwd=@User_Pwd AND Auth_Name = 'admin' ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@User_No", user.User_No);
