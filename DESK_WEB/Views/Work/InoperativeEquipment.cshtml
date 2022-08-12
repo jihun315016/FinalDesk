@@ -49,8 +49,15 @@
                             <td>@item.Equipment_No</td>
                             <td>@item.Equipment_Name</td>
                             <td>@item.Inoperative_Start_Time</td>
-                            <td>@item.Inoperative_End_Time</td>
-                            <td>@item.MinuiteDiff</td>
+                            @if (item.Inoperative_End_Time.ToString() == "0001-01-01 오전 12:00:00")
+                            {
+                                <td></td>
+                            }
+                            else
+                            {
+                                <td>@item.Inoperative_End_Time</td>
+                            }
+                            <td>@item.MinuiteDiff.ToString("###,##0")</td>
                             <td>@item.User_Name</td>
                         </tr>
 

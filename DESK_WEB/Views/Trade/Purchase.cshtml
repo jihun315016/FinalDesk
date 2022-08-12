@@ -44,19 +44,20 @@
                         <th scope="col">총 금액</th>
                     </tr>
                 </thead>
+
                 <tbody id="tbodyPurchase">
                     @foreach (var item in Model)
                     {
                         <tr>
                             <td>@item.Purchase_No</td>
-                            <td>@item.Purchase_Date</td>
-                            <td>@item.Incoming_Date</td>
+                            <td>@item.Purchase_Date.ToShortDateString()</td>
+                            <td>@item.Incoming_Date.ToShortDateString()</td>
                             <td>@item.Client_Name</td>
                             <td>@item.Product_Code</td>
                             <td>@item.Product_Name</td>
-                            <td>@item.TotalQty</td>
-                            <td>@item.Price</td>
-                            <td>@item.TotalPrice</td>
+                            <td>@item.TotalQty.ToString("###,##0")</td>
+                            <td>@item.Price.ToString("###,##0")</td>
+                            <td>@item.TotalPrice.ToString("###,##0")</td>
                         </tr>
                     }
                 </tbody>
