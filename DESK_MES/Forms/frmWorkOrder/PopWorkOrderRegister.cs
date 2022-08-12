@@ -154,30 +154,30 @@ namespace DESK_MES
                 cboOutputWarehouse.ValueMember = "Warehouse_Code";
                 cboOutputWarehouse.DataSource = OutWarehouse;
 
-                string[] comboBase = new string[] { "선택" };
+                string[] comboBase = new string[] { "", "선택" };
 
-                //// 투입 자재명
+                ////// 투입 자재명
                 cboMaterialLotName.Enabled = false;
                 cboMaterialLotName.DataSource = null;
                 cboMaterialLotName.Items.Clear();
                 cboMaterialLotName.Enabled = true;
                 cboMaterialLotName.Items.AddRange(comboBase);
-                cboMaterialLotName.SelectedIndex = 0;
-                //string warehouseCode = cboOutputWarehouse.SelectedValue.ToString();
-                //List<PurchaseDetailVO> material = workSrv.GetMetarialList(warehouseCode);
-                //cboMaterialLotName.DisplayMember = "Product_Name";
-                //cboMaterialLotName.ValueMember = "Product_Code";
-                //cboMaterialLotName.DataSource = material;
-                //cboselectMaterialLot.Enabled = true;
+                cboMaterialLotName.SelectedIndex = 1;
+                ////string warehouseCode = cboOutputWarehouse.SelectedValue.ToString();
+                ////List<PurchaseDetailVO> material = workSrv.GetMetarialList(warehouseCode);
+                ////cboMaterialLotName.DisplayMember = "Product_Name";
+                ////cboMaterialLotName.ValueMember = "Product_Code";
+                ////cboMaterialLotName.DataSource = material;
+                ////cboselectMaterialLot.Enabled = true;
 
-                //// 투입 자재 lot 선택
+                ////// 투입 자재 lot 선택
                 cboselectMaterialLot.Enabled = false;
                 cboselectMaterialLot.DataSource = null;
                 cboselectMaterialLot.Items.Clear();
                 cboselectMaterialLot.Enabled = true;
                 cboselectMaterialLot.Items.AddRange(comboBase);
-                cboselectMaterialLot.SelectedIndex = 0;
-                //cboselectMaterialLot.Enabled = true;
+                cboselectMaterialLot.SelectedIndex = 1;
+                cboselectMaterialLot.Enabled = true;
                 //string searchLotCode = cboMaterialLotName.SelectedValue.ToString();
                 //List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(searchLotCode);
                 //cboselectMaterialLot.DisplayMember = "Lot_Code";
@@ -211,6 +211,12 @@ namespace DESK_MES
                 cboOutputWarehouse.ValueMember = "Warehouse_Code";
                 cboOutputWarehouse.DataSource = OutWarehouse;
 
+                cboMaterialLotName.Enabled = true;
+                //cboMaterialLotName.SelectedIndex = 1;
+
+                cboselectMaterialLot.Enabled = true;
+                //cboselectMaterialLot.SelectedIndex = 1;
+
                 cboInputWarehouse.DataSource = null;
                 cboInputWarehouse.Enabled = false;
             }
@@ -234,7 +240,7 @@ namespace DESK_MES
 
         private void cboOutputWarehouse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(productCode.Contains("HALB"))
+            if (!productCode.Contains("FERT"))
             {
                 //if (cboMaterialLotName.SelectedIndex == 0) return;
 
@@ -256,18 +262,110 @@ namespace DESK_MES
 
         }
 
+
+
         private void cboMaterialLotName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (productCode.Contains("HALB"))
+            //if (productCode.Contains("HALB"))
+            //{
+            //    if (cboMaterialLotName.SelectedItem.ToString() == "" || cboMaterialLotName.SelectedItem.ToString() == "선택" || cboMaterialLotName.SelectedValue.ToString() == null)
+            //    {
+            //        string[] comboBase = new string[] { "", "선택" };
+
+            //        cboselectMaterialLot.Enabled = false;
+            //        cboselectMaterialLot.DataSource = null;
+            //        cboselectMaterialLot.Items.Clear();
+            //        cboselectMaterialLot.Enabled = true;
+            //        cboselectMaterialLot.Items.AddRange(comboBase);
+            //        cboselectMaterialLot.SelectedIndex = 1;
+            //    }
+            //    else
+            //    {
+            //        if (cboMaterialLotName.SelectedItem.ToString() != "" || cboMaterialLotName.SelectedItem.ToString() != "선택" || cboMaterialLotName.SelectedItem.ToString() != null)
+            //        {
+            //            cboselectMaterialLot.Enabled = true;
+            //            cboselectMaterialLot.DataSource = null;
+
+            //            // 창고에 보관된 자재에 해당하는 자재 Lot 목록 가져오기
+            //            string productCode = cboMaterialLotName.SelectedValue.ToString();
+            //            List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(productCode);
+            //            cboselectMaterialLot.DisplayMember = "Lot_Code";
+            //            cboselectMaterialLot.ValueMember = "Lot_Code";
+            //            cboselectMaterialLot.DataSource = selectLot;
+            //        }
+            //    }
+
+            //}
+            //else
+            //{
+            //    cboselectMaterialLot.Enabled = false;
+            //    cboselectMaterialLot.DataSource = null;
+            //}
+
+        }
+        private void cboselectMaterialLot_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            //cboselectMaterialLot.Enabled = true;
+            //cboselectMaterialLot.DataSource = null;
+            //cboselectMaterialLot.Items.Clear();
+
+            //if (productCode.Contains("HALB"))
+            //{
+            //    if (cboMaterialLotName.SelectedItem.ToString() == "선택")
+            //    {
+            //        string[] comboBase = new string[] {"선택" };
+
+            //        cboselectMaterialLot.Enabled = false;
+            //        cboselectMaterialLot.DataSource = null;
+            //        cboselectMaterialLot.Items.Clear();
+            //        cboselectMaterialLot.Enabled = true;
+            //        cboselectMaterialLot.Items.AddRange(comboBase);
+            //        cboselectMaterialLot.SelectedIndex = 0;
+            //    }
+            //    else
+            //    {
+            //        if (cboMaterialLotName.SelectedItem.ToString() != "" || cboMaterialLotName.SelectedItem.ToString() != "선택" )
+            //        {
+            //            // 창고에 보관된 자재에 해당하는 자재 Lot 목록 가져오기
+            //            string productCode = cboMaterialLotName.SelectedValue.ToString();
+            //            List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(productCode);
+            //            cboselectMaterialLot.DisplayMember = "Lot_Code";
+            //            cboselectMaterialLot.ValueMember = "Lot_Code";
+            //            cboselectMaterialLot.DataSource = selectLot;
+            //        }
+            //    }
+
+            //}
+            //else
+            //{
+            //    cboselectMaterialLot.Enabled = false;
+            //    cboselectMaterialLot.DataSource = null;
+            //}
+        }
+        private void cboselectMaterialLot_Click(object sender, EventArgs e)
+        {
+            cboselectMaterialLot.Enabled = true;
+            cboselectMaterialLot.DataSource = null;
+            cboselectMaterialLot.Items.Clear();
+
+            if (!productCode.Contains("FERT"))
             {
-                if (cboselectMaterialLot.SelectedIndex == 0) return;
+                if (cboMaterialLotName.SelectedItem.ToString() == "선택")
+                {
+                    string[] comboBase = new string[] { "선택" };
+
+                    cboselectMaterialLot.Enabled = false;
+                    cboselectMaterialLot.DataSource = null;
+                    cboselectMaterialLot.Items.Clear();
+                    cboselectMaterialLot.Enabled = true;
+                    cboselectMaterialLot.Items.AddRange(comboBase);
+                    cboselectMaterialLot.SelectedIndex = 0;
+                }
                 else
                 {
-                    if (cboMaterialLotName.Text != "선택")
+                    if (cboMaterialLotName.SelectedItem.ToString() != "" || cboMaterialLotName.SelectedItem.ToString() != "선택")
                     {
-                        cboselectMaterialLot.Enabled = true;
-                        cboselectMaterialLot.DataSource = null;
-
                         // 창고에 보관된 자재에 해당하는 자재 Lot 목록 가져오기
                         string productCode = cboMaterialLotName.SelectedValue.ToString();
                         List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(productCode);
@@ -283,10 +381,7 @@ namespace DESK_MES
                 cboselectMaterialLot.Enabled = false;
                 cboselectMaterialLot.DataSource = null;
             }
-
         }
-
-
 
         private void nmrWorkQty_ValueChanged(object sender, EventArgs e)
         {
@@ -378,12 +473,12 @@ namespace DESK_MES
                         Production_Operation_Code = Convert.ToInt32(item.Cells[2].Value),
                         Production_Equipment_Code = Convert.ToInt32(item.Cells[3].Value),
                         Input_Material_Code = item.Cells[5].Value.ToString(),
-                        Input_Material_Qty = Convert.ToInt32(item.Cells[8].Value),
-                        Halb_Material_Qty = Convert.ToInt32(item.Cells[9].Value),
-                        Work_Group_Code = Convert.ToInt32(item.Cells[10].Value),
-                        Halb_Save_Warehouse_Code = item.Cells[12].Value.ToString(),
-                        Production_Save_WareHouse_Code = item.Cells[13].Value.ToString(),
-                        Work_Plan_Qty = Convert.ToInt32(item.Cells[14].Value),
+                        Input_Material_Qty = Convert.ToInt32(item.Cells[9].Value),
+                        Halb_Material_Qty = Convert.ToInt32(item.Cells[10].Value),
+                        Work_Group_Code = Convert.ToInt32(item.Cells[11].Value),
+                        Halb_Save_Warehouse_Code = item.Cells[13].Value.ToString(),
+                        Production_Save_WareHouse_Code = item.Cells[14].Value.ToString(),
+                        Work_Plan_Qty = Convert.ToInt32(item.Cells[8].Value),
                         Work_Paln_Date = dtpWorkOrderDate.Value.ToShortDateString(),
                         Start_Due_Date = dtpWorkStartDueDate.Value.ToShortDateString(),
                         Complete_Due_Date = dtpWorkEndDueDate.Value.ToShortDateString(),
@@ -412,12 +507,12 @@ namespace DESK_MES
                         Production_Operation_Code = Convert.ToInt32(item.Cells[2].Value),
                         Production_Equipment_Code = Convert.ToInt32(item.Cells[3].Value),
                         Input_Material_Code = item.Cells[5].Value.ToString(),
-                        Input_Material_Qty = Convert.ToInt32(item.Cells[8].Value),
-                        Halb_Material_Qty = Convert.ToInt32(item.Cells[9].Value),
-                        Work_Group_Code = Convert.ToInt32(item.Cells[10].Value),
-                        Halb_Save_Warehouse_Code = item.Cells[12].Value.ToString(),
-                        Production_Save_WareHouse_Code = item.Cells[13].Value.ToString(),
-                        Work_Plan_Qty = Convert.ToInt32(item.Cells[14].Value),
+                        Input_Material_Qty = Convert.ToInt32(item.Cells[9].Value),
+                        Halb_Material_Qty = Convert.ToInt32(item.Cells[10].Value),
+                        Work_Group_Code = Convert.ToInt32(item.Cells[11].Value),
+                        Halb_Save_Warehouse_Code = item.Cells[13].Value.ToString(),
+                        Production_Save_WareHouse_Code = item.Cells[14].Value.ToString(),
+                        Work_Plan_Qty = Convert.ToInt32(item.Cells[8].Value),
                         Work_Paln_Date = dtpWorkOrderDate.Value.ToShortDateString(),
                         Start_Due_Date = dtpWorkStartDueDate.Value.ToShortDateString(),
                         Complete_Due_Date = dtpWorkEndDueDate.Value.ToShortDateString(),

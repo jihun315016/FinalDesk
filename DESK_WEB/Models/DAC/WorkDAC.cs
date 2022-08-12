@@ -45,7 +45,8 @@ namespace DESK_WEB.Models.DAC
                             JOIN TB_USER u ON ie.Inoperative_User_No = u.User_No 
                             WHERE Inoperative_Start_Time >= @startDate
                             AND Inoperative_Start_Time <= @endDate
-                            AND Equipment_Name LIKE @keyword ";
+                            AND Equipment_Name LIKE @keyword 
+                            ORDER BY Inoperative_Start_Time DESC ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@startDate", startDate);

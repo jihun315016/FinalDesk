@@ -57,7 +57,7 @@ namespace DESK_WEB.Controllers
             {
                 string resStr = resMsg.Content.ReadAsStringAsync().Result;
                 ResMessage<List<InoperativeEquipmentVO>> res = JsonConvert.DeserializeObject<ResMessage<List<InoperativeEquipmentVO>>>(resStr);
-                var list = res.Data.ToPagedList(curIndex, pageSize);
+                var list = res.Data.ToPagedList(curIndex, pageSize);                
                 return View(list);
             }
             return View();
