@@ -40,6 +40,7 @@ namespace DESK_POP
             this.dtpWorkStartDue = new System.Windows.Forms.DateTimePicker();
             this.dtpWorkEndDue = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtWorkState = new System.Windows.Forms.TextBox();
             this.txtEquipment = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtOperation = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@ namespace DESK_POP
             this.btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtWorkState = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,8 +96,8 @@ namespace DESK_POP
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1448, 680);
-            this.splitContainer1.SplitterDistance = 117;
+            this.splitContainer1.Size = new System.Drawing.Size(1802, 827);
+            this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -105,7 +105,7 @@ namespace DESK_POP
             // 
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(561, 10);
+            this.panel1.Location = new System.Drawing.Point(726, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(395, 100);
             this.panel1.TabIndex = 13;
@@ -149,8 +149,8 @@ namespace DESK_POP
             this.splitContainer2.Panel2.Controls.Add(this.btnBack);
             this.splitContainer2.Panel2.Controls.Add(this.label5);
             this.splitContainer2.Panel2.Controls.Add(this.label14);
-            this.splitContainer2.Size = new System.Drawing.Size(1448, 558);
-            this.splitContainer2.SplitterDistance = 459;
+            this.splitContainer2.Size = new System.Drawing.Size(1802, 680);
+            this.splitContainer2.SplitterDistance = 559;
             this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer3
@@ -166,8 +166,8 @@ namespace DESK_POP
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer3.Size = new System.Drawing.Size(1448, 459);
-            this.splitContainer3.SplitterDistance = 741;
+            this.splitContainer3.Size = new System.Drawing.Size(1802, 559);
+            this.splitContainer3.SplitterDistance = 922;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox1
@@ -190,7 +190,7 @@ namespace DESK_POP
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(741, 459);
+            this.groupBox1.Size = new System.Drawing.Size(922, 559);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "작업 및 설비";
@@ -235,6 +235,15 @@ namespace DESK_POP
             this.label1.Size = new System.Drawing.Size(133, 40);
             this.label1.TabIndex = 75;
             this.label1.Text = "작업코드";
+            // 
+            // txtWorkState
+            // 
+            this.txtWorkState.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtWorkState.Location = new System.Drawing.Point(282, 387);
+            this.txtWorkState.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtWorkState.Name = "txtWorkState";
+            this.txtWorkState.Size = new System.Drawing.Size(418, 46);
+            this.txtWorkState.TabIndex = 78;
             // 
             // txtEquipment
             // 
@@ -322,7 +331,7 @@ namespace DESK_POP
             this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(703, 459);
+            this.groupBox2.Size = new System.Drawing.Size(876, 559);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "제품 및 작업자";
@@ -333,7 +342,7 @@ namespace DESK_POP
             this.txtQtyDue.Location = new System.Drawing.Point(319, 217);
             this.txtQtyDue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQtyDue.Name = "txtQtyDue";
-            this.txtQtyDue.Size = new System.Drawing.Size(348, 46);
+            this.txtQtyDue.Size = new System.Drawing.Size(524, 46);
             this.txtQtyDue.TabIndex = 67;
             // 
             // txtOutput
@@ -342,7 +351,7 @@ namespace DESK_POP
             this.txtOutput.Location = new System.Drawing.Point(319, 132);
             this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(348, 46);
+            this.txtOutput.Size = new System.Drawing.Size(524, 46);
             this.txtOutput.TabIndex = 66;
             // 
             // txtInputMaterialCode
@@ -351,7 +360,7 @@ namespace DESK_POP
             this.txtInputMaterialCode.Location = new System.Drawing.Point(319, 47);
             this.txtInputMaterialCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtInputMaterialCode.Name = "txtInputMaterialCode";
-            this.txtInputMaterialCode.Size = new System.Drawing.Size(348, 46);
+            this.txtInputMaterialCode.Size = new System.Drawing.Size(524, 46);
             this.txtInputMaterialCode.TabIndex = 68;
             // 
             // txtWorkUserGroup
@@ -360,7 +369,7 @@ namespace DESK_POP
             this.txtWorkUserGroup.Location = new System.Drawing.Point(319, 387);
             this.txtWorkUserGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWorkUserGroup.Name = "txtWorkUserGroup";
-            this.txtWorkUserGroup.Size = new System.Drawing.Size(348, 46);
+            this.txtWorkUserGroup.Size = new System.Drawing.Size(524, 46);
             this.txtWorkUserGroup.TabIndex = 65;
             // 
             // txtWorkUserName
@@ -369,7 +378,7 @@ namespace DESK_POP
             this.txtWorkUserName.Location = new System.Drawing.Point(319, 302);
             this.txtWorkUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWorkUserName.Name = "txtWorkUserName";
-            this.txtWorkUserName.Size = new System.Drawing.Size(348, 46);
+            this.txtWorkUserName.Size = new System.Drawing.Size(524, 46);
             this.txtWorkUserName.TabIndex = 64;
             // 
             // label11
@@ -428,7 +437,7 @@ namespace DESK_POP
             this.btnStart.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnStart.ForeColor = System.Drawing.Color.Lime;
-            this.btnStart.Location = new System.Drawing.Point(745, 17);
+            this.btnStart.Location = new System.Drawing.Point(926, 17);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(162, 56);
             this.btnStart.TabIndex = 44;
@@ -440,7 +449,7 @@ namespace DESK_POP
             this.btnBack.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnBack.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBack.Location = new System.Drawing.Point(574, 17);
+            this.btnBack.Location = new System.Drawing.Point(755, 17);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(165, 56);
             this.btnBack.TabIndex = 43;
@@ -465,25 +474,17 @@ namespace DESK_POP
             this.label14.TabIndex = 42;
             this.label14.Text = "작업(오더받은거)";
             // 
-            // txtWorkState
-            // 
-            this.txtWorkState.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtWorkState.Location = new System.Drawing.Point(282, 387);
-            this.txtWorkState.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtWorkState.Name = "txtWorkState";
-            this.txtWorkState.Size = new System.Drawing.Size(418, 46);
-            this.txtWorkState.TabIndex = 78;
-            // 
             // Lot_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1448, 680);
+            this.ClientSize = new System.Drawing.Size(1802, 827);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Lot_Add";
             this.Text = "등록/작업 시작";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Lot_Add_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

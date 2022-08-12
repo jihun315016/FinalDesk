@@ -119,22 +119,18 @@ namespace DESK_MES
                 // 자재 투입창고
                 cboOutputWarehouse.Enabled = false;
                 cboOutputWarehouse.DataSource = null;
-                cboOutputWarehouse.Items.Clear();
 
                 // 투입자재명
                 cboMaterialLotName.Enabled = false;
                 cboMaterialLotName.DataSource = null;
-                cboMaterialLotName.Items.Clear();
 
                 // 자재lot 선택
                 cboselectMaterialLot.Enabled = false;
                 cboselectMaterialLot.DataSource = null;
-                cboselectMaterialLot.Items.Clear();
 
                 // 재공품 보관 창고
                 cboInputWarehouse.Enabled = false;
                 cboInputWarehouse.DataSource = null;
-                cboInputWarehouse.Items.Clear();
             }
 
             else if (productCode.Contains("HALB"))
@@ -151,7 +147,6 @@ namespace DESK_MES
                 cboWorkGroup.ValueMember = "User_Group_No";
                 cboWorkGroup.DataSource = workGroup;
 
-
                 // 자재투입창고 콤보박스
                 cboOutputWarehouse.Enabled = true;
                 List<PurchaseDetailVO> OutWarehouse = workSrv.GetOutputWarehouse();
@@ -159,22 +154,35 @@ namespace DESK_MES
                 cboOutputWarehouse.ValueMember = "Warehouse_Code";
                 cboOutputWarehouse.DataSource = OutWarehouse;
 
-                // 투입 자재명
-                cboMaterialLotName.Enabled = true;
-                string warehouseCode = cboOutputWarehouse.SelectedValue.ToString();
-                List<PurchaseDetailVO> material = workSrv.GetMetarialList(warehouseCode);
-                cboMaterialLotName.DisplayMember = "Product_Name";
-                cboMaterialLotName.ValueMember = "Product_Code";
-                cboMaterialLotName.DataSource = material;
-                cboselectMaterialLot.Enabled = true;
+                string[] comboBase = new string[] { "선택" };
 
-                // 투입 자재 lot 선택
+                //// 투입 자재명
+                cboMaterialLotName.Enabled = false;
+                cboMaterialLotName.DataSource = null;
+                cboMaterialLotName.Items.Clear();
+                cboMaterialLotName.Enabled = true;
+                cboMaterialLotName.Items.AddRange(comboBase);
+                cboMaterialLotName.SelectedIndex = 0;
+                //string warehouseCode = cboOutputWarehouse.SelectedValue.ToString();
+                //List<PurchaseDetailVO> material = workSrv.GetMetarialList(warehouseCode);
+                //cboMaterialLotName.DisplayMember = "Product_Name";
+                //cboMaterialLotName.ValueMember = "Product_Code";
+                //cboMaterialLotName.DataSource = material;
+                //cboselectMaterialLot.Enabled = true;
+
+                //// 투입 자재 lot 선택
+                cboselectMaterialLot.Enabled = false;
+                cboselectMaterialLot.DataSource = null;
+                cboselectMaterialLot.Items.Clear();
                 cboselectMaterialLot.Enabled = true;
-                string searchLotCode = cboMaterialLotName.SelectedValue.ToString();
-                List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(searchLotCode);
-                cboselectMaterialLot.DisplayMember = "Lot_Code";
-                cboselectMaterialLot.ValueMember = "Lot_Code";
-                cboselectMaterialLot.DataSource = selectLot;
+                cboselectMaterialLot.Items.AddRange(comboBase);
+                cboselectMaterialLot.SelectedIndex = 0;
+                //cboselectMaterialLot.Enabled = true;
+                //string searchLotCode = cboMaterialLotName.SelectedValue.ToString();
+                //List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(searchLotCode);
+                //cboselectMaterialLot.DisplayMember = "Lot_Code";
+                //cboselectMaterialLot.ValueMember = "Lot_Code";
+                //cboselectMaterialLot.DataSource = selectLot;
 
                 // 재공품 보관 창고
                 cboInputWarehouse.Enabled = true;
@@ -189,15 +197,12 @@ namespace DESK_MES
             {
                 cboOperation.DataSource = null;
                 cboOperation.Enabled = false;
-                cboOperation.Items.Clear();
 
                 cboEquipment.DataSource = null;
                 cboEquipment.Enabled = false;
-                cboEquipment.Items.Clear();
 
                 cboWorkGroup.DataSource = null;
                 cboWorkGroup.Enabled = false;
-                cboWorkGroup.Items.Clear();
 
                 // 자재투입창고 콤보박스
                 cboOutputWarehouse.Enabled = true;
@@ -208,7 +213,6 @@ namespace DESK_MES
 
                 cboInputWarehouse.DataSource = null;
                 cboInputWarehouse.Enabled = false;
-                cboInputWarehouse.Items.Clear();
             }
 
 
@@ -219,7 +223,6 @@ namespace DESK_MES
         {
             cboEquipment.Enabled = true;
             cboEquipment.DataSource = null;
-            cboEquipment.Items.Clear();
 
             int operationNo = Convert.ToInt32(cboOperation.SelectedValue);
             // 공정 콤보박스에서 선택된 항목에 따른 설비 정보 가져오기
@@ -231,31 +234,56 @@ namespace DESK_MES
 
         private void cboOutputWarehouse_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(productCode.Contains("HALB"))
+            {
+                //if (cboMaterialLotName.SelectedIndex == 0) return;
 
-            //cboMaterialLotName.Enabled = true;
-            cboMaterialLotName.DataSource = null;
-            cboMaterialLotName.Items.Clear();
+                cboMaterialLotName.Enabled = true;
+                cboMaterialLotName.DataSource = null;
 
-            // 자재창고에 보관된 원자재의 자재lot코드와 이름 가져오기
-            string warehouseCode = cboOutputWarehouse.SelectedValue.ToString();
-            List<PurchaseDetailVO> material = workSrv.GetMetarialList(warehouseCode);
-            cboMaterialLotName.DisplayMember = "Product_Name";
-            cboMaterialLotName.ValueMember = "Product_Code";
-            cboMaterialLotName.DataSource = material;
+                // 자재창고에 보관된 원자재의 자재lot코드와 이름 가져오기
+                string warehouseCode = cboOutputWarehouse.SelectedValue.ToString();
+                List<PurchaseDetailVO> material = workSrv.GetMetarialList(warehouseCode);
+                cboMaterialLotName.DisplayMember = "Product_Name";
+                cboMaterialLotName.ValueMember = "Product_Code";
+                cboMaterialLotName.DataSource = material;
+            }
+            else
+            {
+                cboMaterialLotName.Enabled = false;
+                cboMaterialLotName.DataSource = null;
+            }
+
         }
 
         private void cboMaterialLotName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cboselectMaterialLot.Enabled = true;
-            cboselectMaterialLot.DataSource = null;
-            cboselectMaterialLot.Items.Clear();
+            if (productCode.Contains("HALB"))
+            {
+                if (cboselectMaterialLot.SelectedIndex == 0) return;
+                else
+                {
+                    if (cboMaterialLotName.Text != "선택")
+                    {
+                        cboselectMaterialLot.Enabled = true;
+                        cboselectMaterialLot.DataSource = null;
 
-            // 창고에 보관된 자재에 해당하는 자재 Lot 목록 가져오기
-            string productCode = cboMaterialLotName.SelectedValue.ToString();
-            List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(productCode);
-            cboselectMaterialLot.DisplayMember = "Lot_Code";
-            cboselectMaterialLot.ValueMember = "Lot_Code";
-            cboselectMaterialLot.DataSource = selectLot;
+                        // 창고에 보관된 자재에 해당하는 자재 Lot 목록 가져오기
+                        string productCode = cboMaterialLotName.SelectedValue.ToString();
+                        List<PurchaseDetailVO> selectLot = workSrv.GetMetarialLotList(productCode);
+                        cboselectMaterialLot.DisplayMember = "Lot_Code";
+                        cboselectMaterialLot.ValueMember = "Lot_Code";
+                        cboselectMaterialLot.DataSource = selectLot;
+                    }
+                }
+
+            }
+            else
+            {
+                cboselectMaterialLot.Enabled = false;
+                cboselectMaterialLot.DataSource = null;
+            }
+
         }
 
 
@@ -271,6 +299,7 @@ namespace DESK_MES
 
         private void btnAddInfo_Click(object sender, EventArgs e)
         {
+            
             string operationCode = (cboOperation.SelectedValue == null) ? "0" : cboOperation.SelectedValue.ToString();
             string equipmentCode = (cboEquipment.SelectedValue == null) ? "0" : cboEquipment.SelectedValue.ToString();
             string inputMaterialCode = (cboselectMaterialLot.SelectedValue == null) ? "" : cboselectMaterialLot.SelectedValue.ToString();

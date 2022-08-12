@@ -44,25 +44,26 @@ namespace DESK_POP
                 Start_Due_Date,Work_State_Name,Start_Date, Complete_Date,Update_Time,Update_User_No,Update_User_Name
              */
             DataGridUtil.SetInitGridView(dgvMain);
+            //dgvMain
 
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업지시번호", "Work_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생산번호", "Production_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //1
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업담당 그룹코드", "User_Group_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //2           //초당 생산량으로 변경
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업담당 그룹명", "User_Group_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //3
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비코드", "Production_Equipment_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //4
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업지시번호", "Work_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생산번호", "Production_No", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter); //1
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업담당 그룹코드", "User_Group_No", colWidth: 130, alignContent: DataGridViewContentAlignment.MiddleCenter); //2           //초당 생산량으로 변경
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업담당 그룹명", "User_Group_Name", colWidth: 130, alignContent: DataGridViewContentAlignment.MiddleCenter); //3
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비코드", "Production_Equipment_Code",isVisible:false, colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleCenter); //4
 
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //5
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자", "Create_User_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //6
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "공정코드", "Production_Operation_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //7
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "공정명", "Operation_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //8
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //5
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성자", "Create_User_Name", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter); //6
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "공정코드", "Production_Operation_Code", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleCenter); //7
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "공정명", "Operation_Name", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter); //8
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업시작 예정일", "Start_Due_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //9
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업상태", "Work_State_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);   //10
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업상태", "Work_State_Name", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleCenter);   //10
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업시작일", "Start_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);       //11
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "작업종료일", "Complete_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);    //12
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "수정일", "Update_Time", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);         //13
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "수정 작업자 번호", "Update_User_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //14
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "수정 작업자명", "Update_User_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //15
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "수정 작업자 번호", "Update_User_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //14
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "수정 작업자명", "Update_User_Name", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleCenter); //15
             BindingGdv();
         }
 
@@ -74,9 +75,10 @@ namespace DESK_POP
                 {
                     frm.Activate();
                     frm.BringToFront();
-                    return;
+                    break;
                 }
             }
+            this.Close();
         }
     }
 }

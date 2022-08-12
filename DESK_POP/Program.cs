@@ -50,7 +50,7 @@ namespace DESK_POP
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new POP_Main());
+            Application.Run(new Pop_MDIMain());
         }
     }
 }

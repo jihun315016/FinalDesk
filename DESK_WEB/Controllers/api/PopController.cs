@@ -12,9 +12,9 @@ namespace DESK_WEB.Controllers
     public class PopController : ApiController
     {
         //https://localhost:44393/api/Pop/Login/{id}
-        //https://localhost:44393/api/Pop/Login/10002
+        //https://localhost:44393/api/Pop/Login/10006
         //http://localhost/api/Pop/Login/{id}
-        //http://localhost/api/Pop/Login/10002
+        //http://localhost/api/Pop/Login/10006
         [HttpGet]               //이 메서드? 쓰려면 타입을 이걸루 해라
         [Route("Login/{id}")]         // 이 메서드 쓰려면 뒤에 input값 적어라
         public IHttpActionResult GetUserLogin(int id)
