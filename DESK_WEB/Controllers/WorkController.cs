@@ -40,6 +40,9 @@ namespace DESK_WEB.Controllers
         /// <returns></returns>
         public ActionResult InoperativeEquipment(string startDate = "", string endDate = "", string keyword = "", int page = 0)
         {
+            if (Session["user"] == null)
+                return Redirect($"{baseUrl}Main/Index?IsNotLogin=true");
+
             if (string.IsNullOrWhiteSpace(startDate) || string.IsNullOrWhiteSpace(endDate))
             {
                 startDate = DateTime.Now.AddMonths(-1).ToShortDateString();

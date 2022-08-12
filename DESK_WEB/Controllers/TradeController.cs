@@ -27,6 +27,9 @@ namespace DESK_WEB.Controllers
 
         public ActionResult Purchase(string startDate = "", string endDate = "", string keyword = "",int page = 0)
         {
+            if (Session["user"] == null)
+                return Redirect($"{baseUrl}Main/Index?IsNotLogin=true");
+
             ViewBag.Url = baseUrl;
 
             if (string.IsNullOrWhiteSpace(startDate)|| string.IsNullOrWhiteSpace(endDate))

@@ -29,3 +29,10 @@
         alert("로그인에 실패했습니다.");
     </script>
 }
+
+@if (ViewBag.isNotLogin == true)
+{
+    <script>
+        alert("로그인이 필요합니다.");
+    </script>
+}
