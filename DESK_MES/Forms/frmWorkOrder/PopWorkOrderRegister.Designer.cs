@@ -336,6 +336,8 @@ namespace DESK_MES
             this.cboselectMaterialLot.Name = "cboselectMaterialLot";
             this.cboselectMaterialLot.Size = new System.Drawing.Size(187, 25);
             this.cboselectMaterialLot.TabIndex = 92;
+            this.cboselectMaterialLot.Click += new System.EventHandler(this.cboselectMaterialLot_Click);
+            this.cboselectMaterialLot.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cboselectMaterialLot_MouseClick);
             // 
             // label18
             // 

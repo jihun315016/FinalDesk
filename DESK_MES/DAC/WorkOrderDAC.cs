@@ -427,7 +427,6 @@ namespace DESK_MES
                         cmd.Parameters["@Start_Due_Date"].Value = workList[i].Start_Due_Date;
                         cmd.Parameters["@Complete_Due_Date"].Value = workList[i].Complete_Due_Date;
                         cmd.Parameters["@Work_Order_State"].Value = workList[i].Work_Order_State;
-                        cmd.Parameters["@Material_Lot_Input_State"].Value = workList[i].Material_Lot_Input_State;
                         cmd.Parameters["@Create_User_No"].Value = workList[i].Create_User_No;
 
                         cmd.ExecuteNonQuery();

@@ -97,9 +97,9 @@ namespace DESK_MES
             if (e.RowIndex < 0) return;
             groupBoxW.Visible = true;
 
-            string material_state = dataGridView2[7, e.RowIndex].Value.ToString();
+            string material_state = (dataGridView2[7, e.RowIndex].Value == null) ? "" : dataGridView2[7, e.RowIndex].Value.ToString();
             string work_state = dataGridView2[6, e.RowIndex].Value.ToString();
-            if ( material_state.Trim().ToString() == "대기")
+            if ( material_state.Trim().ToString() == "대기" || material_state.Trim().ToString() == "")
             {
                 btnWorkEachOK.Visible = true;
                 btnMaterialEachOut.Visible = true;
@@ -128,7 +128,6 @@ namespace DESK_MES
             {
                 PopWorkOrderRegister pop = new PopWorkOrderRegister(ProductionCode, productCode, user);
                 pop.ShowDialog();
-
             }
             else
             {
@@ -143,26 +142,24 @@ namespace DESK_MES
             pop.ShowDialog();
         }
 
-
-
         private void btnWorkAllOK_Click(object sender, EventArgs e)
         {
-
+            // 작업상태 일괄 변경 : 미정 => 확정
         }
 
         private void btnMaterialAllOut_Click(object sender, EventArgs e)
         {
-
+            // 자재불출상태 일괄 변경: 미정 => 확정
         }
 
         private void btnWorkEachOK_Click(object sender, EventArgs e)
         {
-
+            // 작업상태 개별 변경 : 미정 => 확정
         }
 
         private void btnMaterialEachOut_Click(object sender, EventArgs e)
         {
-
+            // 자재불출상태 개별 변경: 미정 => 확정
         }
     }
 }
