@@ -120,11 +120,19 @@ namespace DESK_MES
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
             // 
+            // btnReset
+            // 
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.Images.SetKeyName(0, "새로고침.png");
             this.imageList1.Images.SetKeyName(1, "검색_1.png");
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel9
             // 
@@ -544,6 +552,7 @@ namespace DESK_MES
             this.button3.TabIndex = 35;
             this.button3.Text = "   엑셀";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // imageList2
             // 
