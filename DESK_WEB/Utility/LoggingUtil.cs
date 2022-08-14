@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -25,6 +26,9 @@ namespace DESK_WEB.Utility
             string url = $"{baseUrl}api/log/writeErrLog";
             HttpClient client = new HttpClient();
             HttpResponseMessage resMsg = client.PostAsJsonAsync(url, msg).Result;
+
+            Trace.WriteLine($"경로 : {System.Environment.CurrentDirectory}");
+            Console.WriteLine($"경로 : {System.Environment.CurrentDirectory}");
 
             if (resMsg.IsSuccessStatusCode)
                 return true;

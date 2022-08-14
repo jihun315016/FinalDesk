@@ -1,5 +1,6 @@
 ﻿using DESK_WEB.Models;
 using DESK_WEB.Models.DTO;
+using DESK_WEB.Utility;
 using MvcPaging;
 using Newtonsoft.Json;
 using System;
@@ -39,22 +40,71 @@ namespace DESK_WEB.Controllers
             }
             int curIndex = page > 0 ? page - 1 : 0;
 
-            // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04&keyword=
-            string url = $"{baseUrl}api/Trade/Purchase?startDate={startDate}&endDate={endDate}&keyword={keyword}";
-            HttpClient client = new HttpClient();
-            HttpResponseMessage resMsg = client.GetAsync(url).Result;
-            if (resMsg.IsSuccessStatusCode)
+            try
             {
-                string resStr = resMsg.Content.ReadAsStringAsync().Result;
-                ResMessage<List<WebPurchaseVO>> res = JsonConvert.DeserializeObject<ResMessage<List<WebPurchaseVO>>>(resStr);
-                var list = res.Data.ToPagedList(curIndex, pageSize);
-                return View(list);
+                // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04&keyword=
+                string url = $"{baseUrl}api/Trade/Purchase?startDate={startDate}&endDate={endDate}&keyword={keyword}";
+                HttpClient client = new HttpClient();
+                HttpResponseMessage resMsg = client.GetAsync(url).Result;
+                if (resMsg.IsSuccessStatusCode)
+                {
+                    string resStr = resMsg.Content.ReadAsStringAsync().Result;
+                    ResMessage<List<WebPurchaseVO>> res = JsonConvert.DeserializeObject<ResMessage<List<WebPurchaseVO>>>(resStr);
+                    var list = res.Data.ToPagedList(curIndex, pageSize);
+                    return View(list);
+                }
+            }
+            catch (Exception err)
+            {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
             }
             return View();
         }
 
-        public ActionResult Order()
+        public ActionResult Order(string startDate = "", string endDate = "", string keyword = "", int page = 0)
         {
+            if (Session["user"] == null)
+                return Redirect($"{baseUrl}Main/Index?IsNotLogin=true");
+
+            ViewBag.Url = baseUrl;
+
+            if (string.IsNullOrWhiteSpace(startDate) || string.IsNullOrWhiteSpace(endDate))
+            {
+                startDate = DateTime.Now.AddMonths(-1).ToShortDateString();
+                endDate = DateTime.Now.ToShortDateString();
+            }
+            int curIndex = page > 0 ? page - 1 : 0;
+
+            try
+            {
+                // https://localhost:44393/api/Trade/Order?startDate=2022-07-01&endDate=2022-08-04&keyword=
+                string url = $"{baseUrl}api/Trade/Order?startDate={startDate}&endDate={endDate}&keyword={keyword}";
+                HttpClient client = new HttpClient();
+                HttpResponseMessage resMsg = client.GetAsync(url).Result;
+                if (resMsg.IsSuccessStatusCode)
+                {
+                    string resStr = resMsg.Content.ReadAsStringAsync().Result;
+                    ResMessage<List<WebOrderVO>> res = JsonConvert.DeserializeObject<ResMessage<List<WebOrderVO>>>(resStr);
+                    var list = res.Data.ToPagedList(curIndex, pageSize);
+                }
+            }
+            catch (Exception err)
+            {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+            }
+
             return View();
         }
     }

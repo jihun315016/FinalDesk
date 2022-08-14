@@ -1,4 +1,4 @@
-﻿
+﻿@model IPagedList<DESK_WEB.Models.DTO.WebOrderVO>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
@@ -10,11 +10,14 @@
         <div class="row mb-2">
             <div class="col-sm-12">
                 <h3>매출 현황</h3>
-                
-                <input type="date" style="width:150px; height:28px" /> ~
-                <input type="date" style="width:150px; height:28px" />
-                <input type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" />
-                <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+
+                @using (Html.BeginForm("Purchase", "Trade", FormMethod.Get))
+                {
+                    <input type="date" style="width:150px; height:28px" /> 
+                    <input type="date" style="width:150px; height:28px" />
+                    <input type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" />
+                    <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+                }
 
 
             </div><!-- /.col -->
@@ -43,21 +46,27 @@
                 </thead>
                 <tbody>
 
-                    <tr>
-                        <td>10042</td>
-                        <td>2022-07-17</td>
-                        <td>2022-07-18</td>
-                        <td>(주)할리스</td>
-                        <td>TCP0001</td>
-                        <td>호두나무 원목 2000 X-01</td>
-                        <td>100</td>
-                        <td>4,000</td>
-                        <td>400,000</td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Order_No</td>
+                            <td>@item.Order_Date.ToShortDateString()</td>
+                            <td>@item.Release_Date.ToShortDateString()</td>
+                            <td>@item.Client_Name</td>
+                            <td>@item.Product_Code</td>
+                            <td>@item.Product_Name</td>
+                            <td>@item.TotalQty.ToString("###,##0")</td>
+                            <td>@item.Price.ToString("###,##0")</td>
+                            <td>@item.TotalPrice.ToString("###,##0")</td>
+                        </tr>
+                    }
 
                 </tbody>
             </table>
 
+            <div class="pager">
+                @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+            </div>
         </div>
     </div>
     <!-- /.content -->
