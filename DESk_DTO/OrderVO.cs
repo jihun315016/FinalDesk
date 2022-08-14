@@ -15,6 +15,8 @@ namespace DESK_DTO
         public string Order_State { get; set; }
         public string Release_Date { get; set; }
         public string Release_State { get; set; }
+        public string Release_OK_Date { get; set; }
+
         public string Create_Time { get; set; }
         public string Create_User_Name { get; set; }
         public int Create_User_No { get; set; }

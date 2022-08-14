@@ -42,9 +42,16 @@ namespace DESK_MES
                                       Order_State,
                                       convert(varchar(10), Release_Date, 23) Release_Date,
                                	      Release_State,
-                                      convert(varchar(10), Release_OK_Date, 23) Release_OK_Date
+                                      convert(varchar(10), Release_OK_Date, 23) Release_OK_Date,
+									  OD.Create_User_No,
+									  U.User_Name AS Create_User_Name,
+                                      convert(varchar(10), OD.Update_Time, 23) Update_Time,
+                               	      OD.Update_User_No, 
+									  UU.User_Name AS Update_User_Name
                                from [dbo].[TB_ORDER] OD
-                               INNER JOIN [dbo].[TB_Client] C ON OD.Client_Code=C.Client_Code
+                               LEFT JOIN [dbo].[TB_Client] C ON OD.Client_Code=C.Client_Code
+							   LEFT JOIN [dbo].[TB_USER] U ON OD.Create_User_No=U.User_No
+							   LEFT JOIN [dbo].[TB_USER] UU ON OD.Update_User_No=UU.User_No
                                where Order_State='DT'";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -56,6 +63,57 @@ namespace DESK_MES
             catch (Exception err)
             {
                 return null;
+            }
+        }
+
+        public bool RegisterRelease(ReleaseVO release, List<OrderDetailVO> orderList)  
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    cmd.CommandText = @"UPDATE [dbo].[TB_ORDER]
+                                        SET Release_OK_Date = @Release_OK_Date,
+                                            Release_State = @Release_State,
+                                            Update_Time = @Update_Time,
+                                            Update_User_No = @Update_User_No
+                                        WHERE Order_No = @Order_No";
+
+                    cmd.Connection = conn;
+                    cmd.Transaction = trans;
+                    cmd.Parameters.AddWithValue("@Order_No", release.Order_No);
+                    cmd.Parameters.AddWithValue("@Release_OK_Date", release.Release_OK_Date);
+                    cmd.Parameters.AddWithValue("@Release_State", release.Release_State);
+                    cmd.Parameters.AddWithValue("@Update_Time", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Update_User_No", release.Update_User_No);
+                    cmd.ExecuteNonQuery();
+
+                    // ITEM 수량 업데이트
+                    // CHANGE_QUANTITY <= 현재수량 - 주문 수량
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"UPDATE [dbo].[TB_WAREHOUSE_PRODUCT_RELATION]
+                                        SET Product_Quantity = Product_Quantity - @Product_Quantity
+                                        WHERE Product_Code = @Product_Code";
+
+                    cmd.Parameters.Add("@Product_Code", System.Data.SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@Product_Quantity", System.Data.SqlDbType.Int);
+
+                    foreach (OrderDetailVO item in orderList)
+                    {
+                        cmd.Parameters["@Product_Code"].Value = item.Product_Code;
+                        cmd.Parameters["@Product_Quantity"].Value = item.TotalQty;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    trans.Rollback();
+                    return false;
+                }
             }
         }
     }

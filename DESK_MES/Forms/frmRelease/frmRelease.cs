@@ -46,7 +46,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "유형", "Product_Type", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "단가", "Price", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "주문단위", "Unit", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "수량 입력", "Qty_PerUnit", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "수량", "Qty_PerUnit", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총 구매수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총액", "TotalPrice", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
@@ -73,7 +73,7 @@ namespace DESK_MES
             txtOrderRegiDate.Text = dataGridView1["Order_Date", e.RowIndex].Value.ToString();
             txtReleaseDate.Text = dataGridView1["Release_Date", e.RowIndex].Value.ToString();
             txtRelease_State.Text = dataGridView1["Release_State", e.RowIndex].Value.ToString();
-            //txtRelease_OK_Date.Text = dataGridView1["Release_OK_Date", e.RowIndex].Value.ToString();
+            txtRelease_OK_Date.Text = (dataGridView1["Release_OK_Date", e.RowIndex].Value == null) ? "": dataGridView1["Release_OK_Date", e.RowIndex].Value.ToString();
 
             orderDetailList = srv.GetOrderDetailList(orderNo);
             dataGridView2.DataSource = orderDetailList;
@@ -81,7 +81,7 @@ namespace DESK_MES
 
         private void btnReleaseAdd_Click(object sender, EventArgs e)
         {
-            PopReleaseRegister pop = new PopReleaseRegister(user);
+            PopReleaseRegister pop = new PopReleaseRegister(user, orderNo);
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
