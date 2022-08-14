@@ -52,6 +52,7 @@ namespace DESK_WEB.Models.DAC
             cmd.Parameters.AddWithValue("@keyword", $"%{keyword}%");
             SqlDataReader reader = cmd.ExecuteReader();
             List<WebPurchaseVO> list = DBHelper.DataReaderMapToList<WebPurchaseVO>(reader);
+            reader.Close();
             return list;
         }
 
@@ -73,10 +74,10 @@ namespace DESK_WEB.Models.DAC
                             JOIN TB_Client c ON o.Client_Code = c.Client_Code
                             JOIN TB_PRODUCT pr ON od.Product_Code = pr.Product_Code
                             WHERE o.Release_State = 'Y'
-                            AND o.Order_No >= @startDate
-                            AND o.Order_No <= @endDate
+                            AND o.Order_Date >= @startDate
+                            AND o.Order_Date <= @endDate
                             AND Client_Name LIKE @keyword 
-                            ORDER BY Purchase_Date DESC ";
+                            ORDER BY Order_Date DESC ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@startDate", startDate);
@@ -84,6 +85,7 @@ namespace DESK_WEB.Models.DAC
             cmd.Parameters.AddWithValue("@keyword", $"%{keyword}%");
             SqlDataReader reader = cmd.ExecuteReader();
             List<WebOrderVO> list = DBHelper.DataReaderMapToList<WebOrderVO>(reader);
+            reader.Close();
             return list;
         }
     }

@@ -64,6 +64,8 @@ namespace DESK_WEB.Controllers
                 };
                 LoggingUtil.LoggingError(msg);
             }
+
+            // 이런 경우 오류가 발생하는데 예외 처리 잘 해서 어짜피 이런 경우 없음
             return View();
         }
 
@@ -92,6 +94,7 @@ namespace DESK_WEB.Controllers
                     string resStr = resMsg.Content.ReadAsStringAsync().Result;
                     ResMessage<List<WebOrderVO>> res = JsonConvert.DeserializeObject<ResMessage<List<WebOrderVO>>>(resStr);
                     var list = res.Data.ToPagedList(curIndex, pageSize);
+                    return View(list);
                 }
             }
             catch (Exception err)
@@ -104,7 +107,8 @@ namespace DESK_WEB.Controllers
                 };
                 LoggingUtil.LoggingError(msg);
             }
-
+            
+            // 어짜피 이런 경우 없음  
             return View();
         }
     }

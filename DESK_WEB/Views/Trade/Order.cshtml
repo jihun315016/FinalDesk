@@ -11,12 +11,12 @@
             <div class="col-sm-12">
                 <h3>매출 현황</h3>
 
-                @using (Html.BeginForm("Purchase", "Trade", FormMethod.Get))
+                @using (Html.BeginForm("Order", "Trade", FormMethod.Get))
                 {
-                    <input type="date" style="width:150px; height:28px" /> 
-                    <input type="date" style="width:150px; height:28px" />
-                    <input type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" />
-                    <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+                    <input id="startDate" type="date" style="width:150px; height:28px" name="startDate" />
+                    <input id="endDate" type="date" style="width:150px; height:28px" name="endDate" />
+                    <input id="search" type="text" placeholder="거래처를 입력하세요." style="width:170px; height:28px" name="keyword" />
+                    <input class="btnSearch" type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
                 }
 
 
