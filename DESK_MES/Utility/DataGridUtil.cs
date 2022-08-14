@@ -57,5 +57,27 @@ namespace DESK_MES
 
             dgv.Columns.Add(btn);
         }
+
+        public static void AddGridTextBoxColumn(DataGridView dgv,
+            string headerText,
+            string propertyName,
+            int colwidth = 100,
+            DataGridViewContentAlignment align = DataGridViewContentAlignment.MiddleLeft,
+            bool visibility = true,
+            bool fixedCol = false)
+        {
+            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
+            col.Name = propertyName;
+            col.HeaderText = headerText;
+            col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            col.DataPropertyName = propertyName;
+            col.DefaultCellStyle.Alignment = align;
+            col.Width = colwidth;
+            col.Visible = visibility;
+            col.ReadOnly = true; //그리드뷰에서 데이터수정 불가
+            col.Frozen = fixedCol;
+            dgv.Columns.Add(col);
+        }
     }
 }

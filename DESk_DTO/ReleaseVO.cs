@@ -8,6 +8,7 @@ namespace DESK_DTO
 {
     public class ReleaseVO
     {
+        public int BarcodeID { get; set; }
         public int Order_No { get; set; }
         public string Client_Code { get; set; }
         public string Client_Name { get; set; }

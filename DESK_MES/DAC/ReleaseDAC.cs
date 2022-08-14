@@ -116,5 +116,30 @@ namespace DESK_MES
                 }
             }
         }
+
+        public DataTable GetBoxOutputList()
+        {
+            string sql = @"select BarcodeID, B.ProductID, ProductName, BoxLevel, Qty
+     , convert(varchar(10), Regdate, 23) RegDate
+from BoxOutput B inner join Products P on B.ProductID = P.ProductID";
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            da.SelectCommand.Connection.Close();
+            return dt;
+        }
+
+        public DataTable GetPrintBoxOutputLabel(string selList)
+        {
+            string sql = @"select BarcodeID, B.ProductID, ProductName, BoxLevel, Qty
+     , convert(varchar(10), Regdate, 23) RegDate
+from BoxOutput B inner join Products P on B.ProductID = P.ProductID where BarcodeID in (" + selList + ")";
+
+            SqlDataAdapter da = new SqlDataAdapter(sql,conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            da.SelectCommand.Connection.Close();
+            return dt;
+        }
     }
 }
