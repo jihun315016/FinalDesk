@@ -118,5 +118,41 @@ namespace DESK_MES
 
             return result;
         }
+
+        public bool UpdateAllWorkOrderState(WorkOrderVO list)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            bool result = dac.UpdateAllWorkOrderState(list);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool UpdateEachWorkOrderState(WorkOrderVO list)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            bool result = dac.UpdateEachWorkOrderState(list);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool InputAllMaterial(WorkOrderVO list, List<WorkOrderVO> workList)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            bool result = dac.InputAllMaterial(list, workList);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool InputEachMaterial(WorkOrderVO list)
+        {
+            WorkOrderDAC dac = new WorkOrderDAC();
+            bool result = dac.InputEachMaterial(list);
+            dac.Dispose();
+
+            return result;
+        }
     }
 }

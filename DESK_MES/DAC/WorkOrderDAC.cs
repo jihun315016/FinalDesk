@@ -445,5 +445,167 @@ namespace DESK_MES
                 return false;
             }
         }
+
+        public bool UpdateAllWorkOrderState(WorkOrderVO list) // 작업 상태 일괄 변경
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = @"UPDATE [dbo].[TB_WORK] SET Work_Order_State=@Work_Order_State,
+                                                                   Material_Lot_Input_State=@Material_Lot_Input_State
+                                                               WHERE Production_No = @Production_No";
+
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@Production_No", list.Production_No);
+                    cmd.Parameters.AddWithValue("@Work_Order_State", list.Work_Order_State);
+                    cmd.Parameters.AddWithValue("@Material_Lot_Input_State", list.Material_Lot_Input_State);
+                    cmd.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool UpdateEachWorkOrderState(WorkOrderVO list) // 작업 상태 개별 변경
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = @"UPDATE [dbo].[TB_WORK] SET Work_Order_State=@Work_Order_State,
+                                                                   Material_Lot_Input_State=@Material_Lot_Input_State
+                                                               WHERE Work_Code = @Work_Code";
+
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@Work_Code", list.Work_Code);
+                    cmd.Parameters.AddWithValue("@Work_Order_State", list.Work_Order_State);
+                    cmd.Parameters.AddWithValue("@Material_Lot_Input_State", list.Material_Lot_Input_State);
+                    cmd.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool InputAllMaterial(WorkOrderVO list, List<WorkOrderVO> workList)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    cmd.CommandText = @"UPDATE [dbo].[TB_WORK] 
+                                        SET Material_Lot_Input_State=@Material_Lot_Input_State
+                                        WHERE Production_No = @Production_No";
+
+                    cmd.Connection = conn;
+                    cmd.Transaction = trans;
+                    cmd.Parameters.AddWithValue("@Production_No", list.Production_No);
+                    cmd.Parameters.AddWithValue("@Material_Lot_Input_State", list.Material_Lot_Input_State);
+                    cmd.ExecuteNonQuery();
+
+                    // 반제품 수량 다운
+                    // CHANGE_QUANTITY <= 현재수량 - 주문 수량
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"UPDATE [dbo].[TB_WAREHOUSE_PRODUCT_RELATION]
+                                        SET Product_Quantity = Product_Quantity - @Halb_Material_Qty
+                                        WHERE Product_Code = @Product_Code";
+
+                    cmd.Parameters.Add("@Product_Code", System.Data.SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@Halb_Material_Qty", System.Data.SqlDbType.Int);
+
+                    foreach (WorkOrderVO item in workList)
+                    {
+                        cmd.Parameters["@Product_Code"].Value = item.Product_Code;
+                        cmd.Parameters["@Halb_Material_Qty"].Value = item.Halb_Material_Qty;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // 원자재 수량 다운
+                    // CHANGE_QUANTITY <= 현재수량 - 주문 수량
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"UPDATE [dbo].[TB_MATERIAL_LOT]
+                                        SET Cur_Qty = Cur_Qty - @Input_Material_Qty
+                                        WHERE Lot_Code = @Lot_Code";
+
+                    cmd.Parameters.Add("@Lot_Code", System.Data.SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@Input_Material_Qty", System.Data.SqlDbType.Int);
+
+                    foreach (WorkOrderVO item in workList)
+                    {
+                        cmd.Parameters["@Lot_Code"].Value = item.Input_Material_Code;
+                        cmd.Parameters["@Input_Material_Qty"].Value = item.Input_Material_Qty;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    trans.Rollback();
+                    return false;
+                }
+            }
+        }
+
+        public bool InputEachMaterial(WorkOrderVO list)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    cmd.CommandText = @"UPDATE [dbo].[TB_WORK] 
+                                        SET Material_Lot_Input_State=@Material_Lot_Input_State
+                                        WHERE Work_Code = @Work_Code";
+
+                    cmd.Connection = conn;
+                    cmd.Transaction = trans;
+                    cmd.Parameters.AddWithValue("@Work_Code", list.Work_Code);
+                    cmd.Parameters.AddWithValue("@Material_Lot_Input_State", list.Material_Lot_Input_State);
+                    cmd.ExecuteNonQuery();
+
+                    // 반제품 수량 다운
+                    // CHANGE_QUANTITY <= 현재수량 - 주문 수량
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"UPDATE [dbo].[TB_WAREHOUSE_PRODUCT_RELATION]
+                                        SET Product_Quantity = Product_Quantity - @Halb_Material_Qty
+                                        WHERE Product_Code = @Product_Code";
+
+                    cmd.Parameters.AddWithValue("@Product_Code", list.Product_Code);
+                    cmd.Parameters.AddWithValue("@Halb_Material_Qty", list.Halb_Material_Qty);
+                    cmd.ExecuteNonQuery();
+
+                    // 원자재 수량 다운
+                    // CHANGE_QUANTITY <= 현재수량 - 주문 수량
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"UPDATE [dbo].[TB_MATERIAL_LOT]
+                                        SET Cur_Qty = Cur_Qty - @Input_Material_Qty
+                                        WHERE Lot_Code = @Lot_Code";
+
+                    cmd.Parameters.AddWithValue("@Lot_Code", list.Input_Material_Code);
+                    cmd.Parameters.AddWithValue("@Input_Material_Qty", list.Input_Material_Qty);
+                    cmd.ExecuteNonQuery();
+
+                    trans.Commit();
+                    return true;
+                }
+                catch (Exception err)
+                {
+                    trans.Rollback();
+                    return false;
+                }
+            }
+        }
     }
 }
