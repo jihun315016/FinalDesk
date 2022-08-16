@@ -159,6 +159,7 @@ namespace DESK_MES
             this.button3.TabIndex = 27;
             this.button3.Text = "   닫기";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnAdd
             // 
@@ -174,6 +175,7 @@ namespace DESK_MES
             this.btnAdd.TabIndex = 26;
             this.btnAdd.Text = "   출력";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // groupBox2
             // 

@@ -13,6 +13,7 @@ namespace DESK_MES
     public partial class PopBarcode : Form
     {
         CheckBox headerChk = new CheckBox();
+        ReleaseDAC db = new ReleaseDAC();
 
         public PopBarcode()
         {
@@ -39,15 +40,14 @@ namespace DESK_MES
             headerChk.Click += HeaderChk_Click;
             dgvList.Controls.Add(headerChk);
 
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "바코드ID", "BarcodeID");
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품ID", "ProductID");
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품명", "ProductName");
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "수량", "Qty");
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "바코드ID", "BarcodeID", colwidth:200);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품ID", "Product_Code");
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품명", "Product_Name", colwidth: 300);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "단위", "Unit", colwidth: 150);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "수량", "TotalQty", colwidth: 150);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "출고일자", "Release_OK_Date", colwidth: 150);
 
-
-            //DataTable dt = db.GetProductList();
-
-            //dgvList.DataSource = db.GetBoxOutputList();
+            dgvList.DataSource = db.GetBoxOutputList();
         }
 
         private void HeaderChk_Click(object sender, EventArgs e)
@@ -59,6 +59,40 @@ namespace DESK_MES
                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells["chk"];
                 chk.Value = headerChk.Checked;
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            List<string> selList = new List<string>();
+
+            foreach (DataGridViewRow row in dgvList.Rows)
+            {
+                bool isChecked = (bool)row.Cells["chk"].EditedFormattedValue;
+                if (isChecked)
+                {
+                    selList.Add(row.Cells[1].Value.ToString());
+                }
+            }
+
+            if (selList.Count == 0)
+            {
+                MessageBox.Show("출력할 바코드를 선택해주세요.");
+                return;
+            }
+
+            string selBarCodeIDs = string.Join(",", selList);
+
+            DataTable dtData = db.GetPrintBoxOutputLabel(selBarCodeIDs);
+
+            XtraReportBarcord rpt = new XtraReportBarcord();
+            rpt.DataSource = dtData;
+
+            ReportPreviewForm frm = new ReportPreviewForm(rpt);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

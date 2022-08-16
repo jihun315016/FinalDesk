@@ -119,9 +119,11 @@ namespace DESK_MES
 
         public DataTable GetBoxOutputList()
         {
-            string sql = @"select BarcodeID, B.ProductID, ProductName, BoxLevel, Qty
-     , convert(varchar(10), Regdate, 23) RegDate
-from BoxOutput B inner join Products P on B.ProductID = P.ProductID";
+            string sql = @"select BarcodeID, OD.Product_Code, Product_Name, Unit, TotalQty, convert(varchar(10), Release_OK_Date, 23) Release_OK_Date
+                           from [dbo].[TB_ORDER_DETAIL] OD
+                           inner join [dbo].[TB_ORDER] O ON OD.Order_No=O.Order_No
+                           inner join [dbo].[TB_PRODUCT] P ON OD.Product_Code=P.Product_Code
+                           where Release_State= 'Y'";
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -131,9 +133,10 @@ from BoxOutput B inner join Products P on B.ProductID = P.ProductID";
 
         public DataTable GetPrintBoxOutputLabel(string selList)
         {
-            string sql = @"select BarcodeID, B.ProductID, ProductName, BoxLevel, Qty
-     , convert(varchar(10), Regdate, 23) RegDate
-from BoxOutput B inner join Products P on B.ProductID = P.ProductID where BarcodeID in (" + selList + ")";
+            string sql = @"select BarcodeID, OD.Product_Code, Product_Name, Unit, TotalQty, convert(varchar(10), Release_OK_Date, 23) Release_OK_Date
+                           from [dbo].[TB_ORDER_DETAIL] OD
+                           inner join [dbo].[TB_ORDER] O ON OD.Order_No=O.Order_No
+                           inner join [dbo].[TB_PRODUCT] P ON OD.Product_Code=P.Product_Code where BarcodeID in (" + selList + ")";
 
             SqlDataAdapter da = new SqlDataAdapter(sql,conn);
             DataTable dt = new DataTable();

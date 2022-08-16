@@ -241,7 +241,7 @@ namespace DESK_MES
                         cmd.Parameters["@Product_Code"].Value = item.Product_Code;
                         cmd.Parameters["@TotalPrice"].Value = item.TotalPrice;
                         cmd.Parameters["@Qty_PerUnit"].Value = item.Qty_PerUnit;
-                        cmd.Parameters["@TotalQty"].Value = item.TotalPrice;
+                        cmd.Parameters["@TotalQty"].Value = item.TotalQty;
 
                         cmd.ExecuteNonQuery();
                     }
