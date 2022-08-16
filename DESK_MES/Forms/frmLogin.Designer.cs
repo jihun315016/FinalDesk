@@ -31,12 +31,12 @@ namespace DESK_MES
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtUserPwd = new DESK_MES.ccTextBox();
+            this.txtUserID = new DESK_MES.ccTextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtUserPwd = new DESK_MES.ccTextBox();
-            this.txtUserID = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,29 @@ namespace DESK_MES
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(264, 217);
             this.panel1.TabIndex = 0;
+            // 
+            // txtUserPwd
+            // 
+            this.txtUserPwd.isNumeric = false;
+            this.txtUserPwd.isRequired = false;
+            this.txtUserPwd.Location = new System.Drawing.Point(88, 144);
+            this.txtUserPwd.Name = "txtUserPwd";
+            this.txtUserPwd.PlaceHolder = null;
+            this.txtUserPwd.Size = new System.Drawing.Size(164, 25);
+            this.txtUserPwd.TabIndex = 7;
+            this.txtUserPwd.Text = "1111";
+            this.txtUserPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserPwd_KeyPress);
+            // 
+            // txtUserID
+            // 
+            this.txtUserID.isNumeric = false;
+            this.txtUserID.isRequired = false;
+            this.txtUserID.Location = new System.Drawing.Point(88, 110);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.PlaceHolder = null;
+            this.txtUserID.Size = new System.Drawing.Size(164, 25);
+            this.txtUserID.TabIndex = 6;
+            this.txtUserID.Text = "10002";
             // 
             // btnLogin
             // 
@@ -95,29 +118,6 @@ namespace DESK_MES
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // txtUserPwd
-            // 
-            this.txtUserPwd.isNumeric = false;
-            this.txtUserPwd.isRequired = false;
-            this.txtUserPwd.Location = new System.Drawing.Point(88, 144);
-            this.txtUserPwd.Name = "txtUserPwd";
-            this.txtUserPwd.PlaceHolder = null;
-            this.txtUserPwd.Size = new System.Drawing.Size(164, 25);
-            this.txtUserPwd.TabIndex = 7;
-            this.txtUserPwd.Text = "1111";
-            this.txtUserPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserPwd_KeyPress);
-            // 
-            // txtUserID
-            // 
-            this.txtUserID.isNumeric = false;
-            this.txtUserID.isRequired = false;
-            this.txtUserID.Location = new System.Drawing.Point(88, 110);
-            this.txtUserID.Name = "txtUserID";
-            this.txtUserID.PlaceHolder = null;
-            this.txtUserID.Size = new System.Drawing.Size(164, 25);
-            this.txtUserID.TabIndex = 6;
-            this.txtUserID.Text = "10002";
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -125,13 +125,13 @@ namespace DESK_MES
             this.ClientSize = new System.Drawing.Size(264, 217);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "로그인";
+            this.Text = "WalnutSolution";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

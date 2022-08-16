@@ -26,7 +26,6 @@ namespace DESK_MES
         }
         private void frmOrder_Load(object sender, EventArgs e)
         {
-
             this.user = ((frmMain)(this.MdiParent)).userInfo;
             srv = new OrderService();
 

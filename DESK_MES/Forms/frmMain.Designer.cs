@@ -29,6 +29,7 @@ namespace DESK_MES
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,11 +40,14 @@ namespace DESK_MES
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new DESK_MES.ccTabControl();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -84,6 +88,7 @@ namespace DESK_MES
             this.menuStrip2.Size = new System.Drawing.Size(934, 24);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
+            this.menuStrip2.Visible = false;
             // 
             // toolStrip1
             // 
@@ -92,7 +97,7 @@ namespace DESK_MES
             this.toolStripButton1,
             this.toolStripLabel1,
             this.toolStripLabel2});
-            this.toolStrip1.Location = new System.Drawing.Point(250, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(250, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(934, 25);
             this.toolStrip1.TabIndex = 5;
@@ -129,18 +134,31 @@ namespace DESK_MES
             // 
             // statusStrip1
             // 
-            this.statusStrip1.BackColor = System.Drawing.SystemColors.Window;
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(250, 639);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(934, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(121, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabControl1.Location = new System.Drawing.Point(250, 49);
+            this.tabControl1.Location = new System.Drawing.Point(250, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(934, 24);
@@ -159,8 +177,9 @@ namespace DESK_MES
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip2;
             this.Name = "frmMain";
-            this.Text = "Form1";
+            this.Text = "WalnutSolution";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
@@ -169,6 +188,8 @@ namespace DESK_MES
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,6 +207,8 @@ namespace DESK_MES
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ccTabControl tabControl1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -47,6 +47,7 @@ namespace DESK_MES
                 toolStripLabel1.Text = $"[{pop.userVO.User_Group_Name}] {pop.userVO.User_Name}";
                 srv = new MenuService();
                 menuList = srv.GetMenuList(Convert.ToInt32(pop.userVO.User_Group_No));
+                timer1.Start();
             }
 
             //최상위 메뉴 버튼 초기화
@@ -137,7 +138,7 @@ namespace DESK_MES
             else
             {
                 this.ActiveMdiChild.WindowState = FormWindowState.Maximized;
-
+                
                 if (this.ActiveMdiChild.Tag == null)
                 {
                     //텝페이지 생성
@@ -210,6 +211,11 @@ namespace DESK_MES
                     break;
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
     }
 }
