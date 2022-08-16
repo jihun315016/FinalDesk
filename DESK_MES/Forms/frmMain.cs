@@ -70,7 +70,6 @@ namespace DESK_MES
             menuTree.BorderStyle = BorderStyle.None;
             flowLayoutPanel1.Controls.Add(menuTree);
 
-           
         }
 
         private void MenuButtonClick(object sender, EventArgs e)
@@ -89,7 +88,7 @@ namespace DESK_MES
             menuTree.ItemHeight = 30;
             menuTree.Height = menuTree.Nodes.Count * menuTree.ItemHeight + 4;
 
-            flowLayoutPanel1.Controls.SetChildIndex(menuTree, ((int[])clickedBtn.Tag)[1] + 2 );
+            flowLayoutPanel1.Controls.SetChildIndex(menuTree, ((int[])clickedBtn.Tag)[1] + 1 );
             flowLayoutPanel1.Invalidate();
         }
 
@@ -142,7 +141,7 @@ namespace DESK_MES
                 if (this.ActiveMdiChild.Tag == null)
                 {
                     //텝페이지 생성
-                    TabPage tp = new TabPage(this.ActiveMdiChild.Text + "       ");
+                    TabPage tp = new TabPage(this.ActiveMdiChild.Text + "    ");
                     tp.Parent = tabControl1;
                     tp.Tag = this.ActiveMdiChild; //?
 
@@ -215,7 +214,69 @@ namespace DESK_MES
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            toolStripLabel4.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("로그아웃 하시겠습니까?", "로그아웃", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Hide();
+
+                flowLayoutPanel1.Controls.Clear();
+                if (tabControl1.Controls.Count > 0)
+                {
+                    foreach (var item in this.MdiChildren)
+                    {
+                        item.Close();
+                    }
+
+                }
+                tabControl1.Controls.Clear();
+
+                toolStripLabel4.Enabled = false;
+                timer1.Stop();
+                frmLogin pop = new frmLogin();
+                if (pop.ShowDialog(this) != DialogResult.OK)
+                {
+                    this.Close();
+                    Application.Exit();
+                }
+                else
+                {
+                    this.Show();
+
+                    //로그인 성공시 상태 / 메뉴바인딩
+                    this.userInfo = pop.userVO;
+                    toolStripLabel1.Text = $"[{pop.userVO.User_Group_Name}] {pop.userVO.User_Name}";
+                    srv = new MenuService();
+                    menuList = srv.GetMenuList(Convert.ToInt32(pop.userVO.User_Group_No));
+                    timer1.Start();
+                }
+                //최상위 메뉴 버튼 초기화
+                var list = menuList.FindAll(m => m.Parent_Function_No == 0);
+                for (int i = 0; i < list.Count; i++)
+                {
+                    Button btn = new Button();
+                    btn.Text = list[i].Function_Name;
+                    btn.Size = new Size(244, 50);
+                    btn.Tag = new int[2] { list[i].Function_No, i };
+                    btn.Click += MenuButtonClick;
+                    btn.BackColor = SystemColors.ControlDark;
+                    flowLayoutPanel1.Controls.Add(btn);
+                }
+
+                menuTree = new TreeView();
+                menuTree.Size = new Size(244, 50);
+                menuTree.NodeMouseDoubleClick += MenuTree_NodeMouseDoubleClick;
+                menuTree.BackColor = SystemColors.WindowFrame;
+                menuTree.BorderStyle = BorderStyle.None;
+                flowLayoutPanel1.Controls.Add(menuTree);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
