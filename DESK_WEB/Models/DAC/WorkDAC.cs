@@ -57,5 +57,16 @@ namespace DESK_WEB.Models.DAC
             reader.Close();
             return list;
         }
+
+        public void WorkPerformance()
+        {
+            string sql = @"SELECT 
+	                            Work_Code, Product_Name, Start_Date, Start_Due_Date, Complete_Date, Complete_Due_Date, 
+	                            Equipment_Name, Work_Plan_Qty, Work_Complete_Qty, Work_Paln_Date, Working_Qty 
+                            FROM TB_WORK w
+                            JOIN TB_PRODUCT p ON w.Product_Code = p.Product_Code
+                            JOIN TB_EQUIPMENT e ON w.Production_Equipment_Code = e.Equipment_No
+                            ORDER BY Start_Due_Date DESC ";
+        }
     }
 }
