@@ -5,6 +5,9 @@
 }
 
 <div class="col-md-12">
+    <input id="selDate" type="month"/>
+    <button id="btnSearch" onclick="getData();">버트은</button>
+
     <!-- LINE CHART -->
     <div class="card card-info">
         <div class="card-header">
@@ -28,3 +31,9 @@
     </div>
     <!-- /.card -->
 </div>
+
+<script>
+    function getData() {
+        alert($('#selDate').val());
+    }
+</script>

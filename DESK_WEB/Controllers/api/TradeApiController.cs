@@ -101,5 +101,43 @@ namespace DESK_WEB.Controllers.api
                 });
             }
         }
+
+        // https://localhost:44393/api/trade/op
+        [Route("op")]
+        public IHttpActionResult GetOrderPurchaseList(int month = 0)
+        {
+            if (month == 0)
+                month = DateTime.Now.Month;
+
+            try
+            {
+                TradeDAC dac = new TradeDAC();
+                List<OrderPurchaseVO> list = dac.GetOrderPurchaseList(month);
+                ResMessage<List<OrderPurchaseVO>> result = new ResMessage<List<OrderPurchaseVO>>()
+                {
+                    ErrCode = (list == null) ? -9 : 0,
+                    ErrMsg = (list == null) ? "조회중 오류 발생" : "S",
+                    Data = list
+                };
+
+                return Ok(result);
+            }
+            catch (Exception err)
+            {
+                LoggingMsgVO msg = new LoggingMsgVO()
+                {
+                    Msg = err.Message,
+                    StackTrace = err.StackTrace,
+                    Source = err.Source
+                };
+                LoggingUtil.LoggingError(msg);
+
+                return Ok(new ResMessage()
+                {
+                    ErrCode = -9,
+                    ErrMsg = "서비스 관리자에게 문의하시기 바랍니다."
+                });
+            }
+        }
     }
 }
