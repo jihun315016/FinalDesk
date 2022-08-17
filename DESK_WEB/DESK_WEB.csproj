@@ -2064,6 +2064,7 @@
     <Compile Include="Models\DTO\InoperativeEquipmentVO.cs" />
     <Compile Include="Models\DTO\LoggingMsgVO.cs" />
     <Compile Include="Models\DTO\MenuVO.cs" />
+    <Compile Include="Models\DTO\OrderPurchaseVO.cs" />
     <Compile Include="Models\DTO\PopVO.cs" />
     <Compile Include="Models\DTO\ResMessage.cs" />
     <Compile Include="Models\DTO\UserVO.cs" />

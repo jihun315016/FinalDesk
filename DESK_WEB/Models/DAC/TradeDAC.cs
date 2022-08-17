@@ -88,5 +88,36 @@ namespace DESK_WEB.Models.DAC
             reader.Close();
             return list;
         }
+
+        /// <summary>
+        /// 월별 매입 / 매출 조회
+        /// </summary>
+        /// <param name="month"></param>
+        /// <returns></returns>
+        public List<OrderPurchaseVO> GetOrderPurchaseList(int month)
+        {
+            string sql = @"SELECT 
+	                            p.Purchase_Date Date, SUM(TotalPrice) Total, '매입' Type
+                            FROM TB_PURCHASE_DETAIL pd
+                            JOIN TB_PURCHASE p ON pd.Purchase_No = p.Purchase_No
+                            WHERE p.Is_Incoming = 'Y'
+                            AND MONTH(Purchase_Date) = @Month
+                            GROUP BY Purchase_Date
+                            UNION
+                            SELECT 
+	                            o.Order_Date Date, SUM(TotalPrice) Total, '매출' Type
+                            FROM TB_ORDER_DETAIL od
+                            JOIN TB_ORDER o ON od.Order_No = o.Order_No
+                            WHERE o.Release_State = 'Y'
+                            AND MONTH(Order_Date) = @month
+                            GROUP BY Order_Date ";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@month", month);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<OrderPurchaseVO> list = DBHelper.DataReaderMapToList<OrderPurchaseVO>(reader);
+            reader.Close();
+            return list;
+        }
     }
 }
