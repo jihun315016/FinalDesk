@@ -81,7 +81,7 @@
         // 임시 url
         // https://localhost:44393/api/Trade/Purchase?startDate=2022-07-01&endDate=2022-08-04
         var btnSearch = $('.btnSearch').val();
-        $.getJSON(url + 'api/Trade/Purchase?startDate=' + $('#startDate').val() + '&endDate=' + $('#endDate').val() + '&keyword=' + $('#search').val())
+          $.getJSON(url + 'api/Trade/Purchase?startDate=' + $('#startDate').val() + '&endDate=' + $('#endDate').val() + '&keyword=' + $('#search').val())
             .done((data) => {
                 $('#tbodyPurchase').empty();
                 var tRow = '';

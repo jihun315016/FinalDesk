@@ -34,6 +34,9 @@
 
 <script>
     function getData() {
-        alert($('#selDate').val());
+        var url = '@ViewBag.Url';
+
+        $.getJSON(url + 'api/Trade/op?dt=' + $('#selDate').val());
+        //alert($('#selDate').val());
     }
 </script>

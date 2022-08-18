@@ -15,7 +15,7 @@ namespace DESK_WEB.Controllers
     public class WorkController : Controller
     {
         // localURL은 임시로 사용하는 url
-        static string baseUrl = ConfigurationManager.AppSettings["localURL"];
+        string baseUrl = ConfigurationManager.AppSettings["localURL"];
         int pageSize = Convert.ToInt32(ConfigurationManager.AppSettings["pageSize"]);
 
         // GET: Work
@@ -80,6 +80,7 @@ namespace DESK_WEB.Controllers
 
         public ActionResult Stats()
         {
+            ViewBag.Url = baseUrl;
             return View();
         }
     }

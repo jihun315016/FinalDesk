@@ -102,17 +102,17 @@ namespace DESK_WEB.Controllers.api
             }
         }
 
-        // https://localhost:44393/api/trade/op
+        // https://localhost:44393/api/trade/op?dt=2022-08-18 오전 9:22:32
         [Route("op")]
-        public IHttpActionResult GetOrderPurchaseList(int month = 0)
+        public IHttpActionResult GetOrderPurchaseList(DateTime? dt)
         {
-            if (month == 0)
-                month = DateTime.Now.Month;
+            if (dt == null)
+                dt = DateTime.Now;
 
             try
             {
                 TradeDAC dac = new TradeDAC();
-                List<OrderPurchaseVO> list = dac.GetOrderPurchaseList(month);
+                List<OrderPurchaseVO> list = dac.GetOrderPurchaseList(dt.Value.Year, dt.Value.Month);
                 ResMessage<List<OrderPurchaseVO>> result = new ResMessage<List<OrderPurchaseVO>>()
                 {
                     ErrCode = (list == null) ? -9 : 0,

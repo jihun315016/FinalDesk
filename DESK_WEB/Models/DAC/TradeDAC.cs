@@ -94,7 +94,7 @@ namespace DESK_WEB.Models.DAC
         /// </summary>
         /// <param name="month"></param>
         /// <returns></returns>
-        public List<OrderPurchaseVO> GetOrderPurchaseList(int month)
+        public List<OrderPurchaseVO> GetOrderPurchaseList(int year, int month)
         {
             string sql = @"SELECT 
 	                            p.Purchase_Date Date, SUM(TotalPrice) Total, '매입' Type
@@ -102,6 +102,7 @@ namespace DESK_WEB.Models.DAC
                             JOIN TB_PURCHASE p ON pd.Purchase_No = p.Purchase_No
                             WHERE p.Is_Incoming = 'Y'
                             AND MONTH(Purchase_Date) = @Month
+                            AND YEAR(Purchase_Date) = @year
                             GROUP BY Purchase_Date
                             UNION
                             SELECT 
@@ -110,10 +111,12 @@ namespace DESK_WEB.Models.DAC
                             JOIN TB_ORDER o ON od.Order_No = o.Order_No
                             WHERE o.Release_State = 'Y'
                             AND MONTH(Order_Date) = @month
+                            AND YEAR(Order_Date) = @year
                             GROUP BY Order_Date ";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@month", month);
+            cmd.Parameters.AddWithValue("@year", year);
             SqlDataReader reader = cmd.ExecuteReader();
             List<OrderPurchaseVO> list = DBHelper.DataReaderMapToList<OrderPurchaseVO>(reader);
             reader.Close();
