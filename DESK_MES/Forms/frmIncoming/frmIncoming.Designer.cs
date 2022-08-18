@@ -818,7 +818,7 @@ namespace DESK_MES
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmIncoming";
-            this.Text = "frmIncoming";
+            this.Text = "입고 관리";
             this.Load += new System.EventHandler(this.frmIncoming_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

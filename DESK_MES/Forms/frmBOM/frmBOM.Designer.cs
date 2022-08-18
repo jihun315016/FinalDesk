@@ -568,7 +568,6 @@ namespace DESK_MES
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmBOM";
             this.Text = "BOM 관리";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmBOM_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

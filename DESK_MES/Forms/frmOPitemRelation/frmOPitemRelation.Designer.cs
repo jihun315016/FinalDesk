@@ -511,7 +511,7 @@ namespace DESK_MES
             this.ClientSize = new System.Drawing.Size(1184, 1061);
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "frmOPitemRelation";
-            this.Text = "frmOPitemRelation";
+            this.Text = "계공정-품목 관";
             this.Load += new System.EventHandler(this.frmOPitemRelation_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

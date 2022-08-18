@@ -523,8 +523,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Name = "frmOIItemRelation";
-            this.Text = "frmOperationInspectItemRelation";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "공정-검사데이터 관계";
             this.Load += new System.EventHandler(this.frmOperationInspectItemRelation_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

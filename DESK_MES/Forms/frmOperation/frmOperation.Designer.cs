@@ -579,8 +579,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmOperation";
-            this.Text = "frmProcess";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "공정 관리";
             this.Load += new System.EventHandler(this.frmProcess_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

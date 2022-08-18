@@ -726,8 +726,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 861);
             this.Name = "frmManufacture";
-            this.Text = "frmManufacture";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "생산계획 관리";
             this.Load += new System.EventHandler(this.frmManufacture_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

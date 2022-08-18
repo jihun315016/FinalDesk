@@ -737,8 +737,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Name = "frmPurchase";
-            this.Text = "  발주관리";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "발주 관리";
             this.Load += new System.EventHandler(this.frmPurchase_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
