@@ -53,7 +53,6 @@ namespace DESK_MES
             this.groupBoxM = new System.Windows.Forms.GroupBox();
             this.groupBoxW = new System.Windows.Forms.GroupBox();
             this.btnMaterialEachOut = new System.Windows.Forms.Button();
-            this.btnWorkAllOK = new System.Windows.Forms.Button();
             this.btnWorkEachOK = new System.Windows.Forms.Button();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -83,6 +82,8 @@ namespace DESK_MES
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnMaterialAllOut = new System.Windows.Forms.Button();
+            this.btnWorkAllOK = new System.Windows.Forms.Button();
             this.txtStartDueDate = new System.Windows.Forms.TextBox();
             this.txtFinishQty = new System.Windows.Forms.TextBox();
             this.txtPlanQty = new System.Windows.Forms.TextBox();
@@ -105,7 +106,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnModify = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.btnMaterialAllOut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -443,17 +443,6 @@ namespace DESK_MES
             this.btnMaterialEachOut.Text = "자재 불출";
             this.btnMaterialEachOut.UseVisualStyleBackColor = true;
             this.btnMaterialEachOut.Click += new System.EventHandler(this.btnMaterialEachOut_Click);
-            // 
-            // btnWorkAllOK
-            // 
-            this.btnWorkAllOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWorkAllOK.Location = new System.Drawing.Point(90, 324);
-            this.btnWorkAllOK.Name = "btnWorkAllOK";
-            this.btnWorkAllOK.Size = new System.Drawing.Size(111, 27);
-            this.btnWorkAllOK.TabIndex = 83;
-            this.btnWorkAllOK.Text = "전체 작업 확정";
-            this.btnWorkAllOK.UseVisualStyleBackColor = true;
-            this.btnWorkAllOK.Click += new System.EventHandler(this.btnWorkAllOK_Click);
             // 
             // btnWorkEachOK
             // 
@@ -804,6 +793,28 @@ namespace DESK_MES
             this.label16.TabIndex = 47;
             this.label16.Text = "작업 지시일";
             // 
+            // btnMaterialAllOut
+            // 
+            this.btnMaterialAllOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaterialAllOut.Location = new System.Drawing.Point(207, 324);
+            this.btnMaterialAllOut.Name = "btnMaterialAllOut";
+            this.btnMaterialAllOut.Size = new System.Drawing.Size(111, 27);
+            this.btnMaterialAllOut.TabIndex = 85;
+            this.btnMaterialAllOut.Text = "전체 자재 불출";
+            this.btnMaterialAllOut.UseVisualStyleBackColor = true;
+            this.btnMaterialAllOut.Click += new System.EventHandler(this.btnMaterialAllOut_Click);
+            // 
+            // btnWorkAllOK
+            // 
+            this.btnWorkAllOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWorkAllOK.Location = new System.Drawing.Point(90, 324);
+            this.btnWorkAllOK.Name = "btnWorkAllOK";
+            this.btnWorkAllOK.Size = new System.Drawing.Size(111, 27);
+            this.btnWorkAllOK.TabIndex = 83;
+            this.btnWorkAllOK.Text = "전체 작업 확정";
+            this.btnWorkAllOK.UseVisualStyleBackColor = true;
+            this.btnWorkAllOK.Click += new System.EventHandler(this.btnWorkAllOK_Click);
+            // 
             // txtStartDueDate
             // 
             this.txtStartDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1078,25 +1089,13 @@ namespace DESK_MES
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // btnMaterialAllOut
-            // 
-            this.btnMaterialAllOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaterialAllOut.Location = new System.Drawing.Point(207, 324);
-            this.btnMaterialAllOut.Name = "btnMaterialAllOut";
-            this.btnMaterialAllOut.Size = new System.Drawing.Size(111, 27);
-            this.btnMaterialAllOut.TabIndex = 85;
-            this.btnMaterialAllOut.Text = "전체 자재 불출";
-            this.btnMaterialAllOut.UseVisualStyleBackColor = true;
-            this.btnMaterialAllOut.Click += new System.EventHandler(this.btnMaterialAllOut_Click);
-            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Name = "frmWorkOrder";
-            this.Text = "frmWorkOrder";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "작업지시";
             this.Load += new System.EventHandler(this.frmWorkOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

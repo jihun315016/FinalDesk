@@ -136,10 +136,6 @@ namespace DESK_MES
             // 
             this.comboBox1.Size = new System.Drawing.Size(100, 25);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            // 
             // btnReset
             // 
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -720,7 +716,6 @@ namespace DESK_MES
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "frmOrder";
             this.Text = "주문 관리";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
