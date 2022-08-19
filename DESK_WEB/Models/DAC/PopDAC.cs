@@ -93,7 +93,7 @@ Work_State,c1.Name as Work_State_Name,Work_Order_State,c2.Name as Work_Order_Sta
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = new SqlConnection(strConn);
-                    cmd.CommandText = @"select Production_No, Work_Code, w.Product_Code,p1.Product_Name, Production_Operation_Code,Operation_Name,
+                    cmd.CommandText = @"select Production_No, Work_Code, w.Product_Code,p1.Product_Name as Product_Name, Production_Operation_Code,Operation_Name,
                                         Production_Equipment_Code,Equipment_Name, Halb_Save_Warehouse_Code,
 		                                        Input_Material_Code,p2.Product_Name, Input_Material_Qty, Halb_Material_Qty, Work_Group_Code as User_Group_No, [User_Group_Name],Production_Save_Warehouse_Code, Work_Plan_Qty, 
 		                                        Work_Complete_Qty, convert(nvarchar(20),Work_Paln_Date,20)as Work_Paln_Date,

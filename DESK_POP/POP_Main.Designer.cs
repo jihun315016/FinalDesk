@@ -78,15 +78,16 @@ namespace DESK_POP
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1250, 674);
+            this.splitContainer1.Size = new System.Drawing.Size(1410, 674);
             this.splitContainer1.SplitterDistance = 93;
             this.splitContainer1.TabIndex = 1;
             // 
             // lblCount
             // 
+            this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCount.Location = new System.Drawing.Point(918, 35);
+            this.lblCount.Location = new System.Drawing.Point(1027, 50);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(16, 17);
             this.lblCount.TabIndex = 3;
@@ -94,9 +95,10 @@ namespace DESK_POP
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(816, 35);
+            this.label6.Location = new System.Drawing.Point(925, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 17);
             this.label6.TabIndex = 3;
@@ -104,12 +106,13 @@ namespace DESK_POP
             // 
             // btnLogOut
             // 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogOut.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnLogOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.btnLogOut.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogOut.Location = new System.Drawing.Point(1127, 28);
+            this.btnLogOut.Location = new System.Drawing.Point(1236, 43);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(89, 30);
             this.btnLogOut.TabIndex = 0;
@@ -119,12 +122,13 @@ namespace DESK_POP
             // 
             // btnGrd
             // 
+            this.btnGrd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGrd.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnGrd.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnGrd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.btnGrd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnGrd.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGrd.Location = new System.Drawing.Point(981, 28);
+            this.btnGrd.Location = new System.Drawing.Point(1090, 43);
             this.btnGrd.Name = "btnGrd";
             this.btnGrd.Size = new System.Drawing.Size(140, 30);
             this.btnGrd.TabIndex = 0;
@@ -137,7 +141,7 @@ namespace DESK_POP
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(487, 18);
+            this.label5.Location = new System.Drawing.Point(596, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(191, 40);
             this.label5.TabIndex = 2;
@@ -277,7 +281,7 @@ namespace DESK_POP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 674);
+            this.ClientSize = new System.Drawing.Size(1410, 674);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "POP_Main";

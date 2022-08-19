@@ -46,7 +46,13 @@ namespace DESK_POP
             {
                 Process p = Process.Start(server, txtWkCode.Text);
                 proId = p.Id;
+                POP_Detail pop = new POP_Detail(txtWkCode.Text);
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

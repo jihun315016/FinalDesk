@@ -54,27 +54,49 @@ namespace DESK_POP
             //
 
             lblCount.Text = allList.Count.ToString();
-            int hinum=340;
-            int uCNum = 1; //uC갯수 카운트
-            foreach (PopVO item in allList)// 1. foreach로 변경
+            int hinum = 340;
+            int row = 1;
+            //int ucnum = 1; //uc갯수 카운트
+            //foreach (PopVO item in allList)// 1. foreach로 변경
+            //{
+            //    ucWorkGroup wg = new ucWorkGroup(allList[ucnum - 1]);
+
+            //    wg.Size = new Size(342, 338);
+            //    wg.Name = $"ucworkgroup{ucnum}";
+            //    wg.OrderCount = ucnum;
+            //    if (ucnum % 3 == 0)
+            //    {
+            //        wg.Location = new Point(3 + ((ucnum - 1) * 342), 5 + (hinum * row));
+            //        hinum++;
+            //        row++;
+            //    }
+            //    else
+            //    {
+            //        wg.Location = new Point(3 + ((ucnum - 1) * 342), 5);
+            //    }
+
+            //    splitContainer1.Panel2.Controls.Add(wg);
+            //    ucnum++;
+            //}
+            for (int i = 1; i <= allList.Count; i++)
             {
-                ucWorkGroup wg = new ucWorkGroup(allList[uCNum-1]);
+                ucWorkGroup wg = new ucWorkGroup(allList[i - 1]);
 
                 wg.Size = new Size(342, 338);
-                wg.Name = $"ucWorkGroup{uCNum}";        //해당 부분 지역변수로 int 줘서 하나씩 ++ 해주며 넣기
-                wg.OrderCount = uCNum;
-                if (uCNum % 4==0)
+                wg.Name = $"ucWorkGroup{i}";
+                wg.OrderCount = i;
+                if (i % 6 == 0)
                 {
-                    wg.Location = new Point(3 + ((uCNum - 1) * 342), 5+(hinum* uCNum));
+                    wg.Location = new Point(3 + ((i - 1) * 342), 5 + (hinum * row));
                     hinum++;
+                    row++;
                 }
                 else
                 {
-                    wg.Location = new Point(3 + ((uCNum - 1) * 342), 5);
+                    wg.Location = new Point(3 + ((i - 1) * 342), 5);
                 }
 
                 splitContainer1.Panel2.Controls.Add(wg);
-                uCNum++;
             }
         }
 
