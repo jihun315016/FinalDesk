@@ -48,11 +48,19 @@
     function getData() {
         var url = '@ViewBag.Url';
         var year = $('#selDate').val().split('-')[0];
-        var month = $('#selDate').val().split('-')[1];
+        var month = $('#selDate').val().split('-')[1];        
 
         if (typeof month == 'undefined') {
             year = new Date().getFullYear()
             month = new Date().getMonth() + 1
+
+            if (month < 10) {
+                $("#selDate").val(year + '-0' + month.toString());
+            }
+            else {
+                $("#selDate").val(year + '-' + month.toString());
+            }
+            
         }
         else {
             year = parseInt(year)
