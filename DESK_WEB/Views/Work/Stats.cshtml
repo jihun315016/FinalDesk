@@ -155,6 +155,12 @@
                     yAxes: [{
                         gridLines: {
                             display: false,
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            callback: function (value, index) {
+                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                            }
                         }
                     }]
                 }
