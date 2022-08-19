@@ -44,9 +44,10 @@
 <script src="~/dist/js/demo.js"></script>
 
 <script>
+    var url = '@ViewBag.Url';
+
     getData();
     function getData() {
-        var url = '@ViewBag.Url';
         var year = $('#selDate').val().split('-')[0];
         var month = $('#selDate').val().split('-')[1];        
 
@@ -98,97 +99,104 @@
             orderArr.push(0);
         }
 
+        // 매입 매출
+        getPurchaseOrder(daysArr, purchaseArr, orderArr);
+    }
+
+
+    // 매입 매출 차트 조회
+    function getPurchaseOrder(daysArr, purchaseArr, orderArr) {
         $.getJSON(url + 'api/Trade/op?dt=' + $('#selDate').val())
-        .done((data) => {
+            .done((data) => {
 
-            for (var i = 0; i < data["Data"].length; i++) {
-                console.log(data["Data"][i]);
-                console.log(data["Data"][i].Type);
+                for (var i = 0; i < data["Data"].length; i++) {
+                    console.log(data["Data"][i]);
+                    console.log(data["Data"][i].Type);
 
-                var d = data["Data"][i].Date.split('T')[0].split('-')[2]
-                d = parseInt(d)
+                    var d = data["Data"][i].Date.split('T')[0].split('-')[2]
+                    d = parseInt(d)
 
-                if (data["Data"][i].Type == '매입') {
-                    purchaseArr[d - 1] = purchaseArr[d - 1] + data["Data"][i].Total
+                    if (data["Data"][i].Type == '매입') {
+                        purchaseArr[d - 1] = purchaseArr[d - 1] + data["Data"][i].Total
+                    }
+                    else {
+                        orderArr[d - 1] = orderArr[d - 1] + data["Data"][i].Total
+                    }
                 }
-                else {
-                    orderArr[d - 1] = orderArr[d - 1] + data["Data"][i].Total
-                }
-            }
 
-            $('#lineChart').empty();
-            var lineChartCanvas = $('#lineChart').get(0).getContext('2d');
+                $('#lineChart').empty();
+                var lineChartCanvas = $('#lineChart').get(0).getContext('2d');
 
-            var areaChartData = {
-                labels: daysArr,
-                datasets: [
-                    {
-                        label: '매입',
-                        backgroundColor: 'rgba(60,141,188,0.9)',
-                        borderColor: 'rgba(60,141,188,0.8)',
-                        pointRadius: false,
-                        pointColor: '#3b8bba',
-                        pointStrokeColor: 'rgba(60,141,188,1)',
-                        pointHighlightFill: '#fff',
-                        pointHighlightStroke: 'rgba(60,141,188,1)',
-                        data: purchaseArr
-                    },
-                    {
-                        label: '매출',
-                        backgroundColor: 'rgba(210, 214, 222, 1)',
-                        borderColor: 'rgba(210, 214, 222, 1)',
-                        pointRadius: false,
-                        pointColor: 'rgba(210, 214, 222, 1)',
-                        pointStrokeColor: '#c1c7d1',
-                        pointHighlightFill: '#fff',
-                        pointHighlightStroke: 'rgba(220,220,220,1)',
-                        data: orderArr
-                    },
-                ]
-            }
-
-            var areaChartOptions = {
-                maintainAspectRatio: false,
-                responsive: true,
-                legend: {
-                    display: true,
-                    align: 'end'
-                },
-                scales: {
-                    xAxes: [{
-                        gridLines: {
-                            display: false,
-                        }
-                    }],
-                    yAxes: [{
-                        gridLines: {
-                            display: false,
+                var areaChartData = {
+                    labels: daysArr,
+                    datasets: [
+                        {
+                            label: '매입',
+                            backgroundColor: 'rgba(60,141,188,0.9)',
+                            borderColor: 'rgba(60,141,188,0.8)',
+                            pointRadius: false,
+                            pointColor: '#3b8bba',
+                            pointStrokeColor: 'rgba(60,141,188,1)',
+                            pointHighlightFill: '#fff',
+                            pointHighlightStroke: 'rgba(60,141,188,1)',
+                            data: purchaseArr
                         },
-                        ticks: {
-                            beginAtZero: true,
-                            callback: function (value, index) {
-                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-                            }
-                        }
-                    }]
+                        {
+                            label: '매출',
+                            backgroundColor: 'rgba(210, 214, 222, 1)',
+                            borderColor: 'rgba(210, 214, 222, 1)',
+                            pointRadius: false,
+                            pointColor: 'rgba(210, 214, 222, 1)',
+                            pointStrokeColor: '#c1c7d1',
+                            pointHighlightFill: '#fff',
+                            pointHighlightStroke: 'rgba(220,220,220,1)',
+                            data: orderArr
+                        },
+                    ]
                 }
-            }
 
-            var lineChartOptions = $.extend(true, {}, areaChartOptions)
-            var lineChartData = $.extend(true, {}, areaChartData)
-            lineChartData.datasets[0].fill = false;
-            lineChartData.datasets[1].fill = false;
-            lineChartOptions.datasetFill = false
+                var areaChartOptions = {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    legend: {
+                        display: true,
+                        align: 'end'
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false,
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                callback: function (value, index) {
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                                }
+                            }
+                        }]
+                    }
+                }
 
-            var lineChart = new Chart(lineChartCanvas, {
-                type: 'line',
-                data: lineChartData,
-                options: lineChartOptions
+                var lineChartOptions = $.extend(true, {}, areaChartOptions)
+                var lineChartData = $.extend(true, {}, areaChartData)
+                lineChartData.datasets[0].fill = false;
+                lineChartData.datasets[1].fill = false;
+                lineChartOptions.datasetFill = false
+
+                var lineChart = new Chart(lineChartCanvas, {
+                    type: 'line',
+                    data: lineChartData,
+                    options: lineChartOptions
+                })
             })
-        })
-        .fail((jqXHR, textStatus, err) => {
-            console.log('fail...');
-            console.log(err);
-        })
+            .fail((jqXHR, textStatus, err) => {
+                console.log('fail...');
+                console.log(err);
+            })
     }
 </script>
