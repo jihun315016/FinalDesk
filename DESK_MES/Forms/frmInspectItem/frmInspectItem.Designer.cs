@@ -512,8 +512,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmInspectItem";
-            this.Text = "frmInspectItem";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "설비-품목 관계";
             this.Load += new System.EventHandler(this.frmInspectItem_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

@@ -129,7 +129,6 @@ namespace DESK_MES
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmDefectList";
             this.Text = "불량 이력";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

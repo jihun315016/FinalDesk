@@ -593,7 +593,7 @@ namespace DESK_MES
             // 
             this.panel8.Controls.Add(this.rdtWork);
             this.panel8.Controls.Add(this.rdtDeWork);
-            this.panel8.Location = new System.Drawing.Point(465, 30);
+            this.panel8.Location = new System.Drawing.Point(465, 28);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(241, 31);
             this.panel8.TabIndex = 39;
@@ -612,7 +612,7 @@ namespace DESK_MES
             // rdtDeWork
             // 
             this.rdtDeWork.AutoSize = true;
-            this.rdtDeWork.Location = new System.Drawing.Point(105, 5);
+            this.rdtDeWork.Location = new System.Drawing.Point(69, 5);
             this.rdtDeWork.Name = "rdtDeWork";
             this.rdtDeWork.Size = new System.Drawing.Size(65, 21);
             this.rdtDeWork.TabIndex = 0;
@@ -627,8 +627,7 @@ namespace DESK_MES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmUser";
-            this.Text = "frmUser";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "사원 관리";
             this.Load += new System.EventHandler(this.frmUser_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

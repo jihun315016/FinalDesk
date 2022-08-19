@@ -541,7 +541,6 @@ namespace DESK_MES
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Name = "frmClient";
             this.Text = "거래처 관리";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmClient_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
