@@ -352,6 +352,7 @@ namespace DESK_MES
             this.label7.Size = new System.Drawing.Size(148, 17);
             this.label7.TabIndex = 77;
             this.label7.Text = "UD : 미확정 / DT : 확정";
+            this.label7.Visible = false;
             // 
             // txtClientName
             // 

@@ -18,5 +18,7 @@ namespace DESK_DTO
         public int Qty_PerUnit { get; set; }
         public int TotalQty { get; set; }
 
+        public string BarcodeID { get; set; }
+
     }
 }
