@@ -70,11 +70,13 @@ namespace DESK_MES
             dataGridView2.Columns["TotalQty"].DefaultCellStyle.Format = "###,##0";
             dataGridView2.Columns["TotalPrice"].DefaultCellStyle.Format = "###,##0";
             LoadData();
+            
         }
         private void LoadData()
         {
             orderList = srv.GetOrderList();
             dataGridView1.DataSource = orderList;
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -253,6 +255,21 @@ namespace DESK_MES
 
             txtClientCode.Text = txtClientName.Text = string.Empty;
             cboOrderState.SelectedIndex = 0;
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView2.ClearSelection();
+        }
+
+        private void frmOrder_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

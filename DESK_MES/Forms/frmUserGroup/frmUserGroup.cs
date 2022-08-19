@@ -68,9 +68,10 @@ namespace DESK_MES
             userV = ((frmMain)this.MdiParent).userInfo;
 
             dtpCreate.Format = DateTimePickerFormat.Custom;
-            dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpCreate.CustomFormat = " ";
             dtpUpdate.Format = DateTimePickerFormat.Custom;
-            dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdate.CustomFormat = " ";
+
 
             List<UserGroupVO> cbo= srv.SelectAuthList();
             ComboBinding(cboGroupType, cbo, "Auth_Name", "Auth_ID", blank: true) ;
@@ -86,9 +87,9 @@ namespace DESK_MES
 
 
             DataGridUtil.SetInitGridView(dataGridView1);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹번호", "User_Group_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹명", "User_Group_Name", colWidth: 400, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹유형", "User_Group_TypeName", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹번호", "User_Group_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹명", "User_Group_Name", colWidth: 400, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사용자 그룹유형", "User_Group_TypeName", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성시간", "Create_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성사용자", "Create_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경시간", "Update_Time", isVisible: false);
@@ -130,6 +131,10 @@ namespace DESK_MES
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
+            dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+
             selectUser = Convert.ToInt32(dataGridView1[0, e.RowIndex].Value);
             txtID.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             txtName.Text = dataGridView1[1, e.RowIndex].Value.ToString();

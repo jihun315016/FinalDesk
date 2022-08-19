@@ -94,5 +94,10 @@ namespace DESK_MES
         {
             this.Close();
         }
+
+        private void PopBarcode_Shown(object sender, EventArgs e)
+        {
+            dgvList.ClearSelection();
+        }
     }
 }

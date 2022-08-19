@@ -240,5 +240,10 @@ namespace DESK_MES
                 }
             }
         }
+
+        private void frmPurchase_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }

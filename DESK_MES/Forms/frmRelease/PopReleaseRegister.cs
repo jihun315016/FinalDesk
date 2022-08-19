@@ -146,5 +146,10 @@ namespace DESK_MES
         {
 
         }
+
+        private void PopReleaseRegister_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }

@@ -32,6 +32,7 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEquipment));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cboDate = new System.Windows.Forms.ComboBox();
@@ -134,6 +135,7 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.cboDate);
@@ -146,6 +148,15 @@ namespace DESK_MES
             this.groupBox2.Size = new System.Drawing.Size(1184, 72);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(203, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(14, 17);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "||";
             // 
             // dateTimePicker2
             // 
@@ -552,6 +563,7 @@ namespace DESK_MES
             this.Name = "frmEquipment";
             this.Text = "설비 관리";
             this.Load += new System.EventHandler(this.frmEquipment_Load);
+            this.Shown += new System.EventHandler(this.frmEquipment_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -609,5 +621,6 @@ namespace DESK_MES
         private System.Windows.Forms.ComboBox cboDate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label5;
     }
 }

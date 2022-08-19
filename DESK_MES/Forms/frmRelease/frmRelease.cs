@@ -64,6 +64,7 @@ namespace DESK_MES
         {
             releaseList = srv.GetReleaseList();
             dataGridView1.DataSource = releaseList;
+            dataGridView1.ClearSelection();
         }
 
 
@@ -89,7 +90,7 @@ namespace DESK_MES
 
         private void btnReleaseAdd_Click(object sender, EventArgs e)
         {
-            if (orderNo != 0 && relesState.Equals('N'))
+            if (orderNo != 0 && relesState.Contains('N'))
             {
                 PopReleaseRegister pop = new PopReleaseRegister(user, orderNo);
                 if (pop.ShowDialog() == DialogResult.OK)
@@ -188,6 +189,21 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmRelease_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView2.ClearSelection();
         }
     }
 }

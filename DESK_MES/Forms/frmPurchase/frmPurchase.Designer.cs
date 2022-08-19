@@ -257,16 +257,16 @@ namespace DESK_MES
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 1;
-            this.label4.Text = "||  주문일자";
+            this.label4.Text = "||  발주일자";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 0;
-            this.label3.Text = "주문서코드";
+            this.label3.Text = "발주코드";
             // 
             // tableLayoutPanel1
             // 
@@ -739,6 +739,7 @@ namespace DESK_MES
             this.Name = "frmPurchase";
             this.Text = "발주 관리";
             this.Load += new System.EventHandler(this.frmPurchase_Load);
+            this.Shown += new System.EventHandler(this.frmPurchase_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

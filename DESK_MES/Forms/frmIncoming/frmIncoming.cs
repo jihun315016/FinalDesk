@@ -73,6 +73,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "제품명", "Product_Name", colWidth: 215, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "창고명", "Warehouse_Name", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
+            dataGridView3.Visible = false;
             LoadData();
         }
         private void LoadData()
@@ -101,6 +102,7 @@ namespace DESK_MES
 
             purchaseDetailList = pursrv.GetPurchaseDetailList(purchaseNo);
             dataGridView2.DataSource = purchaseDetailList;
+            dataGridView3.Visible = false;
         }
 
         private void btnIncoming_Click(object sender, EventArgs e)
@@ -139,6 +141,7 @@ namespace DESK_MES
             productCode = dataGridView2[1, e.RowIndex].Value.ToString();
 
             lotDetailList = srv.GetLotDetailList(productCode);
+            dataGridView3.Visible = true;
             dataGridView3.DataSource = lotDetailList;
         }
 
@@ -218,6 +221,11 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmIncoming_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

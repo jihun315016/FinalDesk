@@ -50,7 +50,7 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dgvList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "공정 번호", "Operation_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "공정명", "Operation_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "공정명", "Operation_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "불량 체크 여부", "Is_Check_Deffect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "자재 사용 여부", "Is_Check_Marerial", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -60,6 +60,8 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "수정 사용자", "Update_User_Name", isVisible: false);
+
+            dgvList.DataSource = operationList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -209,6 +211,11 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmOperation_Shown(object sender, EventArgs e)
+        {
+            dgvList.ClearSelection();
         }
     }
 }

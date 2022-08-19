@@ -59,7 +59,7 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dgvProductList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품번", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "유형", "Product_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProductList, "단위", "Unit", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
@@ -82,6 +82,8 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "품명", "Product_Name", colWidth: 230);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "유형", "Product_Type");
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvParent, "수량", "Qty", colWidth: 80);
+
+            dgvProductList.DataSource = isBomProductList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -216,6 +218,11 @@ namespace DESK_MES
                 btnReset_Click(this, null);
                 btnSearch_Click(this, null);
             }
+        }
+
+        private void frmBOM_Shown(object sender, EventArgs e)
+        {
+            dgvProductList.ClearSelection();
         }
     }
 }

@@ -211,9 +211,9 @@ namespace DESK_MES
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 65);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.Size = new System.Drawing.Size(60, 17);
             this.label6.TabIndex = 18;
-            this.label6.Text = "고객사";
+            this.label6.Text = "거래처명";
             // 
             // textBox2
             // 
@@ -516,6 +516,7 @@ namespace DESK_MES
             this.dataGridView1.Size = new System.Drawing.Size(801, 156);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // groupBox5
             // 
@@ -537,6 +538,7 @@ namespace DESK_MES
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(801, 157);
             this.dataGridView2.TabIndex = 2;
+            this.dataGridView2.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_ColumnHeaderMouseClick);
             // 
             // button3
             // 
@@ -605,6 +607,7 @@ namespace DESK_MES
             this.Name = "frmRelease";
             this.Text = "출고관리";
             this.Load += new System.EventHandler(this.frmRelease_Load);
+            this.Shown += new System.EventHandler(this.frmRelease_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

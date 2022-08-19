@@ -174,6 +174,7 @@ namespace DESK_MES
             {
                 MessageBox.Show($"작업지시가 확정되었습니다.");
                 LoadData();
+                dataGridView2.DataSource = null;
             }
             else
             {
@@ -195,6 +196,7 @@ namespace DESK_MES
             {
                 MessageBox.Show($"작업지시가 확정되었습니다.");
                 LoadData();
+                dataGridView2.DataSource = null;
             }
             else
             {
@@ -239,6 +241,7 @@ namespace DESK_MES
             {
                 MessageBox.Show($"자재불출 처리되었습니다.");
                 LoadData();
+                dataGridView2.DataSource = null;
             }
             else
             {
@@ -266,11 +269,17 @@ namespace DESK_MES
             {
                 MessageBox.Show($"자재불출 처리되었습니다.");
                 LoadData();
+                dataGridView2.DataSource = null;
             }
             else
             {
                 MessageBox.Show("자재불출 처리 중 오류가 발생했습니다. 다시 시도하여 주십시오.");
             }
+        }
+
+        private void frmWorkOrder_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

@@ -628,6 +628,7 @@ namespace DESK_MES
             this.dataGridView1.Size = new System.Drawing.Size(801, 206);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // groupBox5
             // 
@@ -649,6 +650,7 @@ namespace DESK_MES
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(801, 207);
             this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_ColumnHeaderMouseClick);
             // 
             // imageList2
             // 
@@ -718,6 +720,7 @@ namespace DESK_MES
             this.Name = "frmOrder";
             this.Text = "주문 관리";
             this.Load += new System.EventHandler(this.frmOrder_Load);
+            this.Shown += new System.EventHandler(this.frmOrder_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

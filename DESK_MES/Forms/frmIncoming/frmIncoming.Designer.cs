@@ -544,7 +544,7 @@ namespace DESK_MES
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 17);
             this.label8.TabIndex = 46;
-            this.label8.Text = "||  출고여부";
+            this.label8.Text = "||  입고여부";
             // 
             // comboBox3
             // 
@@ -619,7 +619,7 @@ namespace DESK_MES
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 37;
-            this.label4.Text = "||  주문일자";
+            this.label4.Text = "||  발주일자";
             // 
             // label3
             // 
@@ -628,7 +628,7 @@ namespace DESK_MES
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 36;
-            this.label3.Text = "주문번호";
+            this.label3.Text = "발주코드";
             // 
             // panel4
             // 
@@ -820,6 +820,7 @@ namespace DESK_MES
             this.Name = "frmIncoming";
             this.Text = "입고 관리";
             this.Load += new System.EventHandler(this.frmIncoming_Load);
+            this.Shown += new System.EventHandler(this.frmIncoming_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

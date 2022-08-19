@@ -1097,6 +1097,7 @@ namespace DESK_MES
             this.Name = "frmWorkOrder";
             this.Text = "작업지시";
             this.Load += new System.EventHandler(this.frmWorkOrder_Load);
+            this.Shown += new System.EventHandler(this.frmWorkOrder_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

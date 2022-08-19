@@ -32,6 +32,7 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUser));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cboDate = new System.Windows.Forms.ComboBox();
@@ -71,7 +72,6 @@ namespace DESK_MES
             this.panel8 = new System.Windows.Forms.Panel();
             this.rdtWork = new System.Windows.Forms.RadioButton();
             this.rdtDeWork = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -158,6 +158,15 @@ namespace DESK_MES
             this.groupBox2.Size = new System.Drawing.Size(1184, 72);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(429, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 17);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "||";
             // 
             // dateTimePicker2
             // 
@@ -623,15 +632,6 @@ namespace DESK_MES
             this.rdtDeWork.UseVisualStyleBackColor = true;
             this.rdtDeWork.CheckedChanged += new System.EventHandler(this.rdtDeWork_CheckedChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(429, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 17);
-            this.label3.TabIndex = 39;
-            this.label3.Text = "||";
-            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -640,6 +640,7 @@ namespace DESK_MES
             this.Name = "frmUser";
             this.Text = "사원 관리";
             this.Load += new System.EventHandler(this.frmUser_Load);
+            this.Shown += new System.EventHandler(this.frmUser_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

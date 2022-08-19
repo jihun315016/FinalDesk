@@ -81,7 +81,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 561);
+            this.panel1.Size = new System.Drawing.Size(434, 472);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -99,7 +99,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 561);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 472);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -142,7 +142,7 @@ namespace DESK_MES
             // 
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 504);
+            this.panel3.Location = new System.Drawing.Point(3, 415);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(428, 54);
             this.panel3.TabIndex = 1;
@@ -222,7 +222,7 @@ namespace DESK_MES
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(428, 425);
+            this.panel4.Size = new System.Drawing.Size(428, 336);
             this.panel4.TabIndex = 2;
             // 
             // groupBox2
@@ -250,7 +250,7 @@ namespace DESK_MES
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(428, 425);
+            this.groupBox2.Size = new System.Drawing.Size(428, 336);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
@@ -264,12 +264,13 @@ namespace DESK_MES
             this.txtUpdateUser.PlaceHolder = null;
             this.txtUpdateUser.Size = new System.Drawing.Size(190, 25);
             this.txtUpdateUser.TabIndex = 55;
+            this.txtUpdateUser.Visible = false;
             // 
             // txtCreate
             // 
             this.txtCreate.isNumeric = false;
             this.txtCreate.isRequired = false;
-            this.txtCreate.Location = new System.Drawing.Point(166, 264);
+            this.txtCreate.Location = new System.Drawing.Point(166, 246);
             this.txtCreate.Name = "txtCreate";
             this.txtCreate.PlaceHolder = null;
             this.txtCreate.Size = new System.Drawing.Size(190, 25);
@@ -279,7 +280,7 @@ namespace DESK_MES
             // 
             this.txtPwd.isNumeric = false;
             this.txtPwd.isRequired = true;
-            this.txtPwd.Location = new System.Drawing.Point(166, 156);
+            this.txtPwd.Location = new System.Drawing.Point(166, 138);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PlaceHolder = null;
             this.txtPwd.Size = new System.Drawing.Size(190, 25);
@@ -290,7 +291,7 @@ namespace DESK_MES
             // 
             this.txtName.isNumeric = false;
             this.txtName.isRequired = true;
-            this.txtName.Location = new System.Drawing.Point(166, 84);
+            this.txtName.Location = new System.Drawing.Point(166, 66);
             this.txtName.Name = "txtName";
             this.txtName.PlaceHolder = null;
             this.txtName.Size = new System.Drawing.Size(190, 25);
@@ -301,7 +302,7 @@ namespace DESK_MES
             // 
             this.txtNo.isNumeric = false;
             this.txtNo.isRequired = false;
-            this.txtNo.Location = new System.Drawing.Point(166, 48);
+            this.txtNo.Location = new System.Drawing.Point(166, 30);
             this.txtNo.Name = "txtNo";
             this.txtNo.PlaceHolder = null;
             this.txtNo.Size = new System.Drawing.Size(190, 25);
@@ -310,7 +311,7 @@ namespace DESK_MES
             // cboDelete
             // 
             this.cboDelete.FormattingEnabled = true;
-            this.cboDelete.Location = new System.Drawing.Point(166, 300);
+            this.cboDelete.Location = new System.Drawing.Point(166, 282);
             this.cboDelete.Name = "cboDelete";
             this.cboDelete.Size = new System.Drawing.Size(190, 25);
             this.cboDelete.TabIndex = 53;
@@ -326,6 +327,7 @@ namespace DESK_MES
             this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 51;
             this.label4.Text = "변경사용자";
+            this.label4.Visible = false;
             // 
             // dtpUpdate
             // 
@@ -337,6 +339,7 @@ namespace DESK_MES
             this.dtpUpdate.Name = "dtpUpdate";
             this.dtpUpdate.Size = new System.Drawing.Size(190, 25);
             this.dtpUpdate.TabIndex = 50;
+            this.dtpUpdate.Visible = false;
             // 
             // label3
             // 
@@ -349,6 +352,7 @@ namespace DESK_MES
             this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 49;
             this.label3.Text = "변경시간";
+            this.label3.Visible = false;
             // 
             // label16
             // 
@@ -356,7 +360,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(64, 303);
+            this.label16.Location = new System.Drawing.Point(64, 285);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(60, 17);
             this.label16.TabIndex = 47;
@@ -365,7 +369,7 @@ namespace DESK_MES
             // cboAuth
             // 
             this.cboAuth.FormattingEnabled = true;
-            this.cboAuth.Location = new System.Drawing.Point(166, 192);
+            this.cboAuth.Location = new System.Drawing.Point(166, 174);
             this.cboAuth.Name = "cboAuth";
             this.cboAuth.Size = new System.Drawing.Size(190, 25);
             this.cboAuth.TabIndex = 42;
@@ -373,7 +377,7 @@ namespace DESK_MES
             // cboUG
             // 
             this.cboUG.FormattingEnabled = true;
-            this.cboUG.Location = new System.Drawing.Point(166, 120);
+            this.cboUG.Location = new System.Drawing.Point(166, 102);
             this.cboUG.Name = "cboUG";
             this.cboUG.Size = new System.Drawing.Size(190, 25);
             this.cboUG.TabIndex = 41;
@@ -382,7 +386,7 @@ namespace DESK_MES
             // dtpCreate
             // 
             this.dtpCreate.Enabled = false;
-            this.dtpCreate.Location = new System.Drawing.Point(166, 228);
+            this.dtpCreate.Location = new System.Drawing.Point(166, 210);
             this.dtpCreate.Name = "dtpCreate";
             this.dtpCreate.Size = new System.Drawing.Size(190, 25);
             this.dtpCreate.TabIndex = 39;
@@ -393,7 +397,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(64, 231);
+            this.label15.Location = new System.Drawing.Point(64, 213);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 17);
             this.label15.TabIndex = 38;
@@ -405,7 +409,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(64, 267);
+            this.label14.Location = new System.Drawing.Point(64, 249);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 17);
             this.label14.TabIndex = 36;
@@ -417,7 +421,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(64, 195);
+            this.label13.Location = new System.Drawing.Point(64, 177);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 17);
             this.label13.TabIndex = 32;
@@ -429,7 +433,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(64, 159);
+            this.label12.Location = new System.Drawing.Point(64, 141);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 17);
             this.label12.TabIndex = 31;
@@ -441,7 +445,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(64, 123);
+            this.label10.Location = new System.Drawing.Point(64, 105);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 17);
             this.label10.TabIndex = 30;
@@ -453,7 +457,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(64, 51);
+            this.label11.Location = new System.Drawing.Point(64, 33);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 17);
             this.label11.TabIndex = 29;
@@ -465,7 +469,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(64, 87);
+            this.label9.Location = new System.Drawing.Point(64, 69);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 27;
@@ -475,7 +479,7 @@ namespace DESK_MES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 561);
+            this.ClientSize = new System.Drawing.Size(434, 472);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

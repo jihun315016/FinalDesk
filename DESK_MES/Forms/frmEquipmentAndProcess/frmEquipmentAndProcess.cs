@@ -30,7 +30,7 @@ namespace DESK_MES
 
         private void InitControl()
         {
-            label1.Text = "공정 - 설비 관리";
+            label1.Text = "설비 - 공정 관계";
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
@@ -56,6 +56,8 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "등록 사용자", "Create_User_Name", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "수정 시간", "Update_Time", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvEquipment, "수정 사용자", "Update_User_Name", isVisible: false);
+
+            dgvOperation.DataSource = operationList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -176,6 +178,11 @@ namespace DESK_MES
                     MessageBox.Show("삭제에 실패했습니다.");
                 }
             }
+        }
+
+        private void frmEquipmentAndProcess_Shown(object sender, EventArgs e)
+        {
+            dgvOperation.ClearSelection();
         }
     }
 }

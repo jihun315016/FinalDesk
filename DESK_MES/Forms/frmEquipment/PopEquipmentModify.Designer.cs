@@ -44,6 +44,7 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtOPQty = new DESK_MES.ccTextBox();
             this.txtName = new DESK_MES.ccTextBox();
             this.txtHistory = new DESK_MES.ccTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,10 +64,9 @@ namespace DESK_MES
             this.label6 = new System.Windows.Forms.Label();
             this.dtpInoper = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtOPQty = new DESK_MES.ccTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -94,7 +94,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(497, 755);
+            this.panel1.Size = new System.Drawing.Size(497, 569);
             this.panel1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -112,7 +112,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(497, 755);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(497, 569);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -155,7 +155,7 @@ namespace DESK_MES
             // 
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 698);
+            this.panel3.Location = new System.Drawing.Point(3, 512);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(491, 54);
             this.panel3.TabIndex = 1;
@@ -226,7 +226,7 @@ namespace DESK_MES
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(491, 619);
+            this.panel4.Size = new System.Drawing.Size(491, 433);
             this.panel4.TabIndex = 2;
             // 
             // groupBox2
@@ -249,10 +249,21 @@ namespace DESK_MES
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(491, 619);
+            this.groupBox2.Size = new System.Drawing.Size(491, 433);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
+            // 
+            // txtOPQty
+            // 
+            this.txtOPQty.isNumeric = false;
+            this.txtOPQty.isRequired = true;
+            this.txtOPQty.Location = new System.Drawing.Point(179, 103);
+            this.txtOPQty.Name = "txtOPQty";
+            this.txtOPQty.PlaceHolder = null;
+            this.txtOPQty.Size = new System.Drawing.Size(221, 25);
+            this.txtOPQty.TabIndex = 53;
+            this.txtOPQty.Tag = "설비명";
             // 
             // txtName
             // 
@@ -337,6 +348,7 @@ namespace DESK_MES
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(351, 145);
             this.panel5.TabIndex = 52;
+            this.panel5.Visible = false;
             // 
             // txtUpdate
             // 
@@ -463,6 +475,18 @@ namespace DESK_MES
             this.label2.TabIndex = 36;
             this.label2.Text = "최종 다운시간";
             // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(64, 106);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 17);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "초당 생산량";
+            // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -487,34 +511,11 @@ namespace DESK_MES
             this.label9.TabIndex = 29;
             this.label9.Text = "설비명";
             // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(64, 106);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 17);
-            this.label10.TabIndex = 32;
-            this.label10.Text = "초당 생산량";
-            // 
-            // txtOPQty
-            // 
-            this.txtOPQty.isNumeric = false;
-            this.txtOPQty.isRequired = true;
-            this.txtOPQty.Location = new System.Drawing.Point(179, 103);
-            this.txtOPQty.Name = "txtOPQty";
-            this.txtOPQty.PlaceHolder = null;
-            this.txtOPQty.Size = new System.Drawing.Size(221, 25);
-            this.txtOPQty.TabIndex = 53;
-            this.txtOPQty.Tag = "설비명";
-            // 
             // PopEquipmentModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 755);
+            this.ClientSize = new System.Drawing.Size(497, 569);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

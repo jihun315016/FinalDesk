@@ -90,9 +90,11 @@ namespace DESK_MES
             userName = userr.User_Name;
 
             dtpCreate.Format = DateTimePickerFormat.Custom;
-            dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpCreate.CustomFormat = " ";
+            //dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
             dtpUpdate.Format = DateTimePickerFormat.Custom;
-            dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdate.CustomFormat = " ";
+            //dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             List<UserGroupVO> cbo = srvG.SelectAuthList();
             ComboBinding(cboAuth, cbo, "Auth_Name", "Auth_ID", blank: true);
@@ -115,9 +117,9 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dgvMain);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사번", "User_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자명", "User_Name", colWidth: 400, alignContent: DataGridViewContentAlignment.MiddleCenter); //1
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹명", "User_Group_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //2
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "사용자 그룹명", "User_Group_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft); //2
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "비밀번호", "User_Pwd", isVisible: false); //3
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "권한", "Auth_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //4
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "권한", "Auth_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft); //4
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time", isVisible: false); //5
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성사용자", "Create_User_Name", isVisible: false); //6
@@ -137,6 +139,9 @@ namespace DESK_MES
         {
             if (e.RowIndex < 0) return;
             ResetDetail();
+
+            dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             selectUser = Convert.ToInt32(dgvMain[0, e.RowIndex].Value);
             txtUserNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
@@ -498,6 +503,11 @@ namespace DESK_MES
                 dgvMain.DataSource = null;
                 dgvMain.DataSource = deleteUserList;
             }
+        }
+
+        private void frmUser_Shown(object sender, EventArgs e)
+        {
+            dgvMain.ClearSelection();
         }
     }
 }

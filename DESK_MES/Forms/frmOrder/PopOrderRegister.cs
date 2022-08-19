@@ -95,6 +95,7 @@ namespace DESK_MES
         {
             allList = srv.GetProductListForOrder();
             dgvAllProduct.DataSource = allList;
+            dgvAllProduct.ClearSelection();
         }
 
         private void DgvAllProductADD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -249,6 +250,11 @@ namespace DESK_MES
                 dgvOrderList.Columns[e.ColumnIndex].DefaultCellStyle.Format = String.Format("c");
                 dgvOrderList.Columns[e.ColumnIndex].ValueType = typeof(Int32);
             }
+        }
+
+        private void PopOrderRegister_Shown(object sender, EventArgs e)
+        {
+            dgvAllProduct.ClearSelection();
         }
     }
 }

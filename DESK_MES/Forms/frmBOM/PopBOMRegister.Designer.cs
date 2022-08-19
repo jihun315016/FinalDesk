@@ -522,7 +522,7 @@ namespace DESK_MES
             this.MinimizeBox = false;
             this.Name = "PopBOMRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmBOMRegister";
+            this.Text = "BOM 생성";
             this.Load += new System.EventHandler(this.PopBOMRegister_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

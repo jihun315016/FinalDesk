@@ -65,7 +65,10 @@ namespace DESK_MES
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PopManufactureRegister pop = new PopManufactureRegister(user);
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -199,6 +202,11 @@ namespace DESK_MES
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmManufacture_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }
