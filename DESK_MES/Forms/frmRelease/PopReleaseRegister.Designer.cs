@@ -47,6 +47,9 @@ namespace DESK_MES
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRealeseDueDate = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboReleaseState = new System.Windows.Forms.ComboBox();
             this.dtpReleaseOkDate = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.txtOrderDate = new System.Windows.Forms.TextBox();
@@ -58,9 +61,6 @@ namespace DESK_MES
             this.label10 = new System.Windows.Forms.Label();
             this.txtPurchaseCode = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.cboReleaseState = new System.Windows.Forms.ComboBox();
-            this.txtRealeseDueDate = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -97,7 +97,7 @@ namespace DESK_MES
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1134, 711);
+            this.panel1.Size = new System.Drawing.Size(1204, 711);
             this.panel1.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -115,7 +115,7 @@ namespace DESK_MES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 711);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1204, 711);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -132,14 +132,14 @@ namespace DESK_MES
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1128, 62);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1198, 62);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(417, 3);
+            this.panel2.Location = new System.Drawing.Point(452, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 56);
             this.panel2.TabIndex = 0;
@@ -152,7 +152,7 @@ namespace DESK_MES
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(294, 56);
             this.label1.TabIndex = 1;
-            this.label1.Text = "제품 출고 등록";
+            this.label1.Text = "출고 등록";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
@@ -162,7 +162,7 @@ namespace DESK_MES
             this.panel3.Location = new System.Drawing.Point(3, 655);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1128, 52);
+            this.panel3.Size = new System.Drawing.Size(1198, 52);
             this.panel3.TabIndex = 1;
             // 
             // groupBox2
@@ -174,7 +174,7 @@ namespace DESK_MES
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1128, 52);
+            this.groupBox2.Size = new System.Drawing.Size(1198, 52);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -185,7 +185,7 @@ namespace DESK_MES
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.ImageIndex = 2;
             this.btnClose.ImageList = this.imageList2;
-            this.btnClose.Location = new System.Drawing.Point(1043, 18);
+            this.btnClose.Location = new System.Drawing.Point(1113, 18);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(76, 27);
@@ -201,7 +201,7 @@ namespace DESK_MES
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.ImageIndex = 1;
             this.btnAdd.ImageList = this.imageList2;
-            this.btnAdd.Location = new System.Drawing.Point(961, 18);
+            this.btnAdd.Location = new System.Drawing.Point(1031, 18);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(76, 27);
@@ -223,7 +223,7 @@ namespace DESK_MES
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1128, 573);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1198, 573);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // groupBox3
@@ -232,7 +232,7 @@ namespace DESK_MES
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(727, 567);
+            this.groupBox3.Size = new System.Drawing.Size(772, 567);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "발주 상세 목록";
@@ -244,16 +244,16 @@ namespace DESK_MES
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(721, 547);
+            this.dataGridView1.Size = new System.Drawing.Size(766, 547);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.groupBox1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(736, 3);
+            this.panel5.Location = new System.Drawing.Point(781, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(389, 567);
+            this.panel5.Size = new System.Drawing.Size(414, 567);
             this.panel5.TabIndex = 3;
             // 
             // groupBox1
@@ -277,10 +277,45 @@ namespace DESK_MES
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(389, 567);
+            this.groupBox1.Size = new System.Drawing.Size(414, 567);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "입고 등록";
+            // 
+            // txtRealeseDueDate
+            // 
+            this.txtRealeseDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRealeseDueDate.Enabled = false;
+            this.txtRealeseDueDate.Location = new System.Drawing.Point(137, 195);
+            this.txtRealeseDueDate.Name = "txtRealeseDueDate";
+            this.txtRealeseDueDate.ReadOnly = true;
+            this.txtRealeseDueDate.Size = new System.Drawing.Size(217, 21);
+            this.txtRealeseDueDate.TabIndex = 52;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 200);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "출고예정일";
+            // 
+            // cboReleaseState
+            // 
+            this.cboReleaseState.FormattingEnabled = true;
+            this.cboReleaseState.Items.AddRange(new object[] {
+            "N",
+            "Y"});
+            this.cboReleaseState.Location = new System.Drawing.Point(137, 269);
+            this.cboReleaseState.Name = "cboReleaseState";
+            this.cboReleaseState.Size = new System.Drawing.Size(217, 20);
+            this.cboReleaseState.TabIndex = 50;
             // 
             // dtpReleaseOkDate
             // 
@@ -289,7 +324,7 @@ namespace DESK_MES
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpReleaseOkDate.Location = new System.Drawing.Point(137, 232);
             this.dtpReleaseOkDate.Name = "dtpReleaseOkDate";
-            this.dtpReleaseOkDate.Size = new System.Drawing.Size(192, 21);
+            this.dtpReleaseOkDate.Size = new System.Drawing.Size(217, 21);
             this.dtpReleaseOkDate.TabIndex = 49;
             // 
             // label18
@@ -313,7 +348,7 @@ namespace DESK_MES
             this.txtOrderDate.Location = new System.Drawing.Point(137, 158);
             this.txtOrderDate.Name = "txtOrderDate";
             this.txtOrderDate.ReadOnly = true;
-            this.txtOrderDate.Size = new System.Drawing.Size(192, 21);
+            this.txtOrderDate.Size = new System.Drawing.Size(217, 21);
             this.txtOrderDate.TabIndex = 46;
             // 
             // label17
@@ -337,7 +372,7 @@ namespace DESK_MES
             this.txtClientName.Location = new System.Drawing.Point(137, 121);
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.ReadOnly = true;
-            this.txtClientName.Size = new System.Drawing.Size(192, 21);
+            this.txtClientName.Size = new System.Drawing.Size(217, 21);
             this.txtClientName.TabIndex = 43;
             // 
             // label16
@@ -360,7 +395,7 @@ namespace DESK_MES
             this.txtClientCode.Enabled = false;
             this.txtClientCode.Location = new System.Drawing.Point(137, 84);
             this.txtClientCode.Name = "txtClientCode";
-            this.txtClientCode.Size = new System.Drawing.Size(192, 21);
+            this.txtClientCode.Size = new System.Drawing.Size(217, 21);
             this.txtClientCode.TabIndex = 38;
             // 
             // label12
@@ -395,7 +430,7 @@ namespace DESK_MES
             this.txtPurchaseCode.Enabled = false;
             this.txtPurchaseCode.Location = new System.Drawing.Point(137, 47);
             this.txtPurchaseCode.Name = "txtPurchaseCode";
-            this.txtPurchaseCode.Size = new System.Drawing.Size(192, 21);
+            this.txtPurchaseCode.Size = new System.Drawing.Size(217, 21);
             this.txtPurchaseCode.TabIndex = 34;
             // 
             // label9
@@ -410,53 +445,19 @@ namespace DESK_MES
             this.label9.TabIndex = 33;
             this.label9.Text = "주문코드";
             // 
-            // cboReleaseState
-            // 
-            this.cboReleaseState.FormattingEnabled = true;
-            this.cboReleaseState.Items.AddRange(new object[] {
-            "N",
-            "Y"});
-            this.cboReleaseState.Location = new System.Drawing.Point(137, 269);
-            this.cboReleaseState.Name = "cboReleaseState";
-            this.cboReleaseState.Size = new System.Drawing.Size(192, 20);
-            this.cboReleaseState.TabIndex = 50;
-            // 
-            // txtRealeseDueDate
-            // 
-            this.txtRealeseDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRealeseDueDate.Enabled = false;
-            this.txtRealeseDueDate.Location = new System.Drawing.Point(137, 195);
-            this.txtRealeseDueDate.Name = "txtRealeseDueDate";
-            this.txtRealeseDueDate.ReadOnly = true;
-            this.txtRealeseDueDate.Size = new System.Drawing.Size(192, 21);
-            this.txtRealeseDueDate.TabIndex = 52;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 200);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "출고예정일";
-            // 
             // PopReleaseRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 711);
+            this.ClientSize = new System.Drawing.Size(1204, 711);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PopReleaseRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "재고조회";
+            this.Text = "출고등록";
             this.Load += new System.EventHandler(this.PopReleaseRegister_Load);
+            this.Shown += new System.EventHandler(this.PopReleaseRegister_Shown);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

@@ -75,7 +75,7 @@ namespace DESK_MES
             List<string> idlist = new List<string>();
 
             if (getDate.Equals(date))
-                {
+            {
                 int addID = int.Parse(search[2]);
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                 {

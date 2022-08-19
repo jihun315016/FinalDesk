@@ -240,6 +240,7 @@ namespace DESK_MES
             this.label13.Size = new System.Drawing.Size(176, 17);
             this.label13.TabIndex = 36;
             this.label13.Text = "CUS : 매출처 / VEN : 매입처";
+            this.label13.Visible = false;
             // 
             // dtpModifyTime
             // 
@@ -542,6 +543,7 @@ namespace DESK_MES
             this.Name = "frmClient";
             this.Text = "거래처 관리";
             this.Load += new System.EventHandler(this.frmClient_Load);
+            this.Shown += new System.EventHandler(this.frmClient_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

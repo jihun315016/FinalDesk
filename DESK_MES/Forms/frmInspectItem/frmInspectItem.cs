@@ -17,7 +17,7 @@ namespace DESK_MES
         public frmInspectItem()
         {
             InitializeComponent();
-            label1.Text = "품질-검사 항목 설정";
+            label1.Text = "품질 검사 항목 설정";
         }
 
         private void frmInspectItem_Load(object sender, EventArgs e)
@@ -54,6 +54,8 @@ namespace DESK_MES
             dgvList.Columns["Target"].DefaultCellStyle.Format = "###,##0";
             dgvList.Columns["USL"].DefaultCellStyle.Format = "###,##0";
             dgvList.Columns["LSL"].DefaultCellStyle.Format = "###,##0";
+
+            dgvList.DataSource = inspectList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -191,6 +193,11 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmInspectItem_Shown(object sender, EventArgs e)
+        {
+            dgvList.ClearSelection();
         }
     }
 }

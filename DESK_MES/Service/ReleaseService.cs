@@ -27,10 +27,19 @@ namespace DESK_MES
             return result;
         }
 
-        public bool RegisterRelease(ReleaseVO release, List<OrderDetailVO> orderList)
+        public bool RegisterRelease(ReleaseVO release, List<OrderDetailVO> orderList, List<string> idlist)
         {
             ReleaseDAC dac = new ReleaseDAC();
-            bool result = dac.RegisterRelease(release, orderList);
+            bool result = dac.RegisterRelease(release, orderList, idlist);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public OrderDetailVO GetLastID()
+        {
+            ReleaseDAC dac = new ReleaseDAC();
+            OrderDetailVO result = dac.GetLastID();
             dac.Dispose();
 
             return result;

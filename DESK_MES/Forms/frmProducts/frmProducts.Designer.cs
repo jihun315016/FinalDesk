@@ -591,6 +591,7 @@ namespace DESK_MES
             this.Name = "frmProducts";
             this.Text = "품목 관리";
             this.Load += new System.EventHandler(this.frmProducts_Load);
+            this.Shown += new System.EventHandler(this.frmProducts_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

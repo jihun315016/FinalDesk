@@ -13,10 +13,10 @@
 
                 @using (Html.BeginForm("InoperativeEquipment", "Work", FormMethod.Get))
                 {
-                    <input id="startDate" type="date" style="width:150px; height:28px" name="startDate" />
-                    <input id="endDate" type="date" style="width:150px; height:28px" name="endDate" />
-                    <input id="search" type="text" placeholder="설비명을 입력하세요." style="width:170px; height:28px" name="keyword" />
-                    <input type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
+                    <input id="startDate" type="date" style="width:150px; height:28px" name="startDate" value="@ViewBag.startDate" />
+                    <input id="endDate" type="date" style="width:150px; height:28px" name="endDate" value="@ViewBag.endDate" />
+                    <input id="search" type="text" placeholder="설비명을 입력하세요." style="width:170px; height:28px" name="keyword" value="@ViewBag.keyword" />
+                    <input class="btnSearch" type="submit" value="검색" style="padding:0px 6px 0px 6px; font-size:16px" />
                 }
 
 
@@ -72,7 +72,7 @@
                 </tbody>
             </table>
             <div class="pager">
-                @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+                @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount).Options(o => o.AddRouteValue("startDate", ViewBag.startDate)).Options(o => o.AddRouteValue("endDate", ViewBag.endDate)).Options(o => o.AddRouteValue("keyword", ViewBag.keyword))
             </div>
         </div>
     </div>

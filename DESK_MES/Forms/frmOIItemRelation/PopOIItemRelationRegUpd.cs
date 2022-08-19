@@ -50,7 +50,7 @@ namespace DESK_MES
             {
                 DataGridUtil.SetInitGridView(dgv);
                 DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목 번호", "Inspect_No", colWidth: 130);
-                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 170);
+                DataGridUtil.SetDataGridViewColumn_TextBox(dgv, "검사 항목명", "Inspect_Name", colWidth: 190);
             }
 
             // 검사 데이터 항목 수정인 경우

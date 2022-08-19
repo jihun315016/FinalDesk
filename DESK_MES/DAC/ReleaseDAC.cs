@@ -66,7 +66,7 @@ namespace DESK_MES
             }
         }
 
-        public bool RegisterRelease(ReleaseVO release, List<OrderDetailVO> orderList)  
+        public bool RegisterRelease(ReleaseVO release, List<OrderDetailVO> orderList, List<string> idlist)  
         {
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -106,6 +106,20 @@ namespace DESK_MES
                         cmd.ExecuteNonQuery();
                     }
 
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"UPDATE TB_ORDER_DETAIL
+                                        SET BarcodeID = @BarcodeID
+                                        WHERE Order_No = @Order_No";
+
+                    cmd.Parameters.Add("@BarcodeID", System.Data.SqlDbType.NVarChar);
+                    cmd.Parameters.AddWithValue("@Order_No", release.Order_No);
+
+                    for (int i = 0; i < idlist.Count; i++)
+                    {
+                        cmd.Parameters["@BarcodeID"].Value = idlist[i];
+                        cmd.ExecuteNonQuery();
+                    }
+
                     trans.Commit();
                     return true;
                 }
@@ -123,7 +137,8 @@ namespace DESK_MES
                            from [dbo].[TB_ORDER_DETAIL] OD
                            inner join [dbo].[TB_ORDER] O ON OD.Order_No=O.Order_No
                            inner join [dbo].[TB_PRODUCT] P ON OD.Product_Code=P.Product_Code
-                           where Release_State= 'Y'";
+                           where Release_State= 'Y'
+                           order by BarcodeID desc";
             SqlDataAdapter da = new SqlDataAdapter(sql, conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -143,6 +158,30 @@ namespace DESK_MES
             da.Fill(dt);
             da.SelectCommand.Connection.Close();
             return dt;
+        }
+
+        public OrderDetailVO GetLastID() // 새롭게 등록할 바코드ID 가져오기
+        {
+            try
+            {
+                string sql = @"select TOP(1) BarcodeID
+                               from TB_ORDER_DETAIL
+                               ORDER BY BarcodeID DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    List<OrderDetailVO> list = DBHelpler.DataReaderMapToList<OrderDetailVO>(cmd.ExecuteReader());
+
+                    if (list != null && list.Count > 0)
+                        return list[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
         }
     }
 }

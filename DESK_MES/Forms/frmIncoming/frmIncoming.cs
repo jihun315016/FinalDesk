@@ -62,12 +62,18 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "수량 입력", "Qty_PerUnit", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총 구매수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총액", "TotalPrice", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleRight);
+            dataGridView2.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["Qty_PerUnit"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["TotalQty"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["TotalPrice"].DefaultCellStyle.Format = "###,##0";
+
 
             DataGridUtil.SetInitGridView(dataGridView3);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "자재 Lot 코드", "Lot_Code", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "제품명", "Product_Name", colWidth: 215, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "창고명", "Warehouse_Name", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
+            dataGridView3.Visible = false;
             LoadData();
         }
         private void LoadData()
@@ -96,6 +102,7 @@ namespace DESK_MES
 
             purchaseDetailList = pursrv.GetPurchaseDetailList(purchaseNo);
             dataGridView2.DataSource = purchaseDetailList;
+            dataGridView3.Visible = false;
         }
 
         private void btnIncoming_Click(object sender, EventArgs e)
@@ -134,6 +141,7 @@ namespace DESK_MES
             productCode = dataGridView2[1, e.RowIndex].Value.ToString();
 
             lotDetailList = srv.GetLotDetailList(productCode);
+            dataGridView3.Visible = true;
             dataGridView3.DataSource = lotDetailList;
         }
 
@@ -213,6 +221,11 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmIncoming_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

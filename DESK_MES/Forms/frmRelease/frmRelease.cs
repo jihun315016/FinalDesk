@@ -18,6 +18,7 @@ namespace DESK_MES
         int orderNo = 0;
         List<ReleaseVO> releaseList;
         List<OrderDetailVO> orderDetailList;
+        string relesState = null;
 
         public frmRelease()
         {
@@ -52,7 +53,10 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "수량", "Qty_PerUnit", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총 구매수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총액", "TotalPrice", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-
+            dataGridView2.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["Qty_PerUnit"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["TotalQty"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["TotalPrice"].DefaultCellStyle.Format = "###,##0";
             LoadData();
         }
 
@@ -60,6 +64,7 @@ namespace DESK_MES
         {
             releaseList = srv.GetReleaseList();
             dataGridView1.DataSource = releaseList;
+            dataGridView1.ClearSelection();
         }
 
 
@@ -76,6 +81,7 @@ namespace DESK_MES
             txtOrderRegiDate.Text = dataGridView1["Order_Date", e.RowIndex].Value.ToString();
             txtReleaseDate.Text = dataGridView1["Release_Date", e.RowIndex].Value.ToString();
             txtRelease_State.Text = dataGridView1["Release_State", e.RowIndex].Value.ToString();
+            relesState = dataGridView1["Release_State", e.RowIndex].Value.ToString();
             txtRelease_OK_Date.Text = (dataGridView1["Release_OK_Date", e.RowIndex].Value == null) ? "": dataGridView1["Release_OK_Date", e.RowIndex].Value.ToString();
 
             orderDetailList = srv.GetOrderDetailList(orderNo);
@@ -84,11 +90,20 @@ namespace DESK_MES
 
         private void btnReleaseAdd_Click(object sender, EventArgs e)
         {
-            PopReleaseRegister pop = new PopReleaseRegister(user, orderNo);
-            if (pop.ShowDialog() == DialogResult.OK)
+            if (orderNo != 0 && relesState.Contains('N'))
             {
-                LoadData();
+                PopReleaseRegister pop = new PopReleaseRegister(user, orderNo);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
+            else
+            {
+                MessageBox.Show("출고등록 항목을 선택해주세요");
+                return;
+            }
+
         }
 
         private void btnBarcord_Click(object sender, EventArgs e)
@@ -174,6 +189,21 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmRelease_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView2.ClearSelection();
         }
     }
 }

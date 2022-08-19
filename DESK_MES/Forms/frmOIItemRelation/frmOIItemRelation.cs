@@ -12,6 +12,7 @@ namespace DESK_MES
     {
         OperationService operationSrv;
         DataSet ds;
+        DataSet tempDs;
 
         public frmOIItemRelation()
         {
@@ -27,7 +28,7 @@ namespace DESK_MES
 
         void InitControl()
         {
-            label1.Text = "공정 - 검사 데이터 항목 관리";           
+            label1.Text = "공정-검사데이터 관계";           
 
             comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
@@ -36,7 +37,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정 번호", "Operation_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "불량 체크 여부", "Is_Check_Deffect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "자재 사용 여부", "Is_Check_Marerial", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "등록 시간", "Create_Time", colWidth: 200, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "등록 사용자", "Create_User_Name", colWidth: 120, isVisible: false);
@@ -55,11 +56,13 @@ namespace DESK_MES
             dgvInspectItem.Columns["Target"].DefaultCellStyle.Format = "###,##0";
             dgvInspectItem.Columns["USL"].DefaultCellStyle.Format = "###,##0";
             dgvInspectItem.Columns["LSL"].DefaultCellStyle.Format = "###,##0";
+
+            dgvOperation.DataSource = operationSrv.GetOperationList();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataSet tempDs = new DataSet();
+            tempDs = new DataSet();
             DataView dv = new DataView(ds.Tables[0]);
             
             // 공정 번호 검색
@@ -186,6 +189,11 @@ namespace DESK_MES
                     MessageBox.Show("삭제에 실패했습니다.");
                 }
             }
+        }
+
+        private void frmOIItemRelation_Shown(object sender, EventArgs e)
+        {
+            dgvOperation.ClearSelection();
         }
     }
 }

@@ -146,6 +146,7 @@
     <Compile Include="Forms\frmOPitemRelation\frmOPitemRelation.Designer.cs">
       <DependentUpon>frmOPitemRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAC\HistoryDAC.cs" />
     <Compile Include="ReportPreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -836,6 +837,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_icon_224550.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -581,6 +581,7 @@ namespace DESK_MES
             this.Name = "frmOperation";
             this.Text = "공정 관리";
             this.Load += new System.EventHandler(this.frmProcess_Load);
+            this.Shown += new System.EventHandler(this.frmOperation_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

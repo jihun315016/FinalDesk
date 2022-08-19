@@ -525,6 +525,7 @@ namespace DESK_MES
             this.Name = "frmOIItemRelation";
             this.Text = "공정-검사데이터 관계";
             this.Load += new System.EventHandler(this.frmOperationInspectItemRelation_Load);
+            this.Shown += new System.EventHandler(this.frmOIItemRelation_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

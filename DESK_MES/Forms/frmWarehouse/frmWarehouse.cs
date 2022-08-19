@@ -36,6 +36,12 @@ namespace DESK_MES
             comboBox1.Items.AddRange(new string[] { "선택", "창고명", "창고유형" });
             comboBox1.SelectedIndex = 0;
 
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            
+            dtpModifyTime.Format = DateTimePickerFormat.Custom;
+            dtpModifyTime.CustomFormat = " ";
+
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고코드", "Warehouse_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "창고명", "Warehouse_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -59,6 +65,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "제품명", "Product_Name", colWidth: 215, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "수량", "Cur_Qty", colWidth: 65, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
+            dataGridView3.Visible = false;
             LoadData();
         }
         private void LoadData()
@@ -70,6 +77,9 @@ namespace DESK_MES
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
+            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpModifyTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             warehouseCode = dataGridView1[0, e.RowIndex].Value.ToString();
 
@@ -84,6 +94,7 @@ namespace DESK_MES
 
             warehouseDetailList = srv.GetWarehouseDetailList(warehouseCode);
             dataGridView2.DataSource = warehouseDetailList;
+            dataGridView3.Visible = false;
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -94,6 +105,7 @@ namespace DESK_MES
 
             lotDetailList = srv.GetLotDetailList(productCode);
             dataGridView3.DataSource = lotDetailList;
+            dataGridView3.Visible = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -214,6 +226,11 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmWarehouse_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

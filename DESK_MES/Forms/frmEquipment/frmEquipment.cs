@@ -74,11 +74,13 @@ namespace DESK_MES
                 srv = new EquipmentService();
             userVV = ((frmMain)this.MdiParent).userInfo;
             dtpInoper.Format = DateTimePickerFormat.Custom;
-            dtpInoper.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpInoper.CustomFormat = " ";
+            
             dtpCreate.Format = DateTimePickerFormat.Custom;
-            dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpCreate.CustomFormat = " ";
             dtpUpdate.Format = DateTimePickerFormat.Custom;
-            dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdate.CustomFormat = " ";
+
 
             comboBox1.Items.Add("설비번호");
             comboBox1.Items.Add("설비명");
@@ -101,7 +103,7 @@ namespace DESK_MES
             //dgvMain.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비번호", "Equipment_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //1
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft); //1
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "초당 생산량", "Output_Qty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //2           //초당 생산량으로 변경
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "상태", "Is_Inoperative", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //3
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "최근다운시간", "Is_Inoperative_Date", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //4
@@ -151,6 +153,10 @@ namespace DESK_MES
         {
             if (e.RowIndex < 0) return;
             ResetDetail();
+
+            dtpInoper.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpUpdate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             selectEqui = Convert.ToInt32(dgvMain[0, e.RowIndex].Value);
             txtEquipNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
@@ -341,6 +347,11 @@ namespace DESK_MES
             {
                 btnSearch_Click(this, null);
             }
+        }
+
+        private void frmEquipment_Shown(object sender, EventArgs e)
+        {
+            dgvMain.ClearSelection();
         }
     }
 }

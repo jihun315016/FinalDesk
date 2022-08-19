@@ -37,7 +37,7 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처코드", "Client_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처유형", "Client_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "사업자등록번호", "Client_Number", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "연락처", "Client_Phone", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -47,10 +47,9 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수정사용자", "Update_User_Name", colWidth: 60, isVisible: false);
 
             dtpCreateTime.Format = DateTimePickerFormat.Custom;
-            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
-
+            dtpCreateTime.CustomFormat = " ";
             dtpModifyTime.Format = DateTimePickerFormat.Custom;
-            dtpModifyTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpModifyTime.CustomFormat = " ";
 
             LoadData();
         }
@@ -94,6 +93,9 @@ namespace DESK_MES
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
+            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpModifyTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             clientCode = dataGridView1[0, e.RowIndex].Value.ToString();
 
@@ -180,6 +182,11 @@ namespace DESK_MES
 
             txtClientCode.Text = txtClientName.Text = string.Empty;
             cboClientType.SelectedIndex = 0;
+        }
+
+        private void frmClient_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

@@ -430,7 +430,6 @@ namespace DESK_MES
             this.txtAdress.ReadOnly = true;
             this.txtAdress.Size = new System.Drawing.Size(177, 25);
             this.txtAdress.TabIndex = 15;
-            this.txtAdress.Text = "API";
             // 
             // label10
             // 
@@ -563,6 +562,7 @@ namespace DESK_MES
             this.Name = "frmWarehouse";
             this.Text = "창고관리";
             this.Load += new System.EventHandler(this.frmWarehouse_Load);
+            this.Shown += new System.EventHandler(this.frmWarehouse_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

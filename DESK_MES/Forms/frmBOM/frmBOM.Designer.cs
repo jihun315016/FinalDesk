@@ -569,6 +569,7 @@ namespace DESK_MES
             this.Name = "frmBOM";
             this.Text = "BOM 관리";
             this.Load += new System.EventHandler(this.frmBOM_Load);
+            this.Shown += new System.EventHandler(this.frmBOM_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

@@ -32,6 +32,7 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUser));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cboDate = new System.Windows.Forms.ComboBox();
@@ -142,6 +143,7 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.cboDate);
@@ -157,10 +159,19 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(429, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 17);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "||";
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(734, 24);
+            this.dateTimePicker2.Location = new System.Drawing.Point(691, 24);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker2.TabIndex = 37;
@@ -168,7 +179,7 @@ namespace DESK_MES
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(616, 24);
+            this.dateTimePicker1.Location = new System.Drawing.Point(573, 24);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(90, 25);
             this.dateTimePicker1.TabIndex = 38;
@@ -176,7 +187,7 @@ namespace DESK_MES
             // cboDate
             // 
             this.cboDate.FormattingEnabled = true;
-            this.cboDate.Location = new System.Drawing.Point(497, 24);
+            this.cboDate.Location = new System.Drawing.Point(454, 24);
             this.cboDate.Name = "cboDate";
             this.cboDate.Size = new System.Drawing.Size(108, 25);
             this.cboDate.TabIndex = 36;
@@ -184,7 +195,7 @@ namespace DESK_MES
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(711, 27);
+            this.label5.Location = new System.Drawing.Point(668, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 17);
             this.label5.TabIndex = 35;
@@ -629,6 +640,7 @@ namespace DESK_MES
             this.Name = "frmUser";
             this.Text = "사원 관리";
             this.Load += new System.EventHandler(this.frmUser_Load);
+            this.Shown += new System.EventHandler(this.frmUser_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -691,5 +703,6 @@ namespace DESK_MES
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.RadioButton rdtWork;
         private System.Windows.Forms.RadioButton rdtDeWork;
+        private System.Windows.Forms.Label label3;
     }
 }

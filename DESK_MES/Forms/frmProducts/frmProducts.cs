@@ -52,7 +52,7 @@ namespace DESK_MES
             ComboBoxUtil.SetComboBoxByList<CodeCountVO>(cboTypeDetailSearch, list, "Category", "Code");
             DataGridUtil.SetInitGridView(dgvList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "품번", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "유형", "Product_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "단위", "Unit", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
@@ -65,6 +65,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 여부", "Is_Image", isVisible: false);
             dgvList.Columns["Price"].DefaultCellStyle.Format = "###,##0";
             prdList = productSrv.GetProductList();
+            dgvList.DataSource = prdList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -222,6 +223,11 @@ namespace DESK_MES
                     MessageBox.Show("엑셀 다운 실패");
                 }
             }
+        }
+
+        private void frmProducts_Shown(object sender, EventArgs e)
+        {
+            dgvList.ClearSelection();
         }
     }
 }

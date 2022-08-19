@@ -17,6 +17,7 @@ namespace DESK_MES
         ReleaseService rSrv;
         OrderService oSrv;
         UserVO user;
+        OrderDetailVO LastID;
 
         public PopReleaseRegister(UserVO user, int orderNo)
         {
@@ -32,13 +33,18 @@ namespace DESK_MES
         {
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "품번", "Product_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "품명", "Product_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "품명", "Product_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "유형", "Product_Type", colWidth: 100, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "단가", "Price", colWidth: 100, isVisible:false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "주문단위", "Unit", colWidth: 100, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수량", "Qty_PerUnit", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "총 구매수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "총액", "TotalPrice", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수량", "Qty_PerUnit", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "총 구매수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "총액", "TotalPrice", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            dataGridView1.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+            dataGridView1.Columns["Qty_PerUnit"].DefaultCellStyle.Format = "###,##0";
+            dataGridView1.Columns["TotalQty"].DefaultCellStyle.Format = "###,##0";
+            dataGridView1.Columns["TotalPrice"].DefaultCellStyle.Format = "###,##0";
+
 
             List<OrderDetailVO> list = rSrv.GetOrderDetailList(selectedOrderNo);
             dataGridView1.DataSource = list;
@@ -62,11 +68,49 @@ namespace DESK_MES
             {
                 return;
             }
+            // 바코드 번호 20220814008
+            // BarcodeID
+            LastID = rSrv.GetLastID();
+
+            string id = LastID.BarcodeID.ToString();
+            string getDate = id.Substring(0, 8);
+            string num = id.Substring(8, 3);
+            string date = DateTime.Now.ToString("yyyyMMdd");
+
+            List<string> idlist = new List<string>();
 
             // 주문저장 (Orders, OrderDetails)
-            foreach (DataGridViewRow item in dataGridView1.Rows)
+            if(getDate.Equals(date))
             {
-                if (item.Cells[5].Value != null)
+                int addID = int.Parse(num);
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    addID++;
+                    string newid = addID.ToString().PadLeft(3, '0');
+                    idlist.Add(date + newid);
+                }
+
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    OrderDetailVO orderitem = new OrderDetailVO
+                    {
+                        Product_Code = item.Cells[0].Value.ToString(),
+                        TotalQty = Convert.ToInt32(item.Cells[5].Value)
+                    };
+                    orderList.Add(orderitem);
+                }
+            }
+            else
+            {
+                int addID = 0;
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    addID++;
+                    string newid = addID.ToString().PadLeft(3, '0');
+                    idlist.Add(date + newid);
+                }
+
+                foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
                     OrderDetailVO orderitem = new OrderDetailVO
                     {
@@ -85,7 +129,7 @@ namespace DESK_MES
                 Update_User_No = user.User_No
             };
 
-            bool result = rSrv.RegisterRelease(release, orderList);
+            bool result = rSrv.RegisterRelease(release, orderList, idlist);
             if (result)
             {
                 MessageBox.Show($"출고 처리되었습니다.");
@@ -101,6 +145,11 @@ namespace DESK_MES
         private void btnClose_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void PopReleaseRegister_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

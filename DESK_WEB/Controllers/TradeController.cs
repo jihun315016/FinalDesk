@@ -31,7 +31,15 @@ namespace DESK_WEB.Controllers
             if (Session["user"] == null)
                 return Redirect($"{baseUrl}Main/Index?IsNotLogin=true");
 
-            ViewBag.Url = baseUrl;
+            if (string.IsNullOrWhiteSpace(startDate) || string.IsNullOrWhiteSpace(endDate))
+            {
+                startDate = DateTime.Now.AddMonths(-1).ToShortDateString();
+                endDate = DateTime.Now.ToShortDateString();
+            }
+
+            ViewBag.startDate = startDate;
+            ViewBag.endDate = endDate;
+            ViewBag.keyword = keyword;
 
             if (string.IsNullOrWhiteSpace(startDate)|| string.IsNullOrWhiteSpace(endDate))
             {
@@ -74,7 +82,15 @@ namespace DESK_WEB.Controllers
             if (Session["user"] == null)
                 return Redirect($"{baseUrl}Main/Index?IsNotLogin=true");
 
-            ViewBag.Url = baseUrl;
+            if (string.IsNullOrWhiteSpace(startDate) || string.IsNullOrWhiteSpace(endDate))
+            {
+                startDate = DateTime.Now.AddMonths(-1).ToShortDateString();
+                endDate = DateTime.Now.ToShortDateString();
+            }
+
+            ViewBag.startDate = startDate;
+            ViewBag.endDate = endDate;
+            ViewBag.keyword = keyword;
 
             if (string.IsNullOrWhiteSpace(startDate) || string.IsNullOrWhiteSpace(endDate))
             {
