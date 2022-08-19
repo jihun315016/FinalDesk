@@ -33,6 +33,8 @@ namespace DESK_MES
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
+
             this.Hide();
             frmLogin pop = new frmLogin();
             if (pop.ShowDialog() != DialogResult.OK)

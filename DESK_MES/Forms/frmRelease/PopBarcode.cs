@@ -35,17 +35,17 @@ namespace DESK_MES
 
             Point headerCell = dgvList.GetCellDisplayRectangle(0, -1, true).Location;
             headerChk.Location = new Point(headerCell.X + 8, headerCell.Y + 3);
-            headerChk.Size = new Size(18, 18);
+            headerChk.Size = new Size(14, 14);
             headerChk.BackColor = Color.White;
             headerChk.Click += HeaderChk_Click;
             dgvList.Controls.Add(headerChk);
 
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "바코드ID", "BarcodeID", colwidth:200);
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품ID", "Product_Code");
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품명", "Product_Name", colwidth: 300);
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "단위", "Unit", colwidth: 150);
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "수량", "TotalQty", colwidth: 150);
-            DataGridUtil.AddGridTextBoxColumn(dgvList, "출고일자", "Release_OK_Date", colwidth: 150);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "바코드ID", "BarcodeID", colwidth:150, align : DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품ID", "Product_Code", visibility : false);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "제품명", "Product_Name", colwidth: 300, align: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "단위", "Unit", colwidth: 150, visibility: false);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "수량", "TotalQty", colwidth: 100, align: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.AddGridTextBoxColumn(dgvList, "출고일자", "Release_OK_Date", colwidth: 200, align: DataGridViewContentAlignment.MiddleCenter);
 
             dgvList.DataSource = db.GetBoxOutputList();
         }

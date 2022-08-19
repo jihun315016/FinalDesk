@@ -62,6 +62,11 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "수량 입력", "Qty_PerUnit", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총 구매수량", "TotalQty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "총액", "TotalPrice", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleRight);
+            dataGridView2.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["Qty_PerUnit"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["TotalQty"].DefaultCellStyle.Format = "###,##0";
+            dataGridView2.Columns["TotalPrice"].DefaultCellStyle.Format = "###,##0";
+
 
             DataGridUtil.SetInitGridView(dataGridView3);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView3, "자재 Lot 코드", "Lot_Code", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleCenter);

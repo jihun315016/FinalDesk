@@ -360,6 +360,8 @@ namespace DESK_MES
             this.dgvOrderList.RowTemplate.Height = 23;
             this.dgvOrderList.Size = new System.Drawing.Size(806, 191);
             this.dgvOrderList.TabIndex = 1;
+            this.dgvOrderList.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_CellEndEdit);
+            this.dgvOrderList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrderList_CellFormatting);
             this.dgvOrderList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_CellValueChanged);
             // 
             // groupBox1
