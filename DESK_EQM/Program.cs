@@ -62,7 +62,7 @@ namespace DESK_EQM
         public void Starttimer(string code)
         {
             workCode = code;
-            searchSave = new Timer(1000);
+            searchSave = new Timer(5000);
             searchSave.Elapsed += SearchSave_Elapsed;
             searchSave.AutoReset = true;
             searchSave.Enabled = true; //시작
@@ -79,7 +79,6 @@ namespace DESK_EQM
         /// <param name="e"></param>
         private void SearchSave_Elapsed(object sender, ElapsedEventArgs e)
         {
-
             //db에 저장
             if (dac.UpdateQty(workCode, qty))
             {
@@ -89,9 +88,9 @@ namespace DESK_EQM
             }
             else
             {
+                Console.WriteLine($"작업 : {workCode} | 설비가 비가동 중입니다.");
                 searchSave.Enabled = false;
             }
-
         }
     }
     public class DAC : IDisposable
@@ -162,7 +161,7 @@ where Work_Code=@Work_Code";
             }
             catch (Exception err)
             {
-                throw err;
+                return false;
             }
 
         }

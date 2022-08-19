@@ -44,6 +44,7 @@ namespace DESK_POP
             string server = Application.StartupPath + "\\DESK_EQM.exe";
             if (MessageBox.Show("해당 작업을 시작합니다","작업시작",MessageBoxButtons.OKCancel) == DialogResult.OK) // 시작합니다
             {
+
                 Process p = Process.Start(server, txtWkCode.Text);
                 proId = p.Id;
                 POP_Detail pop = new POP_Detail(txtWkCode.Text);
