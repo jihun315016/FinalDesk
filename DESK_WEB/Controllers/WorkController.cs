@@ -50,6 +50,10 @@ namespace DESK_WEB.Controllers
             }
             int curIndex = page > 0 ? page - 1 : 0;
 
+            ViewBag.startDate = startDate;
+            ViewBag.endDate = endDate;
+            ViewBag.keyword = keyword;
+
             string url = $"{baseUrl}api/Work/inoperative?startDate={startDate}&endDate={endDate}&keyword={keyword}";
             HttpClient client = new HttpClient();
             HttpResponseMessage resMsg = client.GetAsync(url).Result;
