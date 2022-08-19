@@ -40,6 +40,11 @@ namespace DESK_POP
                 frm.Show();
             }
             #endregion
+
+            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            toolStripStatusLabel2.Text = userInfo.Auth_Name;
+            toolStripStatusLabel3.Text = userInfo.User_Group_Name;
+            toolStripStatusLabel4.Text = userInfo.User_Name;
         }
     }
 }

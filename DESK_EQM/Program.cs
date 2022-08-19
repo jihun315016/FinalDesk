@@ -18,7 +18,8 @@ namespace DESK_EQM
         static void Main(string[] args)
         {
             //넘겨받은 해당 값으로 DB에 조회            
-            string wId = "WORK_20220806_0006"; // args[0]; //추후에 이걸로 교체
+            //string wId = args[0]; // args[0]; //추후에 이걸로 교체
+            string wId = "WORK_20220806_0006";
             bool flag = true; // 작업이 있는지 유무
             DAC dac = new DAC();
             wkList = dac.SelectQtyList(wId); //작업내역확인

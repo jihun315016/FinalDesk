@@ -61,8 +61,6 @@ namespace DESK_POP
             this.label7 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -147,8 +145,6 @@ namespace DESK_POP
             // 
             this.splitContainer2.Panel2.Controls.Add(this.btnStart);
             this.splitContainer2.Panel2.Controls.Add(this.btnBack);
-            this.splitContainer2.Panel2.Controls.Add(this.label5);
-            this.splitContainer2.Panel2.Controls.Add(this.label14);
             this.splitContainer2.Size = new System.Drawing.Size(1802, 680);
             this.splitContainer2.SplitterDistance = 559;
             this.splitContainer2.TabIndex = 0;
@@ -456,24 +452,7 @@ namespace DESK_POP
             this.btnBack.TabIndex = 43;
             this.btnBack.Text = "돌아가기";
             this.btnBack.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(127, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 15);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "작업 마감일 만 보여준다";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(316, 43);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 15);
-            this.label14.TabIndex = 42;
-            this.label14.Text = "작업(오더받은거)";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // Lot_Add
             // 
@@ -495,7 +474,6 @@ namespace DESK_POP
             this.panel1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
@@ -517,8 +495,6 @@ namespace DESK_POP
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
