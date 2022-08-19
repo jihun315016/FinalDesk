@@ -82,29 +82,31 @@
         }
 
         var daysArr = []
+        var purchaseArr = [];
+        var orderArr = [];
         for (var i = 1; i < days + 1; i++) {
             daysArr.push(i);
+            purchaseArr.push(0);
+            orderArr.push(0);
         }
 
         $.getJSON(url + 'api/Trade/op?dt=' + $('#selDate').val())
         .done((data) => {
-            var purchaseArr = [];
-            var orderArr = [];
 
             for (var i = 0; i < data["Data"].length; i++) {
                 console.log(data["Data"][i]);
                 console.log(data["Data"][i].Type);
 
+                var d = data["Data"][i].Date.split('T')[0].split('-')[2]
+                d = parseInt(d)
+
                 if (data["Data"][i].Type == '매입') {
-                    purchaseArr.push(data["Data"][i].Total)
+                    purchaseArr[d - 1] = purchaseArr[d - 1] + data["Data"][i].Total
                 }
                 else {
-                    orderArr.push(data["Data"][i].Total)
+                    orderArr[d - 1] = orderArr[d - 1] + data["Data"][i].Total
                 }
             }
-
-            console.log(purchaseArr)
-            console.log(orderArr)
 
             $('#lineChart').empty();
             var lineChartCanvas = $('#lineChart').get(0).getContext('2d');
