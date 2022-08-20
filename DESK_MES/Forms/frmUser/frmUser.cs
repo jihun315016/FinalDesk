@@ -98,6 +98,7 @@ namespace DESK_MES
 
             List<UserGroupVO> cbo = srvG.SelectAuthList();
             ComboBinding(cboAuth, cbo, "Auth_Name", "Auth_ID", blank: true);
+            comboBox1.Items.Add("선택");
             comboBox1.Items.Add("사번");
             comboBox1.Items.Add("사용자명");
             comboBox1.SelectedIndex = 0;
@@ -137,6 +138,11 @@ namespace DESK_MES
         }
         private void dgvMain_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+           
+        }
+
+        private void dgvMain_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
             if (e.RowIndex < 0) return;
             ResetDetail();
 
@@ -147,7 +153,7 @@ namespace DESK_MES
             txtUserNo.Text = dgvMain[0, e.RowIndex].Value.ToString();
             txtName.Text = dgvMain[1, e.RowIndex].Value.ToString();
 
-            if (dgvMain[2, e.RowIndex].Value != null) 
+            if (dgvMain[2, e.RowIndex].Value != null)
             {
                 txtUserG.Text = dgvMain[2, e.RowIndex].Value.ToString();
                 //txtUserG.Tag = dgvMain[10, e.RowIndex].Value.ToString();
@@ -509,6 +515,8 @@ namespace DESK_MES
         {
             dgvMain.ClearSelection();
         }
+
+
     }
 }
 

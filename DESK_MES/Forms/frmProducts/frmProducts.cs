@@ -39,7 +39,7 @@ namespace DESK_MES
 
             label1.Text = "품목 관리";
 
-            comboBox1.Items.AddRange(new string[] { "검색 조건", "품번", "품명" });
+            comboBox1.Items.AddRange(new string[] { "선택", "품번", "품명" });
             comboBox1.SelectedIndex = 0;
 
             List<CodeCountVO> list = productSrv.GetProductType();

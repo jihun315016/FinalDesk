@@ -37,7 +37,7 @@ namespace DESK_MES
         {
             label1.Text = "설비 - 공정 관계";
 
-            comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
+            comboBox1.Items.AddRange(new string[] { "선택", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvOperation);
@@ -121,6 +121,7 @@ namespace DESK_MES
 
             List<EquipmentVO> list = equipmentSrv.SelectEquipmentByOperation(Convert.ToInt32(dgvOperation["Operation_No", e.RowIndex].Value));
             dgvEquipment.DataSource = list;
+            dgvEquipment.ClearSelection();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

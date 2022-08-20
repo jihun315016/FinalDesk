@@ -103,23 +103,27 @@ namespace DESK_MES
             // 
             // btnSearch
             // 
+            this.btnSearch.Location = new System.Drawing.Point(284, 30);
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnReset
             // 
+            this.btnReset.Location = new System.Drawing.Point(448, 30);
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnOpenDetail
             // 
+            this.btnOpenDetail.Location = new System.Drawing.Point(366, 30);
             this.btnOpenDetail.Click += new System.EventHandler(this.btnOpenDetail_Click);
             // 
             // textBox1
             // 
+            this.textBox1.Location = new System.Drawing.Point(178, 31);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // comboBox1
             // 
-            this.comboBox1.Size = new System.Drawing.Size(100, 25);
+            this.comboBox1.Size = new System.Drawing.Size(112, 25);
             // 
             // imageList1
             // 
@@ -431,6 +435,7 @@ namespace DESK_MES
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(809, 389);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // button3

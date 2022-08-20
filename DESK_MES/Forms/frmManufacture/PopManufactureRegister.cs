@@ -50,7 +50,7 @@ namespace DESK_MES
                 cboOrderCode.DisplayMember = "Order_No";
                 cboOrderCode.ValueMember = "Order_No";
                 cboOrderCode.DataSource = orderNo;
-
+                numericUpDown1.Value = 100;
                 checkBox2.Checked = true;
             }
         }
@@ -72,6 +72,7 @@ namespace DESK_MES
                 cboProductCode.Text = null;
                 cboProductCode.Items.Clear();
 
+                numericUpDown1.Value = 0;
                 checkBox1.Checked = false;
             }
 

@@ -108,6 +108,7 @@ namespace DESK_MES
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStrip1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripLabel6,

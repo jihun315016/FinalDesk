@@ -39,7 +39,7 @@ namespace DESK_MES
             label1.Text = "공정 관리";
             operationList = operationSrv.GetOperationList();
 
-            comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
+            comboBox1.Items.AddRange(new string[] { "선택", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
 
             string[] isChackArr = new string[] { "검사 여부", "예", "아니오" };

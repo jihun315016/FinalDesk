@@ -81,7 +81,7 @@ namespace DESK_MES
             dtpUpdate.Format = DateTimePickerFormat.Custom;
             dtpUpdate.CustomFormat = " ";
 
-
+            comboBox1.Items.Add("선택");
             comboBox1.Items.Add("설비번호");
             comboBox1.Items.Add("설비명");
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -352,6 +352,24 @@ namespace DESK_MES
         private void frmEquipment_Shown(object sender, EventArgs e)
         {
             dgvMain.ClearSelection();
+        }
+
+        private void dgvMain_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvMain.Rows[e.RowIndex].Cells[0].Value == null)
+                return;
+
+
+            if (dgvMain.Rows[e.RowIndex].Cells[3].Value.ToString().Contains("Y"))
+            {
+                e.CellStyle.BackColor = Color.Salmon;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }

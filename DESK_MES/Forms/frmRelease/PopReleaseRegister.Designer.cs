@@ -206,7 +206,7 @@ namespace DESK_MES
             this.btnAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(76, 27);
             this.btnAdd.TabIndex = 26;
-            this.btnAdd.Text = "   등록";
+            this.btnAdd.Text = "   출력";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -316,6 +316,7 @@ namespace DESK_MES
             this.cboReleaseState.Name = "cboReleaseState";
             this.cboReleaseState.Size = new System.Drawing.Size(217, 20);
             this.cboReleaseState.TabIndex = 50;
+            this.cboReleaseState.Visible = false;
             // 
             // dtpReleaseOkDate
             // 
@@ -338,6 +339,7 @@ namespace DESK_MES
             this.label18.Size = new System.Drawing.Size(53, 12);
             this.label18.TabIndex = 47;
             this.label18.Text = "출고상태";
+            this.label18.Visible = false;
             // 
             // txtOrderDate
             // 

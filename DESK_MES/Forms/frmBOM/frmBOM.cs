@@ -38,7 +38,7 @@ namespace DESK_MES
         {
             label1.Text = "BOM";
 
-            comboBox1.Items.AddRange(new string[] { "검색 조건", "품번", "품명" });
+            comboBox1.Items.AddRange(new string[] { "선택", "품번", "품명" });
             comboBox1.SelectedIndex = 0;
 
             List<CodeCountVO> list = productSrv.GetProductType();
@@ -149,6 +149,8 @@ namespace DESK_MES
             List<ProductVO> bomList = productSrv.GetChildParentProductList(dgvProductList["Product_Code", e.RowIndex].Value.ToString());
             dgvChild.DataSource = bomList.Where(b => b.Bom_Type == "자품목").ToList();
             dgvParent.DataSource = bomList.Where(b => b.Bom_Type == "모품목").ToList();
+            dgvChild.ClearSelection();
+            dgvParent.ClearSelection();
         }
 
         private void btnReset_Click(object sender, EventArgs e)

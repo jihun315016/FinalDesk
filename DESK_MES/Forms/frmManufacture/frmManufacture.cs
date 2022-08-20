@@ -38,7 +38,7 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산코드", "Production_Code", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "주문서코드", "Order_No", isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목코드", "Product_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목 코드", "Product_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 수량", "Planned_Qty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료 수량", "Production_Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter, isVisible: false);
@@ -215,6 +215,24 @@ namespace DESK_MES
         private void frmManufacture_Shown(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[0].Value == null)
+                return;
+
+
+            if (dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString().Contains("미정"))
+            {
+                e.CellStyle.BackColor = Color.Salmon;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }
