@@ -23,22 +23,6 @@ namespace DESK_POP
 
         private void POP_Main_Load(object sender, EventArgs e)
         {
-            //#region*로그인
-            //this.Hide();
-            //POP_Login pop = new POP_Login();
-            //if (pop.ShowDialog(this) != DialogResult.OK)
-            //{
-            //    //this.Close();
-            //    return;
-            //}
-            //else
-            //{
-            //    this.Show();
-            //    this.userInfo = pop.userVO;
-            //}
-            //#endregion
-            //해당 정보 가져오기
-
             this.userInfo = ((Pop_MDIMain)this.MdiParent).userInfo;
             serv = new ServiceHelper("api/Pop/Uc");
             ResMessage<List<PopVO>> resresult= serv.GetAsyncT < ResMessage<List<PopVO>>>(userInfo.User_Group_No.ToString());
@@ -56,28 +40,6 @@ namespace DESK_POP
             lblCount.Text = allList.Count.ToString();
             int hinum = 340;
             int row = 1;
-            //int ucnum = 1; //uc갯수 카운트
-            //foreach (PopVO item in allList)// 1. foreach로 변경
-            //{
-            //    ucWorkGroup wg = new ucWorkGroup(allList[ucnum - 1]);
-
-            //    wg.Size = new Size(342, 338);
-            //    wg.Name = $"ucworkgroup{ucnum}";
-            //    wg.OrderCount = ucnum;
-            //    if (ucnum % 3 == 0)
-            //    {
-            //        wg.Location = new Point(3 + ((ucnum - 1) * 342), 5 + (hinum * row));
-            //        hinum++;
-            //        row++;
-            //    }
-            //    else
-            //    {
-            //        wg.Location = new Point(3 + ((ucnum - 1) * 342), 5);
-            //    }
-
-            //    splitContainer1.Panel2.Controls.Add(wg);
-            //    ucnum++;
-            //}
             for (int i = 1; i <= allList.Count; i++)
             {
                 ucWorkGroup wg = new ucWorkGroup(allList[i - 1]);
