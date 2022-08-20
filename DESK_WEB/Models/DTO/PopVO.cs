@@ -54,5 +54,7 @@ namespace DESK_WEB.Models
         public string Update_User_Name { get; set; }
         public int Working_Qty { get; set; }
         public int Output_Qty { get; set; }
+        public string Msg { get; set; }
+        public int Msg_YN { get; set; }
     }
 }

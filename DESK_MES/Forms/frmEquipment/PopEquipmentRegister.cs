@@ -44,6 +44,7 @@ namespace DESK_MES
             }
             txtName.Text = "";
             txtUser.Enabled = false;
+            numericUpDown1.Value = 0;
             if (user != null)
             {
                 txtUser.Text= user.User_Name;
@@ -69,7 +70,8 @@ namespace DESK_MES
             EquipmentVO eq = new EquipmentVO
             {
                 Equipment_Name = txtName.Text,
-                Create_User_No = user.User_No
+                Create_User_No = user.User_No,
+                Output_Qty = Convert.ToInt32(numericUpDown1.Value)
             };
 
             if (srv.InsertEquipmentList(eq))

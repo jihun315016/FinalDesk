@@ -57,6 +57,7 @@ namespace DESK_MES
             txtReason.Text = selectEqui.Inoperative_Reason;
             txtCreate.Text = selectEqui.Create_User_Name;
             txtUpdate.Text = userV.User_Name;
+            numericUpDown1.Value = selectEqui.Output_Qty;
 
 
             cboInoper.SelectedValue = selectEqui.Is_Inoperative;
@@ -152,7 +153,7 @@ namespace DESK_MES
                 Action_History = txtHistory.Text,
                 Update_User_No = userV.User_No,
                 Is_Inoperative_Date = selectEqui.Is_Inoperative_Date,
-                Output_Qty = 0                                          //여기 받을때 수정
+                Output_Qty = Convert.ToInt32( numericUpDown1.Value)
             };
             if (equi.Is_Inoperative_Date == null)
             {

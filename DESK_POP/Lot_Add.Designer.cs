@@ -61,6 +61,7 @@ namespace DESK_POP
             this.label7 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +77,7 @@ namespace DESK_POP
             this.splitContainer3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -143,8 +145,7 @@ namespace DESK_POP
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.btnStart);
-            this.splitContainer2.Panel2.Controls.Add(this.btnBack);
+            this.splitContainer2.Panel2.Controls.Add(this.panel2);
             this.splitContainer2.Size = new System.Drawing.Size(1802, 680);
             this.splitContainer2.SplitterDistance = 559;
             this.splitContainer2.TabIndex = 0;
@@ -433,7 +434,7 @@ namespace DESK_POP
             this.btnStart.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnStart.ForeColor = System.Drawing.Color.Lime;
-            this.btnStart.Location = new System.Drawing.Point(926, 17);
+            this.btnStart.Location = new System.Drawing.Point(182, 14);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(162, 56);
             this.btnStart.TabIndex = 44;
@@ -446,13 +447,22 @@ namespace DESK_POP
             this.btnBack.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnBack.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBack.Location = new System.Drawing.Point(755, 17);
+            this.btnBack.Location = new System.Drawing.Point(11, 14);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(165, 56);
             this.btnBack.TabIndex = 43;
             this.btnBack.Text = "돌아가기";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnBack);
+            this.panel2.Controls.Add(this.btnStart);
+            this.panel2.Location = new System.Drawing.Point(750, 15);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(352, 84);
+            this.panel2.TabIndex = 45;
             // 
             // Lot_Add
             // 
@@ -484,6 +494,7 @@ namespace DESK_POP
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -522,5 +533,6 @@ namespace DESK_POP
         private System.Windows.Forms.DateTimePicker dtpWorkStartDue;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtWorkState;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -87,5 +87,26 @@ namespace DESK_WEB.Controllers
             };
             return Ok(result);
         }
+
+
+        //https://localhost:44393/api/Pop/StartEq/{id}
+        //https://localhost:44393/api/Pop/StartEq/WORK_20220806_0006
+        //http://localhost/api/Pop/StartEq/{id}
+        //http://localhost/api/Pop/StartEq/WORK_20220806_0006
+        [HttpGet]               //이 메서드? 쓰려면 타입을 이걸루 해라
+        [Route("StartEq/{id}")]         // 이 메서드 쓰려면 뒤에 input값 적어라
+        public IHttpActionResult GetStartEquiment(string id)
+        {
+            PopDAC db = new PopDAC(); 
+            PopVO list = db.GetStartEquiment(id);
+
+            ResMessage<PopVO> result = new ResMessage<PopVO>
+            {
+                ErrCode = (list == null) ? -9 : 0,
+                ErrMsg = (list == null) ? "Code와 일치하는 작업이 없습니다." : "S",
+                Data = list
+            };
+            return Ok(result);
+        }
     }
 }

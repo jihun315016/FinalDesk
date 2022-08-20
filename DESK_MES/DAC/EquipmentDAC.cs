@@ -132,9 +132,9 @@ namespace DESK_MES
         public bool InsertEquipment(EquipmentVO equi)
         {
             string sql = @"insert [dbo].[TB_EQUIPMENT]
-                            (Equipment_Name, Create_User_No)
+                            (Equipment_Name, Create_User_No,Output_Qty)
                             values
-                            (@Equipment_Name,@Create_User_No)";
+                            (@Equipment_Name,@Create_User_No,@Output_Qty)";
             int iRowAffect;
             using (SqlTransaction tran = conn.BeginTransaction())
             {
@@ -145,6 +145,7 @@ namespace DESK_MES
                         cmd.Transaction = tran;
                         cmd.Parameters.AddWithValue("@Equipment_Name", equi.Equipment_Name);
                         cmd.Parameters.AddWithValue("@Create_User_No", equi.Create_User_No);
+                        cmd.Parameters.AddWithValue("@Output_Qty", equi.Output_Qty);
                         iRowAffect = cmd.ExecuteNonQuery();
                         
                     }
@@ -181,7 +182,7 @@ namespace DESK_MES
                         cmd.Parameters.AddWithValue("@Update_User_No", equi.Update_User_No);
                         cmd.Parameters.AddWithValue("@Inoperative_Reason", equi.Inoperative_Reason);
                         cmd.Parameters.AddWithValue("@Action_History", equi.Action_History);
-                        cmd.Parameters.AddWithValue("@@Output_Qty", equi.Output_Qty);
+                        cmd.Parameters.AddWithValue("@Output_Qty", equi.Output_Qty);
                         cmd.Parameters.AddWithValue("@Is_Inoperative_Date", Convert.ToDateTime(equi.Is_Inoperative_Date));
                         iRowAffect = cmd.ExecuteNonQuery();                        
                     }

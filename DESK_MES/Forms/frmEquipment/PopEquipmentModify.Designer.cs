@@ -44,7 +44,6 @@ namespace DESK_MES
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtOPQty = new DESK_MES.ccTextBox();
             this.txtName = new DESK_MES.ccTextBox();
             this.txtHistory = new DESK_MES.ccTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@ namespace DESK_MES
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -76,6 +76,7 @@ namespace DESK_MES
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList2
@@ -231,7 +232,7 @@ namespace DESK_MES
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtOPQty);
+            this.groupBox2.Controls.Add(this.numericUpDown1);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.txtHistory);
             this.groupBox2.Controls.Add(this.label7);
@@ -253,17 +254,6 @@ namespace DESK_MES
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "상세 정보";
-            // 
-            // txtOPQty
-            // 
-            this.txtOPQty.isNumeric = false;
-            this.txtOPQty.isRequired = true;
-            this.txtOPQty.Location = new System.Drawing.Point(179, 103);
-            this.txtOPQty.Name = "txtOPQty";
-            this.txtOPQty.PlaceHolder = null;
-            this.txtOPQty.Size = new System.Drawing.Size(221, 25);
-            this.txtOPQty.TabIndex = 53;
-            this.txtOPQty.Tag = "설비명";
             // 
             // txtName
             // 
@@ -511,6 +501,13 @@ namespace DESK_MES
             this.label9.TabIndex = 29;
             this.label9.Text = "설비명";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(180, 106);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(220, 25);
+            this.numericUpDown1.TabIndex = 54;
+            // 
             // PopEquipmentModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -536,6 +533,7 @@ namespace DESK_MES
             this.groupBox2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,7 +574,7 @@ namespace DESK_MES
         private ccTextBox txtNo;
         private ccTextBox txtUpdate;
         private ccTextBox txtCreate;
-        private ccTextBox txtOPQty;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

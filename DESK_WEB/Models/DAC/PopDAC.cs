@@ -160,5 +160,40 @@ convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Nam
                 return null;
             }
         }
+        /// <summary>
+        /// 머신 작동
+        /// </summary>
+        /// <param name="work"></param>
+        /// <returns></returns>
+        public PopVO GetStartEquiment(string work)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(strConn);
+                    cmd.CommandText = @"USP_EquimentStart";
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Work_Code", work);
+                    cmd.Parameters.Add(new SqlParameter("@Eq_YN", SqlDbType.Int)).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(new SqlParameter("@Eq_MSG", SqlDbType.NVarChar, 50)).Direction = ParameterDirection.Output;
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+
+                    PopVO workList = new PopVO
+                    {
+                        Msg_YN = Convert.ToInt32(cmd.Parameters["@Eq_YN"].Value),
+                        Msg = cmd.Parameters["@Eq_MSG"].Value.ToString()
+                    };
+                    return workList;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
     }
 }

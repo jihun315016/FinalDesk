@@ -219,8 +219,8 @@ namespace DESK_MES
             ExcelUtil excel = new ExcelUtil();
             List<EquipmentVO> orders = list; //type 부분 초당으로 변경
 
-            string[] columnImport = { "Equipment_No", "Equipment_Name",  "Is_Inoperative", "Is_Inoperative_Date", "Create_Time", "Create_User_Name", "Update_Time", "Update_User_Name", "Is_Delete" };
-            string[] columnName = { "설비번호", "설비명", "상태", "최근다운시간", "생성시간", "생성자", "변경시간", "변경자", "삭제여부" };
+            string[] columnImport = { "Equipment_No", "Equipment_Name",  "Is_Inoperative", "Is_Inoperative_Date", "Output_Qty", "Create_Time", "Create_User_Name", "Update_Time", "Update_User_Name", "Is_Delete" };
+            string[] columnName = { "설비번호", "설비명", "상태", "최근다운시간","초당 생산량", "생성시간", "생성자", "변경시간", "변경자", "삭제여부" };
 
             if (excel.ExportList(orders, saveFileName, columnImport, columnName))
             {
