@@ -25,6 +25,11 @@ namespace DESK_MES
             operationList = operationSrv.GetOperationList();
             equipmentSrv = new EquipmentService();
 
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+            dtpUpdateTime.CustomFormat = " ";
+
             InitControl();
         }
 
@@ -37,7 +42,7 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dgvOperation);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정 번호", "Operation_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "불량 체크 여부", "Is_Check_Deffect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "자재 사용 여부", "Is_Check_Marerial", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);

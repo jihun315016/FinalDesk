@@ -24,6 +24,11 @@ namespace DESK_MES
             operationSrv = new OperationService();
             ds = operationSrv.GetOIRelation(); // 검사 데이터를 등록하는 공정만 
             InitControl();
+
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+            dtpUpdateTime.CustomFormat = " ";
         }
 
         void InitControl()
@@ -35,7 +40,7 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dgvOperation);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정 번호", "Operation_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "불량 체크 여부", "Is_Check_Deffect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "자재 사용 여부", "Is_Check_Marerial", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -49,7 +54,7 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dgvInspectItem);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "공정 번호", "Operation_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "검사 데이터 번호", "Inspect_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "검사 데이터 항목명", "Inspect_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "검사 데이터 항목명", "Inspect_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "타겟값", "Target", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "상한값", "USL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "하한값", "LSL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -57,7 +62,32 @@ namespace DESK_MES
             dgvInspectItem.Columns["USL"].DefaultCellStyle.Format = "###,##0";
             dgvInspectItem.Columns["LSL"].DefaultCellStyle.Format = "###,##0";
 
-            dgvOperation.DataSource = operationSrv.GetOperationList();
+            tempDs = new DataSet();
+            DataView dv = new DataView(ds.Tables[0]);
+
+            // 공정 번호 검색
+            if (comboBox1.SelectedIndex == 1)
+                dv.RowFilter = $"CONVERT(Operation_No, System.String) LIKE '%{textBox1.Text}%'";
+
+            // 공정명 검색
+            else if (comboBox1.SelectedIndex == 2)
+                dv.RowFilter = $"Operation_Name LIKE '%{textBox1.Text}%'";
+
+            tempDs.Tables.Add(dv.ToTable());
+            tempDs.Tables.Add(new DataView(ds.Tables[1]).ToTable());
+
+            DataRelation relation = new DataRelation("OIRelation", tempDs.Tables["Table"].Columns["Operation_No"], tempDs.Tables["Table1"].Columns["Operation_No"]);
+            dgvOperation.DataSource = tempDs;
+            dgvOperation.DataMember = "Table";
+            dgvInspectItem.DataSource = null;
+            try
+            {
+                tempDs.Relations.Add(relation);
+                dgvInspectItem.DataSource = tempDs;
+                dgvInspectItem.DataMember = "Table.OIRelation";
+            }
+            catch (Exception err) { }
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -194,6 +224,7 @@ namespace DESK_MES
         private void frmOIItemRelation_Shown(object sender, EventArgs e)
         {
             dgvOperation.ClearSelection();
+            dgvInspectItem.ClearSelection();
         }
     }
 }

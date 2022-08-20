@@ -21,6 +21,7 @@ namespace DESK_MES
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             txtUserID.isNumeric = true;
             txtUserPwd.PasswordChar = '*';
         }

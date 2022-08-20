@@ -18,6 +18,7 @@ namespace DESK_MES
         int UserNo;
         public PopUserGroupRegister(UserVO uNo)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             userVV = uNo;
             InitializeComponent();
         }

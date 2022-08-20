@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DESK_MES
 {
@@ -25,6 +26,7 @@ namespace DESK_MES
 
         private void PopBOMRegister_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             productSrv = new ProductService();
             selectedList = new List<BomVO>();
             InitControl();

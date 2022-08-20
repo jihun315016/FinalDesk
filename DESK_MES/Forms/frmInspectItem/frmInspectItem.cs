@@ -41,10 +41,10 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dgvList);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "검사 항목 번호", "Inspect_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "검사 항목명", "Inspect_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "타겟값", "Target", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "상한값", "USL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "하한값", "LSL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "검사 항목명", "Inspect_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "타겟값", "Target", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "상한값", "USL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "하한값", "LSL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 시간", "Create_Time", colWidth: 200, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자", "Create_User_Name", colWidth: 180, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 사용자 번호", "Create_User_No", isVisible: false);

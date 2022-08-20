@@ -18,6 +18,7 @@ namespace DESK_MES
         int? newNum;
         public PopEquipmentRegister(int lastNum, UserVO userV)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             newNum = lastNum;
             user = userV;
             InitializeComponent();

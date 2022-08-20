@@ -22,7 +22,7 @@ namespace DESK_MES
 
         private void PopBarcode_Load(object sender, EventArgs e)
         {
-
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             // 체크박스 사용하여 선택된 항목 출력 
 
             DataGridUtil.SetInitGridView(dgvList);

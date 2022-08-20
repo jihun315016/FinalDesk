@@ -19,6 +19,7 @@ namespace DESK_MES
 
         public PopInspectItemModify(InspectItemVO item, UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             InitControl(item);
             this.user = user;

@@ -39,13 +39,13 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산코드", "Production_Code", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "주문서코드", "Order_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목코드", "Product_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 수량", "Planned_Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료 수량", "Production_Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 수량", "Planned_Qty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료 수량", "Production_Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 시작일", "Start_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료 예정일", "Estimated_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 완료일", "Complete_Date", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 상태", "Production_Plan_Status", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 계획 상태", "Production_Plan_Status", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산계획 담당자", "Production_Plan_User_Name", colWidth: 60, isVisible: false);
             //DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 진행 상태", "Production_Status", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생성 시간", "Create_Time", colWidth: 60, isVisible: false);
@@ -53,6 +53,11 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경 시간", "Update_Time", colWidth: 60, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "변경 사용자", "Update_User_Name", colWidth : 60, isVisible: false);
 
+
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            dtpModifyTime.Format = DateTimePickerFormat.Custom;
+            dtpModifyTime.CustomFormat = " ";
             LoadData();
         }
 
@@ -80,6 +85,9 @@ namespace DESK_MES
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
+            dtpCreateTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            dtpModifyTime.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
 
             manufactureCode = dataGridView1[0, e.RowIndex].Value.ToString();
 

@@ -19,6 +19,7 @@ namespace DESK_MES
 
         public PopManufactureRegister(UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             srv = new ManufactureService();
             this.user = user;

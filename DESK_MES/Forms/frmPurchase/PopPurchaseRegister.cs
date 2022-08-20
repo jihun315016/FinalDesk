@@ -19,6 +19,7 @@ namespace DESK_MES
 
         public PopPurchaseRegister(UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             srv = new PurchaseService();
             this.user = user;
@@ -33,11 +34,13 @@ namespace DESK_MES
             cboClient.DataSource = client;
 
             DataGridUtil.SetInitGridView(dgvAllProduct);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품번", "Product_Code", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품명", "Product_Name", colWidth: 230);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "유형", "Product_Type", colWidth: 60);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "단가", "Price", colWidth: 80);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "주문단위", "Unit", colWidth: 60);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품번", "Product_Code", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "품명", "Product_Name", colWidth: 230, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "유형", "Product_Type", colWidth: 60, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "단가", "Price", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvAllProduct, "주문단위", "Unit", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleRight);
+            dgvAllProduct.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+            dgvAllProduct.Columns["Unit"].DefaultCellStyle.Format = "###,##0";
 
             DataGridViewButtonColumn btnAddItem = new DataGridViewButtonColumn();
             btnAddItem.Name = "";
@@ -54,14 +57,20 @@ namespace DESK_MES
             dgvAllProduct.CellClick += DgvAllProductAdd_CellClick;
 
             DataGridUtil.SetInitGridView(dgvPurchaseList);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "품번", "Product_Code", colWidth: 120);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "품명", "Product_Name", colWidth: 230);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "유형", "Product_Type", colWidth: 60);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "단가", "Price", colWidth: 80);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "주문단위", "Unit", colWidth: 90);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "수량 입력", "Qty_PerUnit", colWidth: 90);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "총 구매수량", "TotalQty", colWidth: 110);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "총액", "TotalPrice", colWidth: 100);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "품번", "Product_Code", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "품명", "Product_Name", colWidth: 230, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "유형", "Product_Type", colWidth: 60, isVisible:false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "단가", "Price", colWidth: 80, isVisible: false);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "주문단위", "Unit", colWidth: 90, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "수량 입력", "Qty_PerUnit", colWidth: 90, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "총 구매수량", "TotalQty", colWidth: 110, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvPurchaseList, "총액", "TotalPrice", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleRight);
+            dgvPurchaseList.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+            dgvPurchaseList.Columns["Unit"].DefaultCellStyle.Format = "###,##0";
+            dgvPurchaseList.Columns["Qty_PerUnit"].DefaultCellStyle.Format = "###,##0";
+            dgvPurchaseList.Columns["TotalQty"].DefaultCellStyle.Format = "###,##0";
+            dgvPurchaseList.Columns["TotalPrice"].DefaultCellStyle.Format = "###,##0";
+
 
             dgvPurchaseList.Columns["Qty_PerUnit"].ReadOnly = false;
             DataGridViewButtonColumn btnAddItem1 = new DataGridViewButtonColumn();

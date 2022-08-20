@@ -444,6 +444,7 @@ namespace DESK_MES
             this.txtIncomingState.ReadOnly = true;
             this.txtIncomingState.Size = new System.Drawing.Size(192, 25);
             this.txtIncomingState.TabIndex = 48;
+            this.txtIncomingState.Visible = false;
             // 
             // label18
             // 
@@ -456,6 +457,7 @@ namespace DESK_MES
             this.label18.Size = new System.Drawing.Size(60, 17);
             this.label18.TabIndex = 47;
             this.label18.Text = "입고상태";
+            this.label18.Visible = false;
             // 
             // txtDueDate
             // 
@@ -575,7 +577,7 @@ namespace DESK_MES
             this.MinimizeBox = false;
             this.Name = "PopIncomingCreateLot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PopIncomingCreateLot";
+            this.Text = "자재 입고 등록";
             this.Load += new System.EventHandler(this.PopIncomingCreateLot_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

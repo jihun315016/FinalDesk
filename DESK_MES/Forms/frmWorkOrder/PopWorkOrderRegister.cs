@@ -28,6 +28,7 @@ namespace DESK_MES
 
         public PopWorkOrderRegister(int ProductionCode, string productCode, UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             this.user = user;
             this.ProductionCode = ProductionCode;

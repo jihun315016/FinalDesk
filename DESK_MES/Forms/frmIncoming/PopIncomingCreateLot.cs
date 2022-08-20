@@ -22,6 +22,7 @@ namespace DESK_MES
         
         public PopIncomingCreateLot(int purchaseNo)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
 
             srv = new IncomingService();

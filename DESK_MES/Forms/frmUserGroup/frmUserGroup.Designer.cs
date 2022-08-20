@@ -32,6 +32,7 @@ namespace DESK_MES
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserGroup));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cboDate = new System.Windows.Forms.ComboBox();
@@ -60,7 +61,6 @@ namespace DESK_MES
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.button5 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -142,6 +142,15 @@ namespace DESK_MES
             this.groupBox2.Size = new System.Drawing.Size(1184, 72);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(253, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 17);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "||";
             // 
             // dateTimePicker2
             // 
@@ -483,15 +492,6 @@ namespace DESK_MES
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(253, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(14, 17);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "||";
-            // 
             // frmUserGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -500,6 +500,7 @@ namespace DESK_MES
             this.Name = "frmUserGroup";
             this.Text = "사용자그룹 관리";
             this.Load += new System.EventHandler(this.frmUserGroup_Load);
+            this.Shown += new System.EventHandler(this.frmUserGroup_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

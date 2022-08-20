@@ -43,7 +43,7 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dataGridView1);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "발주코드", "Purchase_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처번호", "Client_Code", colWidth: 230, isVisible: false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "거래처명", "Client_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고예정일", "IncomingDue_date", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고완료일", "Incoming_Date", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "입고상태", "Is_Incoming", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -55,7 +55,7 @@ namespace DESK_MES
             DataGridUtil.SetInitGridView(dataGridView2);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "발주코드", "Purchase_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "품번", "Product_Code", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "유형", "Product_Type", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "단가", "Price", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView2, "주문단위", "Unit", colWidth: 90, alignContent: DataGridViewContentAlignment.MiddleRight);
