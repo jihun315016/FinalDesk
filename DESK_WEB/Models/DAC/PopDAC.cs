@@ -126,6 +126,11 @@ Work_State,c1.Name as Work_State_Name,Work_Order_State,c2.Name as Work_Order_Sta
                 return null;
             }
         }
+        /// <summary>
+        /// 김준모/PopGdv에 바인딩할 완료된 작업지시현황 조회
+        /// </summary>
+        /// <param name="gCode"></param>
+        /// <returns></returns>
         public List<PopVO> GetWorkGdvList(int gCode)
         {
             try
@@ -161,7 +166,7 @@ convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Nam
             }
         }
         /// <summary>
-        /// 머신 작동
+        /// 김준모/머신 작동 시작
         /// </summary>
         /// <param name="work"></param>
         /// <returns></returns>
@@ -188,6 +193,71 @@ convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Nam
                         Msg = cmd.Parameters["@Eq_MSG"].Value.ToString()
                     };
                     return workList;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+        public PopVO GetWorkEquiment(string work)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(strConn);
+                    cmd.CommandText = @"select Production_No, Work_Code,Work_Group_Code as User_Group_No,[User_Group_Name], 
+                                        Production_Equipment_Code,Equipment_Name,Production_Operation_Code,Operation_Name, 
+                                        convert(nvarchar(20), Start_Due_Date,20)as Start_Due_Date,[Work_State],c1.Name as Work_State_Name,convert(nvarchar(20), 
+                                        Start_Date,20)as Start_Date,convert(nvarchar(20), Complete_Date,20)as  Complete_Date,
+                                        convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Name as Update_User_Name
+                                                                                from [dbo].[TB_WORK] w inner join [dbo].[TB_USER_GROUP] ug on w.[Work_Group_Code]=ug.User_Group_No
+                                                                                               inner join [dbo].[TB_EQUIPMENT] eq on w.Production_Equipment_Code = eq.[Equipment_No]
+													                                           inner join TB_OPERATION o on w.Production_Operation_Code = o.Operation_No
+													                                           left join TB_COMMON_CODE c1 on w.Work_State = c1.Code
+													                                           left join TB_COMMON_CODE c2 on w.Work_Order_State = c2.Code
+													                                           left join TB_COMMON_CODE c3 on w.Material_Lot_Input_State = c3.Code
+													                                           left join TB_USER u on w.Update_User_No = u.User_No
+                                                                                where Work_Code = @Work_Code
+                                                                                order by Work_Code";
+
+                    cmd.Parameters.AddWithValue("@Work_Code", work);
+                    cmd.Connection.Open();
+                    List<PopVO> list = DBHelper.DataReaderMapToList<PopVO>(cmd.ExecuteReader());
+                    cmd.Connection.Close();
+
+                   
+                    return list[0];
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// 작업지시코드로 작업내역 전체 가져오기
+        /// </summary>
+        /// <param name="work"></param>
+        /// <returns></returns>
+        public PopVO GetWorkListAll(string work)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(strConn);
+                    cmd.CommandText = @"USP_WorkEquiList";
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Work_Code", work);
+                    cmd.Connection.Open();
+                    List<PopVO> list = DBHelper.DataReaderMapToList<PopVO>(cmd.ExecuteReader());
+                    cmd.Connection.Close();
+
+
+                    return list[0];
                 }
             }
             catch (Exception err)

@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DESK_DTO;
 
 namespace DESK_POP
 {
     public partial class POP_Detail : Form
     {
+        ServiceHelper serv;
+        PopVO workList;
         string oCode;
         public POP_Detail(string orderCode)
         {
@@ -21,9 +24,20 @@ namespace DESK_POP
 
         private void POP_Detail_Load(object sender, EventArgs e)
         {
+            serv = new ServiceHelper("api/Pop/StartEq");
+            ResMessage<PopVO> resresult = serv.GetAsyncT<ResMessage<PopVO>>(oCode);
+
+            if (resresult.ErrCode == 0)
+            {
+                workList = resresult.Data;
+            }
+            else
+            {
+                MessageBox.Show(resresult.ErrMsg);
+            }
             //DB 가서 oCode로 해당 작업가져오기
-            txtWork.Text = "";//작업지시번호
-            txtEqui.Text = "";//설비 번호? 명 ? 
+            txtWork.Text = oCode;//작업지시번호
+            txtEqui.Text = workList.Equipment_Name;//설비 번호? 명 ? 
             txtProduct.Text = "";// 작업 품목
             txtUserName.Text = ""; //작업자명
             UserGroupNa.Text = ""; //작업팀명

@@ -51,7 +51,6 @@ namespace DESK_POP
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtQtyDue = new System.Windows.Forms.TextBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.txtInputMaterialCode = new System.Windows.Forms.TextBox();
             this.txtWorkUserGroup = new System.Windows.Forms.TextBox();
             this.txtWorkUserName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,9 +58,10 @@ namespace DESK_POP
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.dgvMain = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +78,7 @@ namespace DESK_POP
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -314,9 +315,9 @@ namespace DESK_POP
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.dgvMain);
             this.groupBox2.Controls.Add(this.txtQtyDue);
             this.groupBox2.Controls.Add(this.txtOutput);
-            this.groupBox2.Controls.Add(this.txtInputMaterialCode);
             this.groupBox2.Controls.Add(this.txtWorkUserGroup);
             this.groupBox2.Controls.Add(this.txtWorkUserName);
             this.groupBox2.Controls.Add(this.label11);
@@ -336,7 +337,7 @@ namespace DESK_POP
             // txtQtyDue
             // 
             this.txtQtyDue.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtQtyDue.Location = new System.Drawing.Point(319, 217);
+            this.txtQtyDue.Location = new System.Drawing.Point(319, 312);
             this.txtQtyDue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQtyDue.Name = "txtQtyDue";
             this.txtQtyDue.Size = new System.Drawing.Size(524, 46);
@@ -345,25 +346,16 @@ namespace DESK_POP
             // txtOutput
             // 
             this.txtOutput.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtOutput.Location = new System.Drawing.Point(319, 132);
+            this.txtOutput.Location = new System.Drawing.Point(319, 227);
             this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(524, 46);
             this.txtOutput.TabIndex = 66;
             // 
-            // txtInputMaterialCode
-            // 
-            this.txtInputMaterialCode.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtInputMaterialCode.Location = new System.Drawing.Point(319, 47);
-            this.txtInputMaterialCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtInputMaterialCode.Name = "txtInputMaterialCode";
-            this.txtInputMaterialCode.Size = new System.Drawing.Size(524, 46);
-            this.txtInputMaterialCode.TabIndex = 68;
-            // 
             // txtWorkUserGroup
             // 
             this.txtWorkUserGroup.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtWorkUserGroup.Location = new System.Drawing.Point(319, 387);
+            this.txtWorkUserGroup.Location = new System.Drawing.Point(319, 482);
             this.txtWorkUserGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWorkUserGroup.Name = "txtWorkUserGroup";
             this.txtWorkUserGroup.Size = new System.Drawing.Size(524, 46);
@@ -372,7 +364,7 @@ namespace DESK_POP
             // txtWorkUserName
             // 
             this.txtWorkUserName.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtWorkUserName.Location = new System.Drawing.Point(319, 302);
+            this.txtWorkUserName.Location = new System.Drawing.Point(319, 397);
             this.txtWorkUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWorkUserName.Name = "txtWorkUserName";
             this.txtWorkUserName.Size = new System.Drawing.Size(524, 46);
@@ -383,7 +375,7 @@ namespace DESK_POP
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label11.ForeColor = System.Drawing.Color.Firebrick;
-            this.label11.Location = new System.Drawing.Point(23, 220);
+            this.label11.Location = new System.Drawing.Point(23, 315);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(211, 40);
             this.label11.TabIndex = 59;
@@ -393,7 +385,7 @@ namespace DESK_POP
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(23, 135);
+            this.label9.Location = new System.Drawing.Point(23, 230);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(278, 40);
             this.label9.TabIndex = 60;
@@ -413,7 +405,7 @@ namespace DESK_POP
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.Location = new System.Drawing.Point(23, 390);
+            this.label12.Location = new System.Drawing.Point(23, 485);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(240, 40);
             this.label12.TabIndex = 62;
@@ -423,24 +415,23 @@ namespace DESK_POP
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(23, 305);
+            this.label7.Location = new System.Drawing.Point(23, 400);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(172, 40);
             this.label7.TabIndex = 63;
             this.label7.Text = "담당 작업자";
             // 
-            // btnStart
+            // panel2
             // 
-            this.btnStart.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnStart.ForeColor = System.Drawing.Color.Lime;
-            this.btnStart.Location = new System.Drawing.Point(182, 14);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(162, 56);
-            this.btnStart.TabIndex = 44;
-            this.btnStart.Text = "등록(시작)";
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.btnBack);
+            this.panel2.Controls.Add(this.btnStart);
+            this.panel2.Location = new System.Drawing.Point(744, 20);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(352, 84);
+            this.panel2.TabIndex = 45;
             // 
             // btnBack
             // 
@@ -455,14 +446,27 @@ namespace DESK_POP
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // panel2
+            // btnStart
             // 
-            this.panel2.Controls.Add(this.btnBack);
-            this.panel2.Controls.Add(this.btnStart);
-            this.panel2.Location = new System.Drawing.Point(750, 15);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(352, 84);
-            this.panel2.TabIndex = 45;
+            this.btnStart.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnStart.ForeColor = System.Drawing.Color.Lime;
+            this.btnStart.Location = new System.Drawing.Point(182, 14);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(162, 56);
+            this.btnStart.TabIndex = 44;
+            this.btnStart.Text = "등록(시작)";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // dgvMain
+            // 
+            this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMain.Location = new System.Drawing.Point(319, 47);
+            this.dgvMain.Name = "dgvMain";
+            this.dgvMain.RowTemplate.Height = 23;
+            this.dgvMain.Size = new System.Drawing.Size(524, 152);
+            this.dgvMain.TabIndex = 69;
             // 
             // Lot_Add
             // 
@@ -495,6 +499,7 @@ namespace DESK_POP
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -511,7 +516,6 @@ namespace DESK_POP
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtQtyDue;
         private System.Windows.Forms.TextBox txtOutput;
-        private System.Windows.Forms.TextBox txtInputMaterialCode;
         private System.Windows.Forms.TextBox txtWorkUserGroup;
         private System.Windows.Forms.TextBox txtWorkUserName;
         private System.Windows.Forms.Label label11;
@@ -534,5 +538,6 @@ namespace DESK_POP
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtWorkState;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvMain;
     }
 }

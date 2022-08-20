@@ -14,8 +14,10 @@ namespace DESK_POP
 {
     public partial class Lot_Add : Form
     {
+        ServiceHelper serv;
         PopVO sTWork;
         PopVO userV;
+        PopVO msgList;
         public Lot_Add(PopVO work)
         {
             sTWork = work;
@@ -24,6 +26,10 @@ namespace DESK_POP
 
         private void Lot_Add_Load(object sender, EventArgs e)
         {
+            DataGridUtil.SetInitGridView(dgvMain);
+
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "품번", "Equipment_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "품명", "Equipment_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft); //1
 
             userV = ((Pop_MDIMain)this.MdiParent).userInfo;
             txtWkCode.Text = sTWork.Work_Code;
@@ -44,10 +50,22 @@ namespace DESK_POP
             string server = Application.StartupPath + "\\DESK_EQM.exe";
             if (MessageBox.Show("해당 작업을 시작합니다","작업시작",MessageBoxButtons.OKCancel) == DialogResult.OK) // 시작합니다
             {
+                serv = new ServiceHelper("api/Pop/StartEq");
+                ResMessage<PopVO> resresult = serv.GetAsyncT<ResMessage<PopVO>>(sTWork.Work_Code);
 
-                Process p = Process.Start(server, txtWkCode.Text);
-                proId = p.Id;
-                POP_Detail pop = new POP_Detail(txtWkCode.Text);
+                if (resresult.ErrCode == 0)
+                {
+                    msgList = resresult.Data;
+
+                    Process p = Process.Start(server, txtWkCode.Text);
+                    proId = p.Id;
+                    POP_Detail pop = new POP_Detail(txtWkCode.Text);
+                    pop.Show();
+                }
+                else
+                {
+                    MessageBox.Show(resresult.ErrMsg);
+                }
             }
         }
 
