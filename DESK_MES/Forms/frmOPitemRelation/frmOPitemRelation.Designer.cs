@@ -513,6 +513,7 @@ namespace DESK_MES
             this.Name = "frmOPitemRelation";
             this.Text = "공정-품목 관계";
             this.Load += new System.EventHandler(this.frmOPitemRelation_Load);
+            this.Shown += new System.EventHandler(this.frmOPitemRelation_Shown);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

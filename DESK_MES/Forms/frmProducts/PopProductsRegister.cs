@@ -16,6 +16,7 @@ namespace DESK_MES
 
         public PopProductsRegister(UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             this.user = user;
             InitializeComponent();
         }

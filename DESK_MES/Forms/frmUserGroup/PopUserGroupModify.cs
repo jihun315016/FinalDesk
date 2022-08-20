@@ -19,6 +19,7 @@ namespace DESK_MES
         string userName;
         public PopUserGroupModify(int select, UserVO userV)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             selectUserG = select;
             userVV = userV;

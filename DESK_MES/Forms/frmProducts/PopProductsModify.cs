@@ -16,6 +16,7 @@ namespace DESK_MES
 
         public PopProductsModify(ProductVO prd, UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             this.user = user;
             InitControl(prd);

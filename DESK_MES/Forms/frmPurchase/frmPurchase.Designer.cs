@@ -349,6 +349,7 @@ namespace DESK_MES
             this.label20.Size = new System.Drawing.Size(216, 17);
             this.label20.TabIndex = 78;
             this.label20.Text = "UD : 미확정 / DT : 확정 / CL : 취소";
+            this.label20.Visible = false;
             // 
             // txtModifyName
             // 

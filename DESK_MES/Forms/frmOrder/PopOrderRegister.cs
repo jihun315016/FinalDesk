@@ -20,6 +20,7 @@ namespace DESK_MES
 
         public PopOrderRegister(UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             srv = new OrderService();
             this.user = user;

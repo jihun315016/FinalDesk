@@ -21,6 +21,7 @@ namespace DESK_MES
 
         public PopReleaseRegister(UserVO user, int orderNo)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
 
             rSrv = new ReleaseService();

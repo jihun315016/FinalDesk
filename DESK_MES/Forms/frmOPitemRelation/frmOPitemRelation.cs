@@ -25,6 +25,11 @@ namespace DESK_MES
             operationList = operationSrv.GetOperationList();
             productSrv = new ProductService();
             InitControl();
+
+            dtpCreateTime.Format = DateTimePickerFormat.Custom;
+            dtpCreateTime.CustomFormat = " ";
+            dtpUpdateTime.Format = DateTimePickerFormat.Custom;
+            dtpUpdateTime.CustomFormat = " ";
         }
 
         void InitControl()
@@ -36,7 +41,7 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dgvOperation);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정 번호", "Operation_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "공정명", "Operation_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "불량 체크 여부", "Is_Check_Deffect", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "검사 데이터 체크 여부", "Is_Check_Inspect", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvOperation, "자재 사용 여부", "Is_Check_Marerial", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -49,7 +54,7 @@ namespace DESK_MES
 
             DataGridUtil.SetInitGridView(dgvProduct);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품번", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "품명", "Product_Name", colWidth: 300, alignContent: DataGridViewContentAlignment.MiddleLeft);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "유형", "Product_Type", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "단위", "Unit", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
@@ -61,6 +66,8 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "수정 사용자 번호", "Update_User_No", isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvProduct, "이미지 여부", "Is_Image", isVisible: false);
             dgvProduct.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+
+            dgvOperation.DataSource = operationList;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -181,6 +188,11 @@ namespace DESK_MES
                     MessageBox.Show("삭제에 실패했습니다.");
                 }
             }
+        }
+
+        private void frmOPitemRelation_Shown(object sender, EventArgs e)
+        {
+            dgvOperation.ClearSelection();
         }
     }
 }

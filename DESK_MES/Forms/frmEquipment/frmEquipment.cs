@@ -105,7 +105,7 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비번호", "Equipment_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "설비명", "Equipment_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft); //1
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "초당 생산량", "Output_Qty", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight); //2           //초당 생산량으로 변경
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "상태", "Is_Inoperative", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //3
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "비가동 상태", "Is_Inoperative", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //3
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "최근다운시간", "Is_Inoperative_Date", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //4
 
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "생성시간", "Create_Time", isVisible: false); //5

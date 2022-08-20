@@ -21,6 +21,7 @@ namespace DESK_MES
         int lastNum;
         public PopUserResister(int lastnum ,int userno, string username)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             lastNum = lastnum;
             userNo = userno;
             userName = username;

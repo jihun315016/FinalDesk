@@ -18,6 +18,7 @@ namespace DESK_MES
 
         public PopWarehouseRegister(UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             this.user = user;
             srv = new WarehouseService();

@@ -2,6 +2,7 @@
 using DESK_MES.Service;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DESK_MES
 {
@@ -12,6 +13,7 @@ namespace DESK_MES
 
         public PopOperationModify(UserVO user, OperationVO oper)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             this.user = user;
             //int k = int.Parse("h");

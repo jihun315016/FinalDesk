@@ -22,6 +22,7 @@ namespace DESK_MES
 
         public PopUserModify(int userno, string username, UserVO userV)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             userNo = userno;
             userName = username;
             userlist = userV;

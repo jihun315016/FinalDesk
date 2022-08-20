@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DESK_MES
 {
@@ -17,6 +18,7 @@ namespace DESK_MES
 
         public PopOIItemRelationRegUpd(OperationVO oper, bool isReg)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             lblOperationName.Text = oper.Operation_Name;
             lblOperationName.Tag = oper.Operation_No;

@@ -22,6 +22,7 @@ namespace DESK_MES
 
         public frmRelease()
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
             label1.Text = "출고 관리";
         }

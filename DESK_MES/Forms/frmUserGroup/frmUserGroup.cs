@@ -346,5 +346,10 @@ namespace DESK_MES
                 btnSearch_Click(this, null);
             }
         }
+
+        private void frmUserGroup_Shown(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }

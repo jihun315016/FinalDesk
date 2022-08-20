@@ -19,6 +19,7 @@ namespace DESK_MES
         public PopClientRegister(UserVO user)
         {
             InitializeComponent();
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             this.user = user;
             srv = new ClientService();
 

@@ -19,6 +19,7 @@ namespace DESK_MES
         UserVO userV;
         public PopEquipmentModify(int eq, UserVO user)
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             eqNo = eq;
             userV = user;
             InitializeComponent();

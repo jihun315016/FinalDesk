@@ -14,6 +14,7 @@ namespace DESK_MES
     {
         public PopWorkOrderModify()
         {
+            this.Icon = Icon.FromHandle(Properties.Resources.free_icon_tree.GetHicon());
             InitializeComponent();
         }
     }
