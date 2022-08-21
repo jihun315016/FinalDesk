@@ -15,11 +15,13 @@ namespace DESK_POP
     {
         PopVO orderDetail;
         PopVO workDetail;
+        PopVO userV;
         ServiceHelper serv;
         public int OrderCount { get; set; }
-        public ucWorkGroup(PopVO order)
+        public ucWorkGroup(PopVO order, PopVO userv)
         {            
             orderDetail = order;
+            userV = userv;
             InitializeComponent();
         }
 
@@ -62,7 +64,7 @@ namespace DESK_POP
             }
             else //진행 중 => Detail로
             {
-                POP_Detail frm = new POP_Detail(orderDetail.Work_Code);
+                POP_Detail frm = new POP_Detail(orderDetail.Work_Code, userV);
                 foreach (Form frm1 in Application.OpenForms)
                 {
                     if (frm1.GetType() == typeof(Pop_MDIMain))

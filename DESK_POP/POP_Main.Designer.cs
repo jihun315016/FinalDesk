@@ -84,10 +84,10 @@ namespace DESK_POP
             // 
             // lblCount
             // 
-            this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblCount.Location = new System.Drawing.Point(1027, 50);
+            this.lblCount.Location = new System.Drawing.Point(1100, 47);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(16, 17);
             this.lblCount.TabIndex = 3;
@@ -95,10 +95,10 @@ namespace DESK_POP
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(925, 50);
+            this.label6.Location = new System.Drawing.Point(998, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 17);
             this.label6.TabIndex = 3;
@@ -112,13 +112,14 @@ namespace DESK_POP
             this.btnLogOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.btnLogOut.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogOut.Location = new System.Drawing.Point(1236, 43);
+            this.btnLogOut.Location = new System.Drawing.Point(1309, 40);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(89, 30);
             this.btnLogOut.TabIndex = 0;
-            this.btnLogOut.Text = "로그아웃";
+            this.btnLogOut.Text = "새로고침";
             this.toolTip1.SetToolTip(this.btnLogOut, "로그아웃");
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnGrd
             // 
@@ -128,7 +129,7 @@ namespace DESK_POP
             this.btnGrd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.btnGrd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnGrd.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGrd.Location = new System.Drawing.Point(1090, 43);
+            this.btnGrd.Location = new System.Drawing.Point(1163, 40);
             this.btnGrd.Name = "btnGrd";
             this.btnGrd.Size = new System.Drawing.Size(140, 30);
             this.btnGrd.TabIndex = 0;
@@ -139,9 +140,10 @@ namespace DESK_POP
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(596, 33);
+            this.label5.Location = new System.Drawing.Point(687, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(191, 40);
             this.label5.TabIndex = 2;
@@ -286,6 +288,7 @@ namespace DESK_POP
             this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "POP_Main";
             this.Text = "작업지시현황";
+            this.Activated += new System.EventHandler(this.POP_Main_Activated);
             this.Load += new System.EventHandler(this.POP_Main_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

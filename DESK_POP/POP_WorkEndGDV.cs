@@ -65,6 +65,8 @@ namespace DESK_POP
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "수정 작업자 번호", "Update_User_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter); //14
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "수정 작업자명", "Update_User_Name", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleCenter); //15
             BindingGdv();
+
+            lblUserName.Text = userV.User_Name;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

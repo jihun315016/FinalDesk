@@ -65,6 +65,7 @@
     <Compile Include="Controls\ucWorkGroup.Designer.cs">
       <DependentUpon>ucWorkGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="POP_DAC.cs" />
     <Compile Include="POP_Main.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -38,13 +38,14 @@ namespace DESK_POP
                 frm.MdiParent = this;
                 frm.WindowState = FormWindowState.Maximized;
                 frm.Show();
+
+                toolStripStatusLabel1.Text = DateTime.Now.ToString();
+                toolStripStatusLabel2.Text = userInfo.Auth_Name;
+                toolStripStatusLabel3.Text = userInfo.User_Group_Name;
+                toolStripStatusLabel4.Text = userInfo.User_Name;
             }
             #endregion
 
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
-            toolStripStatusLabel2.Text = userInfo.Auth_Name;
-            toolStripStatusLabel3.Text = userInfo.User_Group_Name;
-            toolStripStatusLabel4.Text = userInfo.User_Name;
         }
     }
 }

@@ -49,6 +49,7 @@ namespace DESK_POP
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvMain = new System.Windows.Forms.DataGridView();
             this.txtQtyDue = new System.Windows.Forms.TextBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.txtWorkUserGroup = new System.Windows.Forms.TextBox();
@@ -61,7 +62,7 @@ namespace DESK_POP
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.dgvMain = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,8 +78,9 @@ namespace DESK_POP
             this.splitContainer3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -315,7 +317,7 @@ namespace DESK_POP
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Controls.Add(this.dgvMain);
+            this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.txtQtyDue);
             this.groupBox2.Controls.Add(this.txtOutput);
             this.groupBox2.Controls.Add(this.txtWorkUserGroup);
@@ -333,6 +335,15 @@ namespace DESK_POP
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "제품 및 작업자";
+            // 
+            // dgvMain
+            // 
+            this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMain.Location = new System.Drawing.Point(3, 17);
+            this.dgvMain.Name = "dgvMain";
+            this.dgvMain.RowTemplate.Height = 23;
+            this.dgvMain.Size = new System.Drawing.Size(524, 152);
+            this.dgvMain.TabIndex = 69;
             // 
             // txtQtyDue
             // 
@@ -459,14 +470,14 @@ namespace DESK_POP
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // dgvMain
+            // panel3
             // 
-            this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMain.Location = new System.Drawing.Point(319, 47);
-            this.dgvMain.Name = "dgvMain";
-            this.dgvMain.RowTemplate.Height = 23;
-            this.dgvMain.Size = new System.Drawing.Size(524, 152);
-            this.dgvMain.TabIndex = 69;
+            this.panel3.Controls.Add(this.dgvMain);
+            this.panel3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.panel3.Location = new System.Drawing.Point(316, 39);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(545, 181);
+            this.panel3.TabIndex = 70;
             // 
             // Lot_Add
             // 
@@ -498,8 +509,9 @@ namespace DESK_POP
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -539,5 +551,6 @@ namespace DESK_POP
         private System.Windows.Forms.TextBox txtWorkState;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvMain;
+        private System.Windows.Forms.Panel panel3;
     }
 }
