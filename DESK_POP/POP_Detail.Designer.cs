@@ -38,12 +38,13 @@ namespace DESK_POP
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.txtWork = new System.Windows.Forms.TextBox();
             this.txtEqui = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtProduct = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtProduct = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.UserNo = new System.Windows.Forms.TextBox();
             this.UserGroupNa = new System.Windows.Forms.TextBox();
@@ -53,6 +54,7 @@ namespace DESK_POP
             this.label3 = new System.Windows.Forms.Label();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtWorkQty = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -61,12 +63,13 @@ namespace DESK_POP
             this.txtWorking = new System.Windows.Forms.TextBox();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.txtProgress = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtRemainQtc = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.txtProgress = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -82,9 +85,6 @@ namespace DESK_POP
             this.btnEnd = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
-            this.panel11 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -106,12 +106,17 @@ namespace DESK_POP
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
             this.splitContainer6.Panel1.SuspendLayout();
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
+            this.splitContainer8.Panel1.SuspendLayout();
+            this.splitContainer8.Panel2.SuspendLayout();
+            this.splitContainer8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
@@ -119,20 +124,15 @@ namespace DESK_POP
             this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
-            this.splitContainer8.Panel1.SuspendLayout();
-            this.splitContainer8.Panel2.SuspendLayout();
-            this.splitContainer8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).BeginInit();
             this.splitContainer9.Panel1.SuspendLayout();
             this.splitContainer9.Panel2.SuspendLayout();
             this.splitContainer9.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -172,7 +172,7 @@ namespace DESK_POP
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNowTime.AutoSize = true;
             this.lblNowTime.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblNowTime.Location = new System.Drawing.Point(1217, 32);
+            this.lblNowTime.Location = new System.Drawing.Point(1129, 31);
             this.lblNowTime.Name = "lblNowTime";
             this.lblNowTime.Size = new System.Drawing.Size(172, 25);
             this.lblNowTime.TabIndex = 1;
@@ -265,6 +265,20 @@ namespace DESK_POP
             this.panel1.Size = new System.Drawing.Size(524, 243);
             this.panel1.TabIndex = 1;
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.txtWork);
+            this.panel11.Controls.Add(this.txtEqui);
+            this.panel11.Controls.Add(this.label7);
+            this.panel11.Controls.Add(this.label6);
+            this.panel11.Controls.Add(this.label15);
+            this.panel11.Controls.Add(this.txtProduct);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(524, 243);
+            this.panel11.TabIndex = 2;
+            // 
             // txtWork
             // 
             this.txtWork.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -294,6 +308,18 @@ namespace DESK_POP
             this.txtEqui.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtEqui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWorkQty_KeyPress);
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(15, 102);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 40);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "설비";
+            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -306,6 +332,19 @@ namespace DESK_POP
             this.label6.Size = new System.Drawing.Size(191, 40);
             this.label6.TabIndex = 0;
             this.label6.Text = "작업지시번호";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(14, 186);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(133, 40);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "작업품목";
             // 
             // txtProduct
             // 
@@ -321,31 +360,6 @@ namespace DESK_POP
             this.txtProduct.Text = "부품ABC_500mm";
             this.txtProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWorkQty_KeyPress);
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(14, 186);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(133, 40);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "작업품목";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(15, 102);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 40);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "설비";
             // 
             // panel3
             // 
@@ -473,6 +487,24 @@ namespace DESK_POP
             this.panel5.Size = new System.Drawing.Size(355, 401);
             this.panel5.TabIndex = 1;
             // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer8.Name = "splitContainer8";
+            this.splitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.panel4);
+            // 
+            // splitContainer8.Panel2
+            // 
+            this.splitContainer8.Panel2.Controls.Add(this.panel2);
+            this.splitContainer8.Size = new System.Drawing.Size(355, 401);
+            this.splitContainer8.SplitterDistance = 186;
+            this.splitContainer8.TabIndex = 0;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.txtWorkQty);
@@ -579,44 +611,23 @@ namespace DESK_POP
             this.panel7.Size = new System.Drawing.Size(349, 401);
             this.panel7.TabIndex = 1;
             // 
-            // panel9
+            // splitContainer9
             // 
-            this.panel9.Controls.Add(this.txtProgress);
-            this.panel9.Controls.Add(this.label13);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(349, 211);
-            this.panel9.TabIndex = 3;
+            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer9.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer9.Name = "splitContainer9";
+            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // txtProgress
+            // splitContainer9.Panel1
             // 
-            this.txtProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProgress.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtProgress.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtProgress.Location = new System.Drawing.Point(13, 48);
-            this.txtProgress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtProgress.Multiline = true;
-            this.txtProgress.Name = "txtProgress";
-            this.txtProgress.Size = new System.Drawing.Size(323, 157);
-            this.txtProgress.TabIndex = 1;
-            this.txtProgress.Text = "21%";
-            this.txtProgress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtProgress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWorkQty_KeyPress);
+            this.splitContainer9.Panel1.Controls.Add(this.panel8);
             // 
-            // label13
+            // splitContainer9.Panel2
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label13.Location = new System.Drawing.Point(130, 14);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 30);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "진척률";
+            this.splitContainer9.Panel2.Controls.Add(this.panel9);
+            this.splitContainer9.Size = new System.Drawing.Size(349, 401);
+            this.splitContainer9.SplitterDistance = 186;
+            this.splitContainer9.TabIndex = 0;
             // 
             // panel8
             // 
@@ -656,6 +667,45 @@ namespace DESK_POP
             this.label14.Size = new System.Drawing.Size(104, 30);
             this.label14.TabIndex = 0;
             this.label14.Text = "오더 잔량";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.txtProgress);
+            this.panel9.Controls.Add(this.label13);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(349, 211);
+            this.panel9.TabIndex = 3;
+            // 
+            // txtProgress
+            // 
+            this.txtProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProgress.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtProgress.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtProgress.Location = new System.Drawing.Point(13, 48);
+            this.txtProgress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtProgress.Multiline = true;
+            this.txtProgress.Name = "txtProgress";
+            this.txtProgress.Size = new System.Drawing.Size(323, 157);
+            this.txtProgress.TabIndex = 1;
+            this.txtProgress.Text = "21%";
+            this.txtProgress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtProgress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWorkQty_KeyPress);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label13.Location = new System.Drawing.Point(130, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 30);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "진척률";
             // 
             // panel6
             // 
@@ -841,56 +891,6 @@ namespace DESK_POP
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // splitContainer8
-            // 
-            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer8.Name = "splitContainer8";
-            this.splitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer8.Panel1
-            // 
-            this.splitContainer8.Panel1.Controls.Add(this.panel4);
-            // 
-            // splitContainer8.Panel2
-            // 
-            this.splitContainer8.Panel2.Controls.Add(this.panel2);
-            this.splitContainer8.Size = new System.Drawing.Size(355, 401);
-            this.splitContainer8.SplitterDistance = 186;
-            this.splitContainer8.TabIndex = 0;
-            // 
-            // splitContainer9
-            // 
-            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer9.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer9.Name = "splitContainer9";
-            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer9.Panel1
-            // 
-            this.splitContainer9.Panel1.Controls.Add(this.panel8);
-            // 
-            // splitContainer9.Panel2
-            // 
-            this.splitContainer9.Panel2.Controls.Add(this.panel9);
-            this.splitContainer9.Size = new System.Drawing.Size(349, 401);
-            this.splitContainer9.SplitterDistance = 186;
-            this.splitContainer9.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.txtWork);
-            this.panel11.Controls.Add(this.txtEqui);
-            this.panel11.Controls.Add(this.label7);
-            this.panel11.Controls.Add(this.label6);
-            this.panel11.Controls.Add(this.label15);
-            this.panel11.Controls.Add(this.txtProduct);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(524, 243);
-            this.panel11.TabIndex = 2;
-            // 
             // POP_Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -924,6 +924,8 @@ namespace DESK_POP
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.splitContainer6.Panel1.ResumeLayout(false);
@@ -931,6 +933,10 @@ namespace DESK_POP
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.splitContainer8.Panel1.ResumeLayout(false);
+            this.splitContainer8.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
+            this.splitContainer8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -940,25 +946,19 @@ namespace DESK_POP
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
             this.splitContainer7.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            this.splitContainer9.Panel1.ResumeLayout(false);
+            this.splitContainer9.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).EndInit();
+            this.splitContainer9.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.splitContainer8.Panel1.ResumeLayout(false);
-            this.splitContainer8.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
-            this.splitContainer8.ResumeLayout(false);
-            this.splitContainer9.Panel1.ResumeLayout(false);
-            this.splitContainer9.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).EndInit();
-            this.splitContainer9.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }

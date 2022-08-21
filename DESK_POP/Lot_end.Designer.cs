@@ -89,9 +89,10 @@ namespace DESK_POP
             // 
             // label13
             // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(475, 37);
+            this.label13.Location = new System.Drawing.Point(815, 51);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(279, 40);
             this.label13.TabIndex = 12;

@@ -65,6 +65,13 @@ namespace DESK_POP
         private void btnGrd_Click(object sender, EventArgs e)
         {
             POP_WorkEndGDV frm = new POP_WorkEndGDV(userInfo);
+            foreach (Form frm1 in Application.OpenForms)
+            {
+                if (frm1.GetType() == typeof(Pop_MDIMain))
+                {
+                    frm.MdiParent = frm1;
+                }
+            }
             frm.Show();
         }
 
@@ -106,6 +113,11 @@ namespace DESK_POP
 
                 splitContainer1.Panel2.Controls.Add(wg);
             }
+        }
+
+        private void POP_Main_Activated(object sender, EventArgs e)
+        {
+            btnLogOut_Click(this, null);
         }
     }
 }
