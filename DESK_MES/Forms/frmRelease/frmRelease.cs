@@ -87,6 +87,7 @@ namespace DESK_MES
 
             orderDetailList = srv.GetOrderDetailList(orderNo);
             dataGridView2.DataSource = orderDetailList;
+            dataGridView2.ClearSelection();
         }
 
         private void btnReleaseAdd_Click(object sender, EventArgs e)
@@ -205,6 +206,24 @@ namespace DESK_MES
         private void dataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dataGridView2.ClearSelection();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[0].Value == null)
+                return;
+
+
+            if (dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString().Contains("N"))
+            {
+                e.CellStyle.BackColor = Color.Salmon;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }

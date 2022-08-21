@@ -35,7 +35,7 @@ namespace DESK_MES
         {
             label1.Text = "공정-검사데이터 관계";           
 
-            comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
+            comboBox1.Items.AddRange(new string[] { "선택", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvOperation);
@@ -55,9 +55,9 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "공정 번호", "Operation_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "검사 데이터 번호", "Inspect_No", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "검사 데이터 항목명", "Inspect_Name", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "타겟값", "Target", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "상한값", "USL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "하한값", "LSL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "타겟값", "Target", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "상한값", "USL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvInspectItem, "하한값", "LSL", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             dgvInspectItem.Columns["Target"].DefaultCellStyle.Format = "###,##0";
             dgvInspectItem.Columns["USL"].DefaultCellStyle.Format = "###,##0";
             dgvInspectItem.Columns["LSL"].DefaultCellStyle.Format = "###,##0";
@@ -149,6 +149,8 @@ namespace DESK_MES
                 dtpUpdateTime.Value = oper.Update_Time;
                 txtUpdateUserDetail.Text = oper.Update_User_Name;
             }
+
+            
         }
 
         private void btnReset_Click(object sender, EventArgs e)

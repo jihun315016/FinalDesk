@@ -94,6 +94,7 @@ namespace DESK_MES
 
             warehouseDetailList = srv.GetWarehouseDetailList(warehouseCode);
             dataGridView2.DataSource = warehouseDetailList;
+            dataGridView2.ClearSelection();
             dataGridView3.Visible = false;
         }
 
@@ -231,6 +232,24 @@ namespace DESK_MES
         private void frmWarehouse_Shown(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView2.Rows[e.RowIndex].Cells[0].Value == null)
+                return;
+
+            // 현재수량이 안전재고수량보다 적은 경우 배경색을 빨강으로 변경
+            if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[4].Value) < Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[5].Value))
+            {
+                e.CellStyle.BackColor = Color.Salmon;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }

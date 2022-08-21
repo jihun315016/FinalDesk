@@ -36,7 +36,7 @@ namespace DESK_MES
         {
             label1.Text = "공정 - 품목 관계";
 
-            comboBox1.Items.AddRange(new string[] { "검색 조건", "공정 번호", "공정명" });
+            comboBox1.Items.AddRange(new string[] { "선택", "공정 번호", "공정명" });
             comboBox1.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvOperation);

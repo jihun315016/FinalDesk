@@ -497,6 +497,7 @@ namespace DESK_MES
             this.dgvMain.Size = new System.Drawing.Size(809, 389);
             this.dgvMain.TabIndex = 0;
             this.dgvMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellClick);
+            this.dgvMain.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvMain_CellFormatting);
             // 
             // imageList2
             // 

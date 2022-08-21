@@ -92,7 +92,7 @@ namespace DESK_MES
 
             purchaseDetailList = srv.GetPurchaseDetailList(purchaseNo);
             dataGridView2.DataSource = purchaseDetailList;
-
+            dataGridView2.ClearSelection();
             if (txtPurchaseState.Text == "UD")
             {
                 button1.Visible = true;
@@ -244,6 +244,24 @@ namespace DESK_MES
         private void frmPurchase_Shown(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[0].Value == null)
+                return;
+
+
+            if (dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString().Contains("UD"))
+            {
+                e.CellStyle.BackColor = Color.Salmon;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }

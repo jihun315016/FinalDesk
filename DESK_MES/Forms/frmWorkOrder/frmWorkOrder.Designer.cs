@@ -361,6 +361,7 @@ namespace DESK_MES
             this.dataGridView2.Size = new System.Drawing.Size(801, 282);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView2_CellFormatting);
             // 
             // groupBoxM
             // 

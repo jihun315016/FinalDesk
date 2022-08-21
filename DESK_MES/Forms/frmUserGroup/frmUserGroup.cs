@@ -74,7 +74,8 @@ namespace DESK_MES
 
 
             List<UserGroupVO> cbo= srv.SelectAuthList();
-            ComboBinding(cboGroupType, cbo, "Auth_Name", "Auth_ID", blank: true) ;
+            ComboBinding(cboGroupType, cbo, "Auth_Name", "Auth_ID", blank: true);
+            comboBox1.Items.Add("선택");
             comboBox1.Items.Add("사용자 그룹ID");
             comboBox1.Items.Add("사용자 그룹명");
             comboBox1.SelectedIndex = 0;
@@ -130,6 +131,10 @@ namespace DESK_MES
         //DGV셀클릭
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+    
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex < 0) return;
 
             dtpCreate.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
@@ -139,7 +144,7 @@ namespace DESK_MES
             txtID.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             txtName.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             txtType.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-            dtpCreate.Value = Convert.ToDateTime( dataGridView1[3, e.RowIndex].Value);
+            dtpCreate.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value);
             txtCreateUser.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             if (dataGridView1[5, e.RowIndex].Value != null)
             {
@@ -159,9 +164,8 @@ namespace DESK_MES
             if (dataGridView1[6, e.RowIndex].Value != null)
             {
                 txtUpdateUser.Text = dataGridView1[6, e.RowIndex].Value.ToString();
-            }            
+            }
         }
-
         private void btnReset_Click(object sender, EventArgs e)
         {
             BindingGdv();
@@ -351,5 +355,7 @@ namespace DESK_MES
         {
             dataGridView1.ClearSelection();
         }
+
+
     }
 }

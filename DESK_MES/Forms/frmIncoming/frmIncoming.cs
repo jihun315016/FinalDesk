@@ -102,6 +102,7 @@ namespace DESK_MES
 
             purchaseDetailList = pursrv.GetPurchaseDetailList(purchaseNo);
             dataGridView2.DataSource = purchaseDetailList;
+            dataGridView2.ClearSelection();
             dataGridView3.Visible = false;
         }
 
@@ -226,6 +227,24 @@ namespace DESK_MES
         private void frmIncoming_Shown(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[0].Value == null)
+                return;
+
+
+            if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString().Contains("N"))
+            {
+                e.CellStyle.BackColor = Color.Salmon;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }

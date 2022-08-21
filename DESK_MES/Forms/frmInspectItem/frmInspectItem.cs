@@ -36,7 +36,7 @@ namespace DESK_MES
             dtpUpdateTime.Format = DateTimePickerFormat.Custom;
             dtpUpdateTime.CustomFormat = " ";
 
-            comboBox1.Items.AddRange(new string[] { "검색 조건", "검사 항목 번호", "검사 항목명" });
+            comboBox1.Items.AddRange(new string[] { "선택", "검사 항목 번호", "검사 항목명" });
             comboBox1.SelectedIndex = 0;
 
             DataGridUtil.SetInitGridView(dgvList);

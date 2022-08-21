@@ -36,9 +36,10 @@ namespace DESK_MES
             {
                 List<ManufactureVO> list = new List<ManufactureVO>();
 
-                string sql = @"select Order_No
+                string sql = @"select TOP(1) Order_No
                                from TB_ORDER
-                               where Order_State= 'DT'";
+                               where Order_State= 'DT'
+                               order by Order_No desc";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
