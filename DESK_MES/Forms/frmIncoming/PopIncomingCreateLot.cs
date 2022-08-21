@@ -44,8 +44,8 @@ namespace DESK_MES
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "수량 입력", "Qty_PerUnit", colWidth: 90, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "총 구매수량", "TotalQty", colWidth: 110);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "총액", "TotalPrice", colWidth: 100, isVisible:false);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관 창고 코드", "Warehouse_Code", colWidth: 100);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관 창고명", "Warehouse_Name", colWidth: 100);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관 창고 코드", "Warehouse_Code", colWidth: 150);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "보관 창고명", "Warehouse_Name", colWidth: 120);
             
 
             List<PurchaseDetailVO> detail = pursrv.GetPurchaseDetailList(purchaseCode);

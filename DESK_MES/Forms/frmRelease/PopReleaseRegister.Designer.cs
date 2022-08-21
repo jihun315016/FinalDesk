@@ -206,7 +206,7 @@ namespace DESK_MES
             this.btnAdd.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(76, 27);
             this.btnAdd.TabIndex = 26;
-            this.btnAdd.Text = "   출력";
+            this.btnAdd.Text = "   등록";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
