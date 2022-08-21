@@ -119,7 +119,6 @@ namespace DESK_POP
             this.btnLogOut.Text = "새로고침";
             this.toolTip1.SetToolTip(this.btnLogOut, "로그아웃");
             this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Visible = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnGrd
