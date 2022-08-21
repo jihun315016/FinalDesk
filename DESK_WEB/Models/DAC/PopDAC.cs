@@ -200,6 +200,11 @@ convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Nam
                 return null;
             }
         }
+        /// <summary>
+        /// 김준모/작업내역 작업 코드로 가져오기,설비 정보 포함
+        /// </summary>
+        /// <param name="work"></param>
+        /// <returns></returns>
         public PopVO GetWorkEquiment(string work)
         {
             try
@@ -237,11 +242,11 @@ convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Nam
             }
         }
         /// <summary>
-        /// 작업지시코드로 작업내역 전체 가져오기
+        /// 작업지시코드로 작업내역 전체 가져오기, 부품명 포함,설비 정보 포함
         /// </summary>
         /// <param name="work"></param>
         /// <returns></returns>
-        public PopVO GetWorkListAll(string work)
+        public List<PopVO> GetWorkListAll(string work)
         {
             try
             {
@@ -257,7 +262,35 @@ convert(nvarchar(20), w.Update_Time,20)as Update_Time, w.Update_User_No,User_Nam
                     cmd.Connection.Close();
 
 
-                    return list[0];
+                    return list;
+                }
+            }
+            catch (Exception err)
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// 부품 값 가져와서 bom으로 자식 부품코드, 명 가져오기
+        /// </summary>
+        /// <param name="pCode"></param>
+        /// <returns></returns>
+        public List<PopVO> GetWorkBom(string pCode)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = new SqlConnection(strConn);
+                    cmd.CommandText = @"select [Child_Product_Code] as Product_Code,Product_Name  from [dbo].[TB_BOM] b left join [dbo].[TB_PRODUCT] p on b.Child_Product_Code = p.Product_Code
+where [Parent_Product_Code] = @Parent_Product_Code";
+                    cmd.Parameters.AddWithValue("@Parent_Product_Code", pCode);
+
+                    cmd.Connection.Open();
+                    List<PopVO> list = DBHelper.DataReaderMapToList<PopVO>(cmd.ExecuteReader());
+                    cmd.Connection.Close();
+
+                    return list;
                 }
             }
             catch (Exception err)

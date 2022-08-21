@@ -18,6 +18,8 @@ namespace DESK_POP
         PopVO sTWork;
         PopVO userV;
         PopVO msgList;
+        List<PopVO> wkList;
+        List<PopVO> wkPList;
         public Lot_Add(PopVO work)
         {
             sTWork = work;
@@ -26,10 +28,44 @@ namespace DESK_POP
 
         private void Lot_Add_Load(object sender, EventArgs e)
         {
-            DataGridUtil.SetInitGridView(dgvMain);
+            //DataGridUtil.SetInitGridView(dgvMain);
 
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "품번", "Equipment_No", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
-            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "품명", "Equipment_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleLeft); //1
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "품번", "Product_Name", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter) ; //0
+            DataGridUtil.SetDataGridViewColumn_TextBox(dgvMain, "품명", "Product_Code", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter); //0
+
+            serv = new ServiceHelper("api/Pop/WorkAll");
+            ResMessage<List<PopVO>> resresult = serv.GetAsyncT<ResMessage<List<PopVO>>>(sTWork.Work_Code);
+            if (resresult.ErrCode == 0)
+            {
+                wkList = resresult.Data;
+            }
+            else
+            {
+                MessageBox.Show(resresult.ErrMsg);
+            }
+            if (wkList[0].Product_Name == null)
+            {
+                serv = new ServiceHelper("api/Pop/WBom");
+                ResMessage<List<PopVO>> resresult2 = serv.GetAsyncT<ResMessage<List<PopVO>>>(wkList[0].Product_Code);
+                if (resresult.ErrCode == 0)
+                {
+                    wkPList = resresult2.Data;
+                    dgvMain.DataSource = null;
+
+                    dgvMain.DataSource = wkPList;
+                }
+                else
+                {
+                    MessageBox.Show(resresult2.ErrMsg);
+                }
+            }
+            else
+            {
+                dgvMain.DataSource = null;
+                List<PopVO> gdvL = wkList;
+               
+                dgvMain.DataSource = gdvL;
+            }
 
             userV = ((Pop_MDIMain)this.MdiParent).userInfo;
             txtWkCode.Text = sTWork.Work_Code;
@@ -59,7 +95,7 @@ namespace DESK_POP
 
                     Process p = Process.Start(server, txtWkCode.Text);
                     proId = p.Id;
-                    POP_Detail pop = new POP_Detail(txtWkCode.Text);
+                    POP_Detail pop = new POP_Detail(txtWkCode.Text, userV);
                     pop.Show();
                 }
                 else

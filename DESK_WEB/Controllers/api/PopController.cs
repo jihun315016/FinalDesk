@@ -136,9 +136,28 @@ namespace DESK_WEB.Controllers
         public IHttpActionResult GetWorkListAll(string id) //work code
         {
             PopDAC db = new PopDAC();
-            PopVO list = db.GetWorkListAll(id);
+            List<PopVO> list = db.GetWorkListAll(id);
 
-            ResMessage<PopVO> result = new ResMessage<PopVO>
+            ResMessage<List<PopVO>> result = new ResMessage<List<PopVO>>
+            {
+                ErrCode = (list == null) ? -9 : 0,
+                ErrMsg = (list == null) ? "Code와 일치하는 작업이 없습니다." : "S",
+                Data = list
+            };
+            return Ok(result);
+        }
+        //https://localhost:44393/api/Pop/WBom/{id}
+        //https://localhost:44393/api/Pop/WBom/PROD_FERT_0005
+        //http://localhost/api/Pop/WBom/{id}
+        //http://localhost/api/Pop/WBom/PROD_FERT_0005
+        [HttpGet]               //이 메서드? 쓰려면 타입을 이걸루 해라
+        [Route("WBom/{id}")]         // 이 메서드 쓰려면 뒤에 input값 적어라
+        public IHttpActionResult GetWorkBom(string id)
+        {
+            PopDAC db = new PopDAC(); //대충 DB에서 사람 있는지 조회하는 코드
+            List<PopVO> list = db.GetWorkBom(id);
+
+            ResMessage<List<PopVO>> result = new ResMessage<List<PopVO>>
             {
                 ErrCode = (list == null) ? -9 : 0,
                 ErrMsg = (list == null) ? "Code와 일치하는 작업이 없습니다." : "S",

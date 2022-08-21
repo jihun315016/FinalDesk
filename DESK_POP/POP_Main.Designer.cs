@@ -116,9 +116,11 @@ namespace DESK_POP
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(89, 30);
             this.btnLogOut.TabIndex = 0;
-            this.btnLogOut.Text = "로그아웃";
+            this.btnLogOut.Text = "새로고침";
             this.toolTip1.SetToolTip(this.btnLogOut, "로그아웃");
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Visible = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnGrd
             // 
@@ -141,7 +143,7 @@ namespace DESK_POP
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(596, 33);
+            this.label5.Location = new System.Drawing.Point(599, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(191, 40);
             this.label5.TabIndex = 2;
