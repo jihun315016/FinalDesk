@@ -48,6 +48,7 @@ namespace DESK_POP
             textBox1.Text = workList.Planned_Qty.ToString();
             textBox3.Text = workList.Working_Qty.ToString();
             textBox4.Text = workList.User_Name;
+            comboBox3.SelectedIndex = 0;
         }
     }
 }

@@ -182,6 +182,7 @@ namespace DESK_POP
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold);
             this.numericUpDown1.Location = new System.Drawing.Point(348, 442);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -196,6 +197,7 @@ namespace DESK_POP
             // 
             // comboBox3
             // 
+            this.comboBox3.Enabled = false;
             this.comboBox3.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold);
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
@@ -210,6 +212,7 @@ namespace DESK_POP
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "yyyy년 MM월 dd일 hh:mm:ss";
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(347, 290);
@@ -220,6 +223,7 @@ namespace DESK_POP
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold);
             this.textBox4.Location = new System.Drawing.Point(347, 366);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -229,15 +233,18 @@ namespace DESK_POP
             // 
             // textBox6
             // 
+            this.textBox6.Enabled = false;
             this.textBox6.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold);
             this.textBox6.Location = new System.Drawing.Point(348, 518);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(327, 46);
             this.textBox6.TabIndex = 75;
+            this.textBox6.Text = "WRHS_0004";
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold);
             this.textBox3.Location = new System.Drawing.Point(347, 136);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -247,6 +254,7 @@ namespace DESK_POP
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold);
             this.textBox1.Location = new System.Drawing.Point(347, 60);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
