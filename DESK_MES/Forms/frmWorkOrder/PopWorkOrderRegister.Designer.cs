@@ -390,14 +390,14 @@ namespace DESK_MES
             0,
             0});
             this.nmrWorkQty.Name = "nmrWorkQty";
-            this.nmrWorkQty.Size = new System.Drawing.Size(187, 25);
+            this.nmrWorkQty.Size = new System.Drawing.Size(261, 25);
             this.nmrWorkQty.TabIndex = 90;
             this.nmrWorkQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nmrWorkQty.ValueChanged += new System.EventHandler(this.nmrWorkQty_ValueChanged);
             // 
             // btnInfoClose
             // 
-            this.btnInfoClose.Location = new System.Drawing.Point(262, 330);
+            this.btnInfoClose.Location = new System.Drawing.Point(336, 323);
             this.btnInfoClose.Name = "btnInfoClose";
             this.btnInfoClose.Size = new System.Drawing.Size(75, 30);
             this.btnInfoClose.TabIndex = 79;
@@ -481,7 +481,7 @@ namespace DESK_MES
             // 
             // btnAddInfo
             // 
-            this.btnAddInfo.Location = new System.Drawing.Point(181, 330);
+            this.btnAddInfo.Location = new System.Drawing.Point(255, 323);
             this.btnAddInfo.Name = "btnAddInfo";
             this.btnAddInfo.Size = new System.Drawing.Size(75, 30);
             this.btnAddInfo.TabIndex = 72;
