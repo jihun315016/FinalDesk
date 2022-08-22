@@ -45,17 +45,17 @@ namespace DESK_MES
             groupBox4.Visible = false;
 
             DataGridUtil.SetInitGridView(dataGridView1);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 품번", "Product_Code", colWidth: 120); // bom
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목명", "Product_Name", colWidth: 200); // bom
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 품번", "Product_Code", colWidth: 200); // bom
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "생산 품목명", "Product_Name", colWidth: 300); // bom
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 공정코드", "Production_Operation_Code	", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 설비코드", "Production_Equipment_Code ", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재창고명", "Output_Warehouse_Name", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재Lot코드", "Input_Material_Code", colWidth: 200, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "투입 자재명", "Input_Material_Name", colWidth: 200, isVisible: false);            
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "품목 구성 수량", "Qty", colWidth: 200); // bom
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "품목 구성 수량", "Qty", colWidth: 150); // bom
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업수량", "Work_Plan_Qty", colWidth: 150, isVisible: true);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "원자재 투입 수량", "Input_Material_Qty", colWidth: 200);
-            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "재공품 사용 수량", "Halb_Material_Qty", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "자재 투입 수량", "Input_Material_Qty", colWidth: 200);
+            DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "재공품 사용 수량", "Halb_Material_Qty", colWidth: 200, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹코드", "Work_Group_Code", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "작업 그룹명", "Work_Group_Name", colWidth: 150, isVisible: false);
             DataGridUtil.SetDataGridViewColumn_TextBox(dataGridView1, "반제품 보관창고코드", "Halb_Save_Warehouse_Code", colWidth: 150, isVisible: false);
