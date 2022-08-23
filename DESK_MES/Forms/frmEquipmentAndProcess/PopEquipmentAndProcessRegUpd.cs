@@ -24,12 +24,12 @@ namespace DESK_MES
             lblTitle.Tag = isReg; // 등록 or 수정 유무
             if (isReg)
             {
-                lblTitle.Text = "공정-공정 등록";
+                lblTitle.Text = "공정-설비 등록";
                 btnSave.Text = "등록";
             }
             else
             {
-                lblTitle.Text = "공정-공정 수정";
+                lblTitle.Text = "공정-설비 수정";
                 btnSave.Text = "수정";
             }
         }

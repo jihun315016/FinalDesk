@@ -32,7 +32,7 @@ namespace DESK_MES
             }
             else
             {
-                lblTitle.Text = "공정-검사 데이터 수정";
+                lblTitle.Text = "공정-검사 데이터 등록";
                 btnSave.Text = "수정";
             }
         }
